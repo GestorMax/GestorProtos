@@ -1,0 +1,94 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Timestamp.proto";
+
+package protoMessages;
+
+message GuidMessage {
+	bytes bytes = 1;
+}
+
+message StringMessage {
+	string notUse = 1;
+}
+
+message StringMessage20 {
+	string notUse = 1;
+}
+
+message StringMessage50 {
+	string notUse = 1;
+}
+
+message StringMessage100 {
+	string notUse = 1;
+}
+
+message Int32Message {
+	int32 notUse = 1;
+}
+
+message Int64Message {
+	int64 notUse = 1;
+}
+
+message DoubleMessage {
+	double notUse = 1;
+}
+
+message DecimalMessage {
+	bytes bytes = 1;
+}
+
+message FloatMessage {
+	float notUse = 1;
+}
+
+message BoolMessage {
+	bool notUse = 1;
+}
+
+message DateOnlyMessage{
+	int32 year = 1;
+	int32 month = 2;
+	int32 day = 3;
+}
+
+message ResponseResult {
+	bool usarMetodoNoEstaPropiedad = 1;
+	string error = 2;
+}
+
+message StructMessage {
+  map<string, ValueMessage> fields = 1;
+}
+
+message ValueMessage {
+  oneof type {
+	int32 int32Value = 1;
+	Int32Message int32MessageValue = 2;
+	int64 int64Value = 3;
+	Int64Message int64MessageValue = 4;
+	float floatValue = 5;
+	FloatMessage floatMessageValue = 6;
+	double doubleValue = 7;
+	DoubleMessage doubleMessageValue = 8;
+	DecimalMessage decimalMessageValue = 9;
+	bool boolValue = 10;
+	BoolMessage boolMessageValue = 11;
+	string stringValue = 12;
+	StringMessage stringMessageValue = 13;
+	google.protobuf.Timestamp timestampMessage = 14;
+	bytes bytesValue = 15;
+
+	ValueMessageList listValue = 16;
+
+	StructMessage structMessage = 17;
+  }
+}
+
+// The JSON representation for `ListValue` is JSON array.
+message ValueMessageList {
+	// Repeated field of dynamically typed values.
+	repeated ValueMessage values = 1;
+}
