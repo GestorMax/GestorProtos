@@ -1,0 +1,66 @@
+﻿syntax = "proto3";
+
+import "ProtoMessages/Common.proto";
+
+package servicePermissions;
+
+message IdentityPermissionMessage {
+	map<int32, EndpointMessageList> permissions = 1;
+}
+
+message EndpointMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated EndpointMessage values = 1;
+}
+
+message EndpointMessage {
+	int32 serviceId = 1;
+	int32 endpointId = 2;
+	repeated ResourceMessage resources = 3;
+}
+
+message ResourceMessage {
+	int32 id = 1;
+	int32 type = 2;
+	int32 value = 3;
+}
+
+message ResourceIdsMessage {
+	repeated int32 values = 1;
+}
+
+message RoleEntryEndpointMessage {
+	int32 roleId = 1;
+	int32 serviceId = 2;
+	int32 entryEndpointId = 3;
+}
+
+message RoleMessage {
+	int32 id = 1;
+	string name = 2;
+	int32 access = 3;
+	int32 resource = 4;
+	repeated RoleEntryEndpointMessage entryEndpoints = 5;
+}
+
+message RoleMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated servicePermissions.RoleMessage values = 1;
+}
+
+message RoleResponse {
+	protoMessages.ResponseResult result = 1;
+	servicePermissions.RoleMessage message = 2;
+}
+
+message RolePermissionMessage {
+	int32 id = 1;
+	int32 roleId = 2;
+	RoleMessage role = 3;
+	repeated ResourceMessage resources = 4;
+}
+
+message ListRoleIdentityResponse {
+	protoMessages.ResponseResult result = 1;
+	repeated RoleEntryEndpointMessage messages = 2;
+}

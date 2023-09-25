@@ -1,0 +1,116 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "GestorCoreGrpc/Admin/Messages.proto";
+import "ServicePermissions/Messages.proto";
+
+package gestorCoreGrpcAdmin;
+
+service GestorCoreAdmin {
+	//User
+	rpc ListUsers (google.protobuf.Empty) returns (UserMessageList);
+
+	rpc GetUser (protoMessages.StringMessage) returns (UserResponse);
+
+	rpc AddUserRole (UserRoleRequest) returns (protoMessages.ResponseResult);
+	
+	rpc RemoveUserRole (UserRoleRequest) returns (protoMessages.ResponseResult);
+	
+	rpc ListUsersByDatabase(protoMessages.Int32Message) returns (UserMessageList);
+
+	rpc GetDatabaseUser(GetDatabaseUserRequest) returns (DatabaseUserMessage);
+	
+	rpc AddDatabaseUser(DatabaseUserMessage) returns (protoMessages.ResponseResult);
+	
+	rpc EditDatabaseUser(DatabaseUserMessage) returns (protoMessages.ResponseResult);
+
+	//Roles
+	rpc ListRoles (google.protobuf.Empty) returns (servicePermissions.RoleMessageList);
+
+	rpc GetRole (protoMessages.Int32Message) returns (servicePermissions.RoleResponse);
+
+	rpc CreateRole (servicePermissions.RoleMessage) returns (protoMessages.ResponseResult);
+
+	rpc EditRole (servicePermissions.RoleMessage) returns (protoMessages.ResponseResult);
+
+	rpc RemoveRole (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	// funciones de cliente
+	rpc ListCustomers (google.protobuf.Empty) returns (CustomerMessageList);
+
+	rpc GetCustomer (protoMessages.Int32Message) returns (CustomerMessage);
+
+	rpc CreatePackBundle (PackBundleMessage) returns (CreatePackBundleResponse);
+
+	rpc RemovePackBundle (PackBundleMessage) returns (protoMessages.ResponseResult);
+
+	rpc UpdateCustomerContactData (CustomerMessage) returns (protoMessages.ResponseResult);
+
+	rpc UpdateCustomerNameAndTaxId (CustomerMessage) returns (protoMessages.ResponseResult);
+
+	rpc CreateCustomer (CustomerMessage) returns (CreateCustomerResponse);
+
+	//Databases
+	rpc CreateDatabase (CreateDatabaseResquest) returns (DatabaseMessage);
+
+	rpc ListDatabases (google.protobuf.Empty) returns (DatabaseResultMessageList);
+
+	rpc ListUnlinkedDatabases (google.protobuf.Empty) returns (UnlinkedDatabaseMessageList);
+
+	rpc EditDatabase(EditDatabaseNameRequest) returns (protoMessages.ResponseResult);
+	
+	rpc ListDatabaseInstances(google.protobuf.Empty) returns (DatabaseInstanceMessageList);
+
+	rpc ChangeMainInstance(ChangeMainInstanceRequest) returns (protoMessages.ResponseResult);
+
+	rpc ChangeInstanceName(InstanceNameRequest) returns (protoMessages.ResponseResult);
+	
+	rpc GetGestorDbToken (GetGestorDbTokenRequest) returns (GestorDbTokenResponse);
+
+	rpc DeleteDatabaseWithOutLicenses (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	
+	//Licenses
+	rpc GetDatabase(protoMessages.Int32Message) returns (DatabaseMessage);
+
+	rpc DeleteLicense(LicenseRequest) returns (protoMessages.ResponseResult);
+
+	rpc CancelLicense(LicenseMessage) returns (protoMessages.ResponseResult);
+
+	rpc CreateLicense(LicenseMessage) returns (protoMessages.ResponseResult);
+	
+	rpc EditLicense(LicenseMessage) returns (protoMessages.ResponseResult);
+
+	rpc CreateLicensePack(CreateLicensePackRequest) returns (CreateLicensePackResponse);
+
+	rpc RemoveLicensePack(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	//LicenseTypes
+	rpc ListLicenseTypeByModule(protoMessages.Int32Message) returns (LicenseTypeMessageList);
+
+	rpc ListLicenseType (google.protobuf.Empty) returns (LicenseTypeMessageList);
+
+	rpc GetLicenseType (protoMessages.Int32Message) returns (LicenseTypeResponse);
+
+	rpc CreateLicenseType (LicenseTypeMessage) returns (protoMessages.ResponseResult);
+
+	rpc EditLicenseType (LicenseTypeMessage) returns (protoMessages.ResponseResult);
+
+	rpc RemoveLicenseType (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+
+	//apikey
+	rpc GenerateApiKeyForDatabase (GenerateApiKeyRequest) returns (GenerateApiKeyResponse);
+	rpc GenerateApiKeyForLicenses (GenerateApiKeyForLicensesRequest) returns (GenerateApiKeyResponse);
+
+	rpc EditApiKeyForLicense(ApiKeyLicenseMessage) returns (protoMessages.ResponseResult);
+
+	rpc ListApiKeyByDatabase(protoMessages.Int32Message) returns (ApiKeyMessageList);
+	rpc ListApiKeyByLicensePack(protoMessages.Int32Message) returns (ApiKeyLicenseMessageList);
+
+	rpc CancelApiKey (CancelApiKeyRequest) returns (protoMessages.ResponseResult);
+
+	//reportes
+	rpc ListDatabaseLicenses(google.protobuf.Empty) returns (DatabaseLicenseMessageList);
+	rpc ListDatabaseCustomer(google.protobuf.Empty) returns (DatabaseCustomerMessageList);
+}

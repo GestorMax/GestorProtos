@@ -1,0 +1,31 @@
+﻿syntax = "proto3";
+
+package gestorCoreGrpcShared;
+
+message GestorCoreConfiguration {
+	string uri = 1;
+}
+
+//ENUMS ---------------------------------------------------------------
+enum ModuleTypes {
+	MODULE_TYPES_ADMIN_PORTAL = 0;
+	MODULE_TYPES_GESTOR_APPS = 1;
+	MODULE_TYPES_GESTOR_MAX = 2;
+	MODULE_TYPES_GESTOR_CONNECT = 3;
+	MODULE_TYPES_INTERMEDIARIO = 4;
+	MODULE_TYPES_ANALYTICS = 5;
+}
+
+enum LicenseTypes {
+	LICENSE_TYPES_USE = 0;
+	LICENSE_TYPES_UPDATE = 1;
+	LICENSE_TYPES_CLOUD = 2;
+	LICENSE_TYPES_ONE_USE = 3;
+	LICENSE_TYPES_DASHBOARD = 4;
+} 
+
+message CompanyMessage {
+	int32 id = 1;
+	string name = 2;
+	string taxId = 3;
+}

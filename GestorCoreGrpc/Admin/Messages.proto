@@ -1,0 +1,494 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Timestamp.proto";
+import "ProtoMessages/Common.proto";
+import "GestorCoreGrpc/Shared/Messages.proto";
+import "ServicePermissions/Messages.proto";
+
+package gestorCoreGrpcAdmin;
+
+//LISTS ---------------------------------------------------------------
+message DatabaseMessageList {
+	repeated DatabaseMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message UnlinkedDatabaseMessageList {
+	repeated UnlinkedDatabaseMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message DatabaseResultMessageList {
+	repeated DatabaseResultMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message DatabaseInstanceMessageList {
+	repeated DatabaseInstanceMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message CustomerMessageList {
+	repeated CustomerMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message PackBundleMessageList {
+	repeated PackBundleMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message ApiKeyMessageList {
+	repeated ApiKeyMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message ApiKeyLicenseMessageList {
+	repeated ApiKeyLicenseMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message DatabaseLicenseMessageList {
+	repeated DatabaseLicenseMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message DatabaseCustomerMessageList {
+	repeated DatabaseCustomerMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message LicenseTypeMessageList {
+	repeated LicenseTypeMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+//MESSAGES ---------------------------------------------------------------
+message ConfirmLinkUserMessage {
+	string link = 1;
+	string gestorIdUser = 2;
+}
+
+message LinkLicenseToDatabaseRequest {
+	int32 licenseId = 1;
+	int32 databaseId = 2;
+}
+
+message LicenseRequest {
+	int32 licenseId = 1;
+}
+
+message UnlinkedDatabaseMessage {
+	int32 databaseId = 1;
+	string databaseName = 2;
+	repeated string companies = 3;
+	string displayName = 4;
+}
+
+message DatabaseResultMessage {
+	int32 databaseId = 1;
+	int32 licenseCount = 2;
+	int32 instanceCount = 3;
+	string customerTaxId = 4;
+	string customerCompanyName = 5;
+	int32 customerId = 6;
+	string databaseName = 7;
+	repeated string companies = 8;
+	repeated string instanceServers = 9;
+	bool hasMainInstance = 10;
+	DatabaseInstanceMessageDatabaseMessage mainInstance = 11;
+	string redactedId = 12;
+	int32 activeInstancesLast30Days = 13;
+	int32 activeInstancesLast45Days = 14;
+}
+
+message CreateCustomerResponse {
+	protoMessages.ResponseResult result = 1;
+	int32 customerId = 2;
+}
+
+message CreateDatabaseResquest {
+	string name = 2;
+}
+
+message GetGestorDbTokenRequest {
+	int32 databaseId = 1;
+}
+
+message EditDatabaseNameRequest {
+	int32 databaseId = 1;
+	string newName = 2;
+}
+
+message GestorDbTokenResponse {
+	string Token = 1;
+}
+
+message CreatePackBundleResponse {
+	protoMessages.ResponseResult result = 1;
+	int32 packBundleId = 2;
+}
+
+message UserRoleRequest {
+	string userId = 1;
+	int32 roleId = 2;
+}
+
+message AllowedResponse {
+	bool isAllowed = 1;
+}
+
+message CustomerMessage {
+	int32 id = 1;
+	string companyName = 2;
+	string taxId = 3;
+	repeated string phones = 4;
+	repeated string emails = 5;
+	string notes = 6;
+	repeated AddressMessage addresses = 7;
+	repeated PackBundleMessage packBundles = 8;
+}
+
+message UserMessage {
+	string id = 1;
+	string name = 2;
+	string email = 3;
+	repeated servicePermissions.RolePermissionMessage roles = 4;
+}
+
+message UserMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated UserMessage values = 1;
+}
+
+message UserResponse {
+	protoMessages.ResponseResult result = 1;
+	UserMessage message = 2;
+}
+
+message ListFeatureByAccessRequest { 
+	int32 access = 1;
+	int32 resource = 2;
+}
+
+message CreateLicensePackRequest {
+	int32 id = 1;
+	int32 moduleId = 2;
+	int32 maxCount = 3;
+	bool isDeleted = 4;
+	int32 packBundleId = 5;
+}
+
+message CreateLicensePackResponse {
+	protoMessages.ResponseResult result = 1;
+	int32 licensePackId = 2;
+}
+
+message AddressMessage {
+	int32 id = 1;
+	string phone = 2;
+	string addressLine1 = 3;
+	string addressLine2 = 4;
+	string city = 5;
+	ProvinceMessage province  = 6;
+	string zip = 7;
+}
+
+message ProvinceMessage {
+	int32 id = 1;
+	string name = 2;
+}
+
+message PackBundleMessage {
+	int32 id = 1;
+	repeated LicensePackMessagePackBundleMessage licensePacks = 2;
+	float value = 4;
+	bool isDeleted = 5;
+
+	//CustomerMessage customer = 3;
+	int32 customerId = 6;
+}
+
+message LicensePackMessage {
+	int32 id = 1;
+	int32 moduleId = 2;
+	int32 maxCount = 3;
+	repeated LicenseMessage licenses = 4;
+	bool isDeleted = 5;
+	PackBundleMessage packBundle = 6;
+}
+
+message LicensePackMessagePackBundleMessage {
+	int32 id = 1;
+	int32 moduleId = 2;
+	int32 maxCount = 3;
+	repeated LicenseMessageLicensePackMessage licenses = 4;
+	bool isDeleted = 5;
+	//PackBundleMessage packBundle = 6;
+}
+
+message LicenseTypeMessage {
+	int32 id = 1;
+	string name = 2;
+	int32 moduleId = 3;
+
+	repeated LicenseTypeRoleMessage roles = 4;
+
+	protoMessages.Int32Message maxCompanies = 5;
+	gestorCoreGrpcShared.LicenseTypes gestorLicenseType = 6;
+
+	protoMessages.Int32Message customDataAmount = 10;
+	repeated servicePermissions.ResourceMessage resources = 11;
+}
+
+message LicenseTypeResponse {
+	protoMessages.ResponseResult result = 1;
+	LicenseTypeMessage message = 2;
+}
+
+message LicenseTypeRoleMessage {
+	int32 licenseTypeId = 1;
+	int32 roleId = 2;
+	servicePermissions.RoleMessage role = 3;
+}
+
+message LicenseMessage {
+	int32 id = 1;
+	int32 licensePackId = 2;
+	LicensePackMessage licensePack = 3;
+	int32 licenseTypeId = 4;
+	LicenseTypeMessage licenseType = 5;
+	google.protobuf.Timestamp validFrom = 6;
+	google.protobuf.Timestamp validTo = 7;
+	string cancelationNote = 8;
+
+	oneof module {
+		GestorMaxLicenseMessage gestorMax = 10;
+		AnalyticsLicenseMessage analytics = 11;
+	}
+}
+
+message GestorMaxLicenseMessage {
+	int32 databaseId = 1;
+	DatabaseMessage database = 2;
+	int32 maxCompanies = 4;
+	string maxVersion = 5;
+}
+
+message AnalyticsLicenseMessage {
+	repeated servicePermissions.ResourceMessage customDatas = 1;
+}
+
+
+message LicenseMessageLicensePackMessage {
+	int32 id = 1;
+	int32 maxCompanies = 2;
+	google.protobuf.Timestamp validFrom = 4;
+	google.protobuf.Timestamp validTo = 5;
+	DatabaseMessage database = 6;
+	//LicensePackMessage licensePack = 7;
+	LicenseTypeMessage licenseType = 8;
+	string maxVersion = 9;
+	string cancelationNote = 10;
+	
+	oneof module {
+		GestorMaxLicenseMessage gestorMax = 11;
+		AnalyticsLicenseMessage analytics = 12;
+	}
+}
+
+message LicenseMessageDatabaseMessage {
+	int32 id = 1;
+	int32 maxCompanies = 2;
+	google.protobuf.Timestamp validFrom = 4;
+	google.protobuf.Timestamp validTo = 5;
+	//DatabaseMessage database = 6;
+	LicensePackMessageLicenseMessage licensePack = 7;
+	LicenseTypeMessage licenseType = 8;
+	string maxVersion = 9;
+	string cancelationNote = 10;
+}
+
+message DatabaseInstanceMessage {
+	int32 id = 1;
+	string serverName = 2;
+	string serverInstance = 3;
+	string serverDBName = 4;
+	google.protobuf.Timestamp creationDate = 5;
+	google.protobuf.Timestamp lastConnection = 9;
+	google.protobuf.Timestamp lastBackup = 6;
+	repeated gestorCoreGrpcShared.CompanyMessage companies = 7;
+	repeated TerminalMessage terminals = 8;
+	DatabaseMessageDatabaseInstanceMessage database = 10;
+}
+
+message DatabaseMessageDatabaseInstanceMessage {
+	int32 id = 1;
+	repeated LicenseMessageDatabaseMessage licenses = 2;
+	google.protobuf.Timestamp creation = 3;
+	google.protobuf.Timestamp lastConnection = 4;
+	string name = 5;
+	//repeated DatabaseInstanceMessageDatabaseMessage instances = 6;
+}
+
+message DatabaseMessageLicenseMessage {
+	int32 id = 1;
+	//repeated LicenseMessage licenses = 2;
+	google.protobuf.Timestamp creation = 3;
+	google.protobuf.Timestamp lastConnection = 4;
+	string name = 5;
+	repeated DatabaseInstanceMessageDatabaseMessage instances = 6;
+}
+
+message DatabaseMessage {
+	int32 id = 1;
+	repeated LicenseMessageDatabaseMessage licenses = 2;
+	google.protobuf.Timestamp creation = 3;
+	google.protobuf.Timestamp lastConnection = 4;
+	string name = 5;
+	repeated DatabaseInstanceMessageDatabaseMessage instances = 6;
+	DatabaseInstanceMessageDatabaseMessage mainInstance = 7;
+	string redactedId = 8;
+}
+
+message DatabaseInstanceMessageDatabaseMessage {
+	int32 id = 1;
+	string serverName = 2;
+	string serverInstance = 3;
+	string serverDBName = 4;
+	google.protobuf.Timestamp creationDate = 5;
+	google.protobuf.Timestamp lastBackup = 6;
+	repeated gestorCoreGrpcShared.CompanyMessage companies = 7;
+	repeated TerminalMessage terminals = 8;
+	google.protobuf.Timestamp lastConnection = 9;
+	//DatabaseMessage database = 10;
+	string name = 12;
+	protoMessages.StringMessage DBVersion = 13;
+	protoMessages.Int32Message DBSizeInMb = 14;
+}
+
+message LicensePackMessageLicenseMessage {
+	int32 id = 1;
+	int32 moduleId = 2;
+	int32 maxCount = 3;
+	//repeated LicenseMessage licenses = 4;
+	bool isDeleted = 5;
+	PackBundleMessageLicensePackMessage packBundle = 6;
+}
+
+message PackBundleMessageLicensePackMessage {
+	int32 id = 1;
+	//repeated LicensePackMessage licensePacks = 2;
+	CustomerMessagePackBundleMessage customer = 3;
+	float value = 4;
+	bool isDeleted = 5;
+}
+
+message CustomerMessagePackBundleMessage {
+	int32 id = 1;
+	string companyName = 2;
+	string taxId = 3;
+	repeated string phones = 4;
+	repeated string emails = 5;
+	string notes = 6;
+	repeated AddressMessage addresses = 7;
+	//repeated PackBundleMessage packBundles = 8;
+}
+
+message TerminalMessage {
+	int32 id = 1;
+	string name = 2;
+	string gestorVersion = 3;
+}
+
+message ChangeMainInstanceRequest {
+	int32 databaseId = 1;
+	protoMessages.Int32Message instanceId = 2;
+}
+
+message GenerateApiKeyRequest {
+	string name = 1;
+	repeated servicePermissions.RolePermissionMessage roles = 2;
+}
+
+message GenerateApiKeyForLicensesRequest {
+	string name = 1;
+	repeated int32 licenses = 2;
+}
+
+message GenerateApiKeyResponse {
+	string apiKey = 1;
+}
+
+message ApiKeyMessage {
+	string id = 1;
+	protoMessages.StringMessage50 name = 2;
+	repeated servicePermissions.RolePermissionMessage roles = 4;
+	UserMessage creator = 5;
+	google.protobuf.Timestamp creationDate = 6;
+	bool active = 7;
+	string cancellationNote = 8;
+	google.protobuf.Timestamp cancellationDate = 9;
+}
+
+message ApiKeyLicenseMessage {
+	string id = 1;
+	protoMessages.StringMessage50 name = 2;
+	UserMessage creator = 5;
+	google.protobuf.Timestamp creationDate = 6;
+	bool active = 7;
+	string cancellationNote = 8;
+	google.protobuf.Timestamp cancellationDate = 9;
+	repeated int32 licenses = 10;
+}
+
+
+message UserPermissionsMessage {
+	string userId = 1;
+	repeated servicePermissions.RolePermissionMessage roles = 2;
+}
+
+message DatabaseUserMessage {
+	string userId = 1;
+	int32 databaseId = 2;
+	repeated servicePermissions.RolePermissionMessage roles = 3;
+}
+
+message GetDatabaseUserRequest {
+	string userId = 1;
+	int32 databaseId = 2;
+}
+
+message DatabaseLicenseMessage {
+	int32 databaseId = 1;
+	string companyName = 2;
+	string taxID = 3;
+	bool hasUseLicense = 4;
+	bool hasUpdateLicense = 5;
+	bool hasCloudLicense = 6;
+	int32 instanceCount = 7;
+	int32 TerminalCount = 8;
+	string gestorVersion = 9;
+	string databaseName = 10;
+}
+
+message CancelApiKeyRequest {
+	string id = 1;
+	string note = 2;
+}
+
+message InstanceNameRequest {
+	int32 instanceId = 1;
+	string newName = 2;
+}
+
+message DatabaseCustomerMessage{
+	string companyName = 1;
+	int32 customerId = 2;
+	string taxId = 3;
+	int32 amountDatabases = 4;
+	int32 useLicense = 5;
+	int32 updateLicense = 6;
+	int32 cloudLicense = 7;
+	int32 dashboardLicense = 8;
+}

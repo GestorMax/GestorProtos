@@ -1,0 +1,60 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Timestamp.proto";
+import "ProtoMessages/Common.proto";
+import "GestorCoreGrpc/Shared/Messages.proto";
+
+package gestorCoreGrpcInternal;
+
+message UseDbTokenRequest {
+	string Token = 1;
+	string databaseGuid = 2;
+	string Terminal = 3;
+	string Version = 4;
+}
+
+message UseDbTokenResponse {
+	bool succesful = 1;
+	string error = 2;
+	string databaseGuid = 3;
+}
+
+message IdentifyDatabaseRequest {
+	string databaseGuid = 1;
+	string gestorVersion = 2;
+}
+
+message IdentifyDatabaseResponse {
+	int32 databaseId = 8;
+	bool exists = 1;
+	//bool hasLicense = 2;
+	bool hasCustomer = 3;
+	//bool licenseIsActive = 4;
+	bool canUse = 5;
+	bool canUpdate = 6;
+	string MaxVersionAllowed = 7;
+}
+
+message DatabaseIdByGuidResponse {
+	protoMessages.ResponseResult result = 1;
+	protoMessages.Int32Message id = 2;
+}
+
+message SetMaxVersionRequest {
+	int32 databaseId = 1;
+	string maxVersion = 2;
+}
+
+message CompanyReportMessage {
+	int32 databaseId = 1;
+	repeated gestorCoreGrpcShared.CompanyMessage Companies = 2;
+	string terminalName = 3;
+	string version = 4;
+	string DBServer = 5;
+	string DBInstance = 6;
+	string DBName = 7;
+	google.protobuf.Timestamp DBCreationDate = 8;
+	google.protobuf.Timestamp DBLastBackup = 9;
+	protoMessages.StringMessage DBVersion = 10;
+	protoMessages.Int32Message DBSizeInMb = 11;
+}

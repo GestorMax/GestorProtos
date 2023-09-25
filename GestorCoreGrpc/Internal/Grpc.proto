@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+
+import "ProtoMessages/Common.proto";
+import "GestorCoreGrpc/Internal/Messages.proto";
+
+package gestorCoreGrpcInternal;
+
+service GestorCoreInternal {
+	rpc IdentifyDatabase (IdentifyDatabaseRequest) returns (IdentifyDatabaseResponse);
+	rpc GetDatabaseIdByGuid(protoMessages.StringMessage) returns (DatabaseIdByGuidResponse);
+	rpc SetMaxVersion(SetMaxVersionRequest) returns (protoMessages.ResponseResult);
+	rpc ReportCompanies (CompanyReportMessage) returns (protoMessages.ResponseResult);
+	rpc UseGestorDbToken (UseDbTokenRequest) returns (UseDbTokenResponse);
+	rpc CanEnableIntermediarioDatabase(protoMessages.Int32Message) returns (protoMessages.BoolMessage);
+}

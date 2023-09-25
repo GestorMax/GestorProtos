@@ -1,0 +1,24 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "GestorCoreGrpc/Authorization/Messages.proto";
+import "ServicePermissions/Messages.proto";
+
+package gestorCoreGrpcAuthorization;
+
+service GestorCoreAuthorization {
+	rpc ListRoles(ListRoleRequest) returns (servicePermissions.RoleMessageList);
+	
+	rpc HasPermission(servicePermissions.EndpointMessage) returns (protoMessages.BoolMessage);
+	rpc ListIdentityPermissions(protoMessages.Int32Message)  returns (servicePermissions.IdentityPermissionMessage);
+	
+	rpc ListCustomers(google.protobuf.Empty) returns (servicePermissions.ResourceIdsMessage);
+	rpc ListDatabases(google.protobuf.Empty) returns (servicePermissions.ResourceIdsMessage);
+	rpc ListCompanies(google.protobuf.Empty) returns (servicePermissions.ResourceIdsMessage);
+	rpc ListCompanyPersons(google.protobuf.Empty) returns (servicePermissions.ResourceIdsMessage);
+	rpc ListPersons(google.protobuf.Empty) returns (servicePermissions.ResourceIdsMessage);
+	rpc ListCompanyDashboards(google.protobuf.Empty) returns (servicePermissions.ResourceIdsMessage);
+	rpc ListDashboards(google.protobuf.Empty) returns (servicePermissions.ResourceIdsMessage);
+	rpc ListAnalyticsData(google.protobuf.Empty) returns (servicePermissions.ResourceIdsMessage);
+}

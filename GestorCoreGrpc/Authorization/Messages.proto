@@ -1,0 +1,9 @@
+﻿syntax = "proto3";
+
+package gestorCoreGrpcAuthorization;
+
+message ListRoleRequest {
+	int32 access = 1;
+	int32 resource = 2;
+	int32 service = 3;
+}
