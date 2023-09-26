@@ -1,0 +1,13 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "GestorFlowGrpc/Admin/Messages.proto";
+
+package gestorFlowGrpcAdmin;
+
+service GestorFlowAdmin {
+
+	//States
+	rpc ListProcessStates(google.protobuf.Empty) returns (ProcessStateList);
+	rpc ListProcessStateMaps(google.protobuf.Empty) returns (StateMapPointList);
+}

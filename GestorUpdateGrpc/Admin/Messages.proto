@@ -1,0 +1,94 @@
+syntax = "proto3";
+import "google/protobuf/Timestamp.proto";
+//import "ProtoMessages/Protos/Common.proto";
+
+package gestorUpdateGrpcAdmin;
+
+message GestorUpdateConfiguration {
+	string uri = 1;
+	string controllerUri = 2;
+}
+
+message ConnectVersionMessage {
+	int32 version = 1;
+	string MD5 = 2;
+	bool isLast = 3;
+}
+
+message ConnectVersionMessageList {
+	repeated ConnectVersionMessage values = 1;
+}
+
+message GetLatestFileVersionRequest {
+	int32 fileId = 1;
+}
+
+message GetLatestFileVersionResponse {
+	string Version = 1;
+}
+
+message DeleteRequest {
+	int32 id = 1;
+	bool deleted = 2;
+}
+
+message DeleteResponse {
+	bool success = 1;
+	string message = 2;
+}
+
+message UploadFileVersionRequest {
+	int32 fileId = 1;
+	string fileName = 2;
+	bytes data = 3;
+}
+
+message UploadFileVersionResponse {
+	bool success = 1;
+	string message = 2;
+	int32 fileVersionId = 3;
+}
+
+message FileMessageList {
+	repeated FileMessage files = 1;
+}
+
+message FileMessage {
+	int32 id = 1;
+	string name = 2;
+	string description = 3;
+	int32 moduleId = 4;
+	bool isDeleted = 5;
+
+	repeated FileVersionMessage versions = 6;
+}
+
+message FileVersionMessage {
+	int32 id = 1;
+	google.protobuf.Timestamp dateUploaded = 2;
+	int32 size = 3;
+	int32 version = 4;
+	string fileName = 5;
+	bool isDeleted = 6;
+	//FileMessage file = 7;
+	int32 fileId = 8;
+	string MD5 = 9;
+}
+
+message GetFileRequest {
+	int32 id = 1;
+}
+
+message GetFileVersionRequest {
+	int32 id = 1;
+}
+
+message DownloadLinkRequest {
+	int32 fileVersionID = 1;
+	google.protobuf.Timestamp validTo = 2;
+}
+
+message DownloadLinkResponse{
+	string URL = 1;
+	google.protobuf.Timestamp validTo = 2;
+}

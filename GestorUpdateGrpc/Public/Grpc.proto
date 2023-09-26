@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "ProtoMessages/Common.proto";
+
+package gestorUpdatePublicGrpc;
+
+message GestorUpdateConfiguration {
+	string uri = 1;
+	string controllerUri = 2;
+}
+
+service GestorUpdatePublic {
+	//files
+	rpc GetCompanionVersion (CompanionVersionRequest) returns (stream CompanionVersionResponse);
+	
+	rpc GetConnectVersionByMD5 (protoMessages.StringMessage) returns (protoMessages.Int32Message);
+
+}
+
+message CompanionVersionRequest {
+	string databaseVersion = 1;
+	int32 companionVersion = 2;
+}
+
+message CompanionVersionResponse {
+	bool newVersion = 1;
+	int32 version = 2;
+	bytes data = 3;
+}

@@ -1,0 +1,34 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "ProtoMessages/Common.proto";
+import "IntermediarioGrpc/Shared/IntermediarioShared.proto";
+import "IntermediarioGrpc/Companion/Messages.proto";
+
+package intermediarioCompanionGrpc;
+
+service IntermediarioCompanion {
+	rpc Identify(intermediarioSharedMessages.InstanceIdentityMessage) returns (IdentifyResponse);
+	
+	rpc Connect(protoMessages.GuidMessage) returns (stream DataMessage);
+
+	rpc GetUninitializedTables(protoMessages.GuidMessage) returns (UninitializedTablesMessage);
+	
+	rpc InitTable(stream InitTableRequest) returns (InitTableResponse);
+
+	rpc ProcessChanges(ChangesMessage) returns (protoMessages.ResponseResult);
+
+	rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+
+	rpc GetActiveTables(ActiveTablesRequestMessage) returns (ActiveTablesResponseMessage);
+
+	rpc TakeSqlCommandResponse(stream SqlCommandResponse) returns (google.protobuf.Empty);
+
+	rpc CheckAlive(CheckAliveMessage) returns (protoMessages.ResponseResult);
+
+	rpc ReportError(ErrorMessage) returns (google.protobuf.Empty);
+
+	rpc GetChangeRecords(GetChangeRecordsRequest) returns (stream intermediarioSharedMessages.WriteRecordsRequest);
+
+	rpc InformWriteRecordsResult(WriteRecordsResult) returns (protoMessages.ResponseResult);
+}

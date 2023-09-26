@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "google/protobuf/Timestamp.proto";
+
+package exceptionCollectorAPI;
+
+service ExceptionCollector {
+  rpc ReportException(ExceptionMessage) returns (google.protobuf.Empty);
+  rpc ListExceptions(google.protobuf.Empty) returns (ExceptionListMessage);
+  rpc GetException(IdRequest) returns (ExceptionMessage);
+  rpc DeleteExceptions(IdListRequest) returns (google.protobuf.Empty);
+  rpc CleanExceptions(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
+
+message ExceptionReporterConfiguration {
+	string uri = 1;
+	ServiceTypes service = 2;
+	bool send = 3;
+}
+
+enum ServiceTypes {
+	SERVICE_TYPES_GESTOR_CORE = 0;
+	SERVICE_TYPES_GESTOR_UPDATE = 1;
+	SERVICE_TYPES_ADMIN_PORTAL = 2;
+	SERVICE_TYPES_EXCEPTION_COLLECTOR = 3;
+	SERVICE_TYPES_INTERMEDIARIO = 4;
+	SERVICE_TYPES_GESTOR_APPS = 5;
+	SERVICE_TYPES_SERIES = 6;
+	SERVICE_TYPES_EMAILS = 7;
+	SERVICE_TYPES_SALDOS = 8;
+	SERVICE_TYPES_GESTOR_API = 9;
+	SERVICE_TYPES_ANALYTICS = 10;
+	SERVICE_TYPES_GESTOR_CONNECT = 11;
+	SERVICE_TYPES_SCHEDULER = 12;
+	SERVICE_TYPES_PRICE_IMPORTER = 13;
+	SERVICE_TYPES_DASHBOARD = 14;
+	SERVICE_TYPES_FINANCIEROS = 15;
+
+	SERVICE_TYPES_GESTOR_ALERT = 16;
+	SERVICE_TYPES_GESTOR_FLOW = 17;
+}
+
+message ExceptionMessage {
+	int32 id = 1;
+	google.protobuf.Timestamp date = 2;
+	ServiceTypes service = 3;
+	string message = 4;
+	string stackTrace = 5;
+	string userMessage = 6;
+}
+
+message IdRequest {
+	int32 id = 1;
+}
+
+message IdListRequest {
+	repeated int32 ids = 1;
+}
+
+message ExceptionListMessage {
+	repeated ExceptionMessage exceptions = 1;
+}

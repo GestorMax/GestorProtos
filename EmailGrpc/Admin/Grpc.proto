@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "EmailGrpc/Admin/Messages.proto";
+
+package emailGrpcAdmin;
+
+service EmailAdmin {
+	rpc Send (EmailRequest) returns (EmailResponse);
+
+	//EmailSender
+	rpc ListEmailSender(google.protobuf.Empty) returns (EmailSenderMessageList);
+	rpc GetEmailSender(protoMessages.Int32Message) returns (EmailSenderResponse);
+	rpc CreateEmailSender(EmailSenderMessage) returns (EmailSenderResponse);
+	rpc UpdateEmailSender(EmailSenderMessage) returns (EmailSenderResponse);
+	rpc DeleteEmailSender(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	//SmtpServer
+	rpc ListSmtpServer(google.protobuf.Empty) returns (SmtpServerMessageList);
+	rpc GetSmtpServer(protoMessages.Int32Message) returns (SmtpServerResponse);
+	rpc CreateSmtpServer(SmtpServerMessage) returns (SmtpServerResponse);
+	rpc UpdateSmtpServer(SmtpServerMessage) returns (SmtpServerResponse);
+	rpc DeleteSmtpServer(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	//Tempaltes
+	rpc ListTemplate(google.protobuf.Empty) returns (TemplateMessageList);
+	rpc GetTemplate(protoMessages.Int32Message) returns (TemplateResponse);
+	rpc CreateTemplate(TemplateMessage) returns (TemplateResponse);
+	rpc UpdateTemplate(TemplateMessage) returns (TemplateResponse);
+	rpc DeleteTemplate(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	//EmailLogs
+	rpc ListEmailLog(google.protobuf.Empty) returns (EmailLogMessageList);
+	rpc DeleteEmailLog(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+}

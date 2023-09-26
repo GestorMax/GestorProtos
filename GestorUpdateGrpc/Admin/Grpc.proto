@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "GestorUpdateGrpc/Admin/Messages.proto";
+
+package gestorUpdateGrpcAdmin;
+
+service GestorUpdateAdmin {
+	//modules
+	rpc ListModuleFiles (protoMessages.Int32Message) returns (FileMessageList);
+
+	//files
+	rpc GetFile (GetFileRequest) returns (FileMessage);
+	rpc FileChangeDeleted (DeleteRequest) returns (protoMessages.ResponseResult);
+
+	//fileversions
+	rpc CheckUploadFileVersionName (UploadFileVersionRequest) returns (UploadFileVersionResponse);
+	rpc UploadFileVersion (stream UploadFileVersionRequest) returns (UploadFileVersionResponse);
+	rpc DeleteFileVersion (protoMessages.Int32Message) returns (DeleteResponse);
+	rpc GetFileVersion (GetFileVersionRequest) returns (FileVersionMessage);
+
+	rpc GetLatestFileVersion(GetLatestFileVersionRequest) returns (GetLatestFileVersionResponse);
+
+	rpc GetFileVersionDownloadLink (GetFileVersionRequest) returns (DownloadLinkResponse);
+
+	rpc GetConnectVersions (google.protobuf.Empty) returns (ConnectVersionMessageList);
+}

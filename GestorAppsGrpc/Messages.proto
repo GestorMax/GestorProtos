@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "IntermediarioGrpc/Resource/Messages.proto";
+import "ServicePermissions/Messages.proto";
+
+package gestorAppsGrpc;
+
+message GestorAppsConfiguration {
+	string uri = 1;
+}
+
+message UserCallbackMessage { 
+	oneof type {
+		servicePermissions.IdentityPermissionMessage Permissions = 1;
+		intermediarioGrpcResource.IntermediarioConnectStateChangedMessage IntermediarioConnectStateChanged = 2;
+	}
+}

@@ -1,0 +1,25 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "IntermediarioGrpc/Shared/IntermediarioShared.proto";
+import "IntermediarioGrpc/Admin/Messages.proto";
+
+package intermediarioGrpcAdmin;
+
+service IntermediarioAdmin {
+	rpc GetSyncedDatabase(protoMessages.Int32Message) returns (SyncedDatabaseResponse);
+	rpc ListCompanies(protoMessages.Int32Message) returns (intermediarioSharedMessages.CompanyMessageList);
+	rpc ListPersons(protoMessages.Int32Message) returns (intermediarioSharedMessages.PersonMessageList);
+
+	//Gestor Connect
+	rpc SetActiveInstance(intermediarioSharedMessages.ConnectIdentityMessage) returns (protoMessages.ResponseResult);
+	rpc UpdateConnect(intermediarioSharedMessages.ConnectIdentityMessage) returns (google.protobuf.Empty); 
+	rpc CloseConnect(intermediarioSharedMessages.ConnectIdentityMessage) returns (google.protobuf.Empty); 
+	rpc ListConnectInfos(ListConnectInfoRequest) returns (ConnectInfoMessageList);
+	rpc GetConnectStatus(protoMessages.Int32Message) returns (intermediarioSharedMessages.ConnectStatusMessage);
+
+	// Reportes
+	rpc ListGestorUsersReport(google.protobuf.Empty) returns (ListGestorUsersReportResponse);
+	rpc ListGestorConfigsReport(google.protobuf.Empty) returns (ListGestorConfigsReportResponse);
+}

@@ -1,0 +1,491 @@
+﻿syntax = "proto3";
+import "ProtoMessages/Common.proto";
+import "AnalyticsGrpc/Resource/Messages.proto";
+
+package financieroGrpcResource;
+
+message QuoteMessage {
+	int32 id = 1;
+	string name = 2;
+	int32 dataId = 3;
+	int32 type = 4;
+	int32 databaseId = 5;
+	int32 companyId = 6;
+}
+
+message QuoteMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated QuoteMessage values = 1;
+}
+
+message QuoteResponse {
+	protoMessages.ResponseResult result = 1;
+	QuoteMessage message = 2;
+}
+
+message FundAccountMessage{
+	int32 id = 1;
+	int32 ctaCteId = 2;
+	string alias = 3;
+	int32 accountType = 4;
+	bool visible = 5;
+	string currentAccountName = 6;
+	protoMessages.Int32Message orderId = 7;
+	int32 databaseId = 8;
+	int32 companyId = 9;
+}
+
+message FundAccountMessageList{
+	protoMessages.ResponseResult result = 2;
+	repeated FundAccountMessage values = 1;	
+}
+
+message FundAccountResponse{
+	protoMessages.ResponseResult result = 1;
+	FundAccountMessage message = 2;
+}
+
+message OrderRequest{
+	FundAccountMessage message = 1;
+	bool orderUp = 2;
+}
+
+message PhysicalEstimateMessage{
+	int32 id = 1;
+	protoMessages.DateOnlyMessage estimatedPayment = 2;
+	int32 personId = 3;
+	int32 productId = 4;
+	protoMessages.StringMessage observations = 5;
+	int32 parts = 6;
+	double coefficient = 7;
+	int32 units = 8;
+	protoMessages.DoubleMessage price = 9;
+	protoMessages.DoubleMessage commercialization = 10; 
+	int32 currency = 13;
+	int32 fundAccountId = 15;
+	string state = 16;
+	int32 databaseId = 17;
+	int32 companyId = 18;
+	protoMessages.Int32Message dolarDataId = 20;
+	protoMessages.DoubleMessage exchange = 21;
+	string personName = 22;
+	string productName = 23;
+	string fundAccountName = 24;
+	protoMessages.Int32Message priceDataId = 25;
+	protoMessages.DoubleMessage amount = 26;
+	protoMessages.DoubleMessage priceFromSerie = 27;
+}
+
+message PhysicalEstimateMessageList{
+	protoMessages.ResponseResult result = 2;
+	repeated PhysicalEstimateMessage values = 1;
+}
+
+message PhysicalEstimateResponse{
+	protoMessages.ResponseResult result = 1;
+	PhysicalEstimateMessage message = 2;
+}
+
+message MonetaryEstimateMessage{
+	int32 id = 1;
+	string classification = 2;
+	int32 fundAccountId = 3;
+	int32 personId = 4;
+	int32 databaseId = 5;
+	int32 companyId = 6;
+	repeated OutlayMessage Outlays = 7;
+	int32 accountId = 8;
+	string fundAccountName = 9;
+	string personName = 10;
+	string managmentAccountName = 11;
+}
+
+message MonetaryEstimateMessageList{
+	protoMessages.ResponseResult result = 2;
+	repeated MonetaryEstimateMessage values = 1;
+}
+
+message MonetaryEstimateResponse{
+	protoMessages.ResponseResult result = 1;
+	MonetaryEstimateMessage message = 2;
+}
+
+
+message OperativeMessage{
+	int32 id = 1;
+	int32 databaseId = 2;
+	int32 companyId = 3;
+	int32 operativeNumber = 4; 
+	int32 personId = 5;
+	string personName = 6;
+	protoMessages.Int32Message fundAccountId = 7;
+	protoMessages.DateOnlyMessage expirationDate = 8;
+	protoMessages.DateOnlyMessage estimatedPayment = 9;
+	double amount = 10;
+	protoMessages.StringMessage observations = 11;
+	bool active = 12;
+	int32 instalment = 13;
+	string operationType = 14;
+	bool isInstalmentArtificial = 15;
+	bool hasChildInstalments = 16;
+}
+
+message OperativeMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated OperativeMessage values = 1;
+}
+
+message OperativeResponse{
+	protoMessages.ResponseResult result = 1;
+	OperativeMessage message = 2;
+}
+
+message OutlayMessage{
+	int32 id = 1;
+	int32 monetaryEstimateId = 2;
+	protoMessages.DateOnlyMessage date = 3;
+	double balance = 4;
+}
+
+message OutlayMessageList{
+	protoMessages.ResponseResult result = 2;
+	repeated OutlayMessage values = 1;
+}
+
+message OutlayResponse{
+	protoMessages.ResponseResult result = 1;
+	OutlayMessage message = 2;
+}
+
+
+message ProductUnitMessage{
+	string productName = 1;
+	string unitName = 2;
+	int32 codProduct = 3;
+}
+
+message ProductUnitMessageList{
+	protoMessages.ResponseResult result = 1;
+	repeated ProductUnitMessage values = 2;
+}
+
+message FeeMessage{
+	int32 id = 1;
+	string value = 2;
+	protoMessages.DateOnlyMessage expirationDate = 3;
+	protoMessages.DateOnlyMessage estimatedPayment = 4;
+	int32 operativeNumber = 5;
+}
+
+
+message SummaryMessage{
+	repeated string fundAccountNames = 1;
+	repeated int32 fundAccountIds = 2;
+	repeated SummaryRowMessage rows = 3;
+	repeated RowContentMessage dueBalanceFuture = 4;
+	repeated RowContentMessage dueBalance = 5;
+}
+
+message SummaryResponse{
+	SummaryMessage message = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message RowContentMessage{
+	protoMessages.DateOnlyMessage date = 1;
+	int32 fundAccountId = 2;
+	double balance = 3;
+	string type = 4;
+	string detail = 5;
+	int32 personId = 6;
+	int32 productId = 7;
+}
+
+message RowContentMessageList{
+	repeated RowContentMessage rows = 1;
+}
+
+message SummaryRowMessage{
+	enum RowTypes {
+		None = 0;
+		SaldoExtracto = 1;
+		SaldoVencido = 2;
+		SaldoDisponible = 3;
+		SaldoAVencer = 4;
+	} 
+	RowTypes name = 1;
+	protoMessages.DateOnlyMessage date = 2;
+	repeated double values = 3;
+	double sum = 4;
+}
+
+message SummaryRowMessageList{
+	repeated SummaryRowMessage rows = 1;
+	repeated RowContentMessage balancesList = 2; 
+}
+
+message StockMessage{
+	int32 id = 1;
+	int32 productExtendedId = 2;
+	protoMessages.StringMessage observations = 3;
+	int32 parts = 4;
+	double coefficient = 5;
+	int32 units = 6;
+	protoMessages.DoubleMessage price = 7;
+	protoMessages.DoubleMessage commercialization = 8; 
+	int32 currency = 9;
+	protoMessages.DoubleMessage exchange = 10; 
+	string state = 11;
+	int32 databaseId = 12;
+	int32 companyId = 13;
+	string productName = 14;
+	protoMessages.DoubleMessage amount = 15;
+	protoMessages.Int32Message dolarDataId = 16;
+	protoMessages.Int32Message priceDataId = 17;
+	protoMessages.DoubleMessage priceFromSerie = 18;
+	protoMessages.DoubleMessage finalPrice = 19;
+	ProductExtendedMessage productExtended = 20;
+}
+
+message StockMessageList{
+	protoMessages.ResponseResult result = 2;
+	repeated StockMessage values = 1;
+}
+
+message StockResponse{
+	protoMessages.ResponseResult result = 1;
+	StockMessage message = 2;
+}
+
+message PaymentReportRequest{
+	protoMessages.DateOnlyMessage dateFrom = 1;
+	protoMessages.DateOnlyMessage dateTo = 2;
+}
+
+message PaymentReportMessage{
+	int32 databaseId = 1;
+	int32 companyId = 2;
+	int32 operativeNumber = 3; 
+	int32 personId = 4;
+	string personName = 5;
+	protoMessages.Int32Message fundAccountId = 6;
+	string fundAccountName = 7;
+	protoMessages.DateOnlyMessage estimatedPayment = 8;
+	protoMessages.DateOnlyMessage expirationDate = 9;
+	protoMessages.DateOnlyMessage dateFrom = 10;
+	protoMessages.DateOnlyMessage dateTo = 11;
+	double amount = 12;
+	protoMessages.StringMessage observations = 13;
+	string operationType = 14;
+	string docNum = 15;
+	string docType = 16;
+	double exchange = 17;
+	int32 currencyId = 18;
+	protoMessages.DoubleMessage amountInDollars = 19; 
+}
+
+message PaymentReportMessageList{
+	repeated PaymentReportMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+
+}
+
+message DashboardQuoteMessage {
+	int32 id = 1;
+	string name = 2;
+	int32 dataId = 3;
+	int32 type = 4;
+	string typeName = 5;
+}
+
+message DashboardQuoteMessageList {
+	repeated DashboardQuoteMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message DashboardFundAccountMessage{
+	int32 id = 1;
+	string alias = 2;
+	int32 accountType = 3;
+	string accountTypeName = 4;
+}
+
+message DashboardFundAccountMessageList{
+	repeated DashboardFundAccountMessage values = 1;	
+	protoMessages.ResponseResult result = 2;
+}
+
+message DashboardPhysicalEstimateMessage{
+	int32 id = 1;
+	protoMessages.DateOnlyMessage estimatedPayment = 2;
+	int32 personId = 3;
+	int32 productId = 4;
+	protoMessages.StringMessage observations = 5;
+	int32 parts = 6;
+	double coefficient = 7;
+	int32 units = 8;
+	protoMessages.DoubleMessage price = 9;
+	protoMessages.DoubleMessage commercialization = 10; 
+	int32 fundAccountId = 13;
+	string state = 14;
+	int32 currency = 15;
+	string currencyName = 16;
+	protoMessages.Int32Message DolarDataId = 18;
+	protoMessages.DoubleMessage exchange = 19;
+	string personName = 20;
+	string productName = 21;
+	string fundAccountName = 22;
+	protoMessages.Int32Message priceDataId = 23;
+	protoMessages.DoubleMessage amount = 24;
+	protoMessages.DoubleMessage priceFromSerie = 25;
+}
+
+message DashboardPhysicalEstimateMessageList{
+	repeated DashboardPhysicalEstimateMessage values = 1;	
+	protoMessages.ResponseResult result = 2;
+}
+
+message DashboardMonetaryEstimateMessage{
+	int32 id = 1;
+	string classification = 2;
+	int32 fundAccountId = 3;
+	int32 personId = 4;
+	repeated DashboardOutlayMessage Outlays = 5;
+	int32 accountId = 6;
+	string fundAccountName = 7;
+	string personName = 8;
+	string managmentAccountName = 9;
+}
+
+message DashboardOutlayMessage{
+	int32 id = 1;
+	int32 monetaryEstimateId = 2;
+	protoMessages.DateOnlyMessage date = 3;
+	double balance = 4;
+}
+
+message DashboardMonetaryEstimateMessageList{
+	repeated DashboardMonetaryEstimateMessage values = 1;	
+	protoMessages.ResponseResult result = 2;
+}
+
+message DashboardOperativeMessage{
+	int32 id = 1;
+	int32 operativeNumber = 2; 
+	int32 personId = 3;
+	string personName = 4;
+	protoMessages.Int32Message fundAccountId = 5;
+	protoMessages.DateOnlyMessage expirationDate = 6;
+	protoMessages.DateOnlyMessage estimatedPayment = 7;
+	double amount = 8;
+	protoMessages.StringMessage observations = 9;
+	int32 instalment = 10;
+}
+
+message DashboardOperativeMessageList{
+	repeated DashboardOperativeMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message DolarPriceMessage{
+	analyticsGrpcResource.LastValueMessageList dolar = 1;
+	analyticsGrpcResource.ApiScrapDataMessageList price = 2;
+	protoMessages.ResponseResult result = 3;
+}
+
+message ProductExtendedMessage {
+	int32 id = 1;
+	int32 databaseId = 2;
+	int32 companyId = 3;
+	int32 productId = 4;
+	int32 stockType = 5;
+	string productName = 6;
+	string unitName = 7;
+}
+
+message ProductExtendedMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated ProductExtendedMessage values = 1;
+}
+
+message ProductExtendedResponse {
+	protoMessages.ResponseResult result = 1;
+	ProductExtendedMessage message = 2;
+}
+
+message StockOverviewMessage{
+	string productName = 1;
+	string unitName = 2;
+	int32 units = 3;
+	protoMessages.DoubleMessage amount = 4;
+	protoMessages.DoubleMessage price = 5;
+}
+
+message StockOverviewMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated StockOverviewMessage values = 1;
+}
+
+message InitialBalanceMessageList{
+	double totalBalance = 1;
+	double positiveBalance = 2;
+	double negativeBalance = 3;
+	repeated EntityMessage list = 4; 
+}
+
+message DueBalanceMessageList{
+	double totalBalance = 1;
+	double operativePositive = 2;
+	double operativeNegative = 3;
+	double financialPositive = 4;
+	double financialNegative = 5;
+	repeated EntityMessage list = 6; 
+}
+
+message EntityMessage {
+	double value = 1;
+	protoMessages.DateOnlyMessage estimatedPayment = 2;
+	enum Type {
+		None = 0;
+		Disponibilidades = 1;
+		SaldosAVencer = 2;
+		SaldosVencidos = 3;
+		Proyecciones = 4;
+	}
+	enum Category {
+		NotUse = 0;
+		Financiero = 1;
+		Operativo = 2;
+		Fisico = 3;
+		Monetario = 4;
+		SaldoInicial = 5;
+	}
+	Type type = 3;
+	Category category = 4;
+	string concept = 5; 
+}
+
+message ProjectionsMessageList{
+	double totalBalance = 1;
+	double monetaryPositive = 2;
+	double monetaryNegative = 3;
+	double physicalPositive = 4;
+	double physicalNegative = 5;
+	repeated EntityMessage list = 6;
+}
+
+message CardAndGraphDashboardMessage{
+	InitialBalanceMessageList initialBalance = 1;
+	DueBalanceMessageList dueBalance = 2;
+	DueBalanceMessageList dueBalanceFuture = 3;
+	ProjectionsMessageList projections = 4;
+	protoMessages.ResponseResult result = 5;
+}
+
+
+
+message GrainAndFarmStockMessage{
+	protoMessages.ResponseResult result = 1;
+	StockOverviewMessageList grainStock = 2;
+	StockOverviewMessageList farmStock = 3;
+}

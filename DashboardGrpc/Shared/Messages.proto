@@ -1,0 +1,52 @@
+﻿syntax = "proto3";
+
+import "ProtoMessages/Common.proto";
+
+package dashboardGrpcShared;
+
+message DashboardConfiguration {
+	string uri = 1;
+}
+
+//dashboard
+message ListDashboardsCompanyRequest {
+	int32 databaseId = 1;
+	bool includeAllCompanies = 2;
+	protoMessages.Int32Message companyId = 3;
+}
+
+message DashboardMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated DashboardMessage values = 1;
+}
+
+message DashboardMessage {
+	int32 id = 1;
+	string name = 2;
+	string description = 3;
+}
+
+message DashboardResponse {
+	protoMessages.ResponseResult result = 1;
+	DashboardMessage message = 2;
+}
+
+//dashboardForCompany
+message DashboardCompanyMessageList{
+	protoMessages.ResponseResult result = 2;
+	repeated DashboardCompanyMessage values = 1;
+}
+
+message DashboardCompanyMessage {
+	int32 id = 1;
+	int32 dashboardId = 2;
+	int32 companyId = 3;
+	int32 databaseId = 4;
+	string name = 6;
+	string url = 5;
+}
+
+message DashboardCompanyResponse {
+	protoMessages.ResponseResult result = 1;
+	DashboardCompanyMessage message = 2;
+}

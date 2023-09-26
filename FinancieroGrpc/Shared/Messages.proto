@@ -1,0 +1,8 @@
+﻿syntax = "proto3";
+//import "ProtoMessages/Protos/Common.proto";
+
+package financieroGrpcShared;
+
+message FinancieroConfiguration{
+	string uri = 1;
+}

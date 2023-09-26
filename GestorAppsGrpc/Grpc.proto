@@ -1,0 +1,109 @@
+syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "SaldosGrpc/Resource/Messages.proto";
+import "DashboardGrpc/Shared/Messages.proto";
+import "IntermediarioGrpc/Resource/Messages.proto";
+import "PriceImporterGrpc/Resource/Messages.proto";
+import "FinancieroGrpc/Resource/Messages.proto";
+import "AnalyticsGrpc/Resource/Messages.proto";
+import "GestorAppsGrpc/Messages.proto";
+
+
+package gestorAppsGrpc;
+
+service GestorApps {
+	rpc UserCallback(google.protobuf.Empty) returns (stream UserCallbackMessage);
+	
+	//resources
+	rpc ListDatabases(google.protobuf.Empty) returns (intermediarioGrpcResource.DatabaseMessageList);
+	//rpc ListEmpresas(google.protobuf.Empty) returns (intermediarioGrpcResource.EmpresaResponse);
+	//rpc ListPersonas(google.protobuf.Empty) returns (intermediarioGrpcResource.PersonaResponse);
+
+	//UserDatabases
+	//rpc ListUserLinkedDatabases(google.protobuf.Empty) returns (intermediarioGrpcResource.UserDatabaseMessageList);
+	//rpc ListUserUnlinkedDatabases(google.protobuf.Empty) returns (intermediarioGrpcResource.UserDatabaseMessageList);
+
+	//LinkGestorUser
+	//rpc LinkGestorUser(intermediarioGrpcResource.LinkGestorUserRequest) returns (protoMessages.ResponseResult);
+	//rpc UnLinkGestorUser(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+
+	//Saldos
+	rpc ListCompanyStatements (google.protobuf.Empty) returns (saldosGrpcResource.CompanyStatementsResponse);
+	rpc ListPersonStatementsHistory(protoMessages.Int32Message) returns (saldosGrpcResource.StatementMessageList);
+	rpc RecalculateCompanyLatestBalances(google.protobuf.Empty) returns (protoMessages.ResponseResult);
+	rpc RecalculatePersonBalances(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	rpc AddStatement (saldosGrpcResource.StatementMessage) returns (saldosGrpcResource.StatementResponse);
+	rpc UpdateStatement (saldosGrpcResource.StatementMessage) returns (saldosGrpcResource.StatementResponse);
+	rpc DeleteStatement (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	rpc ListCloseDateReport (saldosGrpcResource.CloseDateReportMessage) returns (saldosGrpcResource.CloseDateReportMessageList);
+	rpc GetCloseDateReport (protoMessages.Int32Message) returns (saldosGrpcResource.CloseDateReportResponse);
+	rpc AddCloseDateReport (saldosGrpcResource.CloseDateReportMessage) returns (saldosGrpcResource.CloseDateReportResponse);
+	rpc DeleteCloseDateReport (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc RecalculateCloseDateReport(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	//Dashboard
+	rpc ListDashboardsForCompany(protoMessages.Int32Message) returns (dashboardGrpcShared.DashboardCompanyMessageList);
+	rpc GetDashboardCompany(protoMessages.Int32Message) returns (dashboardGrpcShared.DashboardCompanyMessage);
+	
+	//PriceImporter
+	rpc ListProducts (priceImporterGrpcResource.ProductMappingRequest) returns (priceImporterGrpcResource.ProductMessageList);	
+	rpc ListOnlyProductMapping (priceImporterGrpcResource.ProductMappingRequest) returns (priceImporterGrpcResource.OnlyProductMappingMessageList);
+	rpc ListPricesList (google.protobuf.Empty) returns (priceImporterGrpcResource.PriceListListResponse);	
+	rpc UpdateProducts (priceImporterGrpcResource.OnlyProductMappingMessageList) returns (protoMessages.ResponseResult);
+	rpc RemoveProductMapping (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ListSources (google.protobuf.Empty) returns (priceImporterGrpcResource.SourceMessageList);
+	rpc ListDatasSource (google.protobuf.Empty) returns (priceImporterGrpcResource.DataSourceMessageList);
+	rpc SaveProductMapping (priceImporterGrpcResource.ProductMappingMessage) returns (priceImporterGrpcResource.ProductMappingResponse);
+	rpc GetListPrice (protoMessages.Int32Message) returns (priceImporterGrpcResource.PriceListResponse);
+
+	//Financiero
+	rpc ListQuotes(google.protobuf.Empty) returns (financieroGrpcResource.QuoteMessageList);
+	rpc CreateQuote (financieroGrpcResource.QuoteMessage) returns (financieroGrpcResource.QuoteResponse);
+	rpc UpdateQuote (financieroGrpcResource.QuoteMessage) returns (financieroGrpcResource.QuoteResponse);
+	rpc DeleteQuote (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ListDatas (google.protobuf.Empty) returns (analyticsGrpcResource.ApiScrapDataMessageList);
+	rpc ListFundAndCurrentAccounts (google.protobuf.Empty) returns (financieroGrpcResource.FundAccountMessageList);
+	rpc CreateOrUpdateFundAccount(financieroGrpcResource.FundAccountMessage) returns (financieroGrpcResource.FundAccountResponse);
+	rpc ChangeVisibilityFundAccount (financieroGrpcResource.FundAccountMessage) returns (financieroGrpcResource.FundAccountResponse);
+	rpc ChangeOrderFundAccount (financieroGrpcResource.OrderRequest) returns (financieroGrpcResource.FundAccountResponse);
+	rpc ListVisibleAndOrderedFundAccounts(google.protobuf.Empty) returns (financieroGrpcResource.FundAccountMessageList);
+	rpc ListPhysicalEstimates(google.protobuf.Empty) returns (financieroGrpcResource.PhysicalEstimateMessageList);
+	rpc CreatePhysicalEstimate (financieroGrpcResource.PhysicalEstimateMessage) returns (financieroGrpcResource.PhysicalEstimateResponse);
+	rpc UpdatePhysicalEstimate (financieroGrpcResource.PhysicalEstimateMessage) returns (financieroGrpcResource.PhysicalEstimateResponse);
+	rpc DeletePhysicalEstimate (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ListMonetaryEstimates(google.protobuf.Empty) returns (financieroGrpcResource.MonetaryEstimateMessageList);
+	rpc CreateMonetaryEstimate (financieroGrpcResource.MonetaryEstimateMessage) returns (financieroGrpcResource.MonetaryEstimateResponse);
+	rpc UpdateMonetaryEstimate (financieroGrpcResource.MonetaryEstimateMessage) returns (financieroGrpcResource.MonetaryEstimateResponse);
+	rpc DeleteMonetaryEstimate (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ListPersonasFinanciero (google.protobuf.Empty) returns (intermediarioGrpcResource.PersonaMessageList);
+	rpc ListProductos (google.protobuf.Empty) returns (intermediarioGrpcResource.ProductoMessageList);
+	rpc ListOperatives(google.protobuf.Empty) returns (financieroGrpcResource.OperativeMessageList);
+	rpc UpdateOperative(financieroGrpcResource.OperativeMessage) returns (financieroGrpcResource.OperativeResponse);
+	rpc RefreshOperatives(google.protobuf.Empty) returns (protoMessages.ResponseResult);
+	rpc CreateOrUpdateOutlay(financieroGrpcResource.OutlayMessage) returns (financieroGrpcResource.OutlayResponse);
+	rpc ListPlanDeCuentasDeGestion(google.protobuf.Empty) returns (intermediarioGrpcResource.PlanDeCuentasMessageList);
+	rpc SplitFees (financieroGrpcResource.OperativeMessageList) returns (protoMessages.ResponseResult);
+	rpc GetSummaryReport (google.protobuf.Empty) returns (financieroGrpcResource.SummaryResponse);
+	rpc CreateOperative (financieroGrpcResource.OperativeMessage) returns (financieroGrpcResource.OperativeResponse);
+	rpc DeselectOperatives(google.protobuf.Empty) returns (protoMessages.ResponseResult);
+	rpc DeleteOperative (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc DeleteAndRecalculateOperative (financieroGrpcResource.OperativeMessage) returns (protoMessages.ResponseResult);
+	rpc ListStocks(google.protobuf.Empty) returns (financieroGrpcResource.StockMessageList);
+	rpc CreateStock (financieroGrpcResource.StockMessage) returns (financieroGrpcResource.StockResponse);
+	rpc UpdateStock (financieroGrpcResource.StockMessage) returns (financieroGrpcResource.StockResponse);
+	rpc DeleteStock (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc GetPaymentReport (financieroGrpcResource.PaymentReportRequest) returns (financieroGrpcResource.PaymentReportMessageList);	
+	rpc ListDolarsAndPrices (google.protobuf.Empty) returns (financieroGrpcResource.DolarPriceMessage);
+	rpc ListProductsWithUnits (google.protobuf.Empty) returns (financieroGrpcResource.ProductUnitMessageList);
+	rpc ListProductExtended(google.protobuf.Empty) returns (financieroGrpcResource.ProductExtendedMessageList);
+	rpc CreateProductExtended (financieroGrpcResource.ProductExtendedMessage) returns (financieroGrpcResource.ProductExtendedResponse);
+	rpc UpdateProductExtended (financieroGrpcResource.ProductExtendedMessage) returns (financieroGrpcResource.ProductExtendedResponse);
+	rpc DeleteProductExtended (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc GetCardAndGraphDashboard(google.protobuf.Empty) returns (financieroGrpcResource.CardAndGraphDashboardMessage);
+	rpc ListGrainAndFarmStocks(google.protobuf.Empty) returns (financieroGrpcResource.GrainAndFarmStockMessage);
+}

@@ -1,0 +1,9 @@
+﻿syntax = "proto3";
+
+import "ProtoMessages/Common.proto";
+
+package schedulerCallbackGrpc;
+
+service SchedulerCallback {
+	rpc Execute(protoMessages.StringMessage) returns (protoMessages.ResponseResult);
+}

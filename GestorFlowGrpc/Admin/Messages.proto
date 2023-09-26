@@ -1,0 +1,42 @@
+﻿syntax = "proto3";
+
+import "ProtoMessages/Common.proto";
+
+package gestorFlowGrpcAdmin;
+
+
+
+//LISTS ---------------------------------------------------------------
+message ProcessStateList {
+	protoMessages.ResponseResult result = 1;
+	repeated ProcessStateMessage values = 2;
+}
+
+message StateMapPointList {
+	protoMessages.ResponseResult result = 1;
+	repeated StateMapPointMessage values = 2;
+}
+
+//MESSAGES ---------------------------------------------------------------
+message ProcessStateMessage {
+	int32 id = 1;
+	string name = 2;
+}
+
+message ProcessStateMapMessage {
+	int32 id = 1;
+	string name = 2;
+	StateMapPointList points = 3;
+}
+
+message StateMapPointMessage {
+	int32 id = 1;
+	int32 ProcessStateMessageFrom = 2;
+	int32 ProcessStateMessageTo = 3;
+}
+
+
+message ProcessStateResponse {
+	protoMessages.ResponseResult result = 1;
+	ProcessStateMessage message = 2;
+}

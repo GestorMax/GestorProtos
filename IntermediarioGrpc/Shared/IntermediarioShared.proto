@@ -1,0 +1,671 @@
+﻿syntax = "proto3";
+
+//import "google/protobuf/Struct.proto";
+import "google/protobuf/Any.proto";
+import "google/protobuf/Timestamp.proto";
+import "ProtoMessages/Common.proto";
+import "IntermediarioGrpc/Shared/SyncedTables.g.proto";
+
+package intermediarioSharedMessages;
+
+
+enum ConnectLogSender {
+	CONNECT_LOG_SENDER_INTERMEDIARY = 0;
+	CONNECT_LOG_SENDER_CONNECT = 1;
+}
+
+enum ConnectLogType {
+	CONNECT_LOG_TYPE_INFO = 0;
+	CONNECT_LOG_TYPE_WARNING = 1;
+	CONNECT_LOG_TYPE_ERROR = 2;
+}
+
+message WriteRecordsRequest {
+	int64 id = 1;
+	intermediarioCompanionGrpc.SyncedTables table = 2;
+	repeated google.protobuf.Any records = 3;
+}
+
+message ConnectLogMessage {
+	int32 Id = 1;
+	google.protobuf.Timestamp LogDate = 2;
+	ConnectLogType LogType = 3;
+	ConnectLogSender Sender = 4;
+	string Text = 5;
+	string AdditionalInfo = 6;
+}
+
+message OSVersionMessage {
+	string versionString = 1;
+	int32 major = 2;
+	int32 minor = 3;
+	int32 revision = 4;
+	int32 build = 5;
+	int32 bits = 6;
+	string servicePack = 7;
+}
+
+message ConnectInstanceMessage {
+	bool connected = 1;
+	google.protobuf.Timestamp connectedSince = 2;
+	ConnectIdentityMessage connectIdentity = 3;
+}
+
+message ConnectStatusMessage {
+	repeated ConnectLogMessage logs = 1;
+	repeated ConnectInstanceMessage instances = 2;
+}
+
+message IntermediarioConfiguration {
+	string uri = 1;
+}
+
+// Ojo, este mensaje se usa por los companions (connects)
+// cualquier cambio que quite campos o que cambie numeros de mensaje,
+// o incluso cambiarle el nombre de mensaje va a romper todos los companions para atrás
+message InstanceIdentityMessage {
+	string databaseId = 1;
+	string server = 2;
+	string instance = 3;
+	string databaseName = 4;
+	// todas opcionales desde acá
+	string mD5 = 5;
+	bool canAutoUpdate = 6;
+	OSVersionMessage version = 7;
+}
+
+// Este mensaje, si bien es muy similar al anterior, es usado por la interfaz
+// administrativa del Intermerdiario. OJO porque cambia el primer campo por un int32
+// Es que el companion se identifica con el GUID de la database, e internamente se
+// usa el id de la database.
+message ConnectIdentityMessage {
+	int32 databaseId = 1;
+	string server = 2;
+	string instance = 3;
+	string databaseName = 4;
+	// todas opcionales desde acá
+	string mD5 = 5;
+	bool canAutoUpdate = 6;
+	OSVersionMessage version = 7;
+}
+
+message SyncedDatabaseMessage {
+	int32 id = 1;
+	string server = 3;
+	string instance = 4;
+	string databaseName = 5;
+	bool initialized = 6;
+	google.protobuf.Timestamp initializationStart = 7;
+	google.protobuf.Timestamp initializationEnd = 8;
+}
+
+message CompanyMessage {
+	int32 id = 1;
+	string name = 2;
+	string taxId = 3;
+}
+
+message CompanyMessageList {
+	repeated CompanyMessage values = 1;
+}
+
+message PersonMessage {
+	int32 id = 1;
+	string name = 2;
+	string taxId = 3;
+}
+
+message PersonMessageList {
+	repeated PersonMessage values = 1;
+}
+
+
+message MayorContableMessage {
+	int32 ident = 1;
+	protoMessages.Int32Message numero = 2;
+	protoMessages.Int32Message percibido = 3;
+	protoMessages.Int32Message codempre = 4;
+	protoMessages.StringMessage tipooper = 5;
+	protoMessages.Int32Message tipomov = 6;
+	protoMessages.Int32Message numlinea = 7;
+	protoMessages.Int32Message mes = 8;
+	protoMessages.Int32Message anio = 9;
+	google.protobuf.Timestamp fecha = 10;
+	google.protobuf.Timestamp fecha2 = 11;
+	google.protobuf.Timestamp fec_cotiz = 12;
+	protoMessages.StringMessage tipodoc = 13;
+	protoMessages.StringMessage numdoc = 14;
+	protoMessages.Int32Message diario_numero = 15;
+	protoMessages.Int32Message diario_percibido = 16;
+	protoMessages.Int32Message diario_orden = 17;
+	protoMessages.Int32Message codpersona = 18;
+	protoMessages.Int32Message codctacte = 19;
+	protoMessages.StringMessage nombre = 20;
+	protoMessages.Int32Message asiento = 21;
+	protoMessages.Int32Message codplan = 22;
+	protoMessages.Int32Message codcuenta = 23;
+	protoMessages.StringMessage descrip = 24;
+	protoMessages.StringMessage concepto = 25;
+	protoMessages.Int32Message codmoneda = 26;
+	protoMessages.StringMessage moneda = 27;
+	protoMessages.DoubleMessage valorcambio = 28;
+	protoMessages.DoubleMessage valorcambio2 = 29;
+	protoMessages.DoubleMessage redondeocambio = 30;
+	protoMessages.DoubleMessage mdebe = 31;
+	protoMessages.DoubleMessage mhaber = 32;
+	protoMessages.DoubleMessage msaldo = 33;
+	protoMessages.DoubleMessage debe = 34;
+	protoMessages.DoubleMessage haber = 35;
+	protoMessages.DoubleMessage saldo = 36;
+	protoMessages.Int32Message ctactro = 37;
+	protoMessages.StringMessage ctactrodesc = 38;
+	protoMessages.Int32Message codproducto = 39;
+	protoMessages.StringMessage producto = 40;
+	protoMessages.DoubleMessage cantparte = 41;
+	protoMessages.StringMessage unidparte = 42;
+	protoMessages.DoubleMessage canttotal = 43;
+	protoMessages.StringMessage unidtotal = 44;
+	protoMessages.DecimalMessage coef = 45;
+	protoMessages.DoubleMessage importe = 46;
+	protoMessages.StringMessage provincia = 47;
+	protoMessages.StringMessage solo_gestion = 48;
+	protoMessages.DoubleMessage debedesc = 49;
+}
+
+message MayorDiarioFisicosMessage {
+	int32 ident = 1;
+	protoMessages.Int32Message codempre = 2;
+	protoMessages.Int32Message asiento = 3;
+	protoMessages.Int32Message numero = 4;
+	protoMessages.Int32Message percibido = 5;
+	protoMessages.Int32Message numlinea = 6;
+	protoMessages.Int32Message mes = 7;
+	protoMessages.Int32Message anio = 8;
+	protoMessages.Int32Message tipomov = 9;
+	google.protobuf.Timestamp fecha = 10;
+	google.protobuf.Timestamp fec_cotiz = 11;
+	protoMessages.StringMessage tipooper = 12;
+	protoMessages.StringMessage tipodoc = 13;
+	protoMessages.StringMessage numdoc = 14;
+	protoMessages.Int32Message codpersona = 15;
+	protoMessages.StringMessage nombre = 16;
+	protoMessages.Int32Message codproducto = 17;
+	protoMessages.StringMessage producto = 18;
+	protoMessages.Int32Message codplan = 19;
+	protoMessages.Int32Message codcuenta = 20;
+	protoMessages.StringMessage descrip = 21;
+	protoMessages.Int32Message codmoneda = 22;
+	protoMessages.DoubleMessage valorcambio = 23;
+	protoMessages.DoubleMessage valorcambio2 = 24;
+	protoMessages.DoubleMessage redondeocambio = 25;
+	protoMessages.DoubleMessage cantparte = 26;
+	protoMessages.DoubleMessage saldocantparte = 27;
+	protoMessages.StringMessage unidparte = 28;
+	protoMessages.DoubleMessage canttotal = 29;
+	protoMessages.DoubleMessage saldocanttotal = 30;
+	protoMessages.StringMessage unidtotal = 31;
+	protoMessages.DoubleMessage importe = 32;
+	protoMessages.DecimalMessage coef = 33;
+	protoMessages.DoubleMessage mdebe = 34;
+	protoMessages.DoubleMessage mhaber = 35;
+	protoMessages.DoubleMessage msaldo = 36;
+	protoMessages.DoubleMessage debe = 37;
+	protoMessages.DoubleMessage haber = 38;
+	protoMessages.DoubleMessage saldo = 39;
+	protoMessages.Int32Message ctactro = 40;
+	protoMessages.StringMessage ctactrodesc = 41;
+	protoMessages.Int32Message diario_numero = 42;
+	protoMessages.Int32Message diario_percibido = 43;
+	protoMessages.Int32Message diario_orden = 44;
+	protoMessages.StringMessage solo_gestion = 45;
+	protoMessages.DoubleMessage debedesc = 46;
+	string moneda = 47;
+}
+
+message ValoresEnCarteraMessage {
+	string estado = 1;
+	protoMessages.StringMessage nro_terceros = 2;
+	int32 codempre = 3;
+	string ctacte = 4;
+	google.protobuf.Timestamp fecha = 5;
+	int32 percibido = 6;
+	google.protobuf.Timestamp fecemision = 7;
+	int32 orden = 8;
+	protoMessages.Int32Message tipdoc = 9;
+	string tipodoc = 10;
+	protoMessages.StringMessage numdoc = 11;
+	int32 codctacte = 12;
+	string moneda = 13;
+	double valorcambio = 14;
+	double mdebe = 15;
+	double mhaber = 16;
+	protoMessages.DoubleMessage saldo = 17;
+	protoMessages.StringMessage orden_cheq = 18;
+	protoMessages.Int32Message codbanco = 19;
+	protoMessages.StringMessage banco = 20;
+	protoMessages.StringMessage emisor = 21;
+	protoMessages.StringMessage endoso = 22;
+	protoMessages.StringMessage sucursal_cheque = 23;
+}
+
+message LuciusMayorContableMessage {
+	int32 ident = 1;
+	protoMessages.Int32Message numero = 2;
+	protoMessages.Int32Message percibido = 3;
+	protoMessages.Int32Message codempre = 4;
+	protoMessages.StringMessage tipooper = 5;
+	protoMessages.Int32Message tipomov = 6;
+	protoMessages.Int32Message numlinea = 7;
+	protoMessages.Int32Message mes = 8;
+	protoMessages.Int32Message anio = 9;
+	google.protobuf.Timestamp fecha = 10;
+	google.protobuf.Timestamp fecha2 = 11;
+	google.protobuf.Timestamp fec_cotiz = 12;
+	protoMessages.StringMessage tipodoc = 13;
+	protoMessages.StringMessage numdoc = 14;
+	protoMessages.Int32Message diario_numero = 15;
+	protoMessages.Int32Message diario_percibido = 16;
+	protoMessages.Int32Message diario_orden = 17;
+	protoMessages.Int32Message codpersona = 18;
+	protoMessages.Int32Message codctacte = 19;
+	protoMessages.StringMessage nombre = 20;
+	protoMessages.Int32Message asiento = 21;
+	protoMessages.Int32Message codplan = 22;
+	protoMessages.Int32Message codcuenta = 23;
+	protoMessages.StringMessage descrip = 24;
+	protoMessages.StringMessage concepto = 25;
+	protoMessages.Int32Message codmoneda = 26;
+	protoMessages.StringMessage moneda = 27;
+	protoMessages.DoubleMessage valorcambio = 28;
+	protoMessages.DoubleMessage valorcambio2 = 29;
+	protoMessages.DoubleMessage redondeocambio = 30;
+	protoMessages.DoubleMessage mdebe = 31;
+	protoMessages.DoubleMessage mhaber = 32;
+	protoMessages.DoubleMessage msaldo = 33;
+	protoMessages.DoubleMessage debe = 34;
+	protoMessages.DoubleMessage haber = 35;
+	protoMessages.DoubleMessage saldo = 36;
+	protoMessages.Int32Message ctactro = 37;
+	protoMessages.StringMessage ctactrodesc = 38;
+	protoMessages.Int32Message codproducto = 39;
+	protoMessages.StringMessage producto = 40;
+	protoMessages.DoubleMessage cantparte = 41;
+	protoMessages.StringMessage unidparte = 42;
+	protoMessages.DoubleMessage canttotal = 43;
+	protoMessages.StringMessage unidtotal = 44;
+	protoMessages.DecimalMessage coef = 45;
+	protoMessages.DoubleMessage importe = 46;
+	protoMessages.StringMessage provincia = 47;
+	protoMessages.StringMessage solo_gestion = 48;
+	protoMessages.StringMessage rubro = 49;
+	protoMessages.StringMessage actividad = 50;
+	protoMessages.StringMessage macro = 51;
+	protoMessages.StringMessage micro = 52;
+	protoMessages.StringMessage tipo = 53;
+	protoMessages.StringMessage campo = 54;
+
+}
+message FlujoDeFondosMessage {
+	int32 orden = 1;
+	protoMessages.Int32Message codempre	= 2;				
+	protoMessages.Int32Message codctacte = 3;				
+	google.protobuf.Timestamp fechavenc	= 4;
+	google.protobuf.Timestamp pagoestimado = 5;	
+	protoMessages.Int32Message codpersona = 6;				
+	protoMessages.StringMessage persona = 7;
+	protoMessages.Int32Message numero = 8;				
+	protoMessages.Int32Message percibido = 9;				
+	protoMessages.Int32Message codretencion	= 10;					
+	protoMessages.Int32Message ordenperc = 11;				
+	protoMessages.Int32Message ordenrela = 12;				
+	protoMessages.Int32Message codmoneda = 13;				
+	protoMessages.StringMessage tipooper = 14;
+	protoMessages.StringMessage tipdoc = 15;
+	protoMessages.StringMessage numdoc = 16;
+	protoMessages.StringMessage concepto = 17;
+	protoMessages.StringMessage simbolo = 18;
+	protoMessages.DoubleMessage valorcambio = 19;				
+	protoMessages.DoubleMessage mdebe = 20;				
+	protoMessages.DoubleMessage mhaber = 21;				
+	protoMessages.DoubleMessage debe = 22;				
+	protoMessages.DoubleMessage haber = 23;				
+	protoMessages.DoubleMessage saldo = 24;				
+	protoMessages.Int32Message modificado = 25;
+	protoMessages.Int32Message color = 26;
+	google.protobuf.Timestamp fecha	= 27;
+	protoMessages.StringMessage cuentadefondos = 28;
+}
+
+message SaldoPersonaMessage {
+	protoMessages.Int32Message codempre = 1;
+	protoMessages.Int32Message codcuenta = 32;	
+	protoMessages.Int32Message codpersona = 2;
+	protoMessages.StringMessage descrip = 31;
+	protoMessages.StringMessage nombre = 3;
+	protoMessages.StringMessage cuit = 4;
+	protoMessages.StringMessage simbolo = 5;
+	protoMessages.DoubleMessage limite_credito = 6;
+	protoMessages.DoubleMessage MVdoDeud = 7;
+	protoMessages.DoubleMessage MVdoAcreed = 8;
+	protoMessages.DoubleMessage MVNetoVencido = 9;
+	protoMessages.DoubleMessage VdoDeud = 10;
+	protoMessages.DoubleMessage VdoAcreed = 11;
+	protoMessages.DoubleMessage VNetoVencido = 12;
+	protoMessages.DoubleMessage MDifDeud = 13;
+	protoMessages.DoubleMessage MDifAcreed = 14;
+	protoMessages.DoubleMessage MVNetoDif = 15;
+	protoMessages.DoubleMessage DifDeud = 16;
+	protoMessages.DoubleMessage DifAcreed = 17;
+	protoMessages.DoubleMessage VNetoDif = 18;
+	protoMessages.DoubleMessage MAVencDeud = 19;
+	protoMessages.DoubleMessage MAVencAcreed = 20;
+	protoMessages.DoubleMessage MVNetoVencer = 21;
+	protoMessages.DoubleMessage AVencDeud = 22;
+	protoMessages.DoubleMessage AVencAcreed = 23;
+	protoMessages.DoubleMessage VNetoVencer = 24;
+	protoMessages.DoubleMessage MSaldoDeud = 25;
+	protoMessages.DoubleMessage MSaldoAcreed = 26;
+	protoMessages.DoubleMessage msaldo = 27;
+	protoMessages.DoubleMessage saldoDeud = 28;
+	protoMessages.DoubleMessage saldoAcreed = 29;
+	protoMessages.DoubleMessage saldo = 30;
+}
+
+message SaldoPersonaTotalesMessage {
+	int32 codEmpre = 1;
+	string simbolo = 5;
+	protoMessages.DoubleMessage limite_credito = 6;
+	protoMessages.DoubleMessage MVdoDeud = 7;
+	protoMessages.DoubleMessage MVdoAcreed = 8;
+	protoMessages.DoubleMessage MVNetoVencido = 9;
+	protoMessages.DoubleMessage VdoDeud = 10;
+	protoMessages.DoubleMessage VdoAcreed = 11;
+	protoMessages.DoubleMessage VNetoVencido = 12;
+	protoMessages.DoubleMessage MDifDeud = 13;
+	protoMessages.DoubleMessage MDifAcreed = 14;
+	protoMessages.DoubleMessage MVNetoDif = 15;
+	protoMessages.DoubleMessage DifDeud = 16;
+	protoMessages.DoubleMessage DifAcreed = 17;
+	protoMessages.DoubleMessage VNetoDif = 18;
+	protoMessages.DoubleMessage MAVencDeud = 19;
+	protoMessages.DoubleMessage MAVencAcreed = 20;
+	protoMessages.DoubleMessage MVNetoVencer = 21;
+	protoMessages.DoubleMessage AVencDeud = 22;
+	protoMessages.DoubleMessage AVencAcreed = 23;
+	protoMessages.DoubleMessage VNetoVencer = 24;
+	protoMessages.DoubleMessage MSaldoDeud = 25;
+	protoMessages.DoubleMessage MSaldoAcreed = 26;
+	protoMessages.DoubleMessage msaldo = 27;
+	protoMessages.DoubleMessage SaldoDeud = 28;
+	protoMessages.DoubleMessage SaldoAcreed = 29;
+	protoMessages.DoubleMessage saldo = 30;
+	protoMessages.DoubleMessage MSaldoContable = 31;
+	protoMessages.DoubleMessage SaldoContable = 32;
+	protoMessages.DoubleMessage Diferencia = 33;
+}
+
+message LuciusPlanDeCuentasMessage {
+	int32 codplan = 1;
+	int32 codcuenta = 2;
+	protoMessages.StringMessage cuenta = 3;
+	protoMessages.StringMessage descrip = 4;
+	string astosuma = 5;
+	protoMessages.Int32Message sumaria = 6;
+	string tipo_cuenta = 7;
+	string bloqueada = 8;
+	protoMessages.StringMessage fisicos = 9;
+	protoMessages.Int32Message codmoneda = 10;
+	protoMessages.StringMessage acumula_fisicos = 11;
+	protoMessages.StringMessage controla_moneda = 12;
+	protoMessages.StringMessage simbolo = 13;
+	protoMessages.StringMessage rubro = 14;
+	protoMessages.StringMessage actividad = 15;
+	protoMessages.StringMessage macro = 16;
+	protoMessages.StringMessage micro = 17;
+	protoMessages.StringMessage tipo = 18;
+	protoMessages.StringMessage campo = 19;
+}
+
+message BalanceContableMessage {
+	protoMessages.Int32Message orden = 1;
+	protoMessages.Int32Message codplan = 2;
+	protoMessages.Int32Message codcuenta = 3;
+	protoMessages.StringMessage descrip = 4;
+	protoMessages.StringMessage astosuma = 5;
+	protoMessages.Int32Message nivel = 6;
+	protoMessages.Int32Message sumaria = 7;
+	protoMessages.StringMessage simbolo = 8;
+	protoMessages.DoubleMessage msaldoant = 9;
+	protoMessages.DoubleMessage mdebe = 10;
+	protoMessages.DoubleMessage mhaber = 11;
+	protoMessages.DoubleMessage msaldo = 12;
+	protoMessages.DoubleMessage saldoant = 13;
+	protoMessages.DoubleMessage debe = 14;
+	protoMessages.DoubleMessage haber = 15;
+	protoMessages.DoubleMessage saldo = 16;
+	protoMessages.Int32Message ctactro = 17;
+	protoMessages.StringMessage ctactrodesc = 18;
+	protoMessages.StringMessage desccuenta = 19;
+	protoMessages.StringMessage descmsaldo = 20;
+	protoMessages.StringMessage descsaldo = 21;
+	protoMessages.Int32Message codproducto = 22;
+	protoMessages.StringMessage producto = 23;
+	protoMessages.DoubleMessage cantparte = 24;
+	protoMessages.StringMessage unidparte = 25;
+	protoMessages.DoubleMessage canttotal = 26;
+	protoMessages.StringMessage unidtotal = 27;
+	protoMessages.DecimalMessage coef = 28;
+	protoMessages.DoubleMessage importe = 29;
+	protoMessages.StringMessage solo_gestion = 30;
+	protoMessages.Int32Message cant_movimientos = 31;
+}
+
+message LuciusBalanceContableMessage {
+	protoMessages.Int32Message orden = 1;
+	protoMessages.Int32Message codplan = 2;
+	protoMessages.Int32Message codcuenta = 3;
+	protoMessages.StringMessage descrip = 4;
+	protoMessages.StringMessage astosuma = 5;
+	protoMessages.Int32Message nivel = 6;
+	protoMessages.Int32Message sumaria = 7;
+	protoMessages.StringMessage simbolo = 8;
+	protoMessages.DoubleMessage msaldoant = 9;
+	protoMessages.DoubleMessage mdebe = 10;
+	protoMessages.DoubleMessage mhaber = 11;
+	protoMessages.DoubleMessage msaldo = 12;
+	protoMessages.DoubleMessage saldoant = 13;
+	protoMessages.DoubleMessage debe = 14;
+	protoMessages.DoubleMessage haber = 15;
+	protoMessages.DoubleMessage saldo = 16;
+	protoMessages.Int32Message ctactro = 17;
+	protoMessages.StringMessage ctactrodesc = 18;
+	protoMessages.StringMessage desccuenta = 19;
+	protoMessages.StringMessage descmsaldo = 20;
+	protoMessages.StringMessage descsaldo = 21;
+	protoMessages.Int32Message codproducto = 22;
+	protoMessages.StringMessage producto = 23;
+	protoMessages.DoubleMessage cantparte = 24;
+	protoMessages.StringMessage unidparte = 25;
+	protoMessages.DoubleMessage canttotal = 26;
+	protoMessages.StringMessage unidtotal = 27;
+	protoMessages.DecimalMessage coef = 28;
+	protoMessages.DoubleMessage importe = 29;
+	protoMessages.StringMessage solo_gestion = 30;
+	protoMessages.Int32Message cant_movimientos = 31;
+	protoMessages.StringMessage rubro = 32;
+	protoMessages.StringMessage actividad = 33;
+	protoMessages.StringMessage macro = 34;
+	protoMessages.StringMessage micro = 35;
+	protoMessages.StringMessage tipo = 36;
+	protoMessages.StringMessage campo = 37;
+}
+
+message FisicosPorVencimientoMessage {
+	int32 codempre = 1;
+	int32 numero = 2;
+	google.protobuf.Timestamp fecha = 3;
+	google.protobuf.Timestamp fechavenc = 4;
+	string nombre = 5;
+	string tipooper = 6;
+	protoMessages.DoubleMessage valorcambio = 7;
+	string simbolo = 8;
+	protoMessages.Int32Message codproducto = 9;
+	string descrip = 10;
+	protoMessages.DoubleMessage cantparte = 11;
+	protoMessages.Int32Message unidparte = 12;
+	protoMessages.StringMessage unidadespartes = 13;
+	protoMessages.DoubleMessage canttotal = 14;
+	protoMessages.Int32Message unidtotal = 15;
+	protoMessages.StringMessage unidadtotales = 16;
+	protoMessages.DoubleMessage importe = 17;
+	double mdebe = 18;
+	double mhaber = 19;
+	double debe = 20;
+	double haber = 21;
+	protoMessages.Int32Message percibido = 22;
+}
+
+message CuentasCorrientesSaldosMessage {
+	protoMessages.Int32Message codempre = 1;
+	protoMessages.Int32Message codctacte = 2;
+	protoMessages.StringMessage solo_gestion = 3;
+	protoMessages.StringMessage clave = 4;
+	protoMessages.Int32Message codcuenta = 5;
+	protoMessages.StringMessage descripcta = 6;
+	protoMessages.StringMessage descrip = 7;
+	protoMessages.StringMessage simbolo = 8;
+	protoMessages.DoubleMessage mdebe = 9;
+	protoMessages.DoubleMessage mhaber = 10;
+	protoMessages.DoubleMessage vencido = 11;
+	protoMessages.DoubleMessage avencer = 12;
+	protoMessages.DoubleMessage total = 13;
+	protoMessages.DoubleMessage saldocontable = 14;
+	protoMessages.DoubleMessage diferencia = 15;
+}
+
+message CuentasAPagarMessage {
+	protoMessages.StringMessage estado = 1;
+	protoMessages.StringMessage clasif = 2;
+	protoMessages.StringMessage clasif_pers = 3;
+	int32 ident = 4;
+	protoMessages.Int32Message codempre = 5;
+	protoMessages.Int32Message numero = 6;
+	protoMessages.Int32Message percibido = 7;
+	protoMessages.StringMessage estadoop = 8;
+	protoMessages.StringMessage autorizado = 9;
+	protoMessages.Int32Message orden = 10;
+	google.protobuf.Timestamp fecha = 11;
+	protoMessages.StringMessage tipodoc = 12;
+	protoMessages.StringMessage numdoc = 13;
+	protoMessages.StringMessage comentario = 14;
+	protoMessages.Int32Message codcobpag = 15;
+	string cobpag = 16;
+	protoMessages.Int32Message codpersona = 17;
+	string persona = 18;
+	string cuit = 19;
+	protoMessages.StringMessage direccion = 20;
+	protoMessages.StringMessage localidad = 21;
+	protoMessages.StringMessage provincia = 22;
+	protoMessages.StringMessage telefono = 23;
+	protoMessages.StringMessage contacto = 24;
+	string simbolo = 25;
+	google.protobuf.Timestamp fechavenc = 26;
+	protoMessages.Int32Message dias_vencido = 27;
+	protoMessages.Int32Message plazo = 28;
+	protoMessages.DoubleMessage importe = 29;
+	protoMessages.DoubleMessage saldo = 30;
+	protoMessages.DoubleMessage saldo_vtos = 31;
+	protoMessages.DoubleMessage saldo_pers = 32;
+	protoMessages.DoubleMessage limite_credito = 33;
+	protoMessages.StringMessage solo_gestion = 34;
+}
+
+message ChequesEmitidosMessage {
+	int32 orden = 1;
+	int32 codempre = 2;
+	string clave = 3;
+	protoMessages.Int32Message codcuenta = 4;
+	protoMessages.StringMessage descripcta = 5;
+	protoMessages.Int32Message codpersona = 6;
+	protoMessages.StringMessage persona = 7;
+	protoMessages.Int32Message percibido = 8;
+	protoMessages.Int32Message ordenperc = 9;
+	google.protobuf.Timestamp registro = 10;
+	google.protobuf.Timestamp fecemision = 11;
+	protoMessages.StringMessage tipdoc = 12;
+	protoMessages.StringMessage numdoc = 13;
+	protoMessages.StringMessage concepto = 14;
+	google.protobuf.Timestamp fechabanco = 15;
+	string diferido = 16;
+	protoMessages.DoubleMessage mdebe = 17;
+	protoMessages.DoubleMessage mhaber = 18;
+	protoMessages.DoubleMessage saldo = 19;
+}
+
+message CuentasACobrarMessage {
+	protoMessages.StringMessage estado = 1;
+	protoMessages.StringMessage clasif = 2;
+	protoMessages.StringMessage clasif_pers = 3;
+	int32 ident = 4;
+	protoMessages.Int32Message codempre = 5;
+	protoMessages.Int32Message numero = 6;
+	protoMessages.Int32Message percibido = 7;
+	protoMessages.StringMessage estadoop = 8;
+	protoMessages.StringMessage autorizado = 9;
+	protoMessages.Int32Message orden = 10;
+	google.protobuf.Timestamp fecha = 11;
+	protoMessages.StringMessage tipodoc = 12;
+	protoMessages.StringMessage numdoc = 13;
+	protoMessages.StringMessage comentario = 14;
+	protoMessages.Int32Message codcobpag = 15;
+	string cobpag = 16;
+	protoMessages.Int32Message codpersona = 17;
+	string persona = 18;
+	string cuit = 19;
+	protoMessages.StringMessage direccion = 20;
+	protoMessages.StringMessage localidad = 21;
+	protoMessages.StringMessage provincia = 22;
+	protoMessages.StringMessage telefono = 23;
+	protoMessages.StringMessage contacto = 24;
+	string simbolo = 25;
+	google.protobuf.Timestamp fechavenc = 26;
+	protoMessages.Int32Message dias_vencido = 27;
+	protoMessages.Int32Message plazo = 28;
+	protoMessages.DoubleMessage importe = 29;
+	protoMessages.DoubleMessage saldo = 30;
+	protoMessages.DoubleMessage saldo_vtos = 31;
+	protoMessages.DoubleMessage saldo_pers = 32;
+	protoMessages.DoubleMessage limite_credito = 33;
+	protoMessages.StringMessage solo_gestion = 34;
+}
+
+message FlujoDeFondosExtMessage {
+	int32 orden = 1;
+	protoMessages.Int32Message codempre = 2;
+	protoMessages.Int32Message codctacte = 3;
+	google.protobuf.Timestamp fecha = 4;
+	google.protobuf.Timestamp fechavenc = 5;
+	google.protobuf.Timestamp pagoestimado = 6;
+	protoMessages.Int32Message codpersona = 7;
+	protoMessages.StringMessage persona = 8;
+	protoMessages.Int32Message numero = 9;
+	protoMessages.Int32Message percibido = 10;
+	protoMessages.Int32Message codretencion = 11;
+	protoMessages.Int32Message ordenperc = 12;
+	protoMessages.Int32Message ordenrela = 13;
+	protoMessages.Int32Message codmoneda = 14;
+	protoMessages.StringMessage tipooper = 15;
+	protoMessages.StringMessage tipdoc = 16;
+	protoMessages.StringMessage numdoc = 17;
+	protoMessages.StringMessage concepto = 18;
+	protoMessages.StringMessage simbolo = 19;
+	protoMessages.DoubleMessage valorcambio = 20;
+	protoMessages.DoubleMessage mdebe = 21;
+	protoMessages.DoubleMessage mhaber = 22;
+	protoMessages.DoubleMessage debe = 23;
+	protoMessages.DoubleMessage haber = 24;
+	protoMessages.DoubleMessage saldo = 25;
+	protoMessages.Int32Message modificado = 26;
+	protoMessages.Int32Message color = 27;
+	protoMessages.StringMessage cuentadefondos = 28;
+}

@@ -1,0 +1,78 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "FinancieroGrpc/Resource/Messages.proto";
+import "AnalyticsGrpc/Resource/Messages.proto";
+import "IntermediarioGrpc/Resource/Messages.proto";
+
+
+package financieroGrpcResource;
+
+service FinancieroResource {
+	//quote
+	rpc ListQuotes(google.protobuf.Empty) returns (QuoteMessageList);
+	rpc CreateQuote(QuoteMessage) returns (QuoteResponse);
+	rpc UpdateQuote(QuoteMessage) returns (QuoteResponse);
+	rpc DeleteQuote(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ListDatas(google.protobuf.Empty) returns (analyticsGrpcResource.ApiScrapDataMessageList);
+	//fundAccount
+	rpc ListFundAndCurrentAccounts (google.protobuf.Empty) returns (FundAccountMessageList);
+	rpc ListVisibleAndOrderedFundAccounts (google.protobuf.Empty) returns (FundAccountMessageList);
+	rpc CreateOrUpdateFundAccount(FundAccountMessage) returns (FundAccountResponse);
+	rpc ChangeVisibilityFundAccount (FundAccountMessage) returns (FundAccountResponse);
+	rpc ChangeOrderFundAccount (OrderRequest) returns (FundAccountResponse);
+	//physicalEstimate
+	rpc ListPhysicalEstimates(google.protobuf.Empty) returns (PhysicalEstimateMessageList);
+	rpc CreatePhysicalEstimate(PhysicalEstimateMessage) returns (PhysicalEstimateResponse);
+	rpc UpdatePhysicalEstimate(PhysicalEstimateMessage) returns (PhysicalEstimateResponse);
+	rpc DeletePhysicalEstimate(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ListDolarsAndPrices (google.protobuf.Empty) returns (DolarPriceMessage);
+	rpc ListProductsWithUnits (google.protobuf.Empty) returns (ProductUnitMessageList);
+	//monetaryEstimate
+	rpc ListMonetaryEstimates(google.protobuf.Empty) returns (MonetaryEstimateMessageList);
+	rpc CreateMonetaryEstimate(MonetaryEstimateMessage) returns (MonetaryEstimateResponse);
+	rpc UpdateMonetaryEstimate(MonetaryEstimateMessage) returns (MonetaryEstimateResponse);
+	rpc DeleteMonetaryEstimate(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	//operative
+	rpc ListOperatives(google.protobuf.Empty) returns (OperativeMessageList);
+	rpc UpdateOperative(OperativeMessage) returns (OperativeResponse);
+	rpc RefreshOperatives(google.protobuf.Empty) returns (protoMessages.ResponseResult);
+	rpc SplitFees (OperativeMessageList) returns (protoMessages.ResponseResult);
+	rpc CreateOperative(OperativeMessage) returns (OperativeResponse);
+	rpc DeselectOperatives(google.protobuf.Empty) returns (protoMessages.ResponseResult);
+	rpc DeleteOperative(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc DeleteAndRecalculateOperative(OperativeMessage) returns (protoMessages.ResponseResult);
+	rpc GetPaymentReport(PaymentReportRequest) returns (PaymentReportMessageList);
+	rpc ListActiveOperativesByDatabase(google.protobuf.Empty) returns (OperativeMessageList);
+	//outlay
+	rpc CreateOrUpdateOutlay(OutlayMessage) returns (OutlayResponse);
+	rpc DeleteOutlay(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	//intermediario
+	rpc ListPersonas(google.protobuf.Empty) returns (intermediarioGrpcResource.PersonaMessageList);
+	rpc ListPlanDeCuentasDeGestion(google.protobuf.Empty) returns (intermediarioGrpcResource.PlanDeCuentasMessageList);
+	rpc ListProductos(google.protobuf.Empty) returns (intermediarioGrpcResource.ProductoMessageList);
+	rpc ListUnidades(google.protobuf.Empty) returns (intermediarioGrpcResource.UnidadesMessageList);
+	//summary
+	rpc GetSummaryReport(google.protobuf.Empty) returns (SummaryResponse);
+	//dashboard
+	rpc DashboardListQuotes(google.protobuf.Empty) returns (DashboardQuoteMessageList);
+	rpc DashboardListFundAccounts (google.protobuf.Empty) returns (DashboardFundAccountMessageList);
+	rpc DashboardListPhysicalEstimates (google.protobuf.Empty) returns (DashboardPhysicalEstimateMessageList);
+	rpc DashboardListMonetaryEstimates (google.protobuf.Empty) returns (DashboardMonetaryEstimateMessageList);
+	rpc DashboardListOperatives (google.protobuf.Empty) returns (DashboardOperativeMessageList);
+	rpc GetCardAndGraphDashboard(google.protobuf.Empty) returns (CardAndGraphDashboardMessage);
+	rpc ListGrainAndFarmStocks(google.protobuf.Empty) returns (GrainAndFarmStockMessage);
+	//stock
+	rpc ListStocks(google.protobuf.Empty) returns (StockMessageList);
+	rpc CreateStock(StockMessage) returns (StockResponse);
+	rpc UpdateStock(StockMessage) returns (StockResponse);
+	rpc DeleteStock(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ListFarmStocks(google.protobuf.Empty) returns (StockOverviewMessageList);
+	rpc ListGrainStocks(google.protobuf.Empty) returns (StockOverviewMessageList);
+	//ProductExtended
+	rpc ListProductExtended(google.protobuf.Empty) returns (ProductExtendedMessageList);
+	rpc CreateProductExtended(ProductExtendedMessage) returns (ProductExtendedResponse);
+	rpc UpdateProductExtended(ProductExtendedMessage) returns (ProductExtendedResponse);
+	rpc DeleteProductExtended(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+}

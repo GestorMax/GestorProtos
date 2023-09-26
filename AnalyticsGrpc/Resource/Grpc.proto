@@ -1,0 +1,24 @@
+﻿syntax = "proto3";
+import "google/protobuf/Empty.proto";
+import "AnalyticsGrpc/Resource/Messages.proto";
+import "ProtoMessages/Common.proto";
+
+
+package analyticsGrpcResource;
+
+service AnalyticsResource {
+	rpc ListSources (google.protobuf.Empty) returns (ApiSourceMessageList);
+	rpc ListMetrics (google.protobuf.Empty) returns (ApiMetricMessageList);
+	rpc ListDatas (DataRequest) returns (ApiScrapDataMessageList);
+	rpc ListLastMeasurements (google.protobuf.Empty) returns (ApiMeasurementMessageList);
+	rpc LastMeasurement (google.protobuf.Empty) returns (ApiMeasurementMessageList);
+	rpc ListMeasurements (ApiMeasurementRequest) returns (ApiMeasurementMessageList);
+	rpc ListLastMeasurementByDate (protoMessages.DateOnlyMessage) returns (ApiMeasurementMessageList);
+	rpc ListLabelsTypes(google.protobuf.Empty) returns (LabelTypeMessageList);
+	rpc ListValues (ValueRequest) returns (ValueMessageList);
+	rpc ListLastValues (LastValueRequest) returns (LastValueMessageList);
+	rpc LastMultiMeasurements(LastMultiMeasurementRequest) returns (ApiMeasurementMessageList);
+	rpc ListMultiMeasurements(MultiMeasurementRequest) returns (ApiMeasurementMessageList);
+	rpc LastMeasurementByDate (LastMeasurementRequest) returns (ApiLastMeasurementResponse);
+}
+

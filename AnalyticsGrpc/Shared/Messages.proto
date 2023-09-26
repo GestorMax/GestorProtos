@@ -1,0 +1,12 @@
+﻿syntax = "proto3";
+
+package analyticsGrpcShared;
+
+message AnalyticsConfiguration {
+	string uri = 1;
+}
+
+message AnalyticsDataMessage {
+	int32 id = 1;
+	string name = 2;
+}

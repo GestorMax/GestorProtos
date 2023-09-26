@@ -1,0 +1,125 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Timestamp.proto";
+import "ProtoMessages/Common.proto";
+
+package gestorAlertGrpc;
+
+enum MeansType {
+	MEANS_TYPE_EMAIL = 0;
+	MEANS_TYPE_WHATSAPP = 1;
+}
+
+enum AppsId {
+	APPS_ID_GESTOR_DATA = 0;
+}
+
+enum GestorDataEvents {
+	GESTOR_DATA_EVENTS_SCRAPPING_ERROR = 0;
+	GESTOR_DATA_EVENTS_UNEXPECTED_ZERO = 1;
+	GESTOR_DATA_EVENTS_LIMIT_EXCEEDED = 2;
+}
+
+message GestorAlertConfiguration {
+	string uri = 1;
+}
+
+message GestorAlertSetting {
+	int32 singleTemplateId = 1;
+	int32 multiTemplateId = 2;
+	int32 senderId = 3;
+	int32 smtpServer = 4;
+}
+
+message SubscriptionRequest {
+	AppsId appId = 1;
+	string eventId = 2;
+	string objectId = 3;
+	bool asItHappens = 4;
+	protoMessages.StringMessage programming = 5;
+	MeansType notificationMeans = 6; 
+	string notificationDetails = 7;
+	int32 offsetHours = 8;
+}
+
+message SubscriptionMessage {
+	int32 id = 1;
+	string userId = 2;
+	AppsId appId = 3;
+	string eventId = 4;
+	string objectId = 5;
+	bool asItHappens = 6;
+	protoMessages.StringMessage programming = 7;
+	MeansType notificationMeans = 8; 
+	string notificationDetails = 9;
+	int32 lastIncidenceId = 10;
+	int32 schedulerTaskId = 11;
+	int32 offsetHours = 12;
+}
+
+message SubscriptionMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated SubscriptionMessage values = 1;	
+}
+
+message SubscriptionResponse {
+	protoMessages.ResponseResult result = 1;
+	SubscriptionMessage message = 2;
+}
+
+
+
+message CreateIncidenceRequest {
+	AppsId appId = 1;
+	int32 eventId = 2;
+	string objectId = 3;
+	string objectDescription = 4;
+	string detail = 5;
+}
+
+message IncidenceMessage {
+	int32 id = 1;
+	AppsId appId = 2;
+	int32 eventId = 3;
+	string objectId = 4;
+	string objectDescription = 5;
+	string detail = 6;
+	google.protobuf.Timestamp date = 7;
+}
+
+message IncidenceMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated IncidenceMessage values = 1;
+}
+
+message IncidenceResponse {
+	protoMessages.ResponseResult result = 1;
+	IncidenceMessage message = 2;
+}
+
+message ListIncidenceRequest {
+	AppsId appId = 1;
+	string eventId = 2;
+	string objectId = 3;	
+	int32 lastIncidenceId = 4;
+}
+
+message NotificationMessage{
+	int32 id = 1;	
+	int32 notificationType = 3; 
+	int32 notificationMeans = 4; 
+	string title = 5;
+	string message = 6;
+}
+
+message NotificationsMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated NotificationMessage values = 1;
+}
+
+message ListHistoryRequest{
+	AppsId appId = 1;
+	string eventId = 2;
+	string objectId = 3;
+	int32 limit = 4;
+}

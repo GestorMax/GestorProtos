@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "SaldosGrpc/Resource/Messages.proto";
+
+package saldosGrpcResource;
+
+service SaldosResource {
+	rpc ListCompanyStatements (google.protobuf.Empty) returns (CompanyStatementsResponse);
+	rpc ListPersonStatementsHistory(protoMessages.Int32Message) returns (StatementMessageList);
+	rpc RecalculateCompanyLatestBalances(google.protobuf.Empty) returns (protoMessages.ResponseResult);
+	rpc RecalculatePersonBalances(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	rpc AddStatement (StatementMessage) returns (StatementResponse);
+	rpc UpdateStatement (StatementMessage) returns (StatementResponse);
+	rpc DeleteStatement (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	rpc ListCloseDateReport (CloseDateReportMessage) returns (CloseDateReportMessageList);
+	rpc GetCloseDateReport (protoMessages.Int32Message) returns (CloseDateReportResponse);
+	rpc AddCloseDateReport (CloseDateReportMessage) returns (CloseDateReportResponse);
+	rpc DeleteCloseDateReport (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc RecalculateCloseDateReport(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+}

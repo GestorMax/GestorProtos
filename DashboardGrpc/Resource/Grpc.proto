@@ -1,0 +1,12 @@
+﻿syntax = "proto3";
+
+import "ProtoMessages/Common.proto";
+import "DashboardGrpc/Shared/Messages.proto";
+
+package dashboardGrpcResource;
+
+service DashboardResource {
+	rpc ListDashboardsForCompany(protoMessages.Int32Message) returns (dashboardGrpcShared.DashboardCompanyMessageList);
+	rpc GetDashboardCompany(protoMessages.Int32Message) returns (dashboardGrpcShared.DashboardCompanyMessage);
+}
+

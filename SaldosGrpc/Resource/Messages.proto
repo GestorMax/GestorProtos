@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+import "ProtoMessages/Common.proto";
+import "google/protobuf/Timestamp.proto";
+
+package saldosGrpcResource;
+
+message SaldosConfiguration {
+	string uri = 1;
+}
+
+message ValidateStatementResponse {
+	protoMessages.ResponseResult result = 1;
+	ValidationResult validationResult = 2;
+}
+
+message ValidationResult {
+	StatementMessage originalStatement = 1;
+	StatementMessage gestorData = 2;
+	bool hasDifferences = 3;
+}
+
+
+message CompanyStatementsResponse {
+	protoMessages.ResponseResult result = 1;
+	PersonStatementMessageList list = 2;
+}
+
+message StatementResponse {
+	protoMessages.ResponseResult result = 1;
+	StatementMessage message = 2;
+}
+
+message StatementMessage {
+	int32 Id = 1;
+	int32 databaseId = 2;
+	int32 companyId = 3;
+	int32 personId = 4;
+	google.protobuf.Timestamp date = 5;
+	double personARS = 6;
+	double personUSD = 7;
+	protoMessages.DoubleMessage gestorARS = 8;
+	protoMessages.DoubleMessage gestorUSD = 9;
+	protoMessages.StringMessage observations = 10;
+	google.protobuf.Timestamp validationDate = 11;
+}
+
+message StatementMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated StatementMessage values = 1;
+}
+
+message PersonStatementMessage {
+	int32 personId = 1;
+	string personName = 2;
+	StatementMessage statement = 3;
+}
+
+message PersonStatementMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated PersonStatementMessage values = 1;
+}
+
+message CloseDateReportMessage {
+	int32 id = 1;
+	int32 databaseId = 2;
+	int32 companyId = 3;
+	string name = 4;
+	google.protobuf.Timestamp from = 5;
+	google.protobuf.Timestamp to = 6;
+	repeated PersonStatementMessage balanceList = 7;
+}
+
+message CloseDateReportResponse {
+	protoMessages.ResponseResult result = 1;
+	CloseDateReportMessage message = 2;
+}
+
+message CloseDateReportMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated CloseDateReportMessage values = 1;
+}

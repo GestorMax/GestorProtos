@@ -1,0 +1,185 @@
+syntax = "proto3";
+
+import "google/protobuf/Any.proto";
+import "ProtoMessages/Common.proto";
+import "IntermediarioGrpc/Shared/IntermediarioShared.proto";
+import "IntermediarioGrpc/Shared/SyncedTables.g.proto";
+
+package intermediarioCompanionGrpc;
+
+enum OperationType {
+	Update = 0;
+	Delete = 1;
+}
+
+message GestorConnectConfiguration {
+	int32 minimunVersion = 1;
+}
+
+message WriteRecordsResult {
+	protoMessages.GuidMessage token = 1;
+	protoMessages.Int64Message operationId = 2;
+	protoMessages.ResponseResult result = 3;
+}
+
+message GetChangeRecordsRequest {
+	protoMessages.GuidMessage token = 1;
+	protoMessages.Int64Message operationId = 2;
+}
+
+message ErrorMessage {
+	protoMessages.GuidMessage token = 1;
+	string text = 2;
+	string stackTrace = 3;
+	string additionalMessage = 4;
+}
+
+message ChangeMessage {
+	SyncedTables table = 1;
+	OperationType operation = 2;
+	google.protobuf.Any record = 3;
+	protoMessages.Int64Message id = 4;
+}
+
+message ChangesMessage {
+	protoMessages.GuidMessage token = 1;
+	repeated ChangeMessage changes = 2;
+	protoMessages.Int64Message minId = 3;
+	protoMessages.Int64Message maxId = 4;
+}
+
+message CheckAliveMessage {
+	protoMessages.GuidMessage token = 1;
+}
+
+message ActiveTablesRequestMessage {
+	protoMessages.GuidMessage token = 1;
+}
+
+
+message ActiveTablesResponseMessage {
+	repeated SyncedTables activeTables = 1;
+}
+
+enum SqlDataResponseTypes {
+	SqlDataResponseTypes_TableMessage = 0;
+	SqlDataResponseTypes_MayorContable = 1;
+}
+
+message SqlCommandRequest {
+	int32 id = 1;
+	int32 timeoutMs = 2;
+	string sql = 3;
+	repeated string excludeFields = 4;
+	SqlMessageResponse value = 5;
+}
+
+message SqlCommandResponse {
+	protoMessages.ResponseResult result = 1;
+	protoMessages.GuidMessage token = 2;
+	int32 id = 3;
+	int32 totalSize = 4;
+	SqlMessageResponse value = 5;
+}
+
+message SqlMessageResponse {
+	oneof Type {
+		protoMessages.StructMessage Table = 1;
+		intermediarioSharedMessages.MayorContableMessage MayorContable = 2;
+		intermediarioSharedMessages.MayorDiarioFisicosMessage MayorFisicos = 3;
+		intermediarioSharedMessages.BalanceContableMessage BalanceContable = 4;
+		intermediarioSharedMessages.ValoresEnCarteraMessage  ValoresEnCartera= 5;
+		intermediarioSharedMessages.FlujoDeFondosMessage FlujoDeFondos = 6;
+		intermediarioSharedMessages.SaldoPersonaMessage SaldoPersona = 7;
+		intermediarioSharedMessages.SaldoPersonaTotalesMessage SaldoPersonaTotales = 8;
+		intermediarioSharedMessages.FisicosPorVencimientoMessage FisicosPorVencimiento = 9;
+		intermediarioSharedMessages.CuentasCorrientesSaldosMessage CuentasCorrientesSaldos =  10;
+		intermediarioSharedMessages.CuentasAPagarMessage CuentasAPagar = 11;
+		intermediarioSharedMessages.ChequesEmitidosMessage ChequesEmitidos = 12;
+		intermediarioSharedMessages.CuentasACobrarMessage CuentasACobrar = 13;
+		intermediarioSharedMessages.LuciusMayorContableMessage LuciusMayorContable = 14;
+		intermediarioSharedMessages.LuciusBalanceContableMessage LuciusBalanceContable = 15;
+		intermediarioSharedMessages.LuciusPlanDeCuentasMessage LuciusPlanDeCuentasMessage = 16;
+		intermediarioSharedMessages.FlujoDeFondosExtMessage FlujoDeFondosExt = 17;
+	}
+}
+
+message DataMessage {
+	enum CommandTypes {
+		Ping = 0;
+		ChannelClosed = 1;
+		SetActive = 2;
+		SetInactive = 3;
+		ActiveTablesChanged = 4;
+		UpdateYourself = 5;
+		CloseProgram = 6;
+		UnidentifiedCompanion = 7;
+	}
+
+	oneof type {
+		CommandTypes Command = 1;
+		LinkUserMessage LinkUser = 3;
+		SqlCommandRequest ExecuteSqlCommand = 4;
+		int64 WriteRecords = 5;
+	}
+}
+
+message TableMessage {
+	repeated protoMessages.StructMessage rows = 1;
+}
+
+message UninitializedTablesMessage {
+	protoMessages.ResponseResult result = 1;
+	repeated SyncedTables tables = 2;
+	bool fullInitNeeded = 3;
+}
+
+message IdentifyResponse {
+	protoMessages.ResponseResult result =1;
+	protoMessages.GuidMessage token = 2;
+	bool isActive = 3;
+	bool isOutdated = 4;
+}
+
+message TableDataMessage {
+	SyncedTables table = 1;
+	int32 registerCount = 2;
+	repeated google.protobuf.Any registers = 3;
+}
+
+message InitTableResponse {
+	protoMessages.ResponseResult result = 1;
+}
+
+message InitTableRequest {
+	protoMessages.GuidMessage token = 1;
+	SyncedTables table = 2;
+	google.protobuf.Any record = 3;
+}
+
+message SynchronizationBlockMessage {
+	int32 length = 1;
+	repeated IntermediarioHistoryMessage records = 2;
+}
+
+message IntermediarioHistoryMessage {
+	int32 id = 1;
+	OperationType operation = 2;
+	string tableName = 3;
+	string rowIdNames = 4;
+	string rowIdValues = 5;
+}
+
+message TableRequest {
+	SyncedTables table = 2;
+}
+
+message TableIsInitializedResponse {
+	protoMessages.ResponseResult result = 1;
+	bool isInitialized = 2;
+}
+
+message LinkUserMessage {
+	int32 userId = 1;
+	protoMessages.StringMessage gestorIdUser = 2;
+}

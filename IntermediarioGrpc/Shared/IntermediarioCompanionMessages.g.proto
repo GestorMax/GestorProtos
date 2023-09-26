@@ -1,0 +1,3080 @@
+// ATENCIÓN: archivo autogenerado por el Scaffolder. No editar porque puede ser pisado la próxima vez que se corra.
+syntax = "proto3";
+
+import "google/protobuf/Timestamp.proto";
+import "ProtoMessages/Common.proto";
+
+package intermediarioCompanionGrpc;
+
+message GsActividadesg3CMessage {
+	int32 Codactividad = 1;
+	string Descrip = 2;
+	protoMessages.Int32Message Codproducto = 3;
+	protoMessages.DoubleMessage PrecioTn = 4;
+
+}
+
+message GsAvisosMailMessage {
+	int32 Codtipoaviso = 1;
+	int32 Codaviso = 2;
+	string TipoAviso = 3;
+	protoMessages.Int32Message DiasAviso = 4;
+	protoMessages.Int32Message Reenvios = 5;
+	protoMessages.Int32Message DiasReenvios = 6;
+	protoMessages.StringMessage Destinatario = 7;
+	protoMessages.StringMessage DestinatarioMail = 8;
+	string EnviarTitular = 9;
+	string EnviarCuenta = 10;
+	string EnviarRepresent = 11;
+	string EnviarResumencta = 12;
+	protoMessages.StringMessage TextoMail = 13;
+	protoMessages.StringMessage Asunto = 14;
+	string EnviarResponsable = 15;
+	string IncluirPersonas = 16;
+	string VentasLn = 17;
+	string ComprasLn = 18;
+	string Compras = 19;
+	string ComprasInv = 20;
+	string Ventas = 21;
+	string VentasInv = 22;
+	string Ingresos = 23;
+	string Egresos = 24;
+	string AntIngresos = 25;
+	string AntEgresos = 26;
+	protoMessages.StringMessage AgruparMails = 27;
+	protoMessages.DoubleMessage MinImporte = 28;
+	protoMessages.Int32Message FinAviso = 29;
+
+}
+
+message GsBancoMessage {
+	int32 Codbanco = 1;
+	string Descrip = 2;
+
+}
+
+message GsBienDeUsoMessage {
+	int32 Codempre = 1;
+	int32 Codbien = 2;
+	string Descrip = 3;
+	double Importe = 4;
+	google.protobuf.Timestamp Fecha = 5;
+	protoMessages.Int32Message Vidautgst = 6;
+	protoMessages.DoubleMessage Valresgst = 7;
+	protoMessages.Int32Message Vidautcnt = 8;
+	protoMessages.Int32Message Valrescnt = 9;
+	google.protobuf.Timestamp Fechabaja = 10;
+	protoMessages.StringMessage Concbaja = 11;
+
+}
+
+message GsCampaniasg3CMessage {
+	int32 Codcampania = 1;
+	string Nombre = 2;
+
+}
+
+message GsCaractereMessage {
+	int32 Codcaracter = 1;
+	string Caracter = 2;
+	protoMessages.Int32Message Codafip = 3;
+
+}
+
+message GsCatacg3CMessage {
+	int32 Codcatac = 1;
+	string Descrip = 2;
+
+}
+
+message GsChequesDefMessage {
+	int32 Codchequedef = 1;
+	string Descripcion = 2;
+	string TipoLetra = 3;
+	int32 TamanioLetra = 4;
+	protoMessages.Int32Message CantPorHoja = 5;
+	protoMessages.FloatMessage MargenSup = 6;
+	protoMessages.FloatMessage MargenInf = 7;
+	protoMessages.FloatMessage MargenIzq = 8;
+	protoMessages.FloatMessage Alto = 9;
+	protoMessages.FloatMessage SepCheques = 10;
+	protoMessages.FloatMessage ImporteNumSup = 11;
+	protoMessages.FloatMessage ImporteNumIzq = 12;
+	protoMessages.FloatMessage ImporteNumAncho = 13;
+	protoMessages.FloatMessage DiaEmisionSup = 14;
+	protoMessages.FloatMessage DiaEmisionIzq = 15;
+	protoMessages.FloatMessage MesEmisionSup = 16;
+	protoMessages.FloatMessage MesEmisionIzq = 17;
+	protoMessages.FloatMessage AnioEmisionSup = 18;
+	protoMessages.FloatMessage AnioEmisionIzq = 19;
+	protoMessages.FloatMessage AnioEmisionAncho = 20;
+	protoMessages.FloatMessage DiaDiferidoSup = 21;
+	protoMessages.FloatMessage DiaDiferidoIzq = 22;
+	protoMessages.FloatMessage MesDiferidoSup = 23;
+	protoMessages.FloatMessage MesDiferidoIzq = 24;
+	protoMessages.FloatMessage AnioDiferidoSup = 25;
+	protoMessages.FloatMessage AnioDiferidoIzq = 26;
+	protoMessages.FloatMessage AnioDiferidoAncho = 27;
+	protoMessages.FloatMessage NombreOrdenSup = 28;
+	protoMessages.FloatMessage NombreOrdenIzq = 29;
+	protoMessages.FloatMessage NombreOrdenAncho = 30;
+	protoMessages.FloatMessage ImporteLet1Sup = 31;
+	protoMessages.FloatMessage ImporteLet1Izq = 32;
+	protoMessages.FloatMessage ImporteLet1Ancho = 33;
+	protoMessages.FloatMessage ImporteLet2Sup = 34;
+	protoMessages.FloatMessage ImporteLet2Izq = 35;
+	protoMessages.FloatMessage ImporteLet2Ancho = 36;
+	protoMessages.FloatMessage LugarSup = 37;
+	protoMessages.FloatMessage LugarIzq = 38;
+	protoMessages.FloatMessage LugarAncho = 39;
+	protoMessages.StringMessage TextoPred = 40;
+	protoMessages.Int32Message TextoPredSup = 41;
+	protoMessages.Int32Message TextoPredIzq = 42;
+	protoMessages.Int32Message TextoPredAncho = 43;
+
+}
+
+message GsCierresG3CampoMessage {
+	int32 Codempre = 1;
+	int32 Anio = 2;
+	int32 Mes = 3;
+	string Estado = 4;
+	google.protobuf.Timestamp FecCierre = 5;
+	google.protobuf.Timestamp FecCierreHac = 6;
+	protoMessages.StringMessage CierreAnual = 7;
+	google.protobuf.Timestamp FecCierreRemitos = 8;
+	google.protobuf.Timestamp FecCierreConciliacion = 9;
+	google.protobuf.Timestamp FecCierreValuacion = 10;
+	google.protobuf.Timestamp ConciliacionCompleta = 11;
+
+}
+
+message GsCiudadesg3CMessage {
+	int32 Codciudad = 1;
+	string Descrip = 2;
+	protoMessages.StringMessage Codprov = 3;
+
+}
+
+message GsCodIndiceMessage {
+	int32 Codindice = 1;
+	string Descrip = 2;
+
+}
+
+message GsCompradoresAutorizadoMessage {
+	int32 Codpersona = 1;
+	int32 Codempre = 2;
+	int32 Codcomprador = 3;
+	google.protobuf.Timestamp VigDesde = 4;
+	google.protobuf.Timestamp VigHasta = 5;
+
+}
+
+message GsComprobanteMessage {
+	int32 Codcomprobante = 1;
+	int32 Codempre = 2;
+	int32 Tipdoc = 3;
+	int32 Codtipotalonario = 4;
+
+}
+
+message GsComprobantesVtaMostradorMessage {
+	int32 Codcomprobante = 1;
+	string Descrip = 2;
+	int32 Tipdoc = 3;
+	string TipoFactura = 4;
+	int32 Codmoneda = 5;
+	protoMessages.StringMessage SoloGestion = 6;
+	protoMessages.Int32Message Codpersona = 7;
+	protoMessages.Int32Message Codiva = 8;
+	protoMessages.StringMessage Notas = 9;
+	protoMessages.Int32Message Codbarras = 10;
+	protoMessages.DoubleMessage LimiteSinIdent = 11;
+
+}
+
+message GsCondsVentaMessage {
+	int32 CodcondVenta = 1;
+	string Descrip = 2;
+	string Defecto = 3;
+	protoMessages.Int32Message DiasDiferidoVentas = 4;
+
+}
+
+message GsConfigCodbarraMessage {
+	int32 Codcodigo = 1;
+	string Descrip = 2;
+	string Grupo1 = 3;
+	int32 Digitos1 = 4;
+	string Grupo2 = 5;
+	int32 Digitos2 = 6;
+	string Grupo3 = 7;
+	int32 Digitos3 = 8;
+	string Grupo4 = 9;
+	int32 Digitos4 = 10;
+	protoMessages.StringMessage AgruparProds = 11;
+
+}
+
+message GsConfigInfContratoMessage {
+	string TipoColumna = 1;
+	int32 Codplan = 2;
+	int32 Codcuenta = 3;
+
+}
+
+message GsConfiguracionMessage {
+	string Version = 1;
+	string Descripcioncuit = 2;
+	string Validacioncuit = 3;
+	string Mascaracuit = 4;
+	protoMessages.StringMessage RetencionGanancias = 5;
+	protoMessages.StringMessage LugarCheque = 6;
+	protoMessages.DoubleMessage RetencionMinima = 7;
+	string GenerarLog = 8;
+	protoMessages.StringMessage MetodoValuacion = 9;
+	protoMessages.StringMessage ControlOrdenesCorrelativas = 10;
+	protoMessages.StringMessage LineasNegocios = 11;
+	protoMessages.Int32Message ActualizacionUrl = 12;
+	protoMessages.StringMessage DireccionUrl = 13;
+	protoMessages.StringMessage UsuarioUrl = 14;
+	protoMessages.StringMessage PasswordUrl = 15;
+	google.protobuf.Timestamp UltimaActualizacion = 16;
+	protoMessages.StringMessage AnularCompras = 17;
+	protoMessages.StringMessage AnularComprasLn = 18;
+	protoMessages.StringMessage AnularVentas = 19;
+	protoMessages.StringMessage AnularVentasLn = 20;
+	protoMessages.StringMessage AnularIngresos = 21;
+	protoMessages.StringMessage AnularEgresos = 22;
+	protoMessages.StringMessage AnularPasesOp = 23;
+	protoMessages.StringMessage AnularPasesFis = 24;
+	protoMessages.StringMessage AnularPasesConf = 25;
+	protoMessages.StringMessage AnularAntIngr = 26;
+	protoMessages.StringMessage AnularAntEgr = 27;
+	protoMessages.StringMessage DireccionDatosUrl = 28;
+	protoMessages.Int32Message CodcontenidoDatos = 29;
+	protoMessages.StringMessage VersionDownload = 30;
+	protoMessages.StringMessage UltimoBackup = 31;
+	google.protobuf.Timestamp UltimaActDatos = 32;
+	protoMessages.StringMessage NumerarVentas = 33;
+	protoMessages.StringMessage DescripCai = 34;
+	protoMessages.StringMessage TiposFacturas = 35;
+	protoMessages.StringMessage UtilizarAgentes = 36;
+	protoMessages.StringMessage DirBackup = 37;
+	protoMessages.StringMessage BloquearEmpresa = 38;
+	protoMessages.StringMessage HistorialConceptos = 39;
+	protoMessages.StringMessage HistorialRubrosVto = 40;
+	protoMessages.Int32Message CantidadConceptos = 41;
+	protoMessages.StringMessage AplicarDistintasPersonas = 42;
+	protoMessages.StringMessage MostrarCodigos = 43;
+	protoMessages.StringMessage CorreFeriados = 44;
+	protoMessages.StringMessage NumerarCompras = 45;
+	protoMessages.StringMessage Remates = 46;
+	protoMessages.StringMessage AutorizacionPagos = 47;
+	protoMessages.StringMessage ModificarVtos = 48;
+	protoMessages.Int32Message AvisoBackup = 49;
+	protoMessages.StringMessage BloquearFinancieros = 50;
+	protoMessages.StringMessage UsarFechaDefault = 51;
+	protoMessages.StringMessage PagarDistintasPersonas = 52;
+	protoMessages.StringMessage ComentarVtos = 53;
+	protoMessages.StringMessage HistorialProvs = 54;
+	protoMessages.StringMessage Gestion = 55;
+	protoMessages.StringMessage Presupuesto = 56;
+	protoMessages.StringMessage SmtpUrl = 57;
+	protoMessages.Int32Message SmtpPort = 58;
+	protoMessages.StringMessage MailUser = 59;
+	protoMessages.StringMessage MailPassword = 60;
+	protoMessages.StringMessage MailSender = 61;
+	protoMessages.StringMessage MailHora = 62;
+	protoMessages.StringMessage SugerirEnvioMail = 63;
+	google.protobuf.Timestamp UltimoEnvioMail = 64;
+	protoMessages.StringMessage MailAddress = 65;
+	protoMessages.StringMessage G3Campo = 66;
+	protoMessages.Int32Message EnviarMailsCada = 67;
+	protoMessages.StringMessage FactProvisorias = 68;
+	protoMessages.StringMessage EnviarMailActualizacion = 69;
+	protoMessages.StringMessage CodfiscalAnticipos = 70;
+	protoMessages.StringMessage CodcitiAnticipos = 71;
+	protoMessages.StringMessage OpRecSeparados = 72;
+	protoMessages.Int32Message CodpersonaexDesde = 73;
+	protoMessages.Int32Message CodpersonaexHasta = 74;
+	protoMessages.Int32Message CodimpuestoComisexVenta = 75;
+	protoMessages.Int32Message CodimpuestoComisexCompra = 76;
+	protoMessages.Int32Message Codgrupoex = 77;
+	protoMessages.Int32Message CodcomprexCompraA = 78;
+	protoMessages.Int32Message CodcomprexCompraB = 79;
+	protoMessages.Int32Message CodcomprexVentaA = 80;
+	protoMessages.Int32Message CodcomprexVentaB = 81;
+	protoMessages.StringMessage GeneraPasesVentas = 82;
+	protoMessages.StringMessage FactElectr = 83;
+	protoMessages.StringMessage SolapasOts = 84;
+	protoMessages.StringMessage G3Campo2 = 85;
+	protoMessages.StringMessage MailSsl = 86;
+	protoMessages.StringMessage G3Cosecha = 87;
+	protoMessages.DoubleMessage LimiteDifKgsSecoDest = 88;
+	protoMessages.Int32Message Codflete = 89;
+	protoMessages.StringMessage ControlPorFecimpuestos = 90;
+	protoMessages.StringMessage UtilizarFecAlicuotas = 91;
+	protoMessages.Int32Message Codventacereal = 92;
+	protoMessages.Int32Message Codcomisioncereal = 93;
+	protoMessages.StringMessage PermitirConceptosImputacion = 94;
+	protoMessages.StringMessage NumerarRetenciones = 95;
+	protoMessages.Int32Message Codfletecorto = 96;
+	protoMessages.Int32Message Codfleterech = 97;
+	protoMessages.Int32Message Codfleteacond = 98;
+	protoMessages.Int32Message Codembolsado = 99;
+	protoMessages.StringMessage FlujoFondos = 100;
+	protoMessages.Int32Message RegSellosIibb = 101;
+	protoMessages.Int32Message RegSellosSellos = 102;
+	protoMessages.Int32Message RegSellosRegistro = 103;
+	protoMessages.Int32Message RegSellosIibb2 = 104;
+	protoMessages.Int32Message RegSellosIibb3 = 105;
+	protoMessages.Int32Message CodsaldoCalidad = 106;
+	protoMessages.DoubleMessage LimiteKgsFleteCorto = 107;
+	protoMessages.Int32Message FondoFedAgrop = 108;
+	protoMessages.StringMessage OrdenesCompra = 109;
+	protoMessages.StringMessage CosechaDiscriminarMermas = 110;
+	protoMessages.Int32Message Codsecada = 111;
+	protoMessages.Int32Message Codparitarias = 112;
+	protoMessages.Int32Message CoddifCalidad = 113;
+	protoMessages.StringMessage CodfiscalOrdenPago = 114;
+	protoMessages.StringMessage RemitosNuevo = 115;
+	protoMessages.Int32Message Codbonificacion = 116;
+	protoMessages.Int32Message Codentregador = 117;
+	protoMessages.Int32Message Codacondicionamiento = 118;
+	protoMessages.Int32Message Codrebaja = 119;
+	protoMessages.Int32Message Codsellado = 120;
+	protoMessages.Int32Message CodplanInfContratos = 121;
+	protoMessages.StringMessage ContratosPorPlan = 122;
+	protoMessages.StringMessage CopiaBackup = 123;
+	protoMessages.StringMessage CarpetaAdjuntos = 124;
+	protoMessages.StringMessage Abono = 125;
+	google.protobuf.Timestamp BloqueoG3 = 126;
+	google.protobuf.Timestamp ChequeoBloqueo = 127;
+	protoMessages.Int32Message CodsolocomisexCompraA = 128;
+	protoMessages.Int32Message CodsolocomisexCompraB = 129;
+	protoMessages.Int32Message DiasDiferidoVentas = 130;
+	protoMessages.StringMessage ImportacionContratos = 131;
+	protoMessages.Int32Message Iva105Contratos = 132;
+	protoMessages.Int32Message Iva21Contratos = 133;
+	protoMessages.Int32Message Iva27Contratos = 134;
+	protoMessages.Int32Message IibbContratos = 135;
+	protoMessages.StringMessage CosechaMulti = 136;
+	protoMessages.StringMessage ConsultasInternet = 137;
+	protoMessages.StringMessage G3Industria = 138;
+	protoMessages.StringMessage RemitosGestor = 139;
+	protoMessages.StringMessage RedondearIvaConcepto = 140;
+	protoMessages.StringMessage NumerarRemitos = 141;
+	protoMessages.StringMessage VentasMostrador = 142;
+	protoMessages.StringMessage ControlaCaiCompras = 143;
+	protoMessages.StringMessage LiquidoProd = 144;
+	protoMessages.StringMessage LiquidoProdRemitos = 145;
+	protoMessages.StringMessage G3Comercio = 146;
+	protoMessages.Int32Message GrupoVentasMostrador = 147;
+	protoMessages.StringMessage LspElectr = 148;
+	protoMessages.StringMessage FeXmlPath = 149;
+	protoMessages.StringMessage DatabaseId = 150;
+	protoMessages.StringMessage ControlaStock = 151;
+	protoMessages.StringMessage Lucius = 152;
+
+}
+
+message GsContratosg3CMessage {
+	int32 Codcontrato = 1;
+	int32 Codempre = 2;
+	string IdContrato = 3;
+	int32 Codcampania = 4;
+	int32 Codcomprador = 5;
+	protoMessages.Int32Message Codcorredor = 6;
+	int32 Coddestino = 7;
+	string Estado = 8;
+	string TipoContrato = 9;
+	protoMessages.Int32Message Codmoneda = 10;
+	google.protobuf.Timestamp FechaNegocio = 11;
+	google.protobuf.Timestamp FechaLimite = 12;
+	int32 Codprocedencia = 13;
+	protoMessages.StringMessage FleteComprador = 14;
+	protoMessages.DoubleMessage ComisEntregador = 15;
+	protoMessages.StringMessage Observ = 16;
+	double TnAcordadas = 17;
+	protoMessages.DoubleMessage MinTnAFijar = 18;
+	protoMessages.DoubleMessage MaxTnAFijar = 19;
+	protoMessages.DoubleMessage Comision = 20;
+	protoMessages.Int32Message Codentregador = 21;
+	protoMessages.DoubleMessage DescuentoFlete = 22;
+	protoMessages.Int32Message Codplan = 23;
+	protoMessages.Int32Message Codcuenta = 24;
+	protoMessages.Int32Message UsrAlta = 25;
+	google.protobuf.Timestamp FecAlta = 26;
+	protoMessages.Int32Message UsrModif = 27;
+	google.protobuf.Timestamp FecModif = 28;
+	google.protobuf.Timestamp LimiteEntrega = 29;
+	int32 Codproducto = 30;
+	protoMessages.StringMessage Direccion = 31;
+	protoMessages.Int32Message CodcorredorVend = 32;
+	protoMessages.Int32Message Codmercadotermino = 33;
+	protoMessages.Int32Message CodintermFlete = 34;
+
+}
+
+message GsCosechag3CMessage {
+	int32 Codcosecha = 1;
+	int32 Codempre = 2;
+	string CartaPorte = 3;
+	int32 Codcampania = 4;
+	int32 Codcultivo = 5;
+	protoMessages.Int32Message Codplan = 6;
+	google.protobuf.Timestamp Fecha = 7;
+	protoMessages.Int32Message Codtransportista = 8;
+	int32 Codproducto = 9;
+	protoMessages.Int32Message Codinversor = 10;
+	string TipoDestino = 11;
+	protoMessages.Int32Message Codcontrato = 12;
+	protoMessages.Int32Message Coddeposito = 13;
+	protoMessages.Int32Message Codcontratista = 14;
+	protoMessages.Int32Message Codcorredor = 15;
+	protoMessages.Int32Message Codembolsador = 16;
+	protoMessages.Int32Message Codentregador = 17;
+	protoMessages.DoubleMessage KgsOrig = 18;
+	protoMessages.FloatMessage HumedadOrig = 19;
+	protoMessages.DoubleMessage NetoSecoOrig = 20;
+	protoMessages.DoubleMessage KgsDest = 21;
+	protoMessages.FloatMessage HumedadDest = 22;
+	protoMessages.DoubleMessage KgsAplic = 23;
+	protoMessages.DoubleMessage FleteKms = 24;
+	protoMessages.Int32Message Codcatac = 25;
+	protoMessages.FloatMessage PorcentCatac = 26;
+	protoMessages.DoubleMessage FleteTarifa = 27;
+	protoMessages.DoubleMessage FleteImporte = 28;
+	protoMessages.Int32Message Codestablecimiento = 29;
+	protoMessages.StringMessage Observ = 30;
+	protoMessages.StringMessage Impresa = 31;
+	protoMessages.Int32Message Codcontratoorig = 32;
+	protoMessages.Int32Message Coddepositoorig = 33;
+	string TipoOrigen = 34;
+	protoMessages.Int32Message Coddesembolsador = 35;
+	protoMessages.StringMessage DifKgsACargoTransp = 36;
+	string Estado = 37;
+	protoMessages.Int32Message Codrechazo = 38;
+	string TipoTransp = 39;
+	google.protobuf.Timestamp FecDescarga = 40;
+	protoMessages.Int32Message UsrAlta = 41;
+	google.protobuf.Timestamp FecAlta = 42;
+	protoMessages.Int32Message UsrModif = 43;
+	google.protobuf.Timestamp FecModif = 44;
+	protoMessages.Int32Message Codemptransp = 45;
+	protoMessages.StringMessage PatenteCamion = 46;
+	protoMessages.StringMessage PatenteAcoplado = 47;
+	protoMessages.StringMessage CuitTransp = 48;
+	protoMessages.DoubleMessage BrutoOrig = 49;
+	protoMessages.DoubleMessage TaraOrig = 50;
+	protoMessages.DoubleMessage BrutoDest = 51;
+	protoMessages.DoubleMessage TaraDest = 52;
+	protoMessages.DoubleMessage TarifaFleteTransportista = 53;
+	protoMessages.StringMessage NoFacturarFlete = 54;
+	protoMessages.StringMessage Aplicado = 55;
+	protoMessages.DoubleMessage MermaHumedadDest = 56;
+	protoMessages.DoubleMessage MermaVolatilDest = 57;
+	protoMessages.DoubleMessage MermaOtrosDest = 58;
+	protoMessages.Int32Message Codmulti = 59;
+	protoMessages.StringMessage OrigenEstimado = 60;
+
+}
+
+message GsCotizacionesImportacionConfigMessage {
+	int32 Codcotizimport = 1;
+	string Cotizacion = 2;
+	string UrlPath = 3;
+
+}
+
+message GsCptosContrImportadoMessage {
+	int32 Codempre = 1;
+	int32 Codimportacion = 2;
+	int32 Codperscontr = 3;
+	string Nombre = 4;
+	string Cuit = 5;
+	google.protobuf.Timestamp Fecha = 6;
+	string TipoDoc = 7;
+	string TipoFact = 8;
+	int32 NroFact = 9;
+	int32 Numlinea = 10;
+	int32 CantCptos = 11;
+	string CodcptoContrato = 12;
+	string Concepto = 13;
+	double Total = 14;
+	double NoGravado = 15;
+	double Gravado21 = 16;
+	double Iva21 = 17;
+	double Gravado27 = 18;
+	double Iva27 = 19;
+	double Gravado105 = 20;
+	double Iva105 = 21;
+	protoMessages.Int32Message NumeroG3 = 22;
+
+}
+
+message GsCtasCteMessage {
+	int32 Codempre = 1;
+	int32 Codctacte = 2;
+	string Descrip = 3;
+	double SaldoInic = 4;
+	int32 Codmoneda = 5;
+	string Bloqueada = 6;
+	google.protobuf.Timestamp FecConciliacion = 7;
+	string ValoresTerceros = 8;
+	string Concilia = 9;
+	protoMessages.StringMessage Cbu = 10;
+	protoMessages.StringMessage TipoCtaAfip = 11;
+	protoMessages.StringMessage TipoMonedaAfip = 12;
+	protoMessages.StringMessage SoloGestion = 13;
+
+}
+
+message GsCtasCtesCuentaMessage {
+	int32 Codempre = 1;
+	int32 Codctacte = 2;
+	int32 Prioridad = 3;
+	int32 Codplan = 4;
+	int32 Codcuenta = 5;
+	protoMessages.Int32Message CodcuentaDif = 6;
+	protoMessages.Int32Message CodcuentaDifHaber = 7;
+
+}
+
+message GsDepositosg3CMessage {
+	int32 Coddeposito = 1;
+	int32 Codempre = 2;
+	string Descrip = 3;
+	string TipoDeposito = 4;
+	string Estado = 5;
+	protoMessages.Int32Message Codcampania = 6;
+	protoMessages.Int32Message Codciudad = 7;
+	protoMessages.Int32Message Codplanta = 8;
+	protoMessages.Int32Message Codestablecimiento = 9;
+	protoMessages.StringMessage Direccion = 10;
+	protoMessages.StringMessage Coordenadas = 11;
+
+}
+
+message GsDerechosAccesoMessage {
+	int32 Codusuario = 1;
+	int64 Codmenu = 2;
+
+}
+
+message GsDestinosTeoricosg3CMessage {
+	int32 Coddestino = 1;
+	int32 Coddestinoteorico = 2;
+
+}
+
+message GsDetalleMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	int32 Numlinea = 3;
+	protoMessages.Int32Message Codproducto = 4;
+	protoMessages.StringMessage Concepto = 5;
+	protoMessages.DoubleMessage Cantparte = 6;
+	protoMessages.DoubleMessage Canttotal = 7;
+	protoMessages.DecimalMessage Coef = 8;
+	protoMessages.DoubleMessage Importe = 9;
+	double Debe = 10;
+	double Haber = 11;
+	double Mdebe = 12;
+	double Mhaber = 13;
+	protoMessages.Int32Message Codimpuesto = 14;
+	protoMessages.Int32Message Codbien = 15;
+	int32 Tipointer = 16;
+	protoMessages.Int32Message Codpase = 17;
+	protoMessages.Int32Message Coddetalle = 18;
+	protoMessages.Int32Message Codremate = 19;
+	protoMessages.Int32Message Codlote = 20;
+	google.protobuf.Timestamp FecPresup = 21;
+	google.protobuf.Timestamp ConciliacionRemito = 22;
+	protoMessages.Int32Message Codremateex = 23;
+	protoMessages.Int32Message Codloteex = 24;
+	protoMessages.Int32Message Ordenex = 25;
+	protoMessages.Int32Message NumlineaVta = 26;
+	protoMessages.Int32Message Codcosecha = 27;
+	protoMessages.StringMessage ControlRemito = 28;
+	protoMessages.StringMessage ProduccionPropia = 29;
+	protoMessages.Int32Message NumeroFact = 30;
+	protoMessages.Int32Message NumlineaFact = 31;
+	protoMessages.Int32Message Codiva = 32;
+	protoMessages.Int32Message NumeroLiqProd = 33;
+	protoMessages.Int32Message NumlineaLiqProd = 34;
+	protoMessages.Int32Message NumlineaLsp = 35;
+	protoMessages.StringMessage Notas = 36;
+
+}
+
+message GsDetalleCalcRetencionMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	int32 Numlinea = 3;
+	int32 Orden = 4;
+	protoMessages.Int32Message Codpersona = 5;
+	protoMessages.Int32Message Codplan = 6;
+	protoMessages.Int32Message Codcuenta = 7;
+	protoMessages.StringMessage Persona = 8;
+	protoMessages.StringMessage Rubro = 9;
+	google.protobuf.Timestamp Fecha = 10;
+	google.protobuf.Timestamp Fechapago = 11;
+	google.protobuf.Timestamp Fechaorden = 12;
+	protoMessages.Int32Message NumeroOp = 13;
+	protoMessages.StringMessage Numdoc = 14;
+	protoMessages.StringMessage Concepto = 15;
+	protoMessages.DoubleMessage Totalconcepto = 16;
+	protoMessages.DoubleMessage Porcentpago = 17;
+	protoMessages.DoubleMessage Totalpago = 18;
+
+}
+
+message GsDetalleCuentaMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	int32 Numlinea = 3;
+	int32 Prioridad = 4;
+	int32 Codplan = 5;
+	protoMessages.Int32Message Codcuenta = 6;
+	protoMessages.StringMessage Concepto = 7;
+
+}
+
+message GsDetalleImpuestoMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	int32 Numlinea = 3;
+	int32 Codimpuesto = 4;
+	double Tasa = 5;
+	protoMessages.DoubleMessage Aplica = 6;
+
+}
+
+message GsDetalleRetencionMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	protoMessages.DoubleMessage MontoMes = 3;
+	protoMessages.DoubleMessage MinimoImp = 4;
+	protoMessages.DoubleMessage PorcentRetenc = 5;
+	protoMessages.DoubleMessage RetencCalc = 6;
+	protoMessages.DoubleMessage SumaFija = 7;
+	protoMessages.DoubleMessage RetencionesMes = 8;
+	protoMessages.StringMessage Calculosistema = 9;
+	protoMessages.DoubleMessage TotalRetenible = 10;
+
+}
+
+message GsDetalleVencimientoMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	int32 Numlinea = 3;
+	int32 Orden = 4;
+	double Debe = 5;
+	double Haber = 6;
+	double Mdebe = 7;
+	double Mhaber = 8;
+
+}
+
+message GsDevengadoMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	protoMessages.StringMessage Numdoc = 3;
+	google.protobuf.Timestamp Fecha = 4;
+	google.protobuf.Timestamp Fecimpuestos = 5;
+	protoMessages.Int32Message Codpersona = 6;
+	protoMessages.Int32Message Codcobpag = 7;
+	protoMessages.Int32Message Codmoneda = 8;
+	protoMessages.DoubleMessage Valorcambio = 9;
+	string Tipooper = 10;
+	protoMessages.Int32Message Codpase = 11;
+	protoMessages.Int32Message Tipdoc = 12;
+	protoMessages.StringMessage Notas = 13;
+	protoMessages.Int32Message UsrAlta = 14;
+	google.protobuf.Timestamp FecAlta = 15;
+	protoMessages.Int32Message UsrModif = 16;
+	google.protobuf.Timestamp FecModif = 17;
+	protoMessages.Int32Message CodplanNegocios = 18;
+	protoMessages.Int32Message CodcuentaNegocios = 19;
+	protoMessages.Int32Message Codretencion = 20;
+	protoMessages.StringMessage Estado = 21;
+	protoMessages.StringMessage Impreso = 22;
+	protoMessages.StringMessage Guia = 23;
+	protoMessages.Int32Message Codremate = 24;
+	google.protobuf.Timestamp VtoFactura = 25;
+	protoMessages.StringMessage Cai = 26;
+	google.protobuf.Timestamp FecCierre = 27;
+	google.protobuf.Timestamp FecFactura = 28;
+	protoMessages.Int32Message Codpresupuesto = 29;
+	protoMessages.StringMessage Descrip = 30;
+	protoMessages.StringMessage TipooperG3C = 31;
+	protoMessages.Int32Message CodigoG3C = 32;
+	protoMessages.Int32Message Codremateex = 33;
+	protoMessages.Int32Message NroVenta = 34;
+	protoMessages.StringMessage Electronica = 35;
+	protoMessages.StringMessage ControlRemito = 36;
+	protoMessages.StringMessage EnvioPorMail = 37;
+	protoMessages.StringMessage ArchivosAdjuntos = 38;
+	protoMessages.StringMessage SoloGestion = 39;
+	protoMessages.StringMessage RemitoSalida = 40;
+	protoMessages.StringMessage AjusteDifCambio = 41;
+	protoMessages.StringMessage TipoPase = 42;
+	protoMessages.Int32Message Codoprod = 43;
+	protoMessages.Int32Message Codlista = 44;
+	google.protobuf.Timestamp FecRetenc = 45;
+	protoMessages.Int32Message CodcomprMostrador = 46;
+	protoMessages.Int32Message CodcondVenta = 47;
+	protoMessages.StringMessage RenspaReceptor = 48;
+	protoMessages.StringMessage RenspaEmisor = 49;
+	protoMessages.Int32Message NroAjustado = 50;
+	protoMessages.StringMessage TipoAjusteLsp = 51;
+	protoMessages.Int32Message Codsucursal = 52;
+	protoMessages.StringMessage Ajuste = 53;
+	protoMessages.Int32Message ComprReferencia = 54;
+	protoMessages.StringMessage AnulacionPyme = 55;
+	protoMessages.Int32Message NroHasta = 56;
+	google.protobuf.Timestamp FecVtoPago = 57;
+	protoMessages.StringMessage AjusteInflacion = 58;
+	protoMessages.StringMessage NoConciliar = 59;
+	protoMessages.StringMessage TransmisionPyme = 60;
+	google.protobuf.Timestamp FecDesdeReferencia = 61;
+	google.protobuf.Timestamp FecHastaReferencia = 62;
+
+}
+
+message GsDevengadoComisioneMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	int32 Codagente = 3;
+	protoMessages.DoubleMessage Tasa = 4;
+	double Importe = 5;
+	double Mimporte = 6;
+	protoMessages.StringMessage Comentario = 7;
+	protoMessages.Int32Message NumeroCancelacion = 8;
+	int32 Orden = 9;
+	protoMessages.Int32Message Codremate = 10;
+	protoMessages.Int32Message Codlote = 11;
+
+}
+
+message GsDevengadoCondImpoMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	int32 Coditem = 3;
+	int32 Codcondicion = 4;
+
+}
+
+message GsDevengadoDteMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	int32 Numdte = 3;
+	protoMessages.StringMessage Establecimiento = 4;
+	string Dte = 5;
+	protoMessages.StringMessage Renspa = 6;
+
+}
+
+message GsDistanciasg3CMessage {
+	int32 Codorigen = 1;
+	int32 Coddestino = 2;
+	double Distancia = 3;
+
+}
+
+message GsDocumentosFeMessage {
+	string Coddocumento = 1;
+	protoMessages.StringMessage Codfe = 2;
+
+}
+
+message GsEmpresaPlaneMessage {
+	int32 Codempre = 1;
+	int32 Prioridad = 2;
+	int32 Codplan = 3;
+	string Clave = 4;
+	protoMessages.Int32Message InicioEjercicio = 5;
+	protoMessages.StringMessage ImputarObligado = 6;
+	string Descrip = 7;
+	string G3CActividadAplicacion = 8;
+	string G3CTipoInsumoAplicacion = 9;
+	string G3CLoteAplicacion = 10;
+	string G3CDepositoAplicacion = 11;
+	string G3CActividadAlmacen = 12;
+	string G3CTipoInsumoAlmacen = 13;
+	string G3CLoteAlmacen = 14;
+	string G3CDepositoAlmacen = 15;
+	string G3CTipoRodeoRodeo = 16;
+	string G3CEstablecRodeo = 17;
+	string G3CTipoRodeoProduccion = 18;
+	string G3CEstablecProduccion = 19;
+	string G3CTipoRodeoTenencia = 20;
+	string G3CEstablecTenencia = 21;
+	string G3CTipoRodeoConsumo = 22;
+	string G3CEstablecConsumo = 23;
+	string G3CTipoRodeoTraslado = 24;
+	string G3CEstablecTraslado = 25;
+	string G3CTipoTranspFlete = 26;
+	string G3CActividadFlete = 27;
+	string G3CEstablecFlete = 28;
+	string G3CContratoFlete = 29;
+	string Habilitado = 30;
+	string G3CActividadEmbolsador = 31;
+	string G3CEstablecEmbolsador = 32;
+	string G3CCampaniaFlete = 33;
+	protoMessages.StringMessage Replica = 34;
+	protoMessages.StringMessage G3CTipoRemitoRemitoAlmacen = 35;
+	protoMessages.StringMessage G3CTipoInsumoRemitoAlmacen = 36;
+	protoMessages.StringMessage G3CDepositoRemitoAlmacen = 37;
+	protoMessages.StringMessage G3CTipoRemitoRemitoProvis = 38;
+	protoMessages.StringMessage G3CTipoInsumoRemitoProvis = 39;
+	protoMessages.StringMessage G3CDepositoRemitoProvis = 40;
+	protoMessages.StringMessage G3CActividadContratista = 41;
+	protoMessages.StringMessage G3CTipoInsumoContratista = 42;
+	protoMessages.StringMessage G3CLoteContratista = 43;
+	protoMessages.StringMessage G3CDepositoContratista = 44;
+	protoMessages.StringMessage SoloGestion = 45;
+	protoMessages.StringMessage Presupuesto = 46;
+	protoMessages.StringMessage G3CTipoRemitoRemitoProvis2 = 47;
+	protoMessages.StringMessage G3CTipoInsumoRemitoProvis2 = 48;
+	protoMessages.StringMessage G3CDepositoRemitoProvis2 = 49;
+	protoMessages.StringMessage OrdenesProd = 50;
+	protoMessages.StringMessage TipoPlan = 51;
+
+}
+
+message GsEmpresaRelPlaneMessage {
+	int32 Codempre = 1;
+	int32 Prioridaddsde = 2;
+	int32 Codplndsde = 3;
+	int32 Prioridadhsta = 4;
+	int32 Codplnhsta = 5;
+	int32 Codrela = 6;
+
+}
+
+message GsEmpresaMessage {
+	int32 Codempre = 1;
+	string Nombre = 2;
+	string Cuit = 3;
+	google.protobuf.Timestamp Altacompra = 4;
+	google.protobuf.Timestamp Altaventa = 5;
+	google.protobuf.Timestamp CierreCnt = 6;
+	int32 Codmoneda = 7;
+	google.protobuf.Timestamp TopeCnt = 8;
+	google.protobuf.Timestamp UltimoRevaluo = 9;
+	protoMessages.Int32Message CodplanClasif = 10;
+	protoMessages.Int32Message CodplanCentros = 11;
+	protoMessages.Int32Message CodplanSucursales = 12;
+	protoMessages.StringMessage PieFactura = 13;
+	protoMessages.Int32Message Codpersona = 14;
+	protoMessages.StringMessage PieReciboCobro = 15;
+	protoMessages.StringMessage PieReciboPago = 16;
+	protoMessages.Int32Message UltFactElectrEnviada = 17;
+	protoMessages.StringMessage PieFacturaex = 18;
+	protoMessages.Int32Message CodmonedaContrato = 19;
+	protoMessages.StringMessage CertificadoFe = 20;
+	protoMessages.StringMessage ActivacionFe = 21;
+	google.protobuf.Timestamp CierreG3Campo = 22;
+	bytes Firma = 23;
+	protoMessages.StringMessage Aclaracion = 24;
+	google.protobuf.Timestamp InicioActividad = 25;
+	protoMessages.StringMessage CbuInformado = 26;
+	protoMessages.StringMessage AliasInformado = 27;
+	google.protobuf.Timestamp CierreGstn = 28;
+
+}
+
+message GsEstablecimientoMessage {
+	int32 Codpersona = 1;
+	string Establecimiento = 2;
+	protoMessages.StringMessage Direccion = 3;
+	protoMessages.Int32Message Codlocalidad = 4;
+	protoMessages.StringMessage Renspa = 5;
+
+}
+
+message GsEstablecimientosg3CMessage {
+	int32 Codestablecimiento = 1;
+	int32 Codempre = 2;
+	string Nombre = 3;
+	protoMessages.Int32Message Codciudad = 4;
+	protoMessages.Int32Message Codzona = 5;
+	protoMessages.Int32Message Coddestinoteorico = 6;
+	protoMessages.StringMessage Direccion = 7;
+	protoMessages.StringMessage Renspa = 8;
+
+}
+
+message GsFactContrImportadaMessage {
+	int32 Codempre = 1;
+	int32 Codimportacion = 2;
+	int32 Codtipofact = 3;
+	int32 Anio = 4;
+	int32 Mes = 5;
+	google.protobuf.Timestamp Fecha = 6;
+	protoMessages.Int32Message UsrAlta = 7;
+	string Estado = 8;
+
+}
+
+message GsFeriadoMessage {
+	google.protobuf.Timestamp Fecha = 1;
+	protoMessages.StringMessage Descrip = 2;
+
+}
+
+message GsFijacionesContratog3CMessage {
+	int32 Codcontrato = 1;
+	int32 Orden = 2;
+	protoMessages.DoubleMessage TnFijacion = 3;
+	protoMessages.DoubleMessage PrecioTn = 4;
+	protoMessages.DoubleMessage MprecioTn = 5;
+	protoMessages.DoubleMessage Valorcambio = 6;
+
+}
+
+message GsFormNotaremisionMessage {
+	int32 Codformulario = 1;
+	string Formulario = 2;
+	protoMessages.StringMessage Encabezado = 3;
+	protoMessages.StringMessage Pie = 4;
+
+}
+
+message GsFormReciboMessage {
+	int32 Codformulario = 1;
+	string Formulario = 2;
+	string TipoLetra = 3;
+	int32 FormularioAlto = 4;
+	int32 FormularioAncho = 5;
+	protoMessages.Int32Message ClienteTamanio = 6;
+	protoMessages.StringMessage ClienteEstilo = 7;
+	protoMessages.Int32Message FechaTamanio = 8;
+	protoMessages.StringMessage FechaEstilo = 9;
+	protoMessages.Int32Message ImpLetrasTamanio = 10;
+	protoMessages.StringMessage ImpLetrasEstilo = 11;
+	protoMessages.Int32Message CompyvaloresTamanio = 12;
+	protoMessages.StringMessage CompyvaloresEstilo = 13;
+	protoMessages.Int32Message TotalesTamanio = 14;
+	protoMessages.StringMessage TotalesEstilo = 15;
+	protoMessages.Int32Message ClienteSup = 16;
+	protoMessages.Int32Message ClienteIzq = 17;
+	protoMessages.Int32Message ClienteAncho = 18;
+	protoMessages.Int32Message CuitSup = 19;
+	protoMessages.Int32Message CuitIzq = 20;
+	protoMessages.Int32Message DiaEmisionSup = 21;
+	protoMessages.Int32Message DiaEmisionIzq = 22;
+	protoMessages.Int32Message MesEmisionSup = 23;
+	protoMessages.Int32Message MesEmisionIzq = 24;
+	protoMessages.Int32Message AnioEmisionSup = 25;
+	protoMessages.Int32Message AnioEmisionIzq = 26;
+	protoMessages.Int32Message AnioEmisionAncho = 27;
+	protoMessages.Int32Message ImpLetrasSup = 28;
+	protoMessages.Int32Message ImpLetrasAlto = 29;
+	protoMessages.Int32Message ImpLetrasSepLineas = 30;
+	protoMessages.Int32Message ImpLetrasIzq = 31;
+	protoMessages.Int32Message ImpLetrasAncho = 32;
+	protoMessages.Int32Message DireccionSup = 33;
+	protoMessages.Int32Message DireccionIzq = 34;
+	protoMessages.Int32Message DireccionAncho = 35;
+	protoMessages.Int32Message DireccionAlto = 36;
+	protoMessages.Int32Message DireccionSepLineas = 37;
+	protoMessages.BoolMessage DirImprimeDireccion = 38;
+	protoMessages.BoolMessage DirImprimeCpostal = 39;
+	protoMessages.BoolMessage DirImprimeLocalidad = 40;
+	protoMessages.BoolMessage DirImprimeProvincia = 41;
+	protoMessages.Int32Message TipodocCompIzq = 42;
+	protoMessages.Int32Message TipodocCompAncho = 43;
+	protoMessages.Int32Message NrodocCompIzq = 44;
+	protoMessages.Int32Message NrodocCompAncho = 45;
+	protoMessages.Int32Message FechaCompIzq = 46;
+	protoMessages.Int32Message ImporteCompDer = 47;
+	protoMessages.Int32Message TotalBaseCompSup = 48;
+	protoMessages.Int32Message TotalBaseCompDer = 49;
+	protoMessages.Int32Message TotalExtCompSup = 50;
+	protoMessages.Int32Message TotalExtCompDer = 51;
+	protoMessages.Int32Message TipodocValorIzq = 52;
+	protoMessages.Int32Message TipodocValorAncho = 53;
+	protoMessages.Int32Message NrodocValorIzq = 54;
+	protoMessages.Int32Message NrodocValorAncho = 55;
+	protoMessages.Int32Message FechaValorIzq = 56;
+	protoMessages.Int32Message ImporteValorDer = 57;
+	protoMessages.Int32Message TotalBaseValorSup = 58;
+	protoMessages.Int32Message TotalBaseValorDer = 59;
+	protoMessages.Int32Message TotalExtValorSup = 60;
+	protoMessages.Int32Message TotalExtValorDer = 61;
+	protoMessages.Int32Message CompsSup = 62;
+	protoMessages.Int32Message ValoresSup = 63;
+	protoMessages.Int32Message CompsAlto = 64;
+	protoMessages.Int32Message ValoresAlto = 65;
+	protoMessages.Int32Message CompsSepLineas = 66;
+	protoMessages.Int32Message ValoresSepLineas = 67;
+	protoMessages.Int32Message NroReciboSup = 68;
+	protoMessages.Int32Message NroReciboIzq = 69;
+	protoMessages.Int32Message NroIntSup = 70;
+	protoMessages.Int32Message NroIntIzq = 71;
+	protoMessages.Int32Message PersonaCompIzq = 72;
+	protoMessages.Int32Message PersonaCompAncho = 73;
+	protoMessages.Int32Message CtaCteValorIzq = 74;
+	protoMessages.Int32Message CtaCteValorAncho = 75;
+	protoMessages.Int32Message PieSup = 76;
+	protoMessages.Int32Message PieIzq = 77;
+	protoMessages.Int32Message PieAncho = 78;
+	protoMessages.Int32Message PieAlto = 79;
+	protoMessages.Int32Message PieSepLineas = 80;
+	protoMessages.StringMessage Pie = 81;
+	protoMessages.BoolMessage SepCodPost = 82;
+	protoMessages.BoolMessage SepLocalidad = 83;
+	protoMessages.BoolMessage SepProvincia = 84;
+	protoMessages.StringMessage SepFecha = 85;
+	protoMessages.Int32Message TipodocValorSup = 86;
+	bytes Fondo = 87;
+	protoMessages.Int32Message RetencSup = 88;
+	protoMessages.Int32Message RetencAlto = 89;
+	protoMessages.Int32Message RetencSepLineas = 90;
+	protoMessages.Int32Message TiporetencSup = 91;
+	protoMessages.Int32Message TiporetencIzq = 92;
+	protoMessages.Int32Message TiporetencAncho = 93;
+	protoMessages.Int32Message PersonaRetencIzq = 94;
+	protoMessages.Int32Message PersonaRetencAncho = 95;
+	protoMessages.Int32Message NrodocRetencIzq = 96;
+	protoMessages.Int32Message NrodocRetencAncho = 97;
+	protoMessages.Int32Message FechaRetencIzq = 98;
+	protoMessages.Int32Message ImporteRetencDer = 99;
+	protoMessages.Int32Message TotalBaseRetencSup = 100;
+	protoMessages.Int32Message TotalBaseRetencDer = 101;
+	protoMessages.Int32Message TotalExtRetencSup = 102;
+	protoMessages.Int32Message TotalExtRetencDer = 103;
+
+}
+
+message GsFormRemitoMessage {
+	int32 Codformulario = 1;
+	string Formulario = 2;
+	string TipoLetra = 3;
+	int32 FormularioAlto = 4;
+	int32 FormularioAncho = 5;
+	bytes Fondo = 6;
+	protoMessages.Int32Message ClienteTamanio = 7;
+	protoMessages.StringMessage ClienteEstilo = 8;
+	protoMessages.Int32Message FechaTamanio = 9;
+	protoMessages.StringMessage FechaEstilo = 10;
+	protoMessages.Int32Message ConceptosTamanio = 11;
+	protoMessages.StringMessage ConceptosEstilo = 12;
+	protoMessages.Int32Message EntregadoATamanio = 13;
+	protoMessages.StringMessage EntregadoAEstilo = 14;
+	protoMessages.Int32Message FechaSup = 15;
+	protoMessages.Int32Message FechaIzq = 16;
+	protoMessages.Int32Message NumeroIzq = 17;
+	protoMessages.Int32Message NumeroSup = 18;
+	protoMessages.Int32Message NumdocIzq = 19;
+	protoMessages.Int32Message NumdocSup = 20;
+	protoMessages.Int32Message ClienteSup = 21;
+	protoMessages.Int32Message ClienteIzq = 22;
+	protoMessages.Int32Message ClienteAncho = 23;
+	protoMessages.Int32Message DireccionSup = 24;
+	protoMessages.Int32Message DireccionIzq = 25;
+	protoMessages.Int32Message DireccionAncho = 26;
+	protoMessages.Int32Message LocalidadSup = 27;
+	protoMessages.Int32Message LocalidadIzq = 28;
+	protoMessages.Int32Message LocalidadAncho = 29;
+	protoMessages.Int32Message CuitSup = 30;
+	protoMessages.Int32Message CuitIzq = 31;
+	protoMessages.Int32Message TipoIvaSup = 32;
+	protoMessages.Int32Message TipoIvaIzq = 33;
+	protoMessages.Int32Message ConceptoSup = 34;
+	protoMessages.Int32Message ConceptoAlto = 35;
+	protoMessages.Int32Message ConceptoSepLineas = 36;
+	protoMessages.Int32Message ConceptoIzq = 37;
+	protoMessages.Int32Message ConceptoAncho = 38;
+	protoMessages.Int32Message CantidadesDer = 39;
+	protoMessages.Int32Message RetiraSup = 40;
+	protoMessages.Int32Message RetiraIzq = 41;
+	protoMessages.Int32Message RetiraAncho = 42;
+	protoMessages.Int32Message RetiraCuitSup = 43;
+	protoMessages.Int32Message RetiraCuitIzq = 44;
+	protoMessages.BoolMessage ImprimeNotas = 45;
+	protoMessages.BoolMessage ImprimeCodfisico = 46;
+	protoMessages.BoolMessage ImprimeDetProd = 47;
+	protoMessages.Int32Message PartesDer = 48;
+	protoMessages.Int32Message PreciosDer = 49;
+	protoMessages.Int32Message ImporteDer = 50;
+	protoMessages.Int32Message LetraFactSup = 51;
+	protoMessages.Int32Message LetraFactIzq = 52;
+	protoMessages.Int32Message CodcuentaOrigIzq = 53;
+	protoMessages.Int32Message DesccuentaOrigIzq = 54;
+	protoMessages.Int32Message DesccuentaOrigAncho = 55;
+	protoMessages.Int32Message CodcuentaDestIzq = 56;
+	protoMessages.Int32Message DesccuentaDestIzq = 57;
+	protoMessages.Int32Message DesccuentaDestAncho = 58;
+	protoMessages.Int32Message NotasSup = 59;
+	protoMessages.Int32Message NotasIzq = 60;
+	protoMessages.Int32Message NotasAncho = 61;
+	protoMessages.Int32Message NotasAlto = 62;
+	protoMessages.Int32Message NotasSepLineas = 63;
+	protoMessages.Int32Message AutoimpresoTamanio = 64;
+	protoMessages.StringMessage AutoimpresoEstilo = 65;
+	protoMessages.Int32Message AutoimpresoSup = 66;
+	protoMessages.Int32Message AutoimpresoIzq = 67;
+	protoMessages.Int32Message AutoimpresoAncho = 68;
+	protoMessages.Int32Message CodbarraSup = 69;
+	protoMessages.Int32Message CodbarraIzq = 70;
+	protoMessages.Int32Message CodbarraAncho = 71;
+	protoMessages.Int32Message CodbarraAlto = 72;
+	protoMessages.Int32Message AutoimpresoFecvtoSup = 73;
+	protoMessages.Int32Message AutoimpresoFecvtoIzq = 74;
+	protoMessages.Int32Message AutoimpresoCaiSup = 75;
+	protoMessages.Int32Message AutoimpresoCaiIzq = 76;
+
+}
+
+message GsFormRemitoPlaneMessage {
+	int32 Codformulario = 1;
+	int32 Codempre = 2;
+	int32 Prioridad = 3;
+
+}
+
+message GsFormularioMessage {
+	int32 Codformulario = 1;
+	string Formulario = 2;
+	string TipoLetra = 3;
+	int32 FormularioAlto = 4;
+	int32 FormularioAncho = 5;
+	protoMessages.Int32Message NombreTamanio = 6;
+	protoMessages.StringMessage NombreEstilo = 7;
+	protoMessages.Int32Message NombreSup = 8;
+	protoMessages.Int32Message NombreIzq = 9;
+	protoMessages.Int32Message CuitSup = 10;
+	protoMessages.Int32Message CuitIzq = 11;
+	protoMessages.Int32Message FechaTamanio = 12;
+	protoMessages.StringMessage FechaEstilo = 13;
+	protoMessages.Int32Message DiaEmisionSup = 14;
+	protoMessages.Int32Message DiaEmisionIzq = 15;
+	protoMessages.Int32Message MesEmisionSup = 16;
+	protoMessages.Int32Message MesEmisionIzq = 17;
+	protoMessages.Int32Message AnioEmisionSup = 18;
+	protoMessages.Int32Message AnioEmisionIzq = 19;
+	protoMessages.Int32Message ConceptoTamanio = 20;
+	protoMessages.StringMessage ConceptoEstilo = 21;
+	protoMessages.Int32Message ConceptoSup = 22;
+	protoMessages.Int32Message ConceptoAlto = 23;
+	protoMessages.Int32Message ConceptoSepLineas = 24;
+	protoMessages.Int32Message ConceptoIzq = 25;
+	protoMessages.Int32Message ConceptoAncho = 26;
+	protoMessages.Int32Message ImporteDer = 27;
+	protoMessages.Int32Message ImpuestosTamanio = 28;
+	protoMessages.StringMessage ImpuestosEstilo = 29;
+	protoMessages.Int32Message Impuesto1Sup = 30;
+	protoMessages.Int32Message Impuesto1Der = 31;
+	protoMessages.Int32Message Impuesto2Sup = 32;
+	protoMessages.Int32Message Impuesto2Der = 33;
+	protoMessages.Int32Message Impuesto3Sup = 34;
+	protoMessages.Int32Message Impuesto3Der = 35;
+	protoMessages.Int32Message TotalTamanio = 36;
+	protoMessages.StringMessage TotalEstilo = 37;
+	protoMessages.Int32Message TotalSup = 38;
+	protoMessages.Int32Message TotalDer = 39;
+	protoMessages.Int32Message AnioEmisionAncho = 40;
+	protoMessages.Int32Message NombreAncho = 41;
+	protoMessages.Int32Message DireccionTamanio = 42;
+	protoMessages.StringMessage DireccionEstilo = 43;
+	protoMessages.Int32Message DireccionSup = 44;
+	protoMessages.Int32Message DireccionIzq = 45;
+	protoMessages.Int32Message DireccionAncho = 46;
+	protoMessages.Int32Message DireccionAlto = 47;
+	protoMessages.Int32Message DireccionSepLineas = 48;
+	protoMessages.BoolMessage DirImprimeDireccion = 49;
+	protoMessages.BoolMessage DirImprimeCpostal = 50;
+	protoMessages.BoolMessage DirImprimeLocalidad = 51;
+	protoMessages.BoolMessage DirImprimeProvincia = 52;
+	protoMessages.Int32Message ImpuestoPorc1Sup = 53;
+	protoMessages.Int32Message ImpuestoPorc1Der = 54;
+	protoMessages.Int32Message ImpuestoPorc2Sup = 55;
+	protoMessages.Int32Message ImpuestoPorc2Der = 56;
+	protoMessages.Int32Message ImpuestoPorc3Sup = 57;
+	protoMessages.Int32Message ImpuestoPorc3Der = 58;
+	protoMessages.Int32Message Copias = 59;
+	protoMessages.Int32Message LetraFactTamanio = 60;
+	protoMessages.StringMessage LetraFactEstilo = 61;
+	protoMessages.Int32Message LetraFactSup = 62;
+	protoMessages.Int32Message LetraFactIzq = 63;
+	protoMessages.Int32Message NroFactSup = 64;
+	protoMessages.Int32Message NroFactIzq = 65;
+	protoMessages.Int32Message LugarSup = 66;
+	protoMessages.Int32Message LugarIzq = 67;
+	protoMessages.StringMessage Lugar = 68;
+	protoMessages.Int32Message TipoCompSup = 69;
+	protoMessages.Int32Message TipoCompIzq = 70;
+	protoMessages.Int32Message TipoCopiaSup = 71;
+	protoMessages.Int32Message TipoCopiaIzq = 72;
+	protoMessages.Int32Message TipoCompAncho = 73;
+	protoMessages.Int32Message AutoimpresoTamanio = 74;
+	protoMessages.StringMessage AutoimpresoEstilo = 75;
+	protoMessages.Int32Message AutoimpresoSup = 76;
+	protoMessages.Int32Message AutoimpresoIzq = 77;
+	protoMessages.Int32Message AutoimpresoAncho = 78;
+	protoMessages.Int32Message Subtotal1Sup = 79;
+	protoMessages.Int32Message Subtotal1Der = 80;
+	protoMessages.Int32Message Subtotal2Sup = 81;
+	protoMessages.Int32Message Subtotal2Der = 82;
+	protoMessages.Int32Message Subtotal3Sup = 83;
+	protoMessages.Int32Message Subtotal3Der = 84;
+	protoMessages.BoolMessage SepFecha = 85;
+	protoMessages.Int32Message CodbarraSup = 86;
+	protoMessages.Int32Message CodbarraIzq = 87;
+	protoMessages.Int32Message CodbarraAncho = 88;
+	protoMessages.Int32Message CodbarraAlto = 89;
+	protoMessages.Int32Message AutoimpresoFecimpSup = 90;
+	protoMessages.Int32Message AutoimpresoFecimpIzq = 91;
+	protoMessages.Int32Message AutoimpresoFecvtoSup = 92;
+	protoMessages.Int32Message AutoimpresoFecvtoIzq = 93;
+	protoMessages.Int32Message AutoimpresoCaiSup = 94;
+	protoMessages.Int32Message AutoimpresoCaiIzq = 95;
+	protoMessages.Int32Message CondivaSup = 96;
+	protoMessages.Int32Message CondivaIzq = 97;
+	protoMessages.Int32Message CondivaAncho = 98;
+	protoMessages.BoolMessage CuitDesc = 99;
+	protoMessages.Int32Message CodcomprSup = 100;
+	protoMessages.Int32Message CodcomprIzq = 101;
+	protoMessages.BoolMessage SepCodPost = 102;
+	protoMessages.BoolMessage SepLocalidad = 103;
+	protoMessages.BoolMessage SepProvincia = 104;
+	protoMessages.BoolMessage ImprimeNotas = 105;
+	protoMessages.Int32Message ImporteLetrasSup = 106;
+	protoMessages.Int32Message ImporteLetrasIzq = 107;
+	protoMessages.Int32Message ImporteLetrasAncho = 108;
+	protoMessages.Int32Message ImporteLetrasAlto = 109;
+	protoMessages.Int32Message ImporteLetrasSepLineas = 110;
+	bytes Fondo = 111;
+	protoMessages.Int32Message NombreAlto = 112;
+	protoMessages.Int32Message NombreSepLineas = 113;
+	protoMessages.BoolMessage MostrarSimboloMoneda = 114;
+	protoMessages.StringMessage TipoCompTexto = 115;
+	protoMessages.Int32Message CantidadesDer = 116;
+	protoMessages.Int32Message PreciosDer = 117;
+	protoMessages.Int32Message GravadoSup = 118;
+	protoMessages.Int32Message GravadoDer = 119;
+	protoMessages.Int32Message NoGravadoSup = 120;
+	protoMessages.Int32Message NoGravadoDer = 121;
+	protoMessages.Int32Message PartesDer = 122;
+	protoMessages.BoolMessage TotalesFisicos = 123;
+	protoMessages.Int32Message CondVentaSup = 124;
+	protoMessages.Int32Message CondVentaIzq = 125;
+	protoMessages.BoolMessage ImprimeDetProd = 126;
+	protoMessages.Int32Message RemitosSup = 127;
+	protoMessages.Int32Message RemitosIzq = 128;
+	protoMessages.Int32Message RemitosAncho = 129;
+	protoMessages.Int32Message RemitosAlto = 130;
+	protoMessages.Int32Message RemitosSepLineas = 131;
+	protoMessages.BoolMessage DirImprimeTel = 132;
+	protoMessages.BoolMessage DirImprimeEmail = 133;
+	protoMessages.BoolMessage SepTel = 134;
+	protoMessages.BoolMessage SepEmail = 135;
+	protoMessages.BoolMessage ImprimeCodfisico = 136;
+	protoMessages.Int32Message FecVtoPagoSup = 137;
+	protoMessages.Int32Message FecVtoPagoIzq = 138;
+	protoMessages.Int32Message NotasSup = 139;
+	protoMessages.Int32Message NotasIzq = 140;
+	protoMessages.Int32Message NotasAncho = 141;
+	protoMessages.Int32Message NotasAlto = 142;
+	protoMessages.Int32Message NotasSepLineas = 143;
+	protoMessages.BoolMessage CodigoQr = 144;
+	protoMessages.Int32Message NotasTamanio = 145;
+	protoMessages.StringMessage NotasEstilo = 146;
+
+}
+
+message GsFormularioAlicuotaMessage {
+	int32 Codformulario = 1;
+	int32 Codimpuesto = 2;
+	int32 Numeroimpuesto = 3;
+	string ImprimeConcepto = 4;
+
+}
+
+message GsFormularioFondosjpgMessage {
+	int32 Codformulario = 1;
+	int32 Codempre = 2;
+	int32 Tipdoc = 3;
+	string Tipofact = 4;
+	bytes Fondo = 5;
+
+}
+
+message GsGruposAlicuotaMessage {
+	int32 Codgrupo = 1;
+	string Descrip = 2;
+	protoMessages.Int32Message Codplan = 3;
+	protoMessages.Int32Message Codcuenta = 4;
+	protoMessages.StringMessage ConceptosExentos = 5;
+
+}
+
+message GsGruposAlicuotasItemMessage {
+	int32 Codgrupo = 1;
+	int32 Coditem = 2;
+	string Tipooper = 3;
+	int32 Codimpuesto = 4;
+	int32 Numlinea = 5;
+	protoMessages.StringMessage Descrip = 6;
+	protoMessages.DoubleMessage Valorcalc = 7;
+	string CtactroOper = 8;
+
+}
+
+message GsGruposReplicaMessage {
+	int32 Codempre = 1;
+	int32 Codgrupo = 2;
+	string Descrip = 3;
+
+}
+
+message GsGruposReplicasOperativoMessage {
+	int32 Codempre = 1;
+	int32 Codgrupo = 2;
+	int32 Numero = 3;
+
+}
+
+message GsHumedadesg3CMessage {
+	int32 Codcultivo = 1;
+	double Humedad = 2;
+	double Merma = 3;
+
+}
+
+message GsImportFactImportacioneMessage {
+	int32 Codempre = 1;
+	int32 CodimportFact = 2;
+	google.protobuf.Timestamp FecImportacion = 3;
+	int32 Anio = 4;
+	int32 Mes = 5;
+	protoMessages.Int32Message UsrAlta = 6;
+	int32 Numero = 7;
+
+}
+
+message GsImportFactImputacioneMessage {
+	string Tipooper = 1;
+	int32 Codpersona = 2;
+	int32 Codplan = 3;
+	protoMessages.Int32Message Codcuenta = 4;
+
+}
+
+message GsImportFactTipoDocMessage {
+	string Tipooper = 1;
+	int32 CodcomprAfip = 2;
+	int32 Tipdoc = 3;
+	string LetraCompr = 4;
+
+}
+
+message GsImportarPaseMessage {
+	int32 Codempre = 1;
+	int32 Idimportacion = 2;
+	int32 Idreferencia = 3;
+	int32 Idagrupapase = 4;
+	int32 NumeroGestor = 5;
+
+}
+
+message GsImpresionCartaPorteMessage {
+	int32 Codcosecha = 1;
+	protoMessages.Int32Message Codintermediario = 2;
+	protoMessages.Int32Message Codremitentecomerc = 3;
+	protoMessages.Int32Message Codcorredor = 4;
+	protoMessages.Int32Message Codentregador = 5;
+	protoMessages.Int32Message Codcomprador = 6;
+	protoMessages.Int32Message Coddestino = 7;
+	protoMessages.StringMessage Direccprocedencia = 8;
+	protoMessages.StringMessage Direccdestino = 9;
+	protoMessages.DoubleMessage Tara = 10;
+	protoMessages.StringMessage Ciudadorigen = 11;
+	protoMessages.StringMessage Ciudaddestino = 12;
+	protoMessages.StringMessage Establecimientoorigen = 13;
+	protoMessages.StringMessage Provinciaorigen = 14;
+	protoMessages.StringMessage Provinciadestino = 15;
+	protoMessages.DoubleMessage TarifaReferencia = 16;
+	protoMessages.StringMessage CodigoAlfanumerico = 17;
+	protoMessages.Int32Message Ctg = 18;
+	int32 Codempre = 19;
+	protoMessages.Int32Message Codmulti = 20;
+	protoMessages.StringMessage IdContrato = 21;
+	protoMessages.StringMessage Renspa = 22;
+	protoMessages.Int32Message CodcorredorVend = 23;
+	protoMessages.Int32Message Codmercadotermino = 24;
+	protoMessages.Int32Message CodintermFlete = 25;
+
+}
+
+message GsImpuestoMessage {
+	int32 Codimpuesto = 1;
+	string Descrip = 2;
+	protoMessages.StringMessage Concepto = 3;
+	string Impogrupo = 4;
+	protoMessages.Int32Message Codgrupo = 5;
+	protoMessages.DoubleMessage Tasa = 6;
+	protoMessages.StringMessage Tipooper = 7;
+	protoMessages.StringMessage Gravada = 8;
+	protoMessages.StringMessage Codfiscal = 9;
+	google.protobuf.Timestamp VigDesde = 10;
+	google.protobuf.Timestamp VigHasta = 11;
+	protoMessages.StringMessage Tipocalc = 12;
+	protoMessages.StringMessage Codivafe = 13;
+	protoMessages.StringMessage TipotributoFe = 14;
+	protoMessages.DoubleMessage PorcentAplicar = 15;
+	protoMessages.StringMessage Padron = 16;
+	protoMessages.DoubleMessage TasaError = 17;
+	protoMessages.StringMessage Codfelsp = 18;
+	protoMessages.DoubleMessage TasaCateg13 = 19;
+	protoMessages.DoubleMessage TasaCateg47 = 20;
+
+}
+
+message GsImpuestosCierreMessage {
+	int32 Codempre = 1;
+	int32 Codimpuesto = 2;
+	google.protobuf.Timestamp Feccierre = 3;
+
+}
+
+message GsImpuestosCuentaMessage {
+	int32 Codimpuesto = 1;
+	int32 Codplan = 2;
+	int32 Codcuenta = 3;
+	int32 Codmoneda = 4;
+
+}
+
+message GsImputacionesClienteContrMessage {
+	int32 Codempre = 1;
+	int32 Codtipocpto = 2;
+	int32 Codpersona = 3;
+	int32 Prioridad = 4;
+	int32 Codplan = 5;
+	protoMessages.Int32Message Codcuenta = 6;
+
+}
+
+message GsImputacionesCptoContrMessage {
+	int32 Codempre = 1;
+	int32 Codtipocpto = 2;
+	int32 Prioridad = 3;
+	int32 Codplan = 4;
+	protoMessages.Int32Message Codcuenta = 5;
+	string DiscrClientes = 6;
+
+}
+
+message GsImputacionesVtaMostradorMessage {
+	int32 Codcomprobante = 1;
+	int32 Codplan = 2;
+	int32 Codcuenta = 3;
+
+}
+
+message GsIndiceMessage {
+	int32 Codindice = 1;
+	google.protobuf.Timestamp Fecha = 2;
+	double Indice = 3;
+
+}
+
+message GsInfGestionMessage {
+	int32 Codinfgestion = 1;
+	string Descrip = 2;
+	int32 Codempre = 3;
+	int32 PrioridadGestion = 4;
+	protoMessages.Int32Message PrioridadCcostos = 5;
+	google.protobuf.Timestamp Fecdesde = 6;
+	google.protobuf.Timestamp Fechasta = 7;
+	protoMessages.Int32Message CodrelaSitpatrim = 8;
+	protoMessages.Int32Message CodrelaEstresult = 9;
+	protoMessages.Int32Message CodrelaMargenbruto = 10;
+	protoMessages.Int32Message CodrelaActiv = 11;
+	protoMessages.Int32Message CodrelaEoaf = 12;
+
+}
+
+message GsInfGestionActividadeMessage {
+	int32 Codinfgestion = 1;
+	int32 Codactiv = 2;
+	int32 CodplanActiv = 3;
+	int32 CodplanMargen = 4;
+	int32 CodcuentaActiv = 5;
+	protoMessages.StringMessage Indice1 = 6;
+	protoMessages.StringMessage Indice1Tipo = 7;
+	protoMessages.Int32Message Indice1Codcuenta = 8;
+	protoMessages.StringMessage Indice2 = 9;
+	protoMessages.StringMessage Indice2Tipo = 10;
+	protoMessages.Int32Message Indice2Codcuenta = 11;
+	protoMessages.StringMessage Indice3 = 12;
+	protoMessages.StringMessage Indice3Tipo = 13;
+	protoMessages.Int32Message Indice3Codcuenta = 14;
+	protoMessages.StringMessage Indice4 = 15;
+	protoMessages.StringMessage Indice4Tipo = 16;
+	protoMessages.Int32Message Indice4Codcuenta = 17;
+	string DatosFisicos = 18;
+	protoMessages.Int32Message CodcuentaProd = 19;
+	protoMessages.StringMessage RindeDesc = 20;
+
+}
+
+message GsInfGestionSupCentroMessage {
+	int32 Codinfgestion = 1;
+	int32 CodplanCentro = 2;
+	int32 CodcuentaCentro = 3;
+	double Superficie = 4;
+
+}
+
+message GsInfGestionSuperficieMessage {
+	int32 Codinfgestion = 1;
+	int32 Codactiv = 2;
+	int32 Orden = 3;
+	protoMessages.Int32Message CodplanCentro = 4;
+	protoMessages.Int32Message CodcuentaCentro = 5;
+	double Superficie = 6;
+
+}
+
+message GsLimiteCreditoMessage {
+	int32 CodlimiteCredito = 1;
+	string Descrip = 2;
+	double LimiteCredito = 3;
+
+}
+
+message GsListadosConfiguradoMessage {
+	string Nombre = 1;
+	protoMessages.StringMessage Parametros = 2;
+	string MenuName = 3;
+
+}
+
+message GsListasImportadaMessage {
+	google.protobuf.Timestamp Fecha = 1;
+	string Codfisico = 2;
+	protoMessages.StringMessage Descfisico = 3;
+	protoMessages.StringMessage Unidadfisico = 4;
+	protoMessages.StringMessage Moneda = 5;
+	protoMessages.DoubleMessage Precio = 6;
+	protoMessages.DoubleMessage Bonifcompra = 7;
+	protoMessages.DoubleMessage Bonifventa = 8;
+	protoMessages.DoubleMessage Bonifpase = 9;
+
+}
+
+message GsListasPrecioMessage {
+	int32 Codlista = 1;
+	string Descrip = 2;
+	string Defecto = 3;
+	protoMessages.Int32Message CodivaVentas = 4;
+	protoMessages.Int32Message CodivaCompras = 5;
+	protoMessages.StringMessage Oprod = 6;
+
+}
+
+message GsListasPreciosBonifGrupoMessage {
+	int32 Codlista = 1;
+	int32 Codpersona = 2;
+	int32 Codgrupo = 3;
+	double Bonif = 4;
+
+}
+
+message GsListasPreciosBonifPerMessage {
+	int32 Codlista = 1;
+	int32 Codpersona = 2;
+	double BonifVentas = 3;
+	double BonifCompras = 4;
+	protoMessages.DoubleMessage BonifPases = 5;
+
+}
+
+message GsListasPreciosDetalleMessage {
+	int32 Codlista = 1;
+	int32 Codproducto = 2;
+	google.protobuf.Timestamp VigDesde = 3;
+	double Importe = 4;
+	int32 Codmoneda = 5;
+	protoMessages.DoubleMessage BonifVentas = 6;
+	protoMessages.DoubleMessage BonifCompras = 7;
+	protoMessages.DoubleMessage ImporteCompras = 8;
+	protoMessages.DoubleMessage ImporteVentas = 9;
+	protoMessages.DoubleMessage BonifPases = 10;
+	protoMessages.DoubleMessage ImportePases = 11;
+
+}
+
+message GsListasPreciosImportacionMessage {
+	int32 Codlista = 1;
+	int32 Codproducto = 2;
+	double Coef = 3;
+	int32 Codmoneda = 4;
+
+}
+
+message GsListasPreciosTipoDocMessage {
+	int32 Codlista = 1;
+	int32 Tipdoc = 2;
+	string PuntosVenta = 3;
+
+}
+
+message GsLocalidadesOnccaMessage {
+	int32 Codlocalidad = 1;
+	string Localidad = 2;
+	int32 Codprovoncca = 3;
+	int32 Codpartido = 4;
+
+}
+
+message GsLoteMessage {
+	int32 Codremate = 1;
+	int32 Codlote = 2;
+	int32 Nrolote = 3;
+	int32 Codvendedor = 4;
+	int32 Grupovendedor = 5;
+	int32 Codcomprador = 6;
+	int32 Grupocomprador = 7;
+	int32 Codusuario = 8;
+	int32 Codpersfisica = 9;
+	protoMessages.Int32Message CodagenteVenta = 10;
+	protoMessages.DoubleMessage ComisionVenta = 11;
+	protoMessages.Int32Message CodagenteCompra = 12;
+	protoMessages.DoubleMessage ComisionCompra = 13;
+	int32 Codlocprocedencia = 14;
+	int32 Codlocdestino = 15;
+	protoMessages.Int32Message Codfaenador = 16;
+	int32 CodplanClasif = 17;
+	int32 CodcuentaClasif = 18;
+	int32 Codgrupoalic = 19;
+	int32 Codproducto = 20;
+	double Cantparte = 21;
+	protoMessages.DoubleMessage Canttotal = 22;
+	string Coddestino = 23;
+	double Precio = 24;
+	protoMessages.StringMessage Notas = 25;
+	protoMessages.Int32Message UsrAlta = 26;
+	google.protobuf.Timestamp FecAlta = 27;
+	protoMessages.Int32Message UsrModif = 28;
+	google.protobuf.Timestamp FecModif = 29;
+	protoMessages.Int32Message Operativo = 30;
+	protoMessages.Int32Message Codraza = 31;
+
+}
+
+message GsLotesDestinoMessage {
+	string Coddestino = 1;
+	string Descrip = 2;
+	protoMessages.Int32Message Codfiscal = 3;
+	protoMessages.StringMessage Codfe = 4;
+
+}
+
+message GsLotesNovedadeMessage {
+	int32 Codremate = 1;
+	int32 Codlote = 2;
+	string Tipooper = 3;
+	int32 Codimpuesto = 4;
+	protoMessages.DoubleMessage Valorcalc = 5;
+	protoMessages.StringMessage Guia = 6;
+
+}
+
+message GsLotesVencimientoMessage {
+	int32 Codremate = 1;
+	int32 Codlote = 2;
+	string Tipooper = 3;
+	int32 Dias = 4;
+	double PorcentPago = 5;
+	double PorcentGasto = 6;
+	double PorcentIva = 7;
+	protoMessages.Int32Message Orden = 8;
+	int32 Codvencimiento = 9;
+
+}
+
+message GsLotesg3CMessage {
+	int32 Codlote = 1;
+	int32 Codestablecimiento = 2;
+	int32 Codcampania = 3;
+	string Descrip = 4;
+	protoMessages.DoubleMessage Superficie = 5;
+
+}
+
+message GsLuciusEtiquetasTipoMessage {
+	int32 Codtipoetiquetalucius = 1;
+	string TipoEtiquetaLucius = 2;
+
+}
+
+message GsLuciusEtiquetasValoreMessage {
+	int32 Codetiquetalucius = 1;
+	int32 Codtipoetiquetalucius = 2;
+	string EtiquetaLucius = 3;
+
+}
+
+message GsLugaresDescargag3CMessage {
+	int32 Codlugar = 1;
+	string Descrip = 2;
+	string Cuit = 3;
+
+}
+
+message GsMailsAEnviarMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	int32 Codtipoaviso = 3;
+	string Enviado = 4;
+
+}
+
+message GsMailsEnviadoMessage {
+	int32 Codenvio = 1;
+	int32 Codempre = 2;
+	int32 Numero = 3;
+	int32 Codtipoaviso = 4;
+	int32 Codaviso = 5;
+	int32 Orden = 6;
+	int32 NroEnvio = 7;
+	google.protobuf.Timestamp FechaEnvio = 8;
+	google.protobuf.Timestamp FechaEvento = 9;
+	protoMessages.StringMessage Destinatarios = 10;
+
+}
+
+message GsMediosPagoMessage {
+	int32 Codmediopago = 1;
+	int32 Codempre = 2;
+	string Descrip = 3;
+	int32 Tipdoc = 4;
+	int32 Codctacte = 5;
+	protoMessages.StringMessage SoloGestion = 6;
+	protoMessages.Int32Message Plazo = 7;
+	protoMessages.Int32Message Codsucursal = 8;
+
+}
+
+message GsMenueMessage {
+	int64 Codmenu = 1;
+	string Descrip = 2;
+	string Tipomenu = 3;
+	protoMessages.Int64Message Codgrupo = 4;
+	protoMessages.StringMessage MenuName = 5;
+
+}
+
+message GsMenuesViejoMessage {
+	int64 Codmenu = 1;
+	string Descrip = 2;
+	string Tipomenu = 3;
+	protoMessages.Int64Message Codgrupo = 4;
+	protoMessages.StringMessage MenuName = 5;
+	protoMessages.Int64Message CodmenuNuevo = 6;
+
+}
+
+message GsModifPadronesCabaMessage {
+	int32 Anio = 1;
+	int32 Mes = 2;
+	string Cuit = 3;
+	float Percepcion = 4;
+	float Retencion = 5;
+
+}
+
+message GsModifPadronesIibbMessage {
+	int32 Anio = 1;
+	int32 Mes = 2;
+	string Cuit = 3;
+	float Percepcion = 4;
+	float Retencion = 5;
+
+}
+
+message GsMonedaMessage {
+	int32 Codmoneda = 1;
+	string Simbolo = 2;
+	string Descrip = 3;
+	string PedirCotizacion = 4;
+	protoMessages.DoubleMessage MaxRedond = 5;
+	protoMessages.StringMessage Codmonedafe = 6;
+	protoMessages.StringMessage CodmonedaComprDupl = 7;
+	protoMessages.StringMessage Indice = 8;
+	protoMessages.Int32Message Codcotizimport = 9;
+
+}
+
+message GsMonedasValoreMessage {
+	int32 Codbase = 1;
+	int32 Codcambio = 2;
+	google.protobuf.Timestamp Fecha = 3;
+	double Valor = 4;
+
+}
+
+message GsMovsHaciendag3CMessage {
+	int32 Codempre = 1;
+	int32 Codmovimiento = 2;
+	string TipoMov = 3;
+	int32 Codproducto = 4;
+	protoMessages.DoubleMessage Cantparte = 5;
+	protoMessages.DoubleMessage Canttotal = 6;
+	protoMessages.DoubleMessage Coef = 7;
+	protoMessages.Int32Message Codproddest = 8;
+	int32 Codestablecimiento = 9;
+	protoMessages.Int32Message Codestdest = 10;
+	google.protobuf.Timestamp Fecha = 11;
+	google.protobuf.Timestamp FecAlta = 12;
+	protoMessages.Int32Message UsrAlta = 13;
+	google.protobuf.Timestamp FecModif = 14;
+	protoMessages.Int32Message UsrModif = 15;
+	google.protobuf.Timestamp FecBaja = 16;
+	protoMessages.Int32Message UsrBaja = 17;
+	string Estado = 18;
+	protoMessages.StringMessage Observ = 19;
+
+}
+
+message GsMovsInsumosDetalleg3CMessage {
+	int32 Codempre = 1;
+	int32 Codmovimiento = 2;
+	int32 Numlinea = 3;
+	protoMessages.Int32Message Codproducto = 4;
+	protoMessages.DoubleMessage Cantparte = 5;
+	protoMessages.DoubleMessage Canttotal = 6;
+	protoMessages.DoubleMessage Coef = 7;
+
+}
+
+message GsMovsInsumosg3CMessage {
+	int32 Codempre = 1;
+	int32 Codmovimiento = 2;
+	int32 Codorigen = 3;
+	int32 Coddestino = 4;
+	string NroRemito = 5;
+	google.protobuf.Timestamp Fecha = 6;
+	protoMessages.Int32Message Codresponsable = 7;
+	string Estado = 8;
+	protoMessages.StringMessage Observ = 9;
+	google.protobuf.Timestamp FecAlta = 10;
+	protoMessages.Int32Message UsrAlta = 11;
+	google.protobuf.Timestamp FecModif = 12;
+	protoMessages.Int32Message UsrModif = 13;
+	google.protobuf.Timestamp FecBaja = 14;
+	protoMessages.Int32Message UsrBaja = 15;
+
+}
+
+message GsNegociosCopiaMessage {
+	int32 Codempre = 1;
+	int32 CodplanNegocios = 2;
+	int32 CodcuentaNegocios = 3;
+	int32 CopiasComp = 4;
+	int32 CopiasVta = 5;
+	string ImprUsuario = 6;
+
+}
+
+message GsNegociosNombCopiaMessage {
+	int32 Codempre = 1;
+	int32 CodplanNegocios = 2;
+	int32 CodcuentaNegocios = 3;
+	string Tipooper = 4;
+	int32 Copia = 5;
+	string Descrip = 6;
+
+}
+
+message GsNegociosSucursalMessage {
+	int32 Codempre = 1;
+	int32 CodplanNegocios = 2;
+	int32 CodcuentaNegocios = 3;
+	int32 CodplanSucursal = 4;
+	int32 CodcuentaSucursal = 5;
+
+}
+
+message GsNombPlaneMessage {
+	int32 Codplan = 1;
+	string Descrip = 2;
+	protoMessages.Int32Message CtaResultEjercicio = 3;
+	protoMessages.Int32Message CtaResultAnteriores = 4;
+	protoMessages.Int32Message CtaPerdidaRedond = 5;
+	protoMessages.Int32Message CtaGananciaRedond = 6;
+	protoMessages.Int32Message CtaPerdidaDifCambio = 7;
+	protoMessages.Int32Message CtaGananciaDifCambio = 8;
+	protoMessages.StringMessage TipoPlan = 9;
+	string BloquearCtas = 10;
+	protoMessages.Int32Message Codempre = 11;
+
+}
+
+message GsNombRelacionMessage {
+	int32 Codrela = 1;
+	string Descrip = 2;
+	int32 Codplndsde = 3;
+	int32 Codplnhsta = 4;
+
+}
+
+message GsOperacionesRegSelloMessage {
+	int32 Codempre = 1;
+	int32 PrioridadNegocios = 2;
+	int32 CodplanNegocios = 3;
+	int32 CodcuentaNegocios = 4;
+	protoMessages.Int32Message Codoperacion = 5;
+	protoMessages.StringMessage LugarOrigen = 6;
+
+}
+
+message GsOrdenesDetalleg3CMessage {
+	int32 Codempre = 1;
+	int32 Codorden = 2;
+	int32 Numlinea = 3;
+	int32 Codcultivo = 4;
+	protoMessages.Int32Message Codplan = 5;
+	int32 Codproducto = 6;
+	protoMessages.Int32Message CodremitoEntrega = 7;
+	protoMessages.Int32Message CodremitoDelovuc = 8;
+	int32 Coddeposito = 9;
+	protoMessages.DoubleMessage Cantparte = 10;
+	protoMessages.DoubleMessage Canttotal = 11;
+	protoMessages.DoubleMessage Coef = 12;
+	protoMessages.StringMessage ProduccionPropia = 13;
+	protoMessages.StringMessage Observ = 14;
+	protoMessages.DoubleMessage Importe = 15;
+	protoMessages.Int32Message Codmoneda = 16;
+	protoMessages.DoubleMessage Valorcambio = 17;
+
+}
+
+message GsOrdenesProduccionMessage {
+	int32 Codempre = 1;
+	int32 Codorden = 2;
+	google.protobuf.Timestamp Fecha = 3;
+	int32 Codproducto = 4;
+	protoMessages.DoubleMessage Cantparte = 5;
+	protoMessages.DoubleMessage Canttotal = 6;
+	protoMessages.DecimalMessage Coef = 7;
+	google.protobuf.Timestamp FechaEntrega = 8;
+	int32 OrdenadaPor = 9;
+	int32 CodpuntoProd = 10;
+	protoMessages.StringMessage Notas = 11;
+	protoMessages.StringMessage ArchivosAdjuntos = 12;
+	protoMessages.StringMessage Estado = 13;
+	google.protobuf.Timestamp FecAlta = 14;
+	protoMessages.Int32Message UsrAlta = 15;
+	google.protobuf.Timestamp FecModif = 16;
+	protoMessages.Int32Message UsrModif = 17;
+	google.protobuf.Timestamp FecBaja = 18;
+	protoMessages.Int32Message UsrBaja = 19;
+
+}
+
+message GsOrdenesProduccionDetalleMessage {
+	int32 Codempre = 1;
+	int32 Codorden = 2;
+	int32 Numlinea = 3;
+	int32 Dia = 4;
+	google.protobuf.Timestamp Fecha = 5;
+	int32 Codproducto = 6;
+	protoMessages.DoubleMessage Cantparte = 7;
+	protoMessages.DoubleMessage Canttotal = 8;
+	protoMessages.DecimalMessage Coef = 9;
+	protoMessages.StringMessage Observ = 10;
+	protoMessages.DoubleMessage Cantneta = 11;
+
+}
+
+message GsOrdenesg3CMessage {
+	int32 Codempre = 1;
+	int32 Codorden = 2;
+	int32 Codestablecimiento = 3;
+	protoMessages.Int32Message Codcampania = 4;
+	protoMessages.StringMessage NroOrden = 5;
+	google.protobuf.Timestamp Fecha = 6;
+	protoMessages.Int32Message Codcontratista = 7;
+	protoMessages.Int32Message Codresponsable = 8;
+	string TipoOrden = 9;
+	string Estado = 10;
+	protoMessages.StringMessage Observ = 11;
+	google.protobuf.Timestamp FecAlta = 12;
+	protoMessages.Int32Message UsrAlta = 13;
+	google.protobuf.Timestamp FecModif = 14;
+	protoMessages.Int32Message UsrModif = 15;
+	google.protobuf.Timestamp FecBaja = 16;
+	protoMessages.Int32Message UsrBaja = 17;
+	protoMessages.StringMessage AplicDirecta = 18;
+
+}
+
+message GsPadrones4212Message {
+	int32 Anio = 1;
+	int32 Mes = 2;
+	string Archivo = 3;
+
+}
+
+message GsPadronesAltoRiesgoMessage {
+	int32 Anio = 1;
+	int32 Mes = 2;
+	string Archivo = 3;
+
+}
+
+message GsPadronesCabaMessage {
+	int32 Anio = 1;
+	int32 Mes = 2;
+	string Archivo = 3;
+
+}
+
+message GsPadronesIibbMessage {
+	int32 Anio = 1;
+	int32 Mes = 2;
+	string Archivo = 3;
+	string TipoOper = 4;
+
+}
+
+message GsPartidosOnccaMessage {
+	int32 Codpartido = 1;
+	string Partido = 2;
+	protoMessages.Int32Message Codprovoncca = 3;
+
+}
+
+message GsPaseMessage {
+	int32 Codempre = 1;
+	int32 Codpase = 2;
+	protoMessages.StringMessage Titulo = 3;
+	protoMessages.StringMessage Descripcion = 4;
+	protoMessages.StringMessage Numdoc = 5;
+	protoMessages.StringMessage TipoPase = 6;
+	protoMessages.StringMessage Notas = 7;
+	protoMessages.Int32Message Codlista = 8;
+	protoMessages.Int32Message Codmoneda = 9;
+	protoMessages.Int32Message Codproducto = 10;
+	protoMessages.Int32Message Codpersona = 11;
+	protoMessages.Int32Message Codclasif = 12;
+
+}
+
+message GsPasesClasifMessage {
+	int32 Codclasif = 1;
+	string Clasif = 2;
+
+}
+
+message GsPasesCuentaMessage {
+	int32 Codempre = 1;
+	int32 Codpase = 2;
+	int32 Prioridad = 3;
+	int32 Codplan = 4;
+	protoMessages.Int32Message Codcuentadebe = 5;
+	protoMessages.Int32Message Codcuentahaber = 6;
+
+}
+
+message GsPedidosCotizacionMessage {
+	int32 Codcotizacion = 1;
+	int32 Codempre = 2;
+	string Descrip = 3;
+	protoMessages.StringMessage Detalle = 4;
+	google.protobuf.Timestamp Fecha = 5;
+	int32 Validez = 6;
+	int32 Codpersona = 7;
+	protoMessages.StringMessage Estado = 8;
+	google.protobuf.Timestamp FecAlta = 9;
+	protoMessages.Int32Message UsrAlta = 10;
+	google.protobuf.Timestamp FecModif = 11;
+	protoMessages.Int32Message UsrModif = 12;
+	google.protobuf.Timestamp FecBaja = 13;
+	protoMessages.Int32Message UsrBaja = 14;
+	protoMessages.Int32Message Codresponsable = 15;
+	protoMessages.StringMessage Referencia = 16;
+	protoMessages.Int32Message TiempoEntrega = 17;
+	protoMessages.StringMessage FormaPago = 18;
+	protoMessages.StringMessage CondicionEntrega = 19;
+	protoMessages.StringMessage Flete = 20;
+	protoMessages.StringMessage Notas = 21;
+
+}
+
+message GsPedidosCotizacionDetalleMessage {
+	int32 Codcotizacion = 1;
+	int32 Numlinea = 2;
+	int32 CodprodElab = 3;
+	double Cantidad = 4;
+	double Precio = 5;
+	double Total = 6;
+
+}
+
+message GsPedidosCotizacionMaterialeMessage {
+	int32 Codcotizacion = 1;
+	int32 Codproveedor = 2;
+	int32 Numlinea = 3;
+	int32 Codproducto = 4;
+	protoMessages.Int32Message FraccionesTot = 5;
+	protoMessages.DoubleMessage FraccionesUsadas = 6;
+	protoMessages.DoubleMessage Precio = 7;
+	protoMessages.DoubleMessage Total = 8;
+	string Estado = 9;
+
+}
+
+message GsPedidosCotizacionProveedoreMessage {
+	int32 Codcotizacion = 1;
+	int32 Codproveedor = 2;
+	google.protobuf.Timestamp FechaPedido = 3;
+	google.protobuf.Timestamp FechaEntrega = 4;
+	string Estado = 5;
+
+}
+
+message GsPercibidoMessage {
+	int32 Codempre = 1;
+	int32 Percibido = 2;
+	google.protobuf.Timestamp Fecha = 3;
+	protoMessages.StringMessage Concepto = 4;
+	protoMessages.StringMessage Notas = 5;
+	protoMessages.Int32Message UsrAlta = 6;
+	google.protobuf.Timestamp FecAlta = 7;
+	protoMessages.Int32Message UsrModif = 8;
+	google.protobuf.Timestamp FecModif = 9;
+	protoMessages.StringMessage TipoOrden = 10;
+	protoMessages.Int32Message NroOrden = 11;
+	protoMessages.Int32Message Codpersrecibo = 12;
+	protoMessages.Int32Message NroOt = 13;
+	string Estado = 14;
+	protoMessages.StringMessage Codsucursal = 15;
+	protoMessages.StringMessage Impreso = 16;
+	protoMessages.StringMessage PersonaRecibo = 17;
+	protoMessages.StringMessage ArchivosAdjuntos = 18;
+	protoMessages.StringMessage SoloGestion = 19;
+	protoMessages.Int32Message Codmoneda = 20;
+	protoMessages.DoubleMessage Valorcambio = 21;
+	protoMessages.Int32Message CodcomprMostrador = 22;
+	protoMessages.StringMessage EnvioPorMail = 23;
+
+}
+
+message GsPercibidoOcMessage {
+	int32 Codempre = 1;
+	int32 Percibido = 2;
+	int32 OrdenCobro = 3;
+
+}
+
+message GsPercibidoOpMessage {
+	int32 Codempre = 1;
+	int32 Percibido = 2;
+	int32 OrdenPago = 3;
+
+}
+
+message GsPercibidoValoreMessage {
+	int32 Codempre = 1;
+	int32 Percibido = 2;
+	int32 Orden = 3;
+	google.protobuf.Timestamp Fecemision = 4;
+	protoMessages.Int32Message Tipdoc = 5;
+	protoMessages.StringMessage Numdoc = 6;
+	int32 Codctacte = 7;
+	double Debe = 8;
+	double Haber = 9;
+	double Mdebe = 10;
+	double Mhaber = 11;
+	double Valorcambio = 12;
+	google.protobuf.Timestamp Fechabanco = 13;
+	protoMessages.StringMessage OrdenCheq = 14;
+	string Estado = 15;
+	protoMessages.Int32Message Codbanco = 16;
+	protoMessages.StringMessage Emisor = 17;
+	protoMessages.StringMessage Endoso = 18;
+	protoMessages.StringMessage NroTerceros = 19;
+	protoMessages.StringMessage SucursalCheque = 20;
+	protoMessages.Int32Message Codmediopago = 21;
+
+}
+
+message GsPersonaMessage {
+	int32 Codpersona = 1;
+	string Nombre = 2;
+	protoMessages.StringMessage Contacto = 3;
+	protoMessages.StringMessage OrdenCheq = 4;
+	protoMessages.StringMessage Direccion = 5;
+	protoMessages.StringMessage Localidad = 6;
+	protoMessages.StringMessage Provincia = 7;
+	protoMessages.StringMessage Cpostal = 8;
+	protoMessages.StringMessage Telefono = 9;
+	protoMessages.StringMessage Fax = 10;
+	protoMessages.StringMessage Celular = 11;
+	protoMessages.StringMessage EMail = 12;
+	string Cuit = 13;
+	int32 Codgrupo = 14;
+	string Agente = 15;
+	protoMessages.StringMessage Codzona = 16;
+	string TipoDoc = 17;
+	string BlqCompras = 18;
+	string BlqComprasInv = 19;
+	string BlqVentas = 20;
+	string BlqVentasInv = 21;
+	string BlqIngresos = 22;
+	string BlqEgresos = 23;
+	string BlqAntIngresos = 24;
+	string BlqAntEgresos = 25;
+	string BlqPagos = 26;
+	string BlqCobros = 27;
+	google.protobuf.Timestamp BlqDesde = 28;
+	google.protobuf.Timestamp BlqHasta = 29;
+	string Faenador = 30;
+	google.protobuf.Timestamp VtoCuit = 31;
+	bytes Contrasenia = 32;
+	protoMessages.StringMessage MailResponsable = 33;
+	protoMessages.StringMessage Notas = 34;
+	protoMessages.StringMessage Agropecuaria = 35;
+	protoMessages.StringMessage Matarife = 36;
+	protoMessages.StringMessage DatosSobre = 37;
+	protoMessages.StringMessage Contratista = 38;
+	protoMessages.StringMessage Responsable = 39;
+	protoMessages.StringMessage Transporte = 40;
+	protoMessages.StringMessage Entregador = 41;
+	protoMessages.StringMessage Corredor = 42;
+	protoMessages.StringMessage Embolsador = 43;
+	protoMessages.StringMessage NroIibb = 44;
+	protoMessages.StringMessage Inversor = 45;
+	protoMessages.StringMessage Comprador = 46;
+	protoMessages.StringMessage FacturaPorMail = 47;
+	protoMessages.StringMessage Password = 48;
+	protoMessages.StringMessage PadronArf = 49;
+	protoMessages.Int32Message Codlista = 50;
+	protoMessages.Int32Message CodcondVenta = 51;
+	protoMessages.StringMessage Deshabilitada = 52;
+	protoMessages.Int32Message Codcaracter = 53;
+	protoMessages.StringMessage NroRuca = 54;
+	protoMessages.StringMessage NroPlanta = 55;
+	protoMessages.StringMessage FaenadorAutoriz = 56;
+	protoMessages.StringMessage InformoCbu = 57;
+	protoMessages.StringMessage CompradorAutorizado = 58;
+	protoMessages.Int32Message CodlimiteCredito = 59;
+	protoMessages.StringMessage ArchivosAdjuntos = 60;
+
+}
+
+message GsPersonasBancoMessage {
+	int32 Codpersona = 1;
+	int32 Orden = 2;
+	string Nombre = 3;
+	protoMessages.StringMessage TipoDoc = 4;
+	protoMessages.StringMessage Cuit = 5;
+	protoMessages.Int32Message Codbanco = 6;
+	protoMessages.StringMessage TipoCuenta = 7;
+	protoMessages.StringMessage NroCuenta = 8;
+	protoMessages.StringMessage Sucursal = 9;
+	protoMessages.StringMessage Cbu = 10;
+
+}
+
+message GsPersonasBonificacioneMessage {
+	int32 Codbonificacion = 1;
+	int32 Codpersona = 2;
+	int32 Codimpuesto = 3;
+	protoMessages.Int32Message Codempre = 4;
+	protoMessages.Int32Message PrioridadNegocios = 5;
+	protoMessages.Int32Message CodplanNegocios = 6;
+	protoMessages.Int32Message CodcuentaNegocios = 7;
+	protoMessages.StringMessage TipoBonif = 8;
+	protoMessages.DoubleMessage Bonificacion = 9;
+	google.protobuf.Timestamp VigDesde = 10;
+	google.protobuf.Timestamp VigHasta = 11;
+	string Tipooper = 12;
+
+}
+
+message GsPersonasClasificacionMessage {
+	int32 Codpersona = 1;
+	int32 Codplan = 2;
+	int32 Codcuenta = 3;
+
+}
+
+message GsPersonasClasificacionexMessage {
+	int32 Codplan = 1;
+	int32 Codcuenta = 2;
+
+}
+
+message GsPersonasComisioneMessage {
+	int32 Codcomision = 1;
+	int32 Codpersona = 2;
+	string Tipooper = 3;
+	int32 Codagente = 4;
+	protoMessages.Int32Message Codempre = 5;
+	protoMessages.Int32Message PrioridadNegocios = 6;
+	protoMessages.Int32Message CodplanNegocios = 7;
+	protoMessages.Int32Message CodcuentaNegocios = 8;
+	protoMessages.DoubleMessage Comision = 9;
+	protoMessages.StringMessage Coddestino = 10;
+
+}
+
+message GsPersonasContrMessage {
+	int32 Codperscontr = 1;
+	string Nombre = 2;
+	string Cuit = 3;
+	protoMessages.Int32Message CodpersG3 = 4;
+
+}
+
+message GsPersonasFisicaMessage {
+	int32 Codpersfisica = 1;
+	int32 Codpersona = 2;
+	string Nombre = 3;
+	protoMessages.StringMessage Cuit = 4;
+	protoMessages.StringMessage CompradorAutorizado = 5;
+
+}
+
+message GsPersonasGrpCuentaMessage {
+	int32 Codgrupo = 1;
+	int32 Codplan = 2;
+	string Tipooper = 3;
+	int32 Codmoneda = 4;
+	int32 Codcuenta = 5;
+
+}
+
+message GsPersonasGrupoMessage {
+	int32 Codgrupo = 1;
+	protoMessages.StringMessage Descripcion = 2;
+
+}
+
+message GsPersonasImpuestoMessage {
+	int32 Codpersona = 1;
+	int32 Codimpuesto = 2;
+
+}
+
+message GsPersonasMailMessage {
+	int32 Codtipoaviso = 1;
+	int32 Codpersona = 2;
+
+}
+
+message GsPlanAcciong3CMessage {
+	int32 Codplan = 1;
+	int32 Codcampania = 2;
+	int32 Codestablecimiento = 3;
+	int32 Codlote = 4;
+	int32 Codactividad = 5;
+	string Descrip = 6;
+	double Superficie = 7;
+	protoMessages.StringMessage Variedad = 8;
+	protoMessages.DoubleMessage SupCosechada = 9;
+	protoMessages.DoubleMessage RindePresup = 10;
+	protoMessages.DoubleMessage RindeSembrado = 11;
+	protoMessages.DoubleMessage RindeEstimado = 12;
+	protoMessages.StringMessage Estado = 13;
+
+}
+
+message GsPlanDeCuentaMessage {
+	int32 Codplan = 1;
+	int32 Codcuenta = 2;
+	string Descrip = 3;
+	string Astosuma = 4;
+	protoMessages.Int32Message Sumaria = 5;
+	string TipoCuenta = 6;
+	protoMessages.Int32Message Codmoneda = 7;
+	string Bloqueada = 8;
+	protoMessages.StringMessage Fisicos = 9;
+	protoMessages.StringMessage AcumulaFisicos = 10;
+	protoMessages.StringMessage ControlaMoneda = 11;
+	protoMessages.Int32Message CodetiquetaluciusRubro = 12;
+	protoMessages.Int32Message CodetiquetaluciusActividad = 13;
+	protoMessages.Int32Message CodetiquetaluciusMacro = 14;
+	protoMessages.Int32Message CodetiquetaluciusMicro = 15;
+	protoMessages.Int32Message CodetiquetaluciusTipo = 16;
+	protoMessages.Int32Message CodetiquetaluciusCampo = 17;
+
+}
+
+message GsPlantasSilosg3CMessage {
+	int32 Codplanta = 1;
+	string Descrip = 2;
+
+}
+
+message GsPreciosProductoMessage {
+	google.protobuf.Timestamp Fecha = 1;
+	int32 Codproducto = 2;
+	double Precio = 3;
+	google.protobuf.Timestamp FecModif = 4;
+
+}
+
+message GsPreciosProveedoreMessage {
+	int32 Codpersona = 1;
+	int32 Codproducto = 2;
+	google.protobuf.Timestamp VigDesde = 3;
+	double Importe = 4;
+
+}
+
+message GsPresupuestoMessage {
+	int32 Codpresupuesto = 1;
+	int32 Codempre = 2;
+	string Descrip = 3;
+	google.protobuf.Timestamp Fecha = 4;
+
+}
+
+message GsProductoMessage {
+	int32 Codproducto = 1;
+	string Descrip = 2;
+	protoMessages.Int32Message Unidparte = 3;
+	protoMessages.Int32Message Unidtotal = 4;
+	protoMessages.DoubleMessage Coef = 5;
+	protoMessages.DoubleMessage Importe = 6;
+	string Prodogrupo = 7;
+	protoMessages.Int32Message Codgrupo = 8;
+	string ManejaStock = 9;
+	protoMessages.Int32Message Codtipoinsumo = 10;
+	protoMessages.StringMessage Bloqueado = 11;
+	protoMessages.Int64Message Codbarras = 12;
+	protoMessages.DoubleMessage Costo = 13;
+	protoMessages.StringMessage DescripDetallada = 14;
+	protoMessages.Int32Message Codiva = 15;
+	protoMessages.StringMessage Codfe = 16;
+	protoMessages.StringMessage Codimportacion = 17;
+
+}
+
+message GsProductosCuentaMessage {
+	int32 Codempre = 1;
+	int32 Codproducto = 2;
+	int32 Prioridad = 3;
+	int32 Codplan = 4;
+	int32 Codcuenta = 5;
+	double Canttotal = 6;
+	double Importe = 7;
+
+}
+
+message GsProductosElaboradoMessage {
+	int32 CodprodElab = 1;
+	int32 Codproducto = 2;
+	string TipoProduccion = 3;
+	protoMessages.DoubleMessage Cantparte = 4;
+	protoMessages.DoubleMessage Canttotal = 5;
+	protoMessages.DecimalMessage Coef = 6;
+	protoMessages.StringMessage Notas = 7;
+	protoMessages.StringMessage ArchivosAdjuntos = 8;
+	google.protobuf.Timestamp FecAlta = 9;
+	protoMessages.Int32Message UsrAlta = 10;
+	google.protobuf.Timestamp FecModif = 11;
+	protoMessages.Int32Message UsrModif = 12;
+	google.protobuf.Timestamp FecBaja = 13;
+	protoMessages.Int32Message UsrBaja = 14;
+
+}
+
+message GsProductosElaboradosDetalleMessage {
+	int32 CodprodElab = 1;
+	int32 Numlinea = 2;
+	int32 Codproducto = 3;
+	protoMessages.DoubleMessage Cantparte = 4;
+	protoMessages.DoubleMessage Canttotal = 5;
+	protoMessages.DecimalMessage Coef = 6;
+	int32 Dia = 7;
+	protoMessages.StringMessage Observ = 8;
+	protoMessages.DoubleMessage Cantneta = 9;
+
+}
+
+message GsProductosImputacioneMessage {
+	int32 Codproducto = 1;
+	string Tipooper = 2;
+	int32 Codplan = 3;
+	int32 Codcuenta = 4;
+
+}
+
+message GsProvinciaMessage {
+	string Codprov = 1;
+	string Descrip = 2;
+	protoMessages.Int32Message Codprovoncca = 3;
+
+}
+
+message GsPuntosProduccionMessage {
+	int32 CodpuntoProd = 1;
+	string Descrip = 2;
+	protoMessages.Int32Message Codresponsable = 3;
+
+}
+
+message GsRazaMessage {
+	int32 Codraza = 1;
+	string Raza = 2;
+	protoMessages.Int32Message Codafip = 3;
+
+}
+
+message GsRelaDevPerMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	int32 Orden = 3;
+	protoMessages.Int32Message Percibido = 4;
+	google.protobuf.Timestamp Fechavenc = 5;
+	double Debe = 6;
+	double Haber = 7;
+	double Mdebe = 8;
+	double Mhaber = 9;
+	protoMessages.StringMessage Comentario = 10;
+	float PorcentPago = 11;
+	protoMessages.Int32Message Codplan = 12;
+	protoMessages.Int32Message Codcuenta = 13;
+	protoMessages.Int32Message Codctacte = 14;
+	google.protobuf.Timestamp FecEstimadaPago = 15;
+
+}
+
+message GsRelaPersCcMessage {
+	int32 Codempre = 1;
+	int32 Codpersona = 2;
+	int32 Codctacte = 3;
+	protoMessages.Int32Message Tipdocpag = 4;
+	protoMessages.Int32Message Tipdoccob = 5;
+	int32 Codmoneda = 6;
+
+}
+
+message GsRelaPlaneMessage {
+	int32 Codrela = 1;
+	int32 Codplndsde = 2;
+	int32 Ctadesde = 3;
+	int32 Codplnhsta = 4;
+	int32 Ctahasta = 5;
+
+}
+
+message GsRelacionesOperativoMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	int32 Numlinea = 3;
+	string TipooperRel = 4;
+	int32 NumeroRel = 5;
+	int32 NumlineaRel = 6;
+
+}
+
+message GsRemateMessage {
+	int32 Codremate = 1;
+	int32 Codempre = 2;
+	string Tipoproceso = 3;
+	int32 CodplanNegocios = 4;
+	int32 CodcuentaNegocios = 5;
+	string TipoClasif = 6;
+	int32 CodplanClasif = 7;
+	int32 CodcuentaClasif = 8;
+	int32 CodplanSucursal = 9;
+	int32 CodcuentaSucursal = 10;
+	int32 NroRemate = 11;
+	google.protobuf.Timestamp Fecoperacion = 12;
+	google.protobuf.Timestamp Fecemision = 13;
+	protoMessages.StringMessage Lugar = 14;
+	int32 Codgrupoalic = 15;
+	protoMessages.Int32Message CodcomprVentaA = 16;
+	protoMessages.Int32Message CodcomprVentaB = 17;
+	protoMessages.Int32Message CodcomprCompraA = 18;
+	protoMessages.Int32Message CodcomprCompraB = 19;
+	protoMessages.StringMessage Notas = 20;
+	string Estado = 21;
+	protoMessages.Int32Message UsrAlta = 22;
+	google.protobuf.Timestamp FecAlta = 23;
+	protoMessages.Int32Message UsrModif = 24;
+	google.protobuf.Timestamp FecModif = 25;
+	protoMessages.StringMessage OrigenHacienda = 26;
+	protoMessages.StringMessage CodPostalHacienda = 27;
+	protoMessages.Int32Message Codmoneda = 28;
+	protoMessages.DoubleMessage Valorcambio = 29;
+	google.protobuf.Timestamp Fecfaena = 30;
+
+}
+
+message GsRemitosDetalleg3CMessage {
+	int32 Codempre = 1;
+	int32 Codremito = 2;
+	int32 Numlinea = 3;
+	protoMessages.Int32Message Codproducto = 4;
+	protoMessages.DoubleMessage Cantparte = 5;
+	protoMessages.DoubleMessage Canttotal = 6;
+	protoMessages.DoubleMessage Coef = 7;
+	protoMessages.Int32Message NumeroFact = 8;
+	protoMessages.Int32Message NumlineaFact = 9;
+	protoMessages.DoubleMessage Importe = 10;
+	protoMessages.Int32Message Codmoneda = 11;
+	protoMessages.DoubleMessage Valorcambio = 12;
+
+}
+
+message GsRemitosFacturaMessage {
+	int32 Codempre = 1;
+	int32 NumeroFact = 2;
+	int32 NumlineaFact = 3;
+	int32 NumeroRemito = 4;
+	int32 NumlineaRemito = 5;
+
+}
+
+message GsRemitosg3CMessage {
+	int32 Codempre = 1;
+	int32 Codremito = 2;
+	string NroRemito = 3;
+	google.protobuf.Timestamp Fecha = 4;
+	int32 Codpersona = 5;
+	protoMessages.Int32Message Codtiporemito = 6;
+	protoMessages.Int32Message Coddeposito = 7;
+	string Estado = 8;
+	protoMessages.StringMessage Observ = 9;
+	google.protobuf.Timestamp FecAlta = 10;
+	protoMessages.Int32Message UsrAlta = 11;
+	google.protobuf.Timestamp FecModif = 12;
+	protoMessages.Int32Message UsrModif = 13;
+	google.protobuf.Timestamp FecBaja = 14;
+	protoMessages.Int32Message UsrBaja = 15;
+	string TipoProds = 16;
+	protoMessages.Int32Message Codestablecimiento = 17;
+	protoMessages.StringMessage ControlRemito = 18;
+
+}
+
+message GsReplicaMessage {
+	int32 Codempre = 1;
+	int32 Numero = 2;
+	string Descrip = 3;
+
+}
+
+message GsReporteMessage {
+	int32 Codreporte = 1;
+	string Reporte = 2;
+	string Consulta = 3;
+	string Hoja = 4;
+	string Margenes = 5;
+	protoMessages.StringMessage Titulo = 6;
+	protoMessages.StringMessage TituloLetra = 7;
+	protoMessages.StringMessage SubtituloLetra = 8;
+	protoMessages.StringMessage ParametrosLetra = 9;
+	protoMessages.StringMessage EncabezadosLetra = 10;
+	protoMessages.StringMessage DatosLetra = 11;
+	protoMessages.StringMessage EncabezadosResumenLetra = 12;
+	protoMessages.StringMessage DatosResumenLetra = 13;
+	protoMessages.StringMessage ImprimeResumen = 14;
+	protoMessages.StringMessage OrdenarReporte = 15;
+
+}
+
+message GsReportesColumnaMessage {
+	int32 Codreporte = 1;
+	int32 Codtabla = 2;
+	string Columna = 3;
+	protoMessages.Int32Message Orden = 4;
+
+}
+
+message GsReportesCorteMessage {
+	int32 Codreporte = 1;
+	int32 Codtabla = 2;
+	int32 Codcorte = 3;
+	string Columnas = 4;
+
+}
+
+message GsReportesParametroMessage {
+	int32 Codreporte = 1;
+	int32 Codparametro = 2;
+	string Parametro = 3;
+
+}
+
+message GsRetencioneMessage {
+	int32 Codretencion = 1;
+	string Descrip = 2;
+	protoMessages.Int32Message Codacreedor = 3;
+	protoMessages.Int32Message Codimpuesto = 4;
+	double RetencionMinima = 5;
+	string TipoReten = 6;
+	string UsaRubros = 7;
+	string UsaZonas = 8;
+	string TieneAcreedor = 9;
+	string Calculo = 10;
+	protoMessages.StringMessage Codinterno = 11;
+	protoMessages.Int32Message Codplan = 12;
+	string Obligatoria = 13;
+	protoMessages.StringMessage DiscriminaFaena = 14;
+	protoMessages.DoubleMessage PorcAgropecuaria = 15;
+	protoMessages.DoubleMessage PorcMatarife = 16;
+	protoMessages.StringMessage Codjurisdicc = 17;
+	protoMessages.StringMessage CalcularSobrePago = 18;
+	protoMessages.StringMessage Codcondicion = 19;
+
+}
+
+message GsSobreMessage {
+	int32 Codsobre = 1;
+	string Descrip = 2;
+	string Remitente = 3;
+	string TipoLetra = 4;
+	int32 SobreAlto = 5;
+	int32 SobreAncho = 6;
+	protoMessages.Int32Message RemitenteTamanio = 7;
+	protoMessages.StringMessage RemitenteEstilo = 8;
+	protoMessages.Int32Message RemitenteSup = 9;
+	protoMessages.Int32Message RemitenteIzq = 10;
+	protoMessages.StringMessage Rotar90 = 11;
+	protoMessages.Int32Message DestinatarioTamanio = 12;
+	protoMessages.StringMessage DestinatarioEstilo = 13;
+	protoMessages.Int32Message DestinatarioSup = 14;
+	protoMessages.Int32Message DestinatarioIzq = 15;
+	protoMessages.Int32Message DestinatarioAlto = 16;
+	protoMessages.Int32Message DestinatarioAncho = 17;
+	protoMessages.Int32Message RemitenteAncho = 18;
+	protoMessages.Int32Message RemitenteAlto = 19;
+
+}
+
+message GsSucursaleMessage {
+	int32 Codsucursal = 1;
+	string Descrip = 2;
+	protoMessages.StringMessage SoloGestionPorDefecto = 3;
+
+}
+
+message GsSucursalesPagoMessage {
+	int32 Codempre = 1;
+	string Codsucursal = 2;
+	string Descripcion = 3;
+	string NumeraAuto = 4;
+	protoMessages.Int32Message UltimaOp = 5;
+	protoMessages.Int32Message UltimaOc = 6;
+	protoMessages.Int32Message UltimaOt = 7;
+	protoMessages.Int32Message UltimaOa = 8;
+	protoMessages.Int32Message UsrAlta = 9;
+	google.protobuf.Timestamp FecAlta = 10;
+	protoMessages.Int32Message UsrModif = 11;
+	google.protobuf.Timestamp FecModif = 12;
+
+}
+
+message GsSucursalesPtosVentaMessage {
+	int32 Codcomprobante = 1;
+	int32 Codsucursal = 2;
+	string PuntoVenta = 3;
+
+}
+
+message GsTalonarioMessage {
+	int32 Codtipotalonario = 1;
+	int64 NroDesde = 2;
+	int64 NroHasta = 3;
+	google.protobuf.Timestamp FechaVenc = 4;
+	protoMessages.StringMessage Cai = 5;
+	string Estado = 6;
+
+}
+
+message GsTalonariosChequeraMessage {
+	int32 Codtipochequera = 1;
+	int32 NroChequera = 2;
+	int32 NroDesde = 3;
+	int32 NroHasta = 4;
+	string Estado = 5;
+
+}
+
+message GsTarifasCatacg3CMessage {
+	int32 Codcatac = 1;
+	double Distancia = 2;
+	double Tarifa = 3;
+
+}
+
+message GsTipoDocMessage {
+	int32 Codigo = 1;
+	string Tipdoc = 2;
+	string Descrip = 3;
+	string Invierte = 4;
+	string Compras = 5;
+	string Ventas = 6;
+	string Percibido = 7;
+	string EmiteCheque = 8;
+	string ValoresTerceros = 9;
+	string Habilitado = 10;
+	protoMessages.StringMessage Codbarras = 11;
+	string ComprasLn = 12;
+	string VentasLn = 13;
+	protoMessages.StringMessage Codfiscal = 14;
+	protoMessages.StringMessage Codciti = 15;
+	string Remitos = 16;
+	protoMessages.StringMessage Codiibb = 17;
+	string ChequeDiferido = 18;
+	protoMessages.StringMessage TipoDocFactElectr = 19;
+	string Cosecha = 20;
+	protoMessages.StringMessage CodregSellos = 21;
+	protoMessages.StringMessage Codfe = 22;
+	string ControlaRemito = 23;
+	protoMessages.Int32Message CodformularioA = 24;
+	protoMessages.Int32Message CodformularioB = 25;
+	protoMessages.StringMessage LiquidoProd = 26;
+	protoMessages.StringMessage Codlsp = 27;
+	protoMessages.Int32Message Codtipoconceptos = 28;
+	protoMessages.StringMessage ControlaStock = 29;
+
+}
+
+message GsTiposAvisoMailMessage {
+	int32 Codtipoaviso = 1;
+	int32 Codempre = 2;
+	string Descrip = 3;
+
+}
+
+message GsTiposChequeraMessage {
+	int32 Codtipochequera = 1;
+	int32 Codempre = 2;
+	int32 Tipdoc = 3;
+	int32 Codctacte = 4;
+
+}
+
+message GsTiposCptoContrMessage {
+	int32 Codempre = 1;
+	int32 Codtipocpto = 2;
+	string Descrip = 3;
+	string CodcptoContrato = 4;
+
+}
+
+message GsTiposDocAfipMessage {
+	string TipoDoc = 1;
+	string Codafip = 2;
+
+}
+
+message GsTiposFactContrMessage {
+	int32 Codempre = 1;
+	int32 Codtipofact = 2;
+	string TipoFact = 3;
+	protoMessages.Int32Message CodtipotalonarioA = 4;
+	protoMessages.Int32Message CodtipotalonarioB = 5;
+	string UsarNumeracionArch = 6;
+	string PrefijoArch = 7;
+	string Contado = 8;
+	protoMessages.StringMessage Notas = 9;
+	protoMessages.Int32Message CodplanVtos = 10;
+	protoMessages.Int32Message CodrubroVto = 11;
+
+}
+
+message GsTiposInsumosg3CMessage {
+	int32 Codtipoinsumo = 1;
+	string Descrip = 2;
+	string Grupo = 3;
+
+}
+
+message GsTiposPasesFisicoMessage {
+	int32 Codtipopasefisico = 1;
+	string TipoPase = 2;
+	protoMessages.StringMessage Descrip = 3;
+	protoMessages.StringMessage ConciliaCon = 4;
+	string ConciliaPrecio = 5;
+
+}
+
+message GsTiposRemitosg3CMessage {
+	int32 Codtiporemito = 1;
+	string Descrip = 2;
+	string ExportaAG3 = 3;
+	string TipoRemito = 4;
+
+}
+
+message GsTiposTalonarioMessage {
+	int32 Codtipotalonario = 1;
+	string Descrip = 2;
+	int32 Codempre = 3;
+	string TipoFactura = 4;
+	protoMessages.StringMessage Sucursal = 5;
+	int32 CantLineas = 6;
+	string NumeracionAuto = 7;
+	string ControlaCai = 8;
+	protoMessages.Int32Message AvisoDias = 9;
+	protoMessages.Int32Message AvisoNumeros = 10;
+	protoMessages.Int64Message UltimoNro = 11;
+	string Tipooper = 12;
+	string FacturaElectronica = 13;
+
+}
+
+message GsTransportistasg3CMessage {
+	int32 Codtransportista = 1;
+	string Nombre = 2;
+	int32 Codempresa = 3;
+	string PatenteCamion = 4;
+	protoMessages.StringMessage PatenteAcoplado = 5;
+	protoMessages.StringMessage Cuit = 6;
+
+}
+
+message GsTributosFeMessage {
+	string Tipotributo = 1;
+	protoMessages.StringMessage Codfe = 2;
+
+}
+
+message GsUnidadeMessage {
+	int32 Codigo = 1;
+	string Unidad = 2;
+	string Descrip = 3;
+
+}
+
+message GsUsuarioMessage {
+	int32 Codusuario = 1;
+	string Nombre = 2;
+	string Alias = 3;
+	protoMessages.StringMessage EMail = 4;
+	string Habilitado = 5;
+	bytes Contrasenia = 6;
+	protoMessages.StringMessage FirmaMail = 7;
+	protoMessages.Int32Message Codsucursal = 8;
+	protoMessages.StringMessage SoloPasesConfig = 9;
+	protoMessages.StringMessage SoloGestion = 10;
+	protoMessages.StringMessage GestorIdUser = 11;
+
+}
+
+message GsUsuariosEmpresaMessage {
+	int32 Codempre = 1;
+	int32 Codusuario = 2;
+
+}
+
+message GsValoreMessage {
+	int32 Numero = 1;
+	int32 Codempre = 2;
+	int32 Codctacte = 3;
+	int32 Numcobro = 4;
+	protoMessages.Int32Message Numpago = 5;
+	int32 Codpersona = 6;
+	google.protobuf.Timestamp Fecemision = 7;
+	google.protobuf.Timestamp Fecha = 8;
+	protoMessages.Int32Message Tipdoc = 9;
+	protoMessages.StringMessage Numdoc = 10;
+	double Importe = 11;
+	int32 Codbanco = 12;
+
+}
+
+message GsValuacionesPendienteMessage {
+	int32 Codempre = 1;
+	int32 Codproducto = 2;
+	int32 Codplan = 3;
+	int32 Codcuenta = 4;
+	google.protobuf.Timestamp Fecha = 5;
+	google.protobuf.Timestamp IniEjerc = 6;
+
+}
+
+message GsVistaMessage {
+	string Consulta = 1;
+	string Vista = 2;
+	string Campos = 3;
+
+}
+
+message GsZonasEstablecg3CMessage {
+	int32 Codzona = 1;
+	string Descrip = 2;
+
+}
+
+message ImpCondImpositivaMessage {
+	int32 Codcondicion = 1;
+	string Descripcion = 2;
+	string Alias = 3;
+	string Obligatorio = 4;
+	string DefineTipoFact = 5;
+	string TipoCondicion = 6;
+
+}
+
+message ImpCondImpositivaImpuestoMessage {
+	int32 Codcondicion = 1;
+	int32 Coditem = 2;
+	int32 Codimpuesto = 3;
+
+}
+
+message ImpCondImpositivaItemMessage {
+	int32 Codcondicion = 1;
+	int32 Coditem = 2;
+	string Descripcion = 3;
+	string Alias = 4;
+	string Defecto = 5;
+	protoMessages.StringMessage TipoFactComp = 6;
+	protoMessages.StringMessage TipoFactVta = 7;
+	protoMessages.StringMessage Codfiscal = 8;
+	protoMessages.StringMessage TipoIvaCompra = 9;
+	protoMessages.StringMessage TipoIvaVenta = 10;
+	protoMessages.StringMessage CodFactElectr = 11;
+
+}
+
+message ImpPersonasCondImpoMessage {
+	int32 Codpersona = 1;
+	int32 Codcondicion = 2;
+	int32 Coditem = 3;
+
+}
+
+message RetConceptoAlicuotaMessage {
+	int32 Codcondicion = 1;
+	int32 Coditem = 2;
+	double Desde = 3;
+	double Porcentaje = 4;
+	protoMessages.DoubleMessage SumaFija = 5;
+	int32 Codretencion = 6;
+	int32 Orden = 7;
+
+}
+
+message RetConceptoMinImpMessage {
+	protoMessages.Int32Message Codplan = 1;
+	protoMessages.Int32Message Codcuenta = 2;
+	string Concepto = 3;
+	double MinimoImponible = 4;
+	int32 Codretencion = 5;
+	int32 Orden = 6;
+	protoMessages.StringMessage Codzona = 7;
+	protoMessages.StringMessage Codfiscal = 8;
+
+}
+

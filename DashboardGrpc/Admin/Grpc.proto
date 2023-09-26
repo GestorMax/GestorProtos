@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "DashboardGrpc/Shared/Messages.proto"; 
+
+
+package dashboardGrpcAdmin;
+
+service DashboardAdmin {
+	rpc ListDashboards(google.protobuf.Empty) returns (dashboardGrpcShared.DashboardMessageList);
+	rpc GetDashboard(protoMessages.Int32Message) returns (dashboardGrpcShared.DashboardResponse);
+	rpc CreateDashboard(dashboardGrpcShared.DashboardMessage) returns (dashboardGrpcShared.DashboardResponse);
+	rpc UpdateDashboard(dashboardGrpcShared.DashboardMessage) returns (dashboardGrpcShared.DashboardResponse);
+	rpc DeleteDashboard(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+
+
+	//dashbaordForCompany
+	rpc ListDashboardsCompany(dashboardGrpcShared.ListDashboardsCompanyRequest) returns (dashboardGrpcShared.DashboardCompanyMessageList);
+	rpc GetDashboardCompany(protoMessages.Int32Message) returns (dashboardGrpcShared.DashboardCompanyResponse);
+	rpc CreateDashboardCompany(dashboardGrpcShared.DashboardCompanyMessage) returns (dashboardGrpcShared.DashboardCompanyResponse);
+	rpc UpdateDashboardCompany(dashboardGrpcShared.DashboardCompanyMessage) returns (dashboardGrpcShared.DashboardCompanyResponse);
+	rpc DeleteDashboardCompany(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+}

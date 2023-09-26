@@ -1,0 +1,413 @@
+syntax = "proto3";
+
+import "google/protobuf/Timestamp.proto";
+import "google/protobuf/Any.proto";
+import "ProtoMessages/Common.proto";
+
+package analyticsGrpc;
+
+enum UrlTypes {
+	URL_TYPES_FIJO = 0;
+	URL_TYPES_VARIABLE = 1;
+}
+
+enum SourceTypes {
+	SOURCE_TYPES_HTML = 0;	
+	SOURCE_TYPES_XML = 1;
+	SOURCE_TYPES_XLS = 2;
+	SOURCE_TYPES_CSV = 3;
+	SOURCE_TYPES_JSON = 4;
+}
+
+enum MethodAuthorizationTypes {
+	METHOD_AUTHORIZATION_TYPES_POST = 0;
+	METHOD_AUTHORIZATION_TYPES_GET = 1;	
+	METHOD_AUTHORIZATION_TYPES_TOKEN = 2;	
+}
+
+enum ModeAuthorizationResponseTypes {	
+	MODE_AUTHORIZATION_RESPONSE_TYPES_HEADERS = 0;
+	MODE_AUTHORIZATION_RESPONSE_TYPES_BODY = 1;
+}
+
+enum DownloadSourceTypes {
+	DOWNLOAD_SOURCE_TYPES_HTTP = 0;
+	DOWNLOAD_SOURCE_TYPES_SELENIUM = 1;
+}
+
+enum ScrapDataTypes {
+	SCRAP_DATA_TYPES_FIX = 0;
+	SCRAP_DATA_TYPES_SEARCH = 1;
+}
+
+message SourceMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated SourceMessage values = 1;
+}
+
+message SourceMessage {
+	int32 id = 1;	
+	protoMessages.StringMessage100 name = 2;
+	int32 URLType = 3;
+	string URL = 4;
+	protoMessages.StringMessage URLParams = 5;
+	SourceTypes sourceType = 6;
+	protoMessages.StringMessage schedule = 7;
+	int32 scheduledTaskId = 9;
+	int32 retryTimes = 11;
+	protoMessages.StringMessage URLBatch = 12;
+	protoMessages.StringMessage paramsFormat = 13;
+	int32 retrySeconds = 14;
+	bool IsFuture = 15;
+	int32 MonthCount = 16;
+	protoMessages.Int32Message AuthorizationId = 18;
+	int32 downloadSourceType = 19;
+	int32 DelaySecondsSelenium = 20;
+	string Delimiter = 21;
+	int32 CultureLanguageId = 22;
+	CultureLanguageMessage CultureLanguage = 23;
+}
+
+message SourceResponse{
+	protoMessages.ResponseResult result = 1;
+	SourceMessage message = 2;
+}
+
+message ScrapDataMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated ScrapDataMessage values = 1;
+}
+
+message ScrapDataMessage {
+	int32 id = 1;
+	int32 sourceId = 2;
+	int32 metricId = 4;
+	MetricMessage metric = 5;
+	protoMessages.StringMessage100 name = 6;
+	google.protobuf.Any acquisition = 9;
+	int32 dataDateId = 10;
+	ScrapDataDateMessage dataDate = 11;
+	int32 timeZoneOffset = 12;
+	string decimalSeparator = 13;
+	string groupSeparator = 14;
+	string symbol = 15;
+	bool enabled = 16;	
+	protoMessages.Int32Message maxDesviationValue = 18;
+	repeated DataLabelMessage dataLabels = 19;
+	bool isMetaData = 20;
+	protoMessages.StringMessage futureParameterFormat = 21;
+	protoMessages.Int32Message parentId = 22;
+	google.protobuf.Timestamp futureDateParameter = 23;
+	bool neverZero = 24;
+	int32 CultureLanguageId = 25;
+	CultureLanguageMessage CultureLanguage = 26;
+	bool onlyDate = 27;
+	bool onlyNews = 28;
+}
+
+message ScrapDataResponse {
+	protoMessages.ResponseResult result = 1;
+	ScrapDataMessage message = 2;
+}
+
+message ScrapDataDateMessage{
+	int32 id = 1;
+	int32 sourceId = 2;
+	string name = 3;
+	google.protobuf.Any acquisition = 4;
+	string cultureName = 5;
+}
+
+message ScrapDataDateMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated ScrapDataDateMessage values = 1;
+}
+
+message ScrapDataDateResponse {
+	protoMessages.ResponseResult result = 1;
+	ScrapDataDateMessage message = 2;
+}
+
+message UnitMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated UnitMessage values = 1;
+}
+
+message UnitMessage {
+	int32 id = 1;
+	protoMessages.StringMessage50 name = 2;
+	protoMessages.StringMessage20 symbol = 3;
+}
+
+message UnitResponse{
+	protoMessages.ResponseResult result = 1;
+	UnitMessage message = 2;
+}
+
+message MetricMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated MetricMessage values = 1;
+}
+
+message MetricMessage {
+	int32 id = 1;
+	int32 type = 2;
+	UnitMessage unit1 = 3;
+	UnitMessage unit2 = 4;
+	UnitMessage unit3 = 5;
+	int32 unit1Id = 6;
+	protoMessages.Int32Message unit2Id = 7;
+	protoMessages.Int32Message unit3Id = 8;
+}
+
+message MetricResponse {
+	protoMessages.ResponseResult result = 1;
+	MetricMessage message = 2;
+}
+
+message MeasurementMessage {
+	int32 scrapingId = 1;
+	protoMessages.ResponseResult result = 2;
+	int32 dataId = 3;
+	google.protobuf.Timestamp date = 6;
+	double value = 7;
+	int32 id = 8;
+	string name = 9;
+}
+
+message MeasurementMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated MeasurementMessage values = 1;
+}
+
+message MeasurementRequest {
+	int32 scrapingId = 1;
+	int32 dataId = 2;
+	google.protobuf.Timestamp dateFrom = 4;
+	google.protobuf.Timestamp dateTo = 5;
+}
+
+message MeasurementResponse{
+	protoMessages.ResponseResult result = 1;
+	MeasurementMessage message = 2;
+}
+
+message ScrapingMessage {
+	int32 id = 1;
+	int32 sourceId = 2;
+	google.protobuf.Timestamp dateTime = 3;	
+	repeated MeasurementMessage measurements = 4;
+	protoMessages.ResponseResult result = 5;
+}
+
+message ScrapingMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated ScrapingMessage values = 1;
+}
+
+message ScrapingResponse{
+	protoMessages.ResponseResult result = 1;
+	ScrapingMessage message = 2;
+}
+
+message HTMLAdquisitionMessage {
+	string node = 1;
+}
+
+message XLSAdquisitionMessage {
+	ScrapDataTypes type = 3; 
+	string sheetName = 1;
+	string formula = 2;
+}
+
+message XMLAdquisitionMessage {
+	string node = 2;
+	string value = 3;
+}
+
+message CSVAdquisitionMessage {
+	ScrapDataTypes type = 3; 
+	int32 row = 1;
+	int32 column = 2;
+	string searchKey = 4;
+	int32 returnColumn = 5;
+}
+
+message JSONAdquisitionMessage {
+	string node = 1;
+	string value = 2;	
+	protoMessages.StringMessage params = 3;
+	protoMessages.StringMessage paramsFormat = 4;
+	protoMessages.StringMessage CultureLanguage = 5;
+}
+
+message SourceBatchRequest {
+	int32 sourceId = 1;
+	google.protobuf.Timestamp dateFrom = 2;
+	google.protobuf.Timestamp dateTo = 3;
+	string days = 5;
+	int32 delayTime = 6;
+}
+
+message SourceBatchResponse {
+	protoMessages.ResponseResult result = 1;
+	ScrapingMessage scraping = 2;
+	float progress = 3;
+	google.protobuf.Timestamp dataDate = 4;
+	bool hasData = 5;
+}
+
+message LabelMessage {
+	int32 id = 1;
+	string name = 2;
+	int32 labelTypeId = 3;
+}
+
+message LabelMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated LabelMessage values = 1;
+}
+
+message LabelResponse{
+	protoMessages.ResponseResult result = 1;
+	LabelMessage message = 2;
+}
+
+message LabelRequest {
+	int32 labelTypeId = 1;
+	string labelName = 2;
+}
+
+message LabelTypeMessage {
+	int32 id = 1;
+	string name = 2;
+	repeated LabelMessage labels = 3;
+}
+
+message LabelTypeMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated LabelTypeMessage values = 1;
+}
+
+message LabelTypeResponse{
+	protoMessages.ResponseResult result = 1;
+	LabelTypeMessage message = 2;
+}
+
+message DataLabelMessage{
+	int32 id = 1;
+	int32 dataId = 2;
+	int32 labelId = 3;
+	LabelMessage label = 4;	
+}
+message DataLabelMessageList{
+	protoMessages.ResponseResult result = 2;
+	repeated DataLabelMessage values = 1;
+}
+
+message DataLabelResponse{
+	protoMessages.ResponseResult result = 1;
+	DataLabelMessage message = 2;
+}
+
+message ConfigurationMessage {
+	int32 id = 1;
+	protoMessages.Int32Message labelTypeForYearId = 2;
+	protoMessages.Int32Message labelTypeForMonthId = 3;
+	protoMessages.Int32Message labelJanuaryId = 4;
+	protoMessages.Int32Message labelFebruaryId = 5;
+	protoMessages.Int32Message labelMarchId = 6;
+	protoMessages.Int32Message labelAprilId = 7;
+	protoMessages.Int32Message labelMayId = 8;
+	protoMessages.Int32Message labelJuneId = 9;
+	protoMessages.Int32Message labelJulyId = 10;
+	protoMessages.Int32Message labelAugustId = 11;
+	protoMessages.Int32Message labelSeptemberId = 12;
+	protoMessages.Int32Message labelOctoberId = 13;
+	protoMessages.Int32Message labelNovemberId = 14;
+	protoMessages.Int32Message labelDecemberId = 15;
+}							   
+
+message ConfigurationResponse{
+	protoMessages.ResponseResult result = 1;
+	ConfigurationMessage message = 2;
+}
+
+message ConfigurationMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated ConfigurationMessage values = 1;
+}
+
+message AuthorizationMessage{
+	int32 Id = 1;
+	string Name = 2;
+	MethodAuthorizationTypes Method = 3;
+	protoMessages.StringMessage Url = 4;
+	repeated AuthorizationKeyValueMessage KeyValues = 5;
+	protoMessages.StringMessage TokenKeyNameResponse = 7;
+	int32 TimeExpiration = 8;
+	ModeAuthorizationResponseTypes ModeResponse = 9;
+	protoMessages.StringMessage FixedToken = 10;
+	protoMessages.StringMessage Body = 11;
+	protoMessages.StringMessage TokenKeyNameRequest = 12;
+}
+
+message AuthorizationResponse {
+	protoMessages.ResponseResult result = 1;
+	AuthorizationMessage message = 2;
+}
+
+message AuthorizationMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated AuthorizationMessage values = 1;
+}
+
+message AuthorizationKeyValueMessage{
+	int32 Id = 1;
+	int32 AuthorizationId = 2;
+	string Key = 3;
+	string Value = 4;
+}
+
+message AuthorizationKeyValueResponse {
+	protoMessages.ResponseResult result = 1;
+	AuthorizationKeyValueMessage message = 2;
+}
+
+message AuthorizationKeyValueMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated AuthorizationKeyValueMessage values = 1;
+}
+
+message CultureLanguageMessage {
+	int32 Id = 1;
+	string CultureCode = 2;
+	string Description = 3;
+	repeated string Languages = 4;
+}
+
+message CultureLanguageMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated CultureLanguageMessage values = 2;
+}
+
+message CultureLanguageResponse {
+	protoMessages.ResponseResult result = 1;
+	CultureLanguageMessage message = 2;
+}
+
+message ScrapDataActivateMessage {
+	int32 sourceId = 1;
+	bool activate = 2;
+}
+
+message DataHistorialMessage {
+	int32 sourceId = 1;	
+	int32 scrapDataId = 2;
+	repeated DataHistoryValue values = 3;
+}
+
+message DataHistoryValue {
+	google.protobuf.Timestamp date = 1;
+	double value = 2;
+}

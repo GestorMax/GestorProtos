@@ -1,0 +1,66 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "IntermediarioGrpc/Shared/IntermediarioShared.proto";
+import "IntermediarioGrpc/Resource/Messages.proto";
+
+package intermediarioGrpcResource;
+
+service IntermediarioResource {
+	//stores
+	rpc ListSaldoPersonas(SaldoPersonasRequest) returns (stream SaldoPersonasResponse);
+	rpc ListSaldoPersonasPorPlan(SaldoPersonasPorPlanRequest) returns (stream SaldoPersonasResponse);
+	rpc ListSaldoPersonasTotalesPorPlan(SaldoPersonasTotalesPorPlanRequest) returns (stream SaldoPersonasTotalesPorPlanResponse);
+	rpc ListFlujoDeFondos(FlujoDeFondosRequest) returns (stream FlujoDeFondosResponse);
+	rpc ListCuentasACobrar(google.protobuf.Empty) returns  (stream CuentasACobrarResponse);
+	rpc ListCuentasAPagar(google.protobuf.Empty) returns  (stream CuentasAPagarResponse);
+	rpc ListCuentasCorrientesSaldos(google.protobuf.Empty) returns (stream CuentasCorrientesSaldosResponse);
+	rpc ListValoresEnCartera(ValoresEnCarteraRequest) returns (stream ValoresEnCarteraResponse);
+	rpc ListMayorDiarioFisicos (MayorDiarioFisicosRequest) returns (stream MayorDiarioFisicosResponse);
+	rpc ListBalanceContable(BalanceContableRequest) returns (stream BalanceContableResponse);
+	rpc ListFisicosPorVencimiento(FisicosPorVencimientoRequest) returns (stream FisicosPorVencimientoResponse);
+	rpc ListMayorContable(MayorContableRequest) returns (stream MayorContableResponse);
+	rpc ListFlujoDeFondosExt(FlujoDeFondosExtRequest) returns (stream FlujoDeFondosExtResponse);
+	//tables
+	rpc ListProductos(google.protobuf.Empty) returns (stream ProductoResponse);
+	rpc ListEmpresas(google.protobuf.Empty) returns (stream EmpresaResponse);
+	rpc ListPersonas(google.protobuf.Empty) returns (stream PersonaResponse);
+	rpc ListListasPrecios(google.protobuf.Empty) returns (stream ListasPrecioResponse);
+	rpc ListListasPreciosDetalle(google.protobuf.Empty) returns (stream ListasPreciosDetalleResponse);
+	rpc ListDetailsProductPerList(DetailsProductPriceListRequest) returns (stream PriceImporterProductResponse);
+	rpc ListCtasCtes(google.protobuf.Empty) returns (stream CtasCtesResponse);
+	rpc ListMonedas(google.protobuf.Empty) returns (stream MonedaResponse);
+	rpc ListValoresMonedas (google.protobuf.Empty) returns (stream ValoresMonedaResponse);
+	rpc ListTiposInsumos (google.protobuf.Empty) returns (stream InsumosResponse);
+	rpc ListUnidades(google.protobuf.Empty) returns (stream UnidadesResponse);
+
+	//querys
+	rpc ListPlanDeCuentasDeCentro(google.protobuf.Empty) returns (stream PlanDeCuentasCentroResponse);
+	rpc ListPlanDeCuentasDeGestion(google.protobuf.Empty) returns (stream PlanDeCuentasGestionResponse);
+	rpc ListPlanDeCuentas(protoMessages.StringMessage) returns (stream PlanDeCuentasResponse);
+	rpc ListChequesEmitidosCuenta(ChequesEmitidosRequest) returns (stream ChequesEmitidosResponse);
+	rpc GetPersonBalance(PersonBalanceRequest) returns (stream PersonBalanceResponse);
+	rpc ListBonificacionesPersonas(google.protobuf.Empty) returns (stream BonificacionesPersonasResponse);
+	rpc ListBonificacionesGrupos(google.protobuf.Empty) returns (stream BonificacionesGruposResponse);
+
+	//get
+	rpc GetListaPrecio(protoMessages.Int32Message) returns (ListasPrecioResponse);
+	
+	//PriceImporter
+	rpc UpdateProductPrice(PriceImporterProductRequest) returns (protoMessages.ResponseResult);	
+
+	//resources
+	rpc ListDatabases(google.protobuf.Empty) returns (DatabaseMessageList);
+	rpc ListCompanies(google.protobuf.Empty) returns (EmpresaMessageList);
+	rpc ListCompanyPersons(google.protobuf.Empty) returns (PersonaMessageList);
+
+	//direct access to remote Database
+	rpc WriteRecord(intermediarioSharedMessages.WriteRecordsRequest) returns (protoMessages.ResponseResult);
+
+	// Lucius
+	rpc ListLuciusMayor(LuciusMayorRequest) returns (stream LuciusMayorContableResponse);
+	rpc ListLuciusBalance(LuciusBalanceRequest) returns (stream LuciusBalanceContableResponse);
+	rpc ListLuciusPlanDeCuentas(protoMessages.Int32Message) returns (stream LuciusPlanDeCuentasResponse);
+
+}

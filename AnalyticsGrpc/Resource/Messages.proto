@@ -1,0 +1,157 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Timestamp.proto";
+import "ProtoMessages/Common.proto";
+
+package analyticsGrpcResource;
+
+message ApiSourceMessageList {
+	repeated ApiSourceMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message ApiSourceMessage {
+	int32 id = 1;
+	protoMessages.StringMessage100 name = 2;	
+}
+
+message ApiMetricMessageList {
+	repeated ApiMetricMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+
+}
+
+message ApiMetricMessage {
+	int32 id = 1;
+	string name = 2;
+	string symbol = 3;
+}
+
+message ApiScrapDataMessage {
+	int32 id = 1;
+	int32 sourceId = 2;
+	int32 metricId = 3;
+	protoMessages.StringMessage100 name = 4;
+	repeated LabelWithTypeMessage dataLabels = 5;
+	string SourceName = 6;
+	bool enabled = 7;	
+}
+
+message ApiScrapDataMessageList {
+	repeated ApiScrapDataMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message ApiMeasurementMessage {
+	int32 dataId = 1;
+	google.protobuf.Timestamp date = 2;
+	double value = 3;
+}
+
+message ApiMeasurementMessageList {
+	repeated ApiMeasurementMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+
+}
+
+message ApiMeasurementRequest {
+	protoMessages.DateOnlyMessage dateFrom = 2;
+	protoMessages.DateOnlyMessage dateTo = 3;
+}
+
+message LabelMessage {
+	int32 id = 1;
+	string name = 2;
+	int32 labelTypeId = 3;
+}
+
+message LabelMessageList {
+	repeated LabelMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+
+}
+
+message LabelTypeMessage {
+	int32 id = 1;
+	string name = 2;
+	repeated LabelMessage labels = 3;
+}
+
+message LabelTypeMessageList {
+	repeated LabelTypeMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+
+}
+
+message ValueRequest {
+	repeated int32 labelsIds = 1;
+	protoMessages.DateOnlyMessage dateFrom = 2;
+	protoMessages.DateOnlyMessage dateTo = 3;
+}
+
+message ValueMessage {
+	int32 dataId = 1;
+	string dataName = 2;
+	repeated LabelWithTypeMessage labels = 3;
+	repeated DataMessage data = 4;
+}
+
+message ValueMessageList { 
+	repeated ValueMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+
+}
+
+message DataMessage {
+	google.protobuf.Timestamp date = 1;
+	protoMessages.DoubleMessage value = 2;
+}
+
+message LabelWithTypeMessage{
+	int32 labelId = 1;
+	string label = 2;
+	int32 labelTypeId = 3;
+	string labelType = 4;
+}
+
+message LastValueMessage {
+	int32 dataId = 1;
+	string dataName = 2;
+	repeated LabelWithTypeMessage labels = 3;
+	google.protobuf.Timestamp date = 4;
+	protoMessages.DoubleMessage value = 5;
+}
+
+message LastValueMessageList {
+	repeated LastValueMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+
+}
+
+message LastValueRequest {
+	repeated int32 labelsIds = 1;
+}
+
+message LastMultiMeasurementRequest {
+	repeated int32 dataIds = 1;
+}
+
+message MultiMeasurementRequest {
+	repeated int32 dataIds = 1;
+	protoMessages.DateOnlyMessage dateFrom = 2;
+	protoMessages.DateOnlyMessage dateTo = 3;
+}
+
+message DataRequest{
+	bool active = 1;
+}
+
+message LastMeasurementRequest {
+	int32 dataId = 1;
+	protoMessages.DateOnlyMessage lastDate = 2;
+}
+
+message ApiLastMeasurementResponse {
+	protoMessages.ResponseResult result = 1;
+	ApiMeasurementMessage message = 2;
+}

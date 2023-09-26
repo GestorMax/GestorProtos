@@ -1,0 +1,116 @@
+﻿syntax = "proto3";
+
+import "ProtoMessages/Common.proto";
+import "google/protobuf/Timestamp.proto";
+
+package emailGrpcAdmin;
+
+message EmailConfiguration {
+	string uri = 1;
+}
+
+message EmailRequest {
+	EmailDataMessage emailData = 1;
+	int32 emailSender = 2;
+	int32 smtpServer = 3;
+	int32 template = 4;
+	protoMessages.StructMessage templateData = 5;
+	bool test = 6;
+}
+
+message EmailResponse {
+	protoMessages.ResponseResult result = 1;
+}
+
+message EmailDataMessage {
+	repeated EmailAddressMessage toAddresses = 1;
+	repeated EmailAddressMessage ccAddresses = 2;
+	repeated EmailAddressMessage bccAddresses = 3;
+	EmailAddressMessage replyToAddresses = 4;
+	string subject = 6;
+}
+
+message EmailAddressMessage {
+	string name = 1;
+	string emailAddress = 2;
+}
+
+//EmailSender
+message EmailSenderResponse {
+	protoMessages.ResponseResult result = 1;
+	EmailSenderMessage message = 2;
+}
+
+message EmailSenderMessage {
+	int32 id = 1;
+	protoMessages.StringMessage50 name = 2;
+	protoMessages.StringMessage100 emailAddress = 3;
+}
+
+message EmailSenderMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated EmailSenderMessage values = 1;
+}
+
+//SmtpServer
+message SmtpServerResponse {
+	protoMessages.ResponseResult result = 1;
+	SmtpServerMessage message = 2;
+}
+
+message SmtpServerMessage {
+	int32 id = 1;
+	protoMessages.StringMessage100 host = 2;
+	int32 port = 3;
+	protoMessages.StringMessage100 userName = 4;
+	protoMessages.StringMessage100 password = 5;
+	bool enableSsl = 6;
+}
+
+message SmtpServerMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated SmtpServerMessage values = 1;
+}
+
+//Tempaltes
+message TemplateResponse {
+	protoMessages.ResponseResult result = 1;
+	TemplateMessage message = 2;
+}
+
+message TemplateMessage {
+	int32 id = 1;
+	protoMessages.StringMessage100 name = 2;
+	string content = 3;
+}
+
+message TemplateMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated TemplateMessage values = 1;
+}
+
+//EmailLogs
+message EmailLogResponse {
+	protoMessages.ResponseResult result = 1;
+	EmailLogMessage message = 2;
+}
+
+message EmailLogMessage {
+	int32 id = 1;
+	string toAddresses = 2;
+	protoMessages.StringMessage ccAddresses = 3; 
+	protoMessages.StringMessage bccAddresses = 4;
+	protoMessages.StringMessage replyToAddresses = 5;
+	string fromAddress = 6;
+	string subject = 7;
+	string body = 8;
+	bool isHtml = 9;
+	bool succesful = 10;
+	protoMessages.StringMessage errors = 11;
+	google.protobuf.Timestamp date = 12;
+}
+
+message EmailLogMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated EmailLogMessage values = 1;
+}

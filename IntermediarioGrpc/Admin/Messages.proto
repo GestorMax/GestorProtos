@@ -1,0 +1,80 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Timestamp.proto";
+import "ProtoMessages/Common.proto";
+import "IntermediarioGrpc/Shared/IntermediarioShared.proto";
+import "IntermediarioGrpc/Shared/IntermediarioCompanionMessages.g.proto";
+
+package intermediarioGrpcAdmin;
+
+message ConnectInfoMessage {
+	int32 databaseId = 1;
+	bool active = 2;
+	bool connected = 3;
+	string server = 4;
+	string instance = 5;
+	string database = 6;
+	string MD5 = 7;
+	intermediarioSharedMessages.SyncedDatabaseMessage completeInfoDatabase = 8;
+}
+
+message SyncedDatabaseResponse {
+	intermediarioSharedMessages.SyncedDatabaseMessage database = 1;
+	repeated intermediarioSharedMessages.ConnectIdentityMessage connectedInstances = 2;
+	repeated UserMessage users = 3;
+	repeated intermediarioCompanionGrpc.GsEmpresaMessage companies = 4;
+}
+
+message UserMessage {
+	int32 databaseId = 1;
+	int32 userId = 2;
+	protoMessages.StringMessage email = 4;
+	string name  = 5;
+	string alias = 6;
+	bool enabled = 7;
+}
+
+message ListConnectInfoRequest {
+	bool IncludeDisconnected = 1;
+}
+
+message ConnectInfoMessageList {
+	repeated ConnectInfoMessage values = 1;
+}
+
+
+message ListGestorUsersReportResponse {
+	protoMessages.ResponseResult result = 1;
+	repeated GestorUserReportMessage values = 2;
+}
+
+message ListGestorConfigsReportResponse {
+	protoMessages.ResponseResult result = 1;
+	repeated GestorConfigReportMessage values = 2;
+}
+
+message GestorUserReportMessage {
+	int32 databaseId = 1;
+	string companyName = 2;
+	string companyTaxId = 3;
+	string userName = 4;
+	string email = 5;
+	bool enabled = 6;
+	int32 qtyOperatives = 7;
+	int32 qtyFinancials = 8;
+	google.protobuf.Timestamp LastOperative = 9;
+	google.protobuf.Timestamp LastFinancial = 10;
+}
+
+message GestorConfigReportMessage {
+	int32 databaseId = 1;
+	string databaseVersion = 2;
+	int32 companyId = 3;
+	string companyName = 4;
+	string companyTaxId = 5;
+	protoMessages.Int32Message inicioGestion = 6;
+	protoMessages.Int32Message inicioContabilidad = 7;
+	bool esAgenteDeRetencion = 8;
+	bool usaFacturaElectronica = 9;
+	bool usaPasesConfigurados = 10;
+}

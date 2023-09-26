@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "AnalyticsGrpc/Admin/Messages.proto";
+import "google/protobuf/Timestamp.proto";
+
+package analyticsGrpc;
+
+service AnalyticsAdmin {
+	//Source
+	rpc ListSources (google.protobuf.Empty) returns (SourceMessageList);
+	rpc ListSourcesBatch (google.protobuf.Empty) returns (SourceMessageList);
+	rpc GetSource (protoMessages.Int32Message) returns (SourceResponse);
+	rpc CreateSource (SourceMessage) returns (SourceResponse);
+	rpc EditSource (SourceMessage) returns (SourceResponse);
+	rpc RemoveSource (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	
+	//Data
+	rpc ListDatas (google.protobuf.Empty) returns (ScrapDataMessageList);
+	rpc ListSourceDatas (protoMessages.Int32Message) returns (ScrapDataMessageList);
+	rpc GetData (protoMessages.Int32Message) returns (ScrapDataResponse);
+	rpc CreateData (ScrapDataMessage) returns (ScrapDataResponse);
+	rpc EditData (ScrapDataMessage) returns (ScrapDataResponse);
+	rpc RemoveData (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ActivateData (ScrapDataActivateMessage) returns (protoMessages.ResponseResult);
+	
+	//DataDate
+	rpc ListDataDates (protoMessages.Int32Message) returns (ScrapDataDateMessageList);
+	rpc GetDataDate (protoMessages.Int32Message) returns (ScrapDataDateResponse);
+	rpc CreateDataDate (ScrapDataDateMessage) returns (ScrapDataDateResponse);
+	rpc EditDataDate (ScrapDataDateMessage) returns (ScrapDataDateResponse);
+	rpc RemoveDataDate (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	
+	//Unit
+	rpc ListUnits (google.protobuf.Empty) returns (UnitMessageList);
+	rpc GetUnit (protoMessages.Int32Message) returns (UnitResponse);
+	rpc CreateUnit (UnitMessage) returns (UnitResponse);
+	rpc EditUnit (UnitMessage) returns (UnitResponse);
+	rpc RemoveUnit (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	
+	//Metric
+	rpc ListMetrics (google.protobuf.Empty) returns (MetricMessageList);
+	rpc GetMetric (protoMessages.Int32Message) returns (MetricResponse);
+	rpc CreateMetric (MetricMessage) returns (MetricResponse);
+	rpc EditMetric (MetricMessage) returns (MetricResponse);
+	rpc RemoveMetric (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	//Scraping
+	rpc ListScrapings (protoMessages.Int32Message) returns (ScrapingMessageList);
+	rpc GetScraping (protoMessages.Int32Message) returns (ScrapingResponse);
+	rpc RemoveScraping (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	//Measurement
+	rpc ListMeasurements (protoMessages.Int32Message) returns (MeasurementMessageList);
+	rpc RemoveAllMeasurements (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ListLastMeasurementFromSource (protoMessages.Int32Message) returns (MeasurementMessageList);
+	rpc ListLastMeasurement (google.protobuf.Timestamp) returns (MeasurementMessageList);
+	rpc ConfirmMeasurement (MeasurementMessage) returns (protoMessages.ResponseResult);
+
+	//Scraper
+	rpc TestScraperData (ScrapDataMessage) returns (ScrapingResponse);
+	rpc TestScraperSource (protoMessages.Int32Message) returns (ScrapingResponse);
+	rpc ScraperSource (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc SaveScraping (ScrapingMessage) returns (protoMessages.ResponseResult);
+	rpc ScraperSourceBatch(SourceBatchRequest) returns (stream SourceBatchResponse);
+
+	//Label
+	rpc ListLabels (protoMessages.Int32Message) returns (LabelMessageList);
+	rpc GetLabel (protoMessages.Int32Message) returns (LabelResponse);
+	rpc CreateLabel (LabelMessage) returns (LabelResponse);
+	rpc EditLabel (LabelMessage) returns (LabelResponse);
+	rpc RemoveLabel (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc InUseLabel (protoMessages.Int32Message) returns (protoMessages.BoolMessage);
+
+	//LabelType
+	rpc ListLabelTypes (google.protobuf.Empty) returns (LabelTypeMessageList);
+	rpc GetLabelType (protoMessages.Int32Message) returns (LabelTypeResponse);
+	rpc CreateLabelType (LabelTypeMessage) returns (LabelTypeResponse);
+	rpc EditLabelType (LabelTypeMessage) returns (LabelTypeResponse);
+
+	//Configuration	
+	rpc GetConfiguration (google.protobuf.Empty) returns (ConfigurationResponse);
+	rpc CreateConfiguration (ConfigurationMessage) returns (ConfigurationResponse);
+	rpc EditConfiguration (ConfigurationMessage) returns (ConfigurationResponse);
+
+	//Authorization
+	rpc ListAuthorizations (google.protobuf.Empty) returns (AuthorizationMessageList);
+	rpc GetAuthorization (protoMessages.Int32Message) returns (AuthorizationResponse);
+	rpc CreateAuthorization (AuthorizationMessage) returns (AuthorizationResponse);
+	rpc EditAuthorization (AuthorizationMessage) returns (AuthorizationResponse);
+	rpc RemoveAuthorization (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	//CultureLanguage
+	rpc ListCultureLanguages (google.protobuf.Empty) returns (CultureLanguageMessageList);
+	rpc GetCultureLanguage (protoMessages.Int32Message) returns (CultureLanguageResponse);
+
+	//Historic
+	rpc SaveHistoricalList(DataHistorialMessage) returns(protoMessages.ResponseResult);
+}
