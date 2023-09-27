@@ -1,6 +1,6 @@
 ﻿syntax = "proto3";
 
-import "google/protobuf/empty.proto";
+import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
 import "IntermediarioGrpc/Shared/IntermediarioShared.proto";
 import "IntermediarioGrpc/Companion/Messages.proto";

@@ -1,6 +1,5 @@
 ﻿syntax = "proto3";
 
-//import "google/protobuf/Struct.proto";
 import "google/protobuf/Any.proto";
 import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
