@@ -15,9 +15,10 @@ enum AppsId {
 }
 
 enum GestorDataEvents {
-	GESTOR_DATA_EVENTS_SCRAPPING_ERROR = 0;
-	GESTOR_DATA_EVENTS_UNEXPECTED_ZERO = 1;
-	GESTOR_DATA_EVENTS_LIMIT_EXCEEDED = 2;
+	GESTOR_DATA_EVENTS_ALL = 0;
+	GESTOR_DATA_EVENTS_SCRAPPING_ERROR = 1;
+	GESTOR_DATA_EVENTS_UNEXPECTED_ZERO = 2;
+	GESTOR_DATA_EVENTS_LIMIT_EXCEEDED = 4;
 }
 
 message GestorAlertConfiguration {
@@ -33,7 +34,7 @@ message GestorAlertSetting {
 
 message SubscriptionRequest {
 	AppsId appId = 1;
-	string eventId = 2;
+	int32 eventId = 2;
 	string objectId = 3;
 	bool asItHappens = 4;
 	protoMessages.StringMessage programming = 5;
@@ -46,7 +47,7 @@ message SubscriptionMessage {
 	int32 id = 1;
 	string userId = 2;
 	AppsId appId = 3;
-	string eventId = 4;
+	int32 eventId = 4;
 	string objectId = 5;
 	bool asItHappens = 6;
 	protoMessages.StringMessage programming = 7;
@@ -99,7 +100,7 @@ message IncidenceResponse {
 
 message ListIncidenceRequest {
 	AppsId appId = 1;
-	string eventId = 2;
+	int32 eventId = 2;
 	string objectId = 3;	
 	int32 lastIncidenceId = 4;
 }
@@ -119,7 +120,7 @@ message NotificationsMessageList {
 
 message ListHistoryRequest{
 	AppsId appId = 1;
-	string eventId = 2;
+	int32 eventId = 2;
 	string objectId = 3;
 	int32 limit = 4;
 }
