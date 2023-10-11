@@ -5,16 +5,28 @@ import "ProtoMessages/Common.proto";
 package gestorFlowGrpcAdmin;
 
 
-
+message GestorFlowConfiguration {
+	string uri = 1;
+}
 //LISTS ---------------------------------------------------------------
-message ProcessStateList {
+message ProcessStateMessageList {
 	protoMessages.ResponseResult result = 1;
 	repeated ProcessStateMessage values = 2;
 }
 
-message StateMapPointList {
+message StateMapPointMessageList {
 	protoMessages.ResponseResult result = 1;
 	repeated StateMapPointMessage values = 2;
+}
+
+message ProcessTypeMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated ProcessTypeMessage values = 2;
+}
+
+message ProcessStateMapMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated ProcessStateMapMessage values = 2;
 }
 
 //MESSAGES ---------------------------------------------------------------
@@ -26,7 +38,6 @@ message ProcessStateMessage {
 message ProcessStateMapMessage {
 	int32 id = 1;
 	string name = 2;
-	StateMapPointList points = 3;
 }
 
 message StateMapPointMessage {
@@ -35,8 +46,26 @@ message StateMapPointMessage {
 	int32 ProcessStateMessageTo = 3;
 }
 
+message ProcessTypeMessage{
+	int32 id = 1;
+	string name = 2;
+	string description = 3;
+	int32 processStateMapId = 4;
+}
+
+//RESPONSE ---------------------------------------------------------------
 
 message ProcessStateResponse {
 	protoMessages.ResponseResult result = 1;
 	ProcessStateMessage message = 2;
+}
+
+message ProcessTypeResponse {
+	protoMessages.ResponseResult result = 1;
+	ProcessTypeMessage message = 2;
+}
+
+message ProcessStateMapResponse {
+	protoMessages.ResponseResult result = 1;
+	ProcessStateMapMessage message = 2;
 }
