@@ -350,7 +350,7 @@ message UnidadesMessageList {
 
 message CurrencyBalanceMessage {
 	string currency = 1;
-	double balance = 2;
+	protoMessages.DecimalMessage balance = 2;
 }
 
 message DatabaseMessageList {
