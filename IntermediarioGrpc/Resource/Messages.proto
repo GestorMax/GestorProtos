@@ -200,16 +200,16 @@ message PriceImporterProductMessage {
 	int32 codLista = 2;
 	int32 codProducto = 3;
 	protoMessages.StringMessage descrip = 4;
-	protoMessages.DoubleMessage importe = 5;
+	protoMessages.DecimalMessage importe = 5;
 	google.protobuf.Timestamp vigDesde = 7;
 	protoMessages.StringMessage unidad = 8;
 	protoMessages.StringMessage moneda = 9;
-	protoMessages.DoubleMessage bonifPases = 6;
-	protoMessages.DoubleMessage bonifCompras = 10;
-	protoMessages.DoubleMessage bonifVentas = 11;
-	protoMessages.DoubleMessage importePases = 12;
-	protoMessages.DoubleMessage importeVentas = 13;
-	protoMessages.DoubleMessage importeCompras = 14;
+	protoMessages.DecimalMessage bonifPases = 6;
+	protoMessages.DecimalMessage bonifCompras = 10;
+	protoMessages.DecimalMessage bonifVentas = 11;
+	protoMessages.DecimalMessage importePases = 12;
+	protoMessages.DecimalMessage importeVentas = 13;
+	protoMessages.DecimalMessage importeCompras = 14;
 	int32 codMoneda = 15;
 }
 
@@ -350,7 +350,7 @@ message UnidadesMessageList {
 
 message CurrencyBalanceMessage {
 	string currency = 1;
-	double balance = 2;
+	protoMessages.DecimalMessage balance = 2;
 }
 
 message DatabaseMessageList {
@@ -391,9 +391,9 @@ message BonificacionesPersonasMessage {
 	int32 codLista = 2;
 	int32 codPersona = 3;
 	protoMessages.StringMessage nombre = 4;
-	protoMessages.DoubleMessage bonifVentas = 5;
-	protoMessages.DoubleMessage bonifCompras = 6;
-	protoMessages.DoubleMessage bonifPases = 7;
+	protoMessages.DecimalMessage bonifVentas = 5;
+	protoMessages.DecimalMessage bonifCompras = 6;
+	protoMessages.DecimalMessage bonifPases = 7;
 }
 
 message BonificacionesGruposResponse {
@@ -408,7 +408,7 @@ message BonificacionesGruposMessage {
 	protoMessages.StringMessage nombre = 4;
 	int32 codGrupo = 5;
 	protoMessages.StringMessage descripcion = 6;
-	protoMessages.DoubleMessage bonificacion = 7;
+	protoMessages.DecimalMessage bonificacion = 7;
 }
 
 message FlujoDeFondosExtRequest {

@@ -31,16 +31,16 @@ message OnlyProductMappingMessage {
 	protoMessages.StringMessage100 SourceName = 7;
 	protoMessages.StringMessage100 DataName = 8;
 	google.protobuf.Timestamp VigDesde = 9;
-	protoMessages.DoubleMessage BonifPasesValue = 10;
-	protoMessages.DoubleMessage ProductValue = 11;	
-	protoMessages.DoubleMessage ScrapDataValue = 12;	
+	protoMessages.DecimalMessage BonifPasesValue = 10;
+	protoMessages.DecimalMessage ProductValue = 11;	
+	protoMessages.DecimalMessage ScrapDataValue = 12;	
 	protoMessages.StringMessage UnitProduct = 13;
 	protoMessages.StringMessage UnitScrapData = 14;
-	protoMessages.DoubleMessage ScrapDataFormulaValue = 15;
+	protoMessages.DecimalMessage ScrapDataFormulaValue = 15;
 	protoMessages.StringMessage Formula = 16;
 	bool ActiveUpdate = 17;
-	protoMessages.DoubleMessage BonifComprasValue = 18;
-	protoMessages.DoubleMessage BonifVentasValue = 19;
+	protoMessages.DecimalMessage BonifComprasValue = 18;
+	protoMessages.DecimalMessage BonifVentasValue = 19;
 	int32 CodMonedaProduct = 20;
 	google.protobuf.Timestamp ScrapDataDate = 21;
 

@@ -37,10 +37,10 @@ message StatementMessage {
 	int32 companyId = 3;
 	int32 personId = 4;
 	google.protobuf.Timestamp date = 5;
-	double personARS = 6;
-	double personUSD = 7;
-	protoMessages.DoubleMessage gestorARS = 8;
-	protoMessages.DoubleMessage gestorUSD = 9;
+	protoMessages.DecimalMessage personARS = 6;
+	protoMessages.DecimalMessage personUSD = 7;
+	protoMessages.DecimalMessage gestorARS = 8;
+	protoMessages.DecimalMessage gestorUSD = 9;
 	protoMessages.StringMessage observations = 10;
 	google.protobuf.Timestamp validationDate = 11;
 }
