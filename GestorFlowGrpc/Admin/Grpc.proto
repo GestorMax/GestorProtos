@@ -11,19 +11,20 @@ service GestorFlowAdmin {
 	//States
 	rpc ListProcessStates(google.protobuf.Empty) returns (ProcessStateMessageList);
 	rpc GetProcessState(protoMessages.Int32Message) returns (ProcessStateResponse);
-	rpc CreateProcessState(ProcessStateMessage) returns (ProcessStateResponse);
-	rpc UpdateProcessState(ProcessStateMessage) returns (ProcessStateResponse);
+	rpc CreateOrUpdateProcessState(ProcessStateMessageList) returns (ProcessStateResponse);
 	rpc DeleteProcessState(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
-
-	rpc ListProcessStateMaps(google.protobuf.Empty) returns (ProcessStateMapMessageList);
-	rpc GetProcessStateMap(protoMessages.Int32Message) returns (ProcessStateMapResponse);
-	rpc CreateProcessStateMap(ProcessTypeMessage) returns (ProcessStateMapResponse);
-	rpc UpdateProcessStateMap(ProcessTypeMessage) returns (ProcessStateMapResponse);
-	rpc DeleteProcessStateMap(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
 	rpc ListProcessTypes(google.protobuf.Empty) returns (ProcessTypeMessageList);
 	rpc GetProcessType(protoMessages.Int32Message) returns (ProcessTypeResponse);
 	rpc CreateProcessType(ProcessTypeMessage) returns (ProcessTypeResponse);
 	rpc UpdateProcessType(ProcessTypeMessage) returns (ProcessTypeResponse);
 	rpc DeleteProcessType(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	rpc ListProcessStateFlow(google.protobuf.Empty) returns (ProcessStateFlowMessageList);
+	rpc GetProcessStateFlow(protoMessages.Int32Message) returns (ProcessStateFlowResponse);
+	rpc CreateProcessStateFLow(ProcessStateFlowMessage) returns (ProcessStateFlowResponse);
+	rpc UpdateProcessStateFLow(ProcessStateFlowMessage) returns (ProcessStateFlowResponse);
+	rpc DeleteProcessStateFLow(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	rpc SaveDiagramFLow(DiagramFlowMessage) returns (protoMessages.ResponseResult);
 }
