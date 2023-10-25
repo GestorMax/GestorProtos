@@ -147,6 +147,17 @@ message CustomerMessage {
 	string notes = 6;
 	repeated AddressMessage addresses = 7;
 	repeated PackBundleMessage packBundles = 8;
+	protoMessages.Int32Message vaultId = 9;
+}
+
+message VaultMessage {
+	int32 id = 1;
+	protoMessages.StringMessage hereIsDataApiKey = 2;
+}
+
+message VaultResponse {
+	protoMessages.ResponseResult result = 1;
+	VaultMessage message = 2;
 }
 
 message UserMessage {
@@ -349,6 +360,7 @@ message DatabaseMessage {
 	repeated DatabaseInstanceMessageDatabaseMessage instances = 6;
 	DatabaseInstanceMessageDatabaseMessage mainInstance = 7;
 	string redactedId = 8;
+	protoMessages.Int32Message vaultId = 9;
 }
 
 message DatabaseInstanceMessageDatabaseMessage {

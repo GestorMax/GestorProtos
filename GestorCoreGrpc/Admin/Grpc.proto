@@ -51,6 +51,8 @@ service GestorCoreAdmin {
 
 	rpc CreateCustomer (CustomerMessage) returns (CreateCustomerResponse);
 
+	rpc AddCustomerVault(protoMessages.Int32Message) returns (VaultResponse);
+
 	//Databases
 	rpc CreateDatabase (CreateDatabaseResquest) returns (DatabaseMessage);
 
@@ -69,6 +71,8 @@ service GestorCoreAdmin {
 	rpc GetGestorDbToken (GetGestorDbTokenRequest) returns (GestorDbTokenResponse);
 
 	rpc DeleteDatabaseWithOutLicenses (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	rpc AddDatabaseVault(protoMessages.Int32Message) returns (VaultResponse);
 	
 	//Licenses
 	rpc GetDatabase(protoMessages.Int32Message) returns (DatabaseMessage);
