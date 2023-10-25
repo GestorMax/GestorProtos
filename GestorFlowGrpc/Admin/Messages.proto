@@ -14,9 +14,9 @@ message ProcessStateMessageList {
 	repeated ProcessStateMessage values = 2;
 }
 
-message StateMapPointMessageList {
+message ProcessStateFlowMessageList {
 	protoMessages.ResponseResult result = 1;
-	repeated StateMapPointMessage values = 2;
+	repeated ProcessStateFlowMessage values = 2;
 }
 
 message ProcessTypeMessageList {
@@ -24,33 +24,34 @@ message ProcessTypeMessageList {
 	repeated ProcessTypeMessage values = 2;
 }
 
-message ProcessStateMapMessageList {
-	protoMessages.ResponseResult result = 1;
-	repeated ProcessStateMapMessage values = 2;
+message DiagramFlowMessage{
+	ProcessStateMessageList states = 1;
+	ProcessStateFlowMessageList flows = 2;
 }
 
 //MESSAGES ---------------------------------------------------------------
 message ProcessStateMessage {
 	int32 id = 1;
 	string name = 2;
+	double xPosition = 3;
+	double yPosition = 4;
+	int32 processTypeId = 5;
 }
 
-message ProcessStateMapMessage {
-	int32 id = 1;
-	string name = 2;
-}
 
-message StateMapPointMessage {
+message ProcessStateFlowMessage {
 	int32 id = 1;
-	int32 ProcessStateMessageFrom = 2;
-	int32 ProcessStateMessageTo = 3;
+	int32 stateFromId = 2;
+	int32 stateToId = 3;
+	int32 processTypeId = 4;
+	string from = 5;
+	string to = 6;
 }
 
 message ProcessTypeMessage{
 	int32 id = 1;
 	string name = 2;
 	string description = 3;
-	int32 processStateMapId = 4;
 }
 
 //RESPONSE ---------------------------------------------------------------
@@ -65,7 +66,7 @@ message ProcessTypeResponse {
 	ProcessTypeMessage message = 2;
 }
 
-message ProcessStateMapResponse {
+message ProcessStateFlowResponse {
 	protoMessages.ResponseResult result = 1;
-	ProcessStateMapMessage message = 2;
+	ProcessStateFlowMessage message = 2;
 }
