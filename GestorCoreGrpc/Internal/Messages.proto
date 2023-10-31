@@ -58,3 +58,17 @@ message CompanyReportMessage {
 	protoMessages.StringMessage DBVersion = 10;
 	protoMessages.Int32Message DBSizeInMb = 11;
 }
+
+message VaultValueRequest {
+	enum Type {
+		HereIsData = 0;
+	}
+
+	Type type = 1;
+	int32 databaseId = 2;
+}
+
+message VaultValueResponse {
+	protoMessages.ResponseResult result = 1;
+	string value = 2;
+}
