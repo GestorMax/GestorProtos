@@ -36,6 +36,7 @@ message ProcessStateMessage {
 	double xPosition = 3;
 	double yPosition = 4;
 	int32 processTypeId = 5;
+	int32 stateType = 6;
 }
 
 
