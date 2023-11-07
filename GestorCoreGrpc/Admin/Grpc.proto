@@ -36,7 +36,7 @@ service GestorCoreAdmin {
 
 	rpc RemoveRole (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
-	// funciones de cliente
+	//Customers
 	rpc ListCustomers (google.protobuf.Empty) returns (CustomerMessageList);
 
 	rpc GetCustomer (protoMessages.Int32Message) returns (CustomerMessage);
@@ -50,6 +50,13 @@ service GestorCoreAdmin {
 	rpc UpdateCustomerNameAndTaxId (CustomerMessage) returns (protoMessages.ResponseResult);
 
 	rpc CreateCustomer (CustomerMessage) returns (CreateCustomerResponse);
+
+	rpc AddCustomerVault(protoMessages.Int32Message) returns (VaultResponse);
+
+	//Vaults
+	rpc GetVault(protoMessages.Int32Message) returns (VaultResponse);
+
+	rpc EditVault(VaultMessage) returns (protoMessages.ResponseResult);
 
 	//Databases
 	rpc CreateDatabase (CreateDatabaseResquest) returns (DatabaseMessage);
@@ -69,6 +76,8 @@ service GestorCoreAdmin {
 	rpc GetGestorDbToken (GetGestorDbTokenRequest) returns (GestorDbTokenResponse);
 
 	rpc DeleteDatabaseWithOutLicenses (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	rpc AddDatabaseVault(protoMessages.Int32Message) returns (VaultResponse);
 	
 	//Licenses
 	rpc GetDatabase(protoMessages.Int32Message) returns (DatabaseMessage);
