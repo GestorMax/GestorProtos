@@ -46,7 +46,9 @@ message ProcessStateFlowMessage {
 	int32 stateToId = 3;
 	int32 processTypeId = 4;
 	string from = 5;
-	string to = 6;
+	string to = 6;	
+	int32 portFrom = 7;
+	int32 portTo = 8;
 }
 
 message ProcessTypeMessage{
