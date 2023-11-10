@@ -63,6 +63,11 @@ message LicenseTypeMessageList {
 	protoMessages.ResponseResult result = 2;
 }
 
+message ServerMessageList{
+	repeated ServerMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
 //MESSAGES ---------------------------------------------------------------
 message ConfirmLinkUserMessage {
 	string link = 1;
@@ -503,4 +508,18 @@ message DatabaseCustomerMessage{
 	int32 updateLicense = 6;
 	int32 cloudLicense = 7;
 	int32 dashboardLicense = 8;
+}
+
+message ServerMessage{
+	int32 id = 1;
+	string name = 2;
+	string serverPrefix = 3;
+	int32 amountDatabases = 4;
+	string databasePrefix = 5;
+	string userPrefix = 6;
+}
+
+message ServerResponse{
+	protoMessages.ResponseResult result = 1;
+	ServerMessage message = 2;
 }

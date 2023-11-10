@@ -107,6 +107,16 @@ service GestorCoreAdmin {
 
 	rpc RemoveLicenseType (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
+	//Servers
+	rpc ListServers (google.protobuf.Empty) returns (ServerMessageList);
+
+	rpc GetServer (protoMessages.Int32Message) returns (ServerResponse);
+
+	rpc CreateServer (ServerMessage) returns (ServerResponse);
+
+	rpc EditServer (ServerMessage) returns (ServerResponse);
+
+	rpc DeleteServer (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
 	//apikey
 	rpc GenerateApiKeyForDatabase (GenerateApiKeyRequest) returns (GenerateApiKeyResponse);
