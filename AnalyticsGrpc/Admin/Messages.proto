@@ -183,7 +183,7 @@ message MeasurementMessage {
 	int32 id = 8;
 	string name = 9;
 	protoMessages.Int32Message ErrorId = 10;
-	protoMessages.Int32Message UserIdConfirm = 11;
+	string UserIdConfirm = 11;
 	google.protobuf.Timestamp DateTimeConfirm = 12;
 }
 
