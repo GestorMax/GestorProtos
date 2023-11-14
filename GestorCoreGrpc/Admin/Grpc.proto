@@ -108,6 +108,7 @@ service GestorCoreAdmin {
 	rpc RemoveLicenseType (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
 	//Servers
+
 	rpc ListServers (google.protobuf.Empty) returns (ServerMessageList);
 
 	rpc GetServer (protoMessages.Int32Message) returns (ServerResponse);
@@ -117,6 +118,27 @@ service GestorCoreAdmin {
 	rpc EditServer (ServerMessage) returns (ServerResponse);
 
 	rpc DeleteServer (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	//Rdc Users
+	rpc ListRdcUsers (google.protobuf.Empty) returns (RdcUserMessageList);
+
+	rpc GetRdcUser (protoMessages.Int32Message) returns (RdcUserResponse);
+
+	rpc CreateRdcUser (RdcUserMessage) returns (RdcUserResponse);
+
+	rpc EditRdcUser (RdcUserMessage) returns (RdcUserResponse);
+
+	rpc DeleteRdcUser (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	//Rdc Users
+	rpc ListServerUsers (google.protobuf.Empty) returns (ServerUserMessageList);
+	
+	rpc GetServerUser (protoMessages.Int32Message) returns (ServerUserResponse);
+
+	rpc CreateServerUser (ServerUserMessage) returns (ServerUserResponse);
+
+	rpc EditServerUser (ServerUserMessage) returns (ServerUserResponse);
+
 
 	//apikey
 	rpc GenerateApiKeyForDatabase (GenerateApiKeyRequest) returns (GenerateApiKeyResponse);

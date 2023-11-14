@@ -68,6 +68,16 @@ message ServerMessageList{
 	protoMessages.ResponseResult result = 2;
 }
 
+message RdcUserMessageList{
+	repeated RdcUserMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message ServerUserMessageList{
+	repeated ServerUserMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
 //MESSAGES ---------------------------------------------------------------
 message ConfirmLinkUserMessage {
 	string link = 1;
@@ -523,3 +533,33 @@ message ServerResponse{
 	protoMessages.ResponseResult result = 1;
 	ServerMessage message = 2;
 }
+
+message RdcUserMessage{
+	int32 id = 1;
+	int32 databaseId = 2;
+	string database = 3;
+	string databaseName = 4;
+	string file = 5;
+	string rightsGroup = 6;
+	string withholding = 7;
+	repeated ServerUserMessage serverUsers = 8;
+}
+
+message RdcUserResponse{
+	protoMessages.ResponseResult result = 1;
+	RdcUserMessage message = 2;
+}
+
+message ServerUserMessage{
+	int32 id = 1;
+	int32 databaseId = 2;
+	string password = 3;
+	string name = 4;
+	string email = 5;
+}
+
+message ServerUserResponse{
+	protoMessages.ResponseResult result = 1;
+	ServerUserMessage message = 2;
+}
+
