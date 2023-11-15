@@ -130,8 +130,9 @@ service GestorCoreAdmin {
 
 	rpc DeleteRdcUser (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
-	//Rdc Users
+	//ServerUsers
 	rpc ListServerUsers (google.protobuf.Empty) returns (ServerUserMessageList);
+	rpc ListServerUsersByDatabase (protoMessages.Int32Message) returns (ServerUserMessageList);
 	
 	rpc GetServerUser (protoMessages.Int32Message) returns (ServerUserResponse);
 
