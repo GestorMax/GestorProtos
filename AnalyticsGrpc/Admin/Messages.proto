@@ -6,6 +6,14 @@ import "ProtoMessages/Common.proto";
 
 package analyticsGrpc;
 
+enum ConstErrorId {
+	NA = 0;
+	EXCEEDEDVALUE = 1;
+	DUPLICATEDATA = 2;
+	NEVERZERO = 3;
+	DATAEQUALITY = 4;
+}
+
 enum UrlTypes {
 	URL_TYPES_FIJO = 0;
 	URL_TYPES_VARIABLE = 1;
@@ -174,6 +182,9 @@ message MeasurementMessage {
 	double value = 7;
 	int32 id = 8;
 	string name = 9;
+	protoMessages.Int32Message ErrorId = 10;
+	string UserIdConfirm = 11;
+	google.protobuf.Timestamp DateTimeConfirm = 12;
 }
 
 message MeasurementMessageList {
