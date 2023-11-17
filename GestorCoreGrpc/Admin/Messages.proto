@@ -537,12 +537,12 @@ message ServerResponse{
 message RdcUserMessage{
 	int32 id = 1;
 	int32 databaseId = 2;
-	string database = 3;
-	string databaseName = 4;
-	string file = 5;
-	string rightsGroup = 6;
-	string withholding = 7;
-	repeated ServerUserMessage serverUsers = 8;
+	int32 serverDatabaseNumber = 3;
+	int32 serverId = 4;
+	string databaseName = 5;
+	string file = 6;
+	string rightsGroup = 7;
+	string withholding = 8;
 }
 
 message RdcUserResponse{

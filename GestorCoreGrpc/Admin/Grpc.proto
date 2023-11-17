@@ -124,6 +124,8 @@ service GestorCoreAdmin {
 
 	rpc GetRdcUser (protoMessages.Int32Message) returns (RdcUserResponse);
 
+	rpc GetRdcUserByDatabase (protoMessages.Int32Message) returns (RdcUserResponse);
+
 	rpc CreateRdcUser (RdcUserMessage) returns (RdcUserResponse);
 
 	rpc EditRdcUser (RdcUserMessage) returns (RdcUserResponse);
