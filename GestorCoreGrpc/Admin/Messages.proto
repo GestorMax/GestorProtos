@@ -543,6 +543,8 @@ message RdcUserMessage{
 	string file = 6;
 	string rightsGroup = 7;
 	string withholding = 8;
+	string database = 9;
+	ServerMessage server = 10;
 }
 
 message RdcUserResponse{
