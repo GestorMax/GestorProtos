@@ -163,6 +163,12 @@ message CustomerMessage {
 	repeated AddressMessage addresses = 7;
 	repeated PackBundleMessage packBundles = 8;
 	protoMessages.Int32Message vaultId = 9;
+	protoMessages.StringMessage budgetLink = 10;
+	protoMessages.StringMessage binnacleLink = 11;
+	protoMessages.StringMessage archiveLink = 12;
+	protoMessages.StringMessage customerNotes = 13;
+	protoMessages.StringMessage customerContacts = 14;
+	protoMessages.StringMessage customerCompanies = 15;
 }
 
 message VaultMessage {
