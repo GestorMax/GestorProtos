@@ -171,6 +171,13 @@ message CustomerMessage {
 	protoMessages.StringMessage customerCompanies = 15;
 }
 
+message CustomerOtherDatasRequest{
+	int32 id = 1;
+	protoMessages.StringMessage customerNotes = 2;
+	protoMessages.StringMessage customerContacts = 3;
+	protoMessages.StringMessage customerCompanies = 4;
+}
+
 message VaultMessage {
 	int32 id = 1;
 	protoMessages.StringMessage hereIsDataApiKey = 2;
