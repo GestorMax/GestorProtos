@@ -558,6 +558,7 @@ message ServerUserMessage{
 	string password = 3;
 	string name = 4;
 	string email = 5;
+	string userId = 6;
 }
 
 message ServerUserResponse{
@@ -565,3 +566,11 @@ message ServerUserResponse{
 	ServerUserMessage message = 2;
 }
 
+message AvailableDatabasesMessageList{
+	repeated int32 values = 1;
+}
+
+message AvailableDatabasesRequest{
+	int32 serverId = 1;
+	int32 databaseId = 2;
+}
