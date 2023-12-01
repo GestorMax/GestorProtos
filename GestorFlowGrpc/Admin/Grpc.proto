@@ -9,10 +9,9 @@ package gestorFlowGrpcAdmin;
 service GestorFlowAdmin {
 
 	//States
-	rpc ListProcessStates(google.protobuf.Empty) returns (ProcessStateMessageList);
-	rpc GetProcessState(protoMessages.Int32Message) returns (ProcessStateResponse);
 	rpc CreateOrUpdateProcessState(ProcessStateMessageList) returns (ProcessStateResponse);
 	rpc DeleteProcessState(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ListProcessStatesById(protoMessages.Int32Message) returns (ProcessStateMessageList);
 
 	rpc ListProcessTypes(google.protobuf.Empty) returns (ProcessTypeMessageList);
 	rpc GetProcessType(protoMessages.Int32Message) returns (ProcessTypeResponse);
@@ -20,11 +19,8 @@ service GestorFlowAdmin {
 	rpc UpdateProcessType(ProcessTypeMessage) returns (ProcessTypeResponse);
 	rpc DeleteProcessType(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
-	rpc ListProcessStateFlow(google.protobuf.Empty) returns (ProcessStateFlowMessageList);
-	rpc GetProcessStateFlow(protoMessages.Int32Message) returns (ProcessStateFlowResponse);
-	rpc CreateProcessStateFLow(ProcessStateFlowMessage) returns (ProcessStateFlowResponse);
-	rpc UpdateProcessStateFLow(ProcessStateFlowMessage) returns (ProcessStateFlowResponse);
 	rpc DeleteProcessStateFLow(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ListProcessStatesFlowsById(protoMessages.Int32Message) returns (ProcessStateFlowMessageList);
 
 	rpc SaveDiagramFLow(DiagramFlowMessage) returns (protoMessages.ResponseResult);
 }
