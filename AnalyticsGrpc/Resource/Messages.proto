@@ -155,3 +155,20 @@ message ApiLastMeasurementResponse {
 	protoMessages.ResponseResult result = 1;
 	ApiMeasurementMessage message = 2;
 }
+
+
+message LabelDatasMessage {
+	int32 dataId = 1;
+	string dataName = 2;
+	repeated LabelWithTypeMessage labels = 3;
+	google.protobuf.Timestamp date = 4;
+}
+
+message LabelDatasMessageList {
+	repeated LabelDatasMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message LabelDatasRequest {
+	repeated int32 labelsIds = 1;
+}

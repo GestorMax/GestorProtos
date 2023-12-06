@@ -20,5 +20,6 @@ service AnalyticsResource {
 	rpc LastMultiMeasurements(LastMultiMeasurementRequest) returns (ApiMeasurementMessageList);
 	rpc ListMultiMeasurements(MultiMeasurementRequest) returns (ApiMeasurementMessageList);
 	rpc LastMeasurementByDate (LastMeasurementRequest) returns (ApiLastMeasurementResponse);
+	rpc GetLabelDatas (LabelDatasRequest) returns (LabelDatasMessageList);
 }
 
