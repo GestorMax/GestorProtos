@@ -25,6 +25,8 @@ service GestorCoreAdmin {
 	
 	rpc EditDatabaseUser(DatabaseUserMessage) returns (protoMessages.ResponseResult);
 
+	rpc ListUsersByRoleId(protoMessages.Int32Message) returns (UserMessageList);
+
 	//Roles
 	rpc ListRoles (google.protobuf.Empty) returns (servicePermissions.RoleMessageList);
 
@@ -146,6 +148,16 @@ service GestorCoreAdmin {
 
 	rpc EditServerUser (ServerUserMessage) returns (ServerUserResponse);
 
+	//Process
+	rpc ListProcesses (google.protobuf.Empty) returns (ProcessMessageList);
+
+	rpc GetProcess (protoMessages.Int32Message) returns (ProcessResponse);
+
+	rpc CreateProcess (ProcessMessage) returns (ProcessResponse);
+
+	rpc EditProcess (ProcessMessage) returns (ProcessResponse);
+
+	rpc RemoveProcess (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
 	//apikey
 	rpc GenerateApiKeyForDatabase (GenerateApiKeyRequest) returns (GenerateApiKeyResponse);
