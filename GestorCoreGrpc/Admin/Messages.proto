@@ -623,7 +623,7 @@ message ProcessMessage{
 		InProgress = 2;
 		Configured = 3;
 	}
-	Database database = 5;
+	Database processDatabase = 5;
 	enum Access{
 		AccessNone = 0;
 		AccessPending = 1;
@@ -717,8 +717,9 @@ message ProcessMessage{
 		Programmed = 2;
 	}
 	CLoudFertilizer cLoudFertilizer = 18;
-	string CommercialId = 19;
-	string ExecutiveId = 20;
+	string commercialId = 19;
+	string executiveId = 20;
+	int32 databaseId = 21;
 }
 message ProcessResponse{
 	protoMessages.ResponseResult result = 1;

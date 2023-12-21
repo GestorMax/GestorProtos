@@ -151,6 +151,8 @@ service GestorCoreAdmin {
 	//Process
 	rpc ListProcesses (google.protobuf.Empty) returns (ProcessMessageList);
 
+	rpc GetProcessByDatabaseId (protoMessages.Int32Message) returns (ProcessMessage);
+
 	rpc GetProcess (protoMessages.Int32Message) returns (ProcessResponse);
 
 	rpc CreateProcess (ProcessMessage) returns (ProcessResponse);
