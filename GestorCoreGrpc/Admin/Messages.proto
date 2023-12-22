@@ -597,124 +597,109 @@ message AvailableDatabasesRequest{
 message ProcessMessage{
 	int32 id = 1;
 	enum Budget {
-		BudgetNone = 0;
-		BudgetPending = 1;
-		BudgetReadyToSend = 2;
-		BudgetSent = 3;
-		BudgetApproved = 4;
+		BudgetPending = 0;
+		BudgetReadyToSend = 1;
+		BudgetSent = 2;
+		BudgetApproved = 3;
 	}
 	Budget budget = 2;
 	enum Binnacle{
-		BinnacleNone = 0;
-		BinnaclePending = 1;
-		Ready = 2;
+		BinnaclePending = 0;
+		Ready = 1;
 	}
 	Binnacle binnacle = 3;
 	enum Data{
-		DataNone = 0;
-		DataPending = 1;
-		Partial = 2;
-		Complete = 3;
+		DataPending = 0;
+		Partial = 1;
+		Complete = 2;
 	}
 	Data data = 4;
 	enum Database{
-		DatabaseNone = 0;
-		DatabasePending = 1;
-		InProgress = 2;
-		Configured = 3;
+		DatabasePending = 0;
+		InProgress = 1;
+		Configured = 2;
 	}
 	Database processDatabase = 5;
 	enum Access{
-		AccessNone = 0;
-		AccessPending = 1;
-		AccessSend = 2;
-		AccessSent = 3;
+		AccessPending = 0;
+		AccessSend = 1;
+		AccessSent = 2;
 	}
 	Access access = 6;
 	protoMessages.DateOnlyMessage accessDate = 7;
 	enum HomeMail{
-		HomeMailNone = 0;
-		HomeMailPending = 1;
-		Send = 2;
-		Sent = 3;
+		HomeMailPending = 0;
+		Send = 1;
+		Sent = 2;
 	}
 	HomeMail homeMail = 8;
 	enum Page{
-		PageNone = 0;
-		PagePending = 1;
-		Updated = 2;
+		PagePending = 0;
+		Updated = 1;
 	}
 	Page page = 9;
 	enum Drive{
-		DriveNone = 0;
-		DrivePending = 1;
-		Shared = 2;
+		DrivePending = 0;
+		Shared = 1;
 	}
 	Drive drive = 10;
 	enum Bill{
-		BillNone = 0;
-		BillPending = 1;
-		Check = 2;
-		Checked = 3;
+		BillPending = 0;
+		Check = 1;
+		Checked = 2;
 	}
 	Bill bill = 11;
 	protoMessages.DateOnlyMessage billDate  = 12; 
 	enum Modality{
-		ModalityNone = 0;
-		ModalityPending = 1;
-		Buys = 2;
-		Rent = 3;
+		ModalityPending = 0;
+		Buys = 1;
+		Rent = 2;
 	}
 	Modality modality = 13;
 	enum PaymentOption{
-		PaymentOptionNone = 0;
-		PaymentOptionPending = 1;
-		CashPayment = 2;
-		FourInstallments = 3;
+		PaymentOptionPending = 0;
+		CashPayment = 1;
+		FourInstallments = 2;
 	}
 	PaymentOption paymentOption = 14;
 	enum Fertilizer{
-		FertilizerNone = 0;
-		FertilizerPending = 1;
-		FertilizerProgrammed = 2;
+		FertilizerPending = 0;
+		FertilizerProgrammed = 1;
 	}
 	Fertilizer fertilizer = 15;
 	enum BonusCloudMonth{
-		BonusCloudMonthNone = 0;
-		NoBonus = 1;
-		Jan_Feb = 2;
-		Feb_Mar = 3;
-		Mar_Apr = 4;
-		Apr_May = 5;
-		May_Jun = 6;
-		Jun_Jul = 7;
-		Jul_Aug = 8;
-		Aug_Sep = 9;
-		Sep_Oct = 10;
-		Oct_Nov = 11;
-		Nov_Dec = 12;
+		NoBonus = 0;
+		Jan_Feb = 1;
+		Feb_Mar = 2;
+		Mar_Apr = 3;
+		Apr_May = 4;
+		May_Jun = 5;
+		Jun_Jul = 6;
+		Jul_Aug = 7;
+		Aug_Sep = 8;
+		Sep_Oct = 9;
+		Oct_Nov = 10;
+		Nov_Dec = 11;
 	}
 	BonusCloudMonth bonusCloudMonth = 16;
 	enum BillCloudMonth{
-		NotUse = 0;
-		January = 1;
-		February = 2;
-		March = 3;
-		April = 4;
-		May = 5;
-		June = 6;
-		July = 7;
-		August = 8;
-		September = 9;
-		October = 10;
-		November = 11;
-		December = 12;
+		January = 0;
+		February = 1;
+		March = 2;
+		April = 3;
+		May = 4;
+		June = 5;
+		July = 6;
+		August = 7;
+		September = 8;
+		October = 9;
+		November = 10;
+		December = 11;
 	}
 	BillCloudMonth billCloudMonth = 17;
 	enum CLoudFertilizer{
-		CLoudFertilizerNone = 0;
-		CLoudFertilizerPending = 1;
-		Programmed = 2;
+		CLoudFertilizerPending = 0;
+		Programmed = 1;
 	}
 	CLoudFertilizer cLoudFertilizer = 18;
 	string commercialId = 19;
@@ -724,4 +709,10 @@ message ProcessMessage{
 message ProcessResponse{
 	protoMessages.ResponseResult result = 1;
 	ProcessMessage message = 2;
+}
+
+message ProcessRequest{
+	int32 databaseId = 1;
+	string name = 2;
+	int32 value = 3;
 }
