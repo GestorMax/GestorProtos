@@ -716,3 +716,25 @@ message ProcessRequest{
 	string name = 2;
 	int32 value = 3;
 }
+
+message EditProcessRequest{
+	int32 id = 1;
+	int32 databaseId = 2;
+	oneof value {
+		ProcessMessage.Budget budget = 3;
+		ProcessMessage.Binnacle binnacle = 4;
+		ProcessMessage.Data data = 5;
+		ProcessMessage.Database database = 6;
+		ProcessMessage.Access access = 7;
+		ProcessMessage.HomeMail homeMail = 8;
+		ProcessMessage.Page page = 9;
+		ProcessMessage.Drive drive = 10;
+		ProcessMessage.Bill bill = 11;
+		ProcessMessage.Modality modality = 13;
+		ProcessMessage.PaymentOption paymentOption = 14;
+		ProcessMessage.Fertilizer fertilizer = 15;
+		ProcessMessage.BonusCloudMonth bonusCloudMonth = 16;
+		ProcessMessage.BillCloudMonth billCloudMonth = 17;
+		ProcessMessage.CLoudFertilizer cLoudFertilizer = 18;
+	}
+}

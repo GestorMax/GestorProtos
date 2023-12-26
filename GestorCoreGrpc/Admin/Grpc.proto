@@ -161,7 +161,7 @@ service GestorCoreAdmin {
 
 	rpc RemoveProcess (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
-	rpc CreateOrEditProcess (ProcessRequest) returns (ProcessResponse);
+	rpc EditProcessOneField (EditProcessRequest) returns (protoMessages.ResponseResult);
 
 	//apikey
 	rpc GenerateApiKeyForDatabase (GenerateApiKeyRequest) returns (GenerateApiKeyResponse);
