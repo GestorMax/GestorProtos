@@ -140,6 +140,7 @@ service GestorCoreAdmin {
 
 	//ServerUsers
 	rpc ListServerUsers (google.protobuf.Empty) returns (ServerUserMessageList);
+
 	rpc ListServerUsersByDatabase (protoMessages.Int32Message) returns (ServerUserMessageList);
 	
 	rpc GetServerUser (protoMessages.Int32Message) returns (ServerUserResponse);
@@ -149,17 +150,10 @@ service GestorCoreAdmin {
 	rpc EditServerUser (ServerUserMessage) returns (ServerUserResponse);
 
 	//Process
-	rpc ListProcesses (google.protobuf.Empty) returns (ProcessMessageList);
 
-	rpc GetProcessByDatabaseId (protoMessages.Int32Message) returns (ProcessMessage);
-
-	rpc GetProcess (protoMessages.Int32Message) returns (ProcessResponse);
+	rpc GetProcessByDatabaseId (protoMessages.Int32Message) returns (ProcessResponse);
 
 	rpc CreateProcess (ProcessMessage) returns (ProcessResponse);
-
-	rpc EditProcess (ProcessMessage) returns (ProcessResponse);
-
-	rpc RemoveProcess (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
 	rpc EditProcessOneField (EditProcessRequest) returns (protoMessages.ResponseResult);
 

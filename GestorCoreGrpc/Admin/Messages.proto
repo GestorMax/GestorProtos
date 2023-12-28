@@ -1,4 +1,4 @@
-﻿syntax = "proto3";
+﻿	syntax = "proto3";
 
 import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
@@ -669,17 +669,17 @@ message ProcessMessage{
 	Fertilizer fertilizer = 15;
 	enum BonusCloudMonth{
 		NoBonus = 0;
-		Jan_Feb = 1;
-		Feb_Mar = 2;
-		Mar_Apr = 3;
-		Apr_May = 4;
-		May_Jun = 5;
-		Jun_Jul = 6;
-		Jul_Aug = 7;
-		Aug_Sep = 8;
-		Sep_Oct = 9;
-		Oct_Nov = 10;
-		Nov_Dec = 11;
+		JanFeb = 1;
+		FebMar = 2;
+		MarApr = 3;
+		AprMay = 4;
+		MayJun = 5;
+		JunJul = 6;
+		JulAug = 7;
+		AugSep = 8;
+		SepOct = 9;
+		OctNov = 10;
+		NovDec = 11;
 	}
 	BonusCloudMonth bonusCloudMonth = 16;
 	enum BillCloudMonth{
@@ -737,4 +737,8 @@ message EditProcessRequest{
 		ProcessMessage.BillCloudMonth billCloudMonth = 17;
 		ProcessMessage.CLoudFertilizer cLoudFertilizer = 18;
 	}
+	string commercialId = 19;
+	string executiveId = 20;
+	protoMessages.DateOnlyMessage accessDate = 21;
+	protoMessages.DateOnlyMessage billDate  = 22; 
 }
