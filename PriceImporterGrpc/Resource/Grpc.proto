@@ -25,7 +25,7 @@ service PriceImporterResource {
 	rpc SaveProductMapping (ProductMappingMessage) returns (ProductMappingResponse);
 	rpc UpdateProducts (OnlyProductMappingMessageList) returns (protoMessages.ResponseResult);	
 
-	rpc ListSources(google.protobuf.Empty) returns (SourceMessageList);
+	rpc ListSeries(google.protobuf.Empty) returns (SerieMessageList);
 	rpc ListDatasSource(google.protobuf.Empty) returns (DataSourceMessageList);
 	rpc ListPricesList(google.protobuf.Empty) returns (PriceListListResponse);
 	rpc GetListPrice(protoMessages.Int32Message) returns (PriceListResponse);
