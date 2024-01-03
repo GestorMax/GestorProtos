@@ -48,6 +48,16 @@ message ScheduledTaskLogMessage {
 	protoMessages.StringMessage error = 5;
 }
 
+message ScheduledTaskLogMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated ScheduledTaskLogMessage values = 1;
+}
+
+message ScheduledTaskLogResponse{
+	protoMessages.ResponseResult result = 1;
+	ScheduledTaskLogMessage message = 2;
+}
+
 message ScheduledTaskConfigMessage{
 	int32 id = 1;
 	int32 retries = 2;
