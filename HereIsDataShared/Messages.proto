@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "google/protobuf/Timestamp.proto";
+import "ProtoMessages/Common.proto";
+
+package hereIsDataShared;
+
+message SerieMessage {
+	int32 id = 1;
+	string alias = 2;
+	int32 metric_Id = 3; 
+	string type_Name = 4;
+}
+
+message SerieMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated SerieMessage values = 1;
+}

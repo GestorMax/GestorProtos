@@ -9,6 +9,7 @@ import "PriceImporterGrpc/Resource/Messages.proto";
 import "FinancieroGrpc/Resource/Messages.proto";
 import "AnalyticsGrpc/Resource/Messages.proto";
 import "GestorAppsGrpc/Messages.proto";
+import "HereIsDataShared/Messages.proto";
 
 
 package gestorAppsGrpc;
@@ -56,7 +57,7 @@ service GestorApps {
 	rpc ListPricesList (google.protobuf.Empty) returns (priceImporterGrpcResource.PriceListListResponse);	
 	rpc UpdateProducts (priceImporterGrpcResource.OnlyProductMappingMessageList) returns (protoMessages.ResponseResult);
 	rpc RemoveProductMapping (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
-	rpc ListSeries (google.protobuf.Empty) returns (priceImporterGrpcResource.SerieMessageList);
+	rpc ListSeries (google.protobuf.Empty) returns (hereIsDataShared.SerieMessageList);
 	rpc ListDatasSource (google.protobuf.Empty) returns (priceImporterGrpcResource.DataSourceMessageList);
 	rpc SaveProductMapping (priceImporterGrpcResource.ProductMappingMessage) returns (priceImporterGrpcResource.ProductMappingResponse);
 	rpc GetListPrice (protoMessages.Int32Message) returns (priceImporterGrpcResource.PriceListResponse);
