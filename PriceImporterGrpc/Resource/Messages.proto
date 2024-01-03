@@ -118,16 +118,6 @@ message ProductLogsMessageList {
 	repeated ProductLogMessage values = 1;
 }
 
-message SerieMessage {
-	int32 id = 1;
-	string alias = 2;
-}
-
-message SerieMessageList {
-	protoMessages.ResponseResult result = 2;
-	repeated SerieMessage values = 1;
-}
-
 message DataSourceMessage {
 	int32 id = 1;
 	int32 sourceId = 2;
