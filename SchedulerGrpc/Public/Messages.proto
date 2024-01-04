@@ -63,3 +63,8 @@ message ScheduledTaskConfigMessage{
 	int32 retries = 2;
 	int32 waitTimeSeconds = 3;
 }
+
+message ScheduledTaskConfigResponse{
+	protoMessages.ResponseResult result = 1;
+	ScheduledTaskConfigMessage message = 2;
+}
