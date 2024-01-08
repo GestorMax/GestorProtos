@@ -10,7 +10,6 @@ message PriceImporterConfiguration {
 }
 
 message ProductMessage {
-	int32 DatabaseId = 1;
 	int32 CodList = 2;
 	int32 CodProduct = 3;
 	protoMessages.StringMessage ProductName = 4;
@@ -21,7 +20,6 @@ message ProductMessage {
 }
 
 message OnlyProductMappingMessage {
-	int32 DatabaseId = 1;
 	int32 CodList = 2;
 	int32 CodProduct = 3;
 	int32 ProductMappingId = 4;
@@ -116,18 +114,6 @@ message ProductLogResponse {
 message ProductLogsMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated ProductLogMessage values = 1;
-}
-
-message DataSourceMessage {
-	int32 id = 1;
-	int32 sourceId = 2;
-	string name = 3;
-	string metric = 4;
-}
-
-message DataSourceMessageList {
-	protoMessages.ResponseResult result = 2;
-	repeated DataSourceMessage values = 1;
 }
 
 message PriceListMessage {
