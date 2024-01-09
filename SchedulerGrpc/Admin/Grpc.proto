@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "ProtoMessages/Common.proto";
+import "google/protobuf/Empty.proto";
+import "SchedulerGrpc/Admin/Messages.proto";
+
+package schedulerGrpcAdmin;
+
+service SchedulerAdmin {
+	rpc GetScheduledConfig(google.protobuf.Empty) returns (ScheduledTaskConfigResponse);
+}

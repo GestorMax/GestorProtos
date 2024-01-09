@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "google/protobuf/Timestamp.proto";
+import "ProtoMessages/Common.proto";
+
+package schedulerGrpcAdmin;
+
+message ScheduledTaskConfigMessage{
+	int32 id = 1;
+	int32 retries = 2;
+	int32 waitTimeSeconds = 3;
+}
+
+message ScheduledTaskConfigResponse{
+	protoMessages.ResponseResult result = 1;
+	ScheduledTaskConfigMessage message = 2;
+}
