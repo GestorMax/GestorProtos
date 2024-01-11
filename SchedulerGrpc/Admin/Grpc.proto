@@ -8,4 +8,5 @@ package schedulerGrpcAdmin;
 
 service SchedulerAdmin {
 	rpc GetScheduledConfig(google.protobuf.Empty) returns (ScheduledTaskConfigResponse);
+	rpc SaveScheduledConfig(ScheduledTaskConfigRequest) returns (protoMessages.ResponseResult);
 }

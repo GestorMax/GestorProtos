@@ -14,3 +14,13 @@ message ScheduledTaskConfigResponse{
 	protoMessages.ResponseResult result = 1;
 	ScheduledTaskConfigMessage message = 2;
 }
+
+message ScheduledTaskConfigMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated ScheduledTaskConfigMessage values = 1;
+}
+
+message ScheduledTaskConfigRequest{
+	int32 retries = 1;
+	int32 waitTimeSeconds = 2;
+}
