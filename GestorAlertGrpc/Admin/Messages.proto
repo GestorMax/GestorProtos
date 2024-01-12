@@ -25,7 +25,7 @@ enum GestorDataEvents {
 enum SchedulerEvents {
 	SCHEDULER_EVENTS_ALL = 0;
 	SCHEDULER_EVENTS_RESTART = 1;
-	SCHEDULER_EVENTS_FAIL = 2;
+	SCHEDULER_EVENTS_FAILURE = 2;
 }
 
 message GestorAlertConfiguration {
