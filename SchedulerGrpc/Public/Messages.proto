@@ -5,13 +5,13 @@ import "ProtoMessages/Common.proto";
 
 package schedulerGrpcPublic;
 
+message SchedulerConfiguration {
+	string uri = 1;
+}
+
 enum CallbackClientTypes{
 	CALLBACK_CLIENT_TYPES_ANALYTICS = 0;
 	CALLBACK_CLIENT_TYPES_GESTOR_ALERT = 1;
-}
-
-message SchedulerConfiguration {
-	string uri = 1;
 }
 
 message ChangeActiveScheduledTaskRequest {
@@ -40,6 +40,7 @@ message ScheduledTaskMessageList {
 	repeated ScheduledTaskMessage values = 1;
 }
 
+
 message ScheduledTaskLogMessage {
 	int32 id = 1;
 	google.protobuf.Timestamp dateTime = 2;
@@ -57,4 +58,3 @@ message ScheduledTaskLogResponse{
 	protoMessages.ResponseResult result = 1;
 	ScheduledTaskLogMessage message = 2;
 }
-
