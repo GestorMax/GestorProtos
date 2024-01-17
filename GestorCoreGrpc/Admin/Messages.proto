@@ -174,7 +174,62 @@ message CustomerMessage {
 	protoMessages.StringMessage customerNotes = 13;
 	protoMessages.StringMessage customerContacts = 14;
 	protoMessages.StringMessage customerCompanies = 15;
+	string commercialId = 16;
+	string executiveId = 17;
+	enum Budget {
+		BudgetPending = 0;
+		BudgetReadyToSend = 1;
+		BudgetSent = 2;
+		BudgetApproved = 3;
+	}
+	Budget budget = 18;
+	enum Binnacle{
+		BinnaclePending = 0;
+		Ready = 1;
+	}
+	Binnacle binnacle = 19;
+	enum PaymentOption{
+		PaymentOptionPending = 0;
+		CashPayment = 1;
+		FourInstallments = 2;
+	}
+	PaymentOption paymentOption = 20;
+	enum Fertilizer{
+		FertilizerPending = 0;
+		FertilizerProgrammed = 1;
+	}
+	Fertilizer fertilizer = 21;	
+	enum Bill{
+		BillPending = 0;
+		Check = 1;
+		Checked = 2;
+	}
+	Bill bill = 22;
+	protoMessages.DateOnlyMessage billDate  = 23;
+	enum Page{
+		PagePending = 0;
+		Updated = 1;
+	}
+	Page page = 24;
+	enum BillingTicket{
+		BillingTicketPending = 0;
+		BillingTicketSend = 1;
+		BillingTicketSent = 2;
+	}
+	BillingTicket billingTicket = 25;
+	enum StartTicket{
+		StartTicketPending = 0;
+		StartTicketSend = 1;
+		StartTicketSent = 2;
+	}
+	StartTicket startTicket = 26;
 }
+
+message CustomerResponse{
+	protoMessages.ResponseResult result = 1;
+	CustomerMessage message = 2;
+}
+
 
 message CustomerOtherDatasRequest{
 	int32 id = 1;
@@ -596,18 +651,6 @@ message AvailableDatabasesRequest{
 
 message ProcessMessage{
 	int32 id = 1;
-	enum Budget {
-		BudgetPending = 0;
-		BudgetReadyToSend = 1;
-		BudgetSent = 2;
-		BudgetApproved = 3;
-	}
-	Budget budget = 2;
-	enum Binnacle{
-		BinnaclePending = 0;
-		Ready = 1;
-	}
-	Binnacle binnacle = 3;
 	enum Data{
 		DataPending = 0;
 		Partial = 1;
@@ -633,40 +676,17 @@ message ProcessMessage{
 		Sent = 2;
 	}
 	HomeMail homeMail = 8;
-	enum Page{
-		PagePending = 0;
-		Updated = 1;
-	}
-	Page page = 9;
 	enum Drive{
 		DrivePending = 0;
 		Shared = 1;
 	}
 	Drive drive = 10;
-	enum Bill{
-		BillPending = 0;
-		Check = 1;
-		Checked = 2;
-	}
-	Bill bill = 11;
-	protoMessages.DateOnlyMessage billDate  = 12; 
 	enum Modality{
 		ModalityPending = 0;
 		Buys = 1;
 		Rent = 2;
 	}
 	Modality modality = 13;
-	enum PaymentOption{
-		PaymentOptionPending = 0;
-		CashPayment = 1;
-		FourInstallments = 2;
-	}
-	PaymentOption paymentOption = 14;
-	enum Fertilizer{
-		FertilizerPending = 0;
-		FertilizerProgrammed = 1;
-	}
-	Fertilizer fertilizer = 15;
 	enum BonusCloudMonth{
 		NoBonus = 0;
 		JanFeb = 1;
@@ -702,8 +722,6 @@ message ProcessMessage{
 		Programmed = 1;
 	}
 	CLoudFertilizer cLoudFertilizer = 18;
-	string commercialId = 19;
-	string executiveId = 20;
 	int32 databaseId = 21;
 }
 message ProcessResponse{
@@ -721,24 +739,34 @@ message EditProcessRequest{
 	int32 id = 1;
 	int32 databaseId = 2;
 	oneof value {
-		ProcessMessage.Budget budget = 3;
-		ProcessMessage.Binnacle binnacle = 4;
-		ProcessMessage.Data data = 5;
-		ProcessMessage.Database database = 6;
-		ProcessMessage.Access access = 7;
-		ProcessMessage.HomeMail homeMail = 8;
-		ProcessMessage.Page page = 9;
-		ProcessMessage.Drive drive = 10;
-		ProcessMessage.Bill bill = 11;
-		ProcessMessage.Modality modality = 13;
-		ProcessMessage.PaymentOption paymentOption = 14;
-		ProcessMessage.Fertilizer fertilizer = 15;
-		ProcessMessage.BonusCloudMonth bonusCloudMonth = 16;
-		ProcessMessage.BillCloudMonth billCloudMonth = 17;
-		ProcessMessage.CLoudFertilizer cLoudFertilizer = 18;
+		ProcessMessage.Data data = 3;
+		ProcessMessage.Database database = 4;
+		ProcessMessage.Access access = 5;
+		ProcessMessage.HomeMail homeMail = 6;
+		ProcessMessage.Drive drive = 7;
+		ProcessMessage.Modality modality = 8;
+		ProcessMessage.BonusCloudMonth bonusCloudMonth = 9;
+		ProcessMessage.BillCloudMonth billCloudMonth = 10;
+		ProcessMessage.CLoudFertilizer cLoudFertilizer = 11;
 	}
-	string commercialId = 19;
-	string executiveId = 20;
-	protoMessages.DateOnlyMessage accessDate = 21;
-	protoMessages.DateOnlyMessage billDate  = 22; 
+	protoMessages.DateOnlyMessage accessDate = 12;
+}
+
+message EditCustomerRequest{
+	int32 id = 1;
+	int32 customerId = 2;
+	oneof value {
+		CustomerMessage.Budget budget = 3;
+		CustomerMessage.Binnacle binnacle = 4;
+		CustomerMessage.PaymentOption paymentOption = 5;
+		CustomerMessage.Fertilizer fertilizer = 6;
+		CustomerMessage.Bill bill = 7;
+		CustomerMessage.Page page = 8;
+		CustomerMessage.BillingTicket billingTicket = 9;
+		CustomerMessage.StartTicket startTicket = 10;
+
+	}
+	protoMessages.DateOnlyMessage billDate = 11;
+	string commercialId = 12;
+	string executiveId = 13;
 }
