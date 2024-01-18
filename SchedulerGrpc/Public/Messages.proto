@@ -47,6 +47,7 @@ message ScheduledTaskLogMessage {
 	int32 scheduledId = 3;
 	bool success = 4;
 	protoMessages.StringMessage error = 5;
+	ScheduledTaskMessage scheduled = 6;
 }
 
 message ScheduledTaskLogMessageList {
@@ -57,4 +58,9 @@ message ScheduledTaskLogMessageList {
 message ScheduledTaskLogResponse{
 	protoMessages.ResponseResult result = 1;
 	ScheduledTaskLogMessage message = 2;
+}
+
+message ScheduledTaskLogRequest{
+	int32 countMaxLogs = 1;
+	bool onlyError = 2;
 }

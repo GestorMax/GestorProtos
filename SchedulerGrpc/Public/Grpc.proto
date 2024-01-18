@@ -15,6 +15,6 @@ service SchedulerPublic {
 	rpc DeleteScheduledTask(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 	rpc ChangeActiveScheduledTask(ChangeActiveScheduledTaskRequest) returns (protoMessages.ResponseResult);
 
-	rpc ListScheduledTasksActives(google.protobuf.Empty) returns (ScheduledTaskMessageList);
-	rpc ListScheduledTaskLog(protoMessages.Int32Message) returns (ScheduledTaskLogMessageList);
+	rpc ListScheduledTasksActives(protoMessages.BoolMessage) returns (ScheduledTaskMessageList);
+	rpc ListScheduledTaskLog(ScheduledTaskLogRequest) returns (ScheduledTaskLogMessageList);
 }
