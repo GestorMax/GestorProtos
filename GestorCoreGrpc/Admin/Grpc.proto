@@ -57,8 +57,6 @@ service GestorCoreAdmin {
 
 	rpc UpdateCustomerOtherDatas (CustomerOtherDatasRequest) returns (protoMessages.ResponseResult);
 	
-	rpc EditCustomerOneField (EditCustomerRequest) returns (protoMessages.ResponseResult);
-
 	//Vaults
 	rpc GetVault(protoMessages.Int32Message) returns (VaultResponse);
 

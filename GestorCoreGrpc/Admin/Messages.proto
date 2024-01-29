@@ -751,22 +751,3 @@ message EditProcessRequest{
 	}
 	protoMessages.DateOnlyMessage accessDate = 12;
 }
-
-message EditCustomerRequest{
-	int32 id = 1;
-	int32 customerId = 2;
-	oneof value {
-		CustomerMessage.Budget budget = 3;
-		CustomerMessage.Binnacle binnacle = 4;
-		CustomerMessage.PaymentOption paymentOption = 5;
-		CustomerMessage.Fertilizer fertilizer = 6;
-		CustomerMessage.Bill bill = 7;
-		CustomerMessage.Page page = 8;
-		CustomerMessage.BillingTicket billingTicket = 9;
-		CustomerMessage.StartTicket startTicket = 10;
-
-	}
-	protoMessages.DateOnlyMessage billDate = 11;
-	string commercialId = 12;
-	string executiveId = 13;
-}
