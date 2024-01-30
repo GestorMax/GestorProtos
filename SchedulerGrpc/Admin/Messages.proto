@@ -1,6 +1,8 @@
 syntax = "proto3";
 
+import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
+import "SchedulerGrpc/Shared/Messages.proto";
 
 package schedulerGrpcAdmin;
 
@@ -23,4 +25,33 @@ message ScheduledTaskConfigMessageList {
 message ScheduledTaskConfigRequest{
 	int32 retries = 1;
 	int32 waitTimeSeconds = 2;
+}
+
+message ScheduledTaskLogMessage {
+	int32 id = 1;
+	google.protobuf.Timestamp dateTime = 2;
+	int32 scheduledId = 3;
+	bool success = 4;
+	protoMessages.StringMessage error = 5;
+	schedulerGrpcShared.ScheduledTaskMessage scheduled = 6;
+}
+
+message ScheduledTaskLogMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated ScheduledTaskLogMessage values = 1;
+}
+
+message ScheduledTaskLogResponse{
+	protoMessages.ResponseResult result = 1;
+	ScheduledTaskLogMessage message = 2;
+}
+
+message ScheduledTaskLogRequest{
+	int32 countMaxLogs = 1;
+	bool onlyError = 2;
+}
+
+message ScheduledTaskMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated schedulerGrpcShared.ScheduledTaskMessage values = 1;
 }

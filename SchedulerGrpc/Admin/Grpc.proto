@@ -3,10 +3,19 @@ syntax = "proto3";
 import "ProtoMessages/Common.proto";
 import "google/protobuf/Empty.proto";
 import "SchedulerGrpc/Admin/Messages.proto";
+import "SchedulerGrpc/Shared/Messages.proto";
+
 
 package schedulerGrpcAdmin;
 
 service SchedulerAdmin {
+	rpc GetScheduledTask(protoMessages.Int32Message) returns (schedulerGrpcShared.ScheduledTaskResponse);
+	rpc ListScheduledTasks(google.protobuf.Empty) returns (ScheduledTaskMessageList);
+
 	rpc GetScheduledConfig(google.protobuf.Empty) returns (ScheduledTaskConfigResponse);
 	rpc SaveScheduledConfig(ScheduledTaskConfigRequest) returns (protoMessages.ResponseResult);
+
+	rpc ListScheduledTaskLog(ScheduledTaskLogRequest) returns (ScheduledTaskLogMessageList);
+	rpc ListScheduledTasksActives(protoMessages.BoolMessage) returns (ScheduledTaskMessageList);
+
 }
