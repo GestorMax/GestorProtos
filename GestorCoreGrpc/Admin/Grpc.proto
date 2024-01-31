@@ -171,4 +171,17 @@ service GestorCoreAdmin {
 	//reportes
 	rpc ListDatabaseLicenses(google.protobuf.Empty) returns (DatabaseLicenseMessageList);
 	rpc ListDatabaseCustomer(google.protobuf.Empty) returns (DatabaseCustomerMessageList);
+
+	
+	//VirtualServers
+
+	rpc ListVirtualServers (google.protobuf.Empty) returns (VirtualServerMessageList);
+
+	rpc GetVirtualServer (protoMessages.Int32Message) returns (VirtualServerResponse);
+
+	rpc CreateVirtualServer (VirtualServerMessage) returns (VirtualServerResponse);
+
+	rpc EditVirtualServer (VirtualServerMessage) returns (VirtualServerResponse);
+
+	rpc DeleteVirtualServer (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 }
