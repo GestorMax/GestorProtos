@@ -123,18 +123,18 @@ service GestorCoreAdmin {
 
 	rpc DeleteServer (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
-	//Rdc Users
-	rpc ListRdcUsers (google.protobuf.Empty) returns (RdcUserMessageList);
+	//Rdp Users
+	rpc ListRdpUsers (google.protobuf.Empty) returns (RdpUserMessageList);
 
-	rpc GetRdcUser (protoMessages.Int32Message) returns (RdcUserResponse);
+	rpc GetRdpUser (protoMessages.Int32Message) returns (RdpUserResponse);
 
-	rpc GetRdcUserByDatabase (protoMessages.Int32Message) returns (RdcUserResponse);
+	rpc GetRdpUserByDatabase (protoMessages.Int32Message) returns (RdpUserResponse);
 
-	rpc CreateRdcUser (RdcUserMessage) returns (RdcUserResponse);
+	rpc CreateRdpUser (RdpUserMessage) returns (RdpUserResponse);
 
-	rpc EditRdcUser (RdcUserMessage) returns (RdcUserResponse);
+	rpc EditRdpUser (RdpUserMessage) returns (RdpUserResponse);
 
-	rpc DeleteRdcUser (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc DeleteRdpUser (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
 	rpc ListAvailableDatabasesByServerId (AvailableDatabasesRequest) returns (AvailableDatabasesMessageList);
 
