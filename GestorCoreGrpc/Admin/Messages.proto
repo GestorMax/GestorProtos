@@ -619,10 +619,10 @@ message ServerMessage{
 	string mother = 9;
 	string processor = 10;
 	string memory = 11;
-	string solidDisk = 12;
-	string flatDisk = 13;
-	string externalDisk = 14;
-	string notes = 15;
+	protoMessages.StringMessage solidDisk = 12;
+	protoMessages.StringMessage flatDisk = 13;
+	protoMessages.StringMessage externalDisk = 14;
+	protoMessages.StringMessage notes = 15;
 }
 
 message ServerResponse{
@@ -784,9 +784,9 @@ message VirtualServerMessage{
 	string databasePrefix = 6;
 	string userPrefix = 7;
 	enum State{
-		On = 0;
-		Off = 1;
-		Discharged = 2;
+		StateOn = 0;
+		StateOff = 1;
+		StateDischarged = 2;
 	}
 	State state = 8;
 	string ip = 9;
@@ -802,11 +802,12 @@ message VirtualServerMessage{
 	}
 	Os os = 13;
 	enum SqlVersion {
-		Sql2012 = 0;
-		Sql2000 = 1;
+		SqlVersionSql2012 = 0;
+		SqlVersionSql2000 = 1;
 	}
 	SqlVersion sqlVersion = 14;
-	string notes = 15;
+	protoMessages.StringMessage notes = 15;
+	ServerMessage server = 16;
 }
 
 message VirtualServerResponse{
