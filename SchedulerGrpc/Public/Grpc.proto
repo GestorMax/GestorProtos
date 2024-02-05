@@ -1,17 +1,19 @@
 syntax = "proto3";
 
 import "ProtoMessages/Common.proto";
-import "google/protobuf/Empty.proto";
 import "SchedulerGrpc/Public/Messages.proto";
+import "SchedulerGrpc/Shared/Messages.proto";
+
 
 package schedulerGrpcPublic;
 
 service SchedulerPublic {
-	//Scheduled Task
-	rpc ListScheduledTasks(google.protobuf.Empty) returns (ScheduledTaskMessageList);
-	rpc GetScheduledTask(protoMessages.Int32Message) returns (ScheduledTaskResponse);
-	rpc CreateScheduledTask(ScheduledTaskMessage) returns (ScheduledTaskResponse);
-	rpc UpdateScheduledTask(ScheduledTaskMessage) returns (ScheduledTaskResponse);
+	rpc GetScheduledTask(protoMessages.Int32Message) returns (schedulerGrpcShared.ScheduledTaskResponse);
+
+	rpc CreateScheduledTask(schedulerGrpcShared.ScheduledTaskMessage) returns (schedulerGrpcShared.ScheduledTaskResponse);
+	rpc UpdateScheduledTask(schedulerGrpcShared.ScheduledTaskMessage) returns (schedulerGrpcShared.ScheduledTaskResponse);
 	rpc DeleteScheduledTask(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
 	rpc ChangeActiveScheduledTask(ChangeActiveScheduledTaskRequest) returns (protoMessages.ResponseResult);
+
 }

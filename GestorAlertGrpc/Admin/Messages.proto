@@ -12,6 +12,7 @@ enum MeansType {
 
 enum AppsId {
 	APPS_ID_GESTOR_DATA = 0;
+	APPS_ID_SCHEDULER = 1;
 }
 
 enum GestorDataEvents {
@@ -19,6 +20,12 @@ enum GestorDataEvents {
 	GESTOR_DATA_EVENTS_SCRAPPING_ERROR = 1;
 	GESTOR_DATA_EVENTS_UNEXPECTED_ZERO = 2;
 	GESTOR_DATA_EVENTS_LIMIT_EXCEEDED = 4;
+}
+
+enum SchedulerEvents {
+	SCHEDULER_EVENTS_ALL = 0;
+	SCHEDULER_EVENTS_RESTART = 1;
+	SCHEDULER_EVENTS_FAILURE = 2;
 }
 
 message GestorAlertConfiguration {

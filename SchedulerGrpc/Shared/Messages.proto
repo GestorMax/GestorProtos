@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "google/protobuf/Timestamp.proto";
+import "ProtoMessages/Common.proto";
+
+package schedulerGrpcShared;
+
+message SchedulerConfiguration {
+	string uri = 1;
+}
+
+enum CallbackClientTypes{
+	CALLBACK_CLIENT_TYPES_ANALYTICS = 0;
+	CALLBACK_CLIENT_TYPES_GESTOR_ALERT = 1;
+}
+
+message ScheduledTaskResponse {
+	protoMessages.ResponseResult result = 1;
+	ScheduledTaskMessage message = 2;
+}
+
+message ScheduledTaskMessage {
+	int32 id = 1;
+	protoMessages.StringMessage name = 2;
+	string schedule = 3;
+	bool active = 4;
+	CallbackClientTypes callbackClient = 5;
+	string data = 6;
+	google.protobuf.Timestamp lastDateRun = 7;
+	google.protobuf.Timestamp nextDateRun = 8;
+}
+
+
+
+
+

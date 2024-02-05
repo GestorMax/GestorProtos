@@ -1,13 +1,6 @@
 syntax = "proto3";
 
-import "ProtoMessages/Common.proto";
-
 package schedulerGrpcPublic;
-
-enum CallbackClientTypes{
-	CALLBACK_CLIENT_TYPES_ANALYTICS = 0;
-	CALLBACK_CLIENT_TYPES_GESTOR_ALERT = 1;
-}
 
 message SchedulerConfiguration {
 	string uri = 1;
@@ -18,21 +11,3 @@ message ChangeActiveScheduledTaskRequest {
 	bool active = 2;
 }
 
-message ScheduledTaskResponse {
-	protoMessages.ResponseResult result = 1;
-	ScheduledTaskMessage message = 2;
-}
-
-message ScheduledTaskMessage {
-	int32 id = 1;
-	protoMessages.StringMessage100 name = 2;
-	string schedule = 3;
-	bool active = 4;
-	CallbackClientTypes callbackClient = 5;
-	string data = 6;
-}
-
-message ScheduledTaskMessageList {
-	protoMessages.ResponseResult result = 2;
-	repeated ScheduledTaskMessage values = 1;
-}
