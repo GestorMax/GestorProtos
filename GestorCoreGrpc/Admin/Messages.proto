@@ -668,7 +668,7 @@ message AvailableDatabasesMessageList{
 }
 
 message AvailableDatabasesRequest{
-	int32 serverId = 1;
+	int32 virtualServerId = 1;
 	int32 databaseId = 2;
 }
 

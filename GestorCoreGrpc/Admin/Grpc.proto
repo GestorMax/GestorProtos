@@ -121,8 +121,6 @@ service GestorCoreAdmin {
 
 	rpc EditServer (ServerMessage) returns (ServerResponse);
 
-	rpc DeleteServer (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
-
 	//Rdp Users
 	rpc ListRdpUsers (google.protobuf.Empty) returns (RdpUserMessageList);
 
@@ -183,5 +181,4 @@ service GestorCoreAdmin {
 
 	rpc EditVirtualServer (VirtualServerMessage) returns (VirtualServerResponse);
 
-	rpc DeleteVirtualServer (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 }
