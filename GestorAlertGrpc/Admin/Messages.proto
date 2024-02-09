@@ -76,13 +76,13 @@ message SubscriptionResponse {
 }
 
 
-
 message CreateIncidenceRequest {
 	AppsId appId = 1;
 	int32 eventId = 2;
 	string objectId = 3;
 	string objectDescription = 4;
 	string detail = 5;
+	int32 state = 6;
 }
 
 message IncidenceMessage {
@@ -93,6 +93,9 @@ message IncidenceMessage {
 	string objectDescription = 5;
 	string detail = 6;
 	google.protobuf.Timestamp date = 7;
+	int32 state = 8;
+	protoMessages.StringMessage reviewedByUserId = 9;
+	google.protobuf.Timestamp reviewedDate = 10;
 }
 
 message IncidenceMessageList {
@@ -129,5 +132,16 @@ message ListHistoryRequest{
 	AppsId appId = 1;
 	int32 eventId = 2;
 	string objectId = 3;
-	int32 limit = 4;
+	int32 limit = 4;	
+	google.protobuf.Timestamp dateFrom = 5;
+	google.protobuf.Timestamp dateTo = 6;
+}
+
+message ExcludedIncidenceMessage {
+	int32 id = 1;
+	AppsId appId = 2;
+	int32 eventId = 3;
+	string objectId = 4;
+	google.protobuf.Timestamp dateExcluded = 5;
+	protoMessages.StringMessage excludingUserId = 9;
 }
