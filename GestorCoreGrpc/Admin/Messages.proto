@@ -118,8 +118,6 @@ message DatabaseResultMessage {
 	bool hasMainInstance = 10;
 	DatabaseInstanceMessageDatabaseMessage mainInstance = 11;
 	string redactedId = 12;
-	int32 activeInstancesLast30Days = 13;
-	int32 activeInstancesLast45Days = 14;
 }
 
 message CreateCustomerResponse {
