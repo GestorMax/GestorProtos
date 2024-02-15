@@ -88,6 +88,11 @@ message VirtualServerMessageList{
 	protoMessages.ResponseResult result = 2;
 }
 
+message VirtualServerDatabaseMessageList{
+	repeated VirtualServerDatabaseMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
 //MESSAGES ---------------------------------------------------------------
 message ConfirmLinkUserMessage {
 	string link = 1;
@@ -814,3 +819,11 @@ message VirtualServerResponse{
 	protoMessages.ResponseResult result = 1;
 	VirtualServerMessage message = 2;
 }
+
+message VirtualServerDatabaseMessage{
+	int32 databaseId = 1;
+	string databaseName = 2;
+	string displayName = 3;
+	string customerName = 4;
+}
+

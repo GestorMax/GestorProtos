@@ -181,4 +181,6 @@ service GestorCoreAdmin {
 
 	rpc EditVirtualServer (VirtualServerMessage) returns (VirtualServerResponse);
 
+	rpc ListDatabasesByVirtualServer (protoMessages.Int32Message) returns (VirtualServerDatabaseMessageList);
+
 }
