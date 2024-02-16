@@ -28,6 +28,15 @@ enum SchedulerEvents {
 	SCHEDULER_EVENTS_FAILURE = 2;
 }
 
+enum AlertsStates {
+	ALERTS_STATES_PENDING = 0;
+	ALERTS_STATES_REVISION = 1;
+	ALERTS_STATES_REVIEWED = 2;
+	ALERTS_STATES_DISCARDED = 3;
+	ALERTS_STATES_RESOLVED = 4;
+	ALERTS_STATES_HIDDEN = 5;
+}
+
 message GestorAlertConfiguration {
 	string uri = 1;
 }
