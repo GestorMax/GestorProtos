@@ -121,20 +121,18 @@ service GestorCoreAdmin {
 
 	rpc EditServer (ServerMessage) returns (ServerResponse);
 
-	rpc DeleteServer (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	//Rdp Users
+	rpc ListRdpUsers (google.protobuf.Empty) returns (RdpUserMessageList);
 
-	//Rdc Users
-	rpc ListRdcUsers (google.protobuf.Empty) returns (RdcUserMessageList);
+	rpc GetRdpUser (protoMessages.Int32Message) returns (RdpUserResponse);
 
-	rpc GetRdcUser (protoMessages.Int32Message) returns (RdcUserResponse);
+	rpc GetRdpUserByDatabase (protoMessages.Int32Message) returns (RdpUserResponse);
 
-	rpc GetRdcUserByDatabase (protoMessages.Int32Message) returns (RdcUserResponse);
+	rpc CreateRdpUser (RdpUserMessage) returns (RdpUserResponse);
 
-	rpc CreateRdcUser (RdcUserMessage) returns (RdcUserResponse);
+	rpc EditRdpUser (RdpUserMessage) returns (RdpUserResponse);
 
-	rpc EditRdcUser (RdcUserMessage) returns (RdcUserResponse);
-
-	rpc DeleteRdcUser (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc DeleteRdpUser (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
 	rpc ListAvailableDatabasesByServerId (AvailableDatabasesRequest) returns (AvailableDatabasesMessageList);
 
@@ -171,4 +169,18 @@ service GestorCoreAdmin {
 	//reportes
 	rpc ListDatabaseLicenses(google.protobuf.Empty) returns (DatabaseLicenseMessageList);
 	rpc ListDatabaseCustomer(google.protobuf.Empty) returns (DatabaseCustomerMessageList);
+
+	
+	//VirtualServers
+
+	rpc ListVirtualServers (google.protobuf.Empty) returns (VirtualServerMessageList);
+
+	rpc GetVirtualServer (protoMessages.Int32Message) returns (VirtualServerResponse);
+
+	rpc CreateVirtualServer (VirtualServerMessage) returns (VirtualServerResponse);
+
+	rpc EditVirtualServer (VirtualServerMessage) returns (VirtualServerResponse);
+
+	rpc ListDatabasesByVirtualServer (protoMessages.Int32Message) returns (VirtualServerDatabaseMessageList);
+
 }

@@ -68,8 +68,8 @@ message ServerMessageList{
 	protoMessages.ResponseResult result = 2;
 }
 
-message RdcUserMessageList{
-	repeated RdcUserMessage values = 1;
+message RdpUserMessageList{
+	repeated RdpUserMessage values = 1;
 	protoMessages.ResponseResult result = 2;
 }
 
@@ -80,6 +80,16 @@ message ServerUserMessageList{
 
 message ProcessMessageList{
 	repeated ProcessMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message VirtualServerMessageList{
+	repeated VirtualServerMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message VirtualServerDatabaseMessageList{
+	repeated VirtualServerDatabaseMessage values = 1;
 	protoMessages.ResponseResult result = 2;
 }
 
@@ -594,10 +604,28 @@ message DatabaseCustomerMessage{
 message ServerMessage{
 	int32 id = 1;
 	string name = 2;
-	string serverPrefix = 3;
-	int32 amountDatabases = 4;
-	string databasePrefix = 5;
-	string userPrefix = 6;
+	int32 Number = 3;
+	enum State{
+		Active = 0;
+		Maintenance = 1;
+		Discharged = 2;
+	}
+	State state = 4;
+	string Ip = 5;
+	enum InternetProvider{
+		 Personal = 0;
+		 Duppini = 1;
+	}
+	InternetProvider internetProvider = 6;
+	int32 port = 7;
+	string externalAccess = 8;
+	string mother = 9;
+	string processor = 10;
+	string memory = 11;
+	protoMessages.StringMessage solidDisk = 12;
+	protoMessages.StringMessage flatDisk = 13;
+	protoMessages.StringMessage externalDisk = 14;
+	protoMessages.StringMessage notes = 15;
 }
 
 message ServerResponse{
@@ -605,22 +633,22 @@ message ServerResponse{
 	ServerMessage message = 2;
 }
 
-message RdcUserMessage{
+message RdpUserMessage{
 	int32 id = 1;
 	int32 databaseId = 2;
 	int32 serverDatabaseNumber = 3;
-	int32 serverId = 4;
+	int32 virtualServerId = 4;
 	string databaseName = 5;
 	string file = 6;
 	string rightsGroup = 7;
 	string withholding = 8;
 	string database = 9;
-	ServerMessage server = 10;
+	VirtualServerMessage virtualServer = 10;
 }
 
-message RdcUserResponse{
+message RdpUserResponse{
 	protoMessages.ResponseResult result = 1;
-	RdcUserMessage message = 2;
+	RdpUserMessage message = 2;
 }
 
 message ServerUserMessage{
@@ -643,7 +671,7 @@ message AvailableDatabasesMessageList{
 }
 
 message AvailableDatabasesRequest{
-	int32 serverId = 1;
+	int32 virtualServerId = 1;
 	int32 databaseId = 2;
 }
 
@@ -749,3 +777,51 @@ message EditProcessRequest{
 	}
 	protoMessages.DateOnlyMessage accessDate = 12;
 }
+
+message VirtualServerMessage{
+	int32 id = 1;
+	int32 serverId = 2;
+	string name = 3;
+	string serverPrefix = 4;
+	int32 amountDatabases = 5;
+	string databasePrefix = 6;
+	string userPrefix = 7;
+	enum State{
+		StateOn = 0;
+		StateOff = 1;
+		StateDischarged = 2;
+	}
+	State state = 8;
+	string ip = 9;
+	int32 port = 10;
+	string externalAccess = 11;
+	string allocatedResources = 12;
+	enum Os {
+		WindowsServer2008 = 0; 
+		WindowsServer2016 = 1;
+		Windows10 = 2;
+		Ubuntu2004 = 3;
+		Ubuntu1804 = 4;
+	}
+	Os os = 13;
+	enum SqlVersion {
+		SqlVersionSql2012 = 0;
+		SqlVersionSql2000 = 1;
+	}
+	SqlVersion sqlVersion = 14;
+	protoMessages.StringMessage notes = 15;
+	ServerMessage server = 16;
+}
+
+message VirtualServerResponse{
+	protoMessages.ResponseResult result = 1;
+	VirtualServerMessage message = 2;
+}
+
+message VirtualServerDatabaseMessage{
+	int32 databaseId = 1;
+	string databaseName = 2;
+	string displayName = 3;
+	string customerName = 4;
+}
+
