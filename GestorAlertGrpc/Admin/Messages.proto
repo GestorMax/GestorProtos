@@ -144,6 +144,7 @@ message ListHistoryRequest{
 	int32 limit = 4;	
 	google.protobuf.Timestamp dateFrom = 5;
 	google.protobuf.Timestamp dateTo = 6;
+	repeated AlertsStates states = 7;
 }
 
 message ExcludedIncidenceMessage {
@@ -153,4 +154,10 @@ message ExcludedIncidenceMessage {
 	string objectId = 4;
 	google.protobuf.Timestamp dateExcluded = 5;
 	protoMessages.StringMessage excludingUserId = 9;
+}
+
+message ChangeStateIncidenceRequest {
+	int32 id = 1;
+	AlertsStates State = 2;
+	string userId = 3;
 }
