@@ -145,6 +145,7 @@ message ListHistoryRequest{
 	google.protobuf.Timestamp dateFrom = 5;
 	google.protobuf.Timestamp dateTo = 6;
 	repeated AlertsStates states = 7;
+	repeated string users = 8;
 }
 
 message ExcludedIncidenceMessage {
@@ -159,5 +160,5 @@ message ExcludedIncidenceMessage {
 message ChangeStateIncidenceRequest {
 	int32 id = 1;
 	AlertsStates State = 2;
-	string userId = 3;
+	protoMessages.StringMessage userId = 3;
 }
