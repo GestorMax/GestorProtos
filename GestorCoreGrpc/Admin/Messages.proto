@@ -179,11 +179,6 @@ message CustomerMessage {
 	protoMessages.StringMessage budgetLink = 10;
 	protoMessages.StringMessage binnacleLink = 11;
 	protoMessages.StringMessage archiveLink = 12;
-	protoMessages.StringMessage customerNotes = 13;
-	protoMessages.StringMessage customerContacts = 14;
-	protoMessages.StringMessage customerCompanies = 15;
-	string commercialId = 16;
-	string executiveId = 17;
 	enum Budget {
 		BudgetPending = 0;
 		BudgetReadyToSend = 1;
@@ -749,6 +744,8 @@ message ProcessMessage{
 	}
 	CLoudFertilizer cLoudFertilizer = 18;
 	int32 databaseId = 21;
+	string commercialId = 22;
+	string executiveId = 23;
 }
 message ProcessResponse{
 	protoMessages.ResponseResult result = 1;
@@ -776,6 +773,8 @@ message EditProcessRequest{
 		ProcessMessage.CLoudFertilizer cLoudFertilizer = 11;
 	}
 	protoMessages.DateOnlyMessage accessDate = 12;
+	string commercialId = 13;
+	string executiveId = 14;
 }
 
 message VirtualServerMessage{
