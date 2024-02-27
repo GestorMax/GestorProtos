@@ -162,3 +162,8 @@ message ChangeStateIncidenceRequest {
 	AlertsStates State = 2;
 	protoMessages.StringMessage userId = 3;
 }
+
+message ChangeUserIncidenceRequest {
+	protoMessages.StringMessage userId = 1;
+	int32 incidenceId = 2;
+}
