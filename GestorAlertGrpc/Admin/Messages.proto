@@ -28,6 +28,15 @@ enum SchedulerEvents {
 	SCHEDULER_EVENTS_FAILURE = 2;
 }
 
+enum AlertsStates {
+	ALERTS_STATES_PENDING = 0;
+	ALERTS_STATES_REVISION = 1;
+	ALERTS_STATES_REVIEWED = 2;
+	ALERTS_STATES_DISCARDED = 3;
+	ALERTS_STATES_RESOLVED = 4;
+	ALERTS_STATES_HIDDEN = 5;
+}
+
 message GestorAlertConfiguration {
 	string uri = 1;
 }
@@ -76,13 +85,13 @@ message SubscriptionResponse {
 }
 
 
-
 message CreateIncidenceRequest {
 	AppsId appId = 1;
 	int32 eventId = 2;
 	string objectId = 3;
 	string objectDescription = 4;
 	string detail = 5;
+	int32 state = 6;
 }
 
 message IncidenceMessage {
@@ -93,6 +102,9 @@ message IncidenceMessage {
 	string objectDescription = 5;
 	string detail = 6;
 	google.protobuf.Timestamp date = 7;
+	int32 state = 8;
+	protoMessages.StringMessage reviewedByUserId = 9;
+	google.protobuf.Timestamp reviewedDate = 10;
 }
 
 message IncidenceMessageList {
@@ -129,5 +141,29 @@ message ListHistoryRequest{
 	AppsId appId = 1;
 	int32 eventId = 2;
 	string objectId = 3;
-	int32 limit = 4;
+	int32 limit = 4;	
+	google.protobuf.Timestamp dateFrom = 5;
+	google.protobuf.Timestamp dateTo = 6;
+	repeated AlertsStates states = 7;
+	repeated string users = 8;
+}
+
+message ExcludedIncidenceMessage {
+	int32 id = 1;
+	AppsId appId = 2;
+	int32 eventId = 3;
+	string objectId = 4;
+	google.protobuf.Timestamp dateExcluded = 5;
+	protoMessages.StringMessage excludingUserId = 9;
+}
+
+message ChangeStateIncidenceRequest {
+	int32 id = 1;
+	AlertsStates State = 2;
+	protoMessages.StringMessage userId = 3;
+}
+
+message ChangeUserIncidenceRequest {
+	protoMessages.StringMessage userId = 1;
+	int32 incidenceId = 2;
 }
