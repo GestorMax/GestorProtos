@@ -56,34 +56,52 @@ message DateOnlyMessage{
 
 message ResponseResult {
 	string error = 2;
+	repeated ErrorParameterMessage errorParameters = 3;
 }
+
+message ErrorParameterMessage {
+	oneof type {
+		int32 int32Value = 1;
+		uint32 uint32Value = 2;
+		int64 int64Value = 3;
+		uint64 uint64Value = 4;
+		float floatValue = 5;
+		double doubleValue = 6;
+		bool boolValue = 7;
+		string stringValue = 8;
+
+		DecimalMessage decimalMessageValue = 9;
+		google.protobuf.Timestamp timestampMessage = 10;
+	}
+}
+
 
 message StructMessage {
   map<string, ValueMessage> fields = 1;
 }
 
 message ValueMessage {
-  oneof type {
-	int32 int32Value = 1;
-	Int32Message int32MessageValue = 2;
-	int64 int64Value = 3;
-	Int64Message int64MessageValue = 4;
-	float floatValue = 5;
-	FloatMessage floatMessageValue = 6;
-	double doubleValue = 7;
-	DoubleMessage doubleMessageValue = 8;
-	DecimalMessage decimalMessageValue = 9;
-	bool boolValue = 10;
-	BoolMessage boolMessageValue = 11;
-	string stringValue = 12;
-	StringMessage stringMessageValue = 13;
-	google.protobuf.Timestamp timestampMessage = 14;
-	bytes bytesValue = 15;
+	oneof type {
+		int32 int32Value = 1;
+		Int32Message int32MessageValue = 2;
+		int64 int64Value = 3;
+		Int64Message int64MessageValue = 4;
+		float floatValue = 5;
+		FloatMessage floatMessageValue = 6;
+		double doubleValue = 7;
+		DoubleMessage doubleMessageValue = 8;
+		DecimalMessage decimalMessageValue = 9;
+		bool boolValue = 10;
+		BoolMessage boolMessageValue = 11;
+		string stringValue = 12;
+		StringMessage stringMessageValue = 13;
+		google.protobuf.Timestamp timestampMessage = 14;
+		bytes bytesValue = 15;
 
-	ValueMessageList listValue = 16;
+		ValueMessageList listValue = 16;
 
-	StructMessage structMessage = 17;
-  }
+		StructMessage structMessage = 17;
+	}
 }
 
 // The JSON representation for `ListValue` is JSON array.
