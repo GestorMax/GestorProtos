@@ -10,26 +10,22 @@ message PriceImporterConfiguration {
 }
 
 message ProductMessage {
-	int32 DatabaseId = 1;
 	int32 CodList = 2;
 	int32 CodProduct = 3;
 	protoMessages.StringMessage ProductName = 4;
-	int32 DataId = 5;
-	protoMessages.StringMessage100 DataName = 6;
-	protoMessages.StringMessage100 SourceName = 7;
+	int32 SerieId = 5;
+	protoMessages.StringMessage100 SerieAlias = 6;
 	protoMessages.StringMessage Formula = 10;
 	protoMessages.Int32Message ProductMappingId = 12;
 }
 
 message OnlyProductMappingMessage {
-	int32 DatabaseId = 1;
 	int32 CodList = 2;
 	int32 CodProduct = 3;
 	int32 ProductMappingId = 4;
-	int32 DataId = 5;
+	int32 SerieId = 5;
 	protoMessages.StringMessage ProductName = 6;
-	protoMessages.StringMessage100 SourceName = 7;
-	protoMessages.StringMessage100 DataName = 8;
+	protoMessages.StringMessage100 SerieAlias = 8;
 	google.protobuf.Timestamp VigDesde = 9;
 	protoMessages.DecimalMessage BonifPasesValue = 10;
 	protoMessages.DecimalMessage ProductValue = 11;	
@@ -118,28 +114,6 @@ message ProductLogResponse {
 message ProductLogsMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated ProductLogMessage values = 1;
-}
-
-message SourceMessage {
-	int32 id = 1;
-	string name = 2;
-}
-
-message SourceMessageList {
-	protoMessages.ResponseResult result = 2;
-	repeated SourceMessage values = 1;
-}
-
-message DataSourceMessage {
-	int32 id = 1;
-	int32 sourceId = 2;
-	string name = 3;
-	string metric = 4;
-}
-
-message DataSourceMessageList {
-	protoMessages.ResponseResult result = 2;
-	repeated DataSourceMessage values = 1;
 }
 
 message PriceListMessage {
