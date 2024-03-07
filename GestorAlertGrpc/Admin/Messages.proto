@@ -173,7 +173,6 @@ message ExcludedIncidenceRequest {
 message ExcludedIncidenceResponse {
 	protoMessages.ResponseResult result = 1;
 	ExcludedIncidenceMessage message = 2;
-	google.protobuf.Timestamp dateExcluded = 3;	
 }
 
 message ExcludedRequest {
