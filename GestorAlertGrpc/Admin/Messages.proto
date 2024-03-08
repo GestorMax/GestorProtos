@@ -154,7 +154,32 @@ message ExcludedIncidenceMessage {
 	int32 eventId = 3;
 	string objectId = 4;
 	google.protobuf.Timestamp dateExcluded = 5;
-	protoMessages.StringMessage excludingUserId = 9;
+	protoMessages.StringMessage excludingUserId = 6;
+	google.protobuf.Timestamp dateExcludedTo = 7;
+
+}
+
+message ExcludedIncidenceMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated ExcludedIncidenceMessage values = 1;
+}
+
+message ExcludedIncidenceRequest {
+	AppsId appId = 1;
+	int32 eventId = 2;
+	string objectId = 3;	
+}
+
+message ExcludedIncidenceResponse {
+	protoMessages.ResponseResult result = 1;
+	ExcludedIncidenceMessage message = 2;
+}
+
+message ExcludedRequest {
+	int32 incidenceId = 1;
+	protoMessages.StringMessage excludingUserId = 2;
+	google.protobuf.Timestamp excludedToDate = 3;	
+
 }
 
 message ChangeStateIncidenceRequest {
@@ -166,4 +191,8 @@ message ChangeStateIncidenceRequest {
 message ChangeUserIncidenceRequest {
 	protoMessages.StringMessage userId = 1;
 	int32 incidenceId = 2;
+}
+
+message AlertTimeExcludedMessage {
+	google.protobuf.Timestamp dateExcluded = 1;
 }
