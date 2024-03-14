@@ -109,3 +109,52 @@ message ValueMessageList {
 	// Repeated field of dynamically typed values.
 	repeated ValueMessage values = 1;
 }
+
+message ListRequest {
+	repeated FilterValue filter = 1;
+	repeated SortValue sorting = 2;
+	PageInfo pageInfo = 3;
+}
+ 
+message PageInfo {
+	int32 index = 1;
+	int32 count = 2;
+	int32 total = 3;
+}
+
+enum SortTypes {
+	Ascending = 0;
+	Descending = 1;
+}
+
+message SortValue {
+	string field = 1;
+	SortTypes sortType = 2;
+}
+ 
+message FilterValue {
+	enum ComparisonTypes {
+		Equals = 0;
+		NotEquals = 1;
+		Greater = 2;
+		GreaterOrEquals = 3;
+		Less = 4;
+		LessOrEquals = 5;
+		Contains = 6;
+	}
+ 
+	string field = 1;
+	ComparisonTypes comparison = 2;
+	Value value = 3;
+}
+ 
+message Value{
+	oneof type {
+		int32 int32Value = 1;
+		float floatValue = 2;
+		double doubleValue = 3;
+		bool boolValue = 4;
+		string stringValue = 5;
+		google.protobuf.Timestamp timestampValue = 6;
+	}
+}

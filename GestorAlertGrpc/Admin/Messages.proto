@@ -110,6 +110,7 @@ message IncidenceMessage {
 message IncidenceMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated IncidenceMessage values = 1;
+	protoMessages.PageInfo pageInfo = 3;
 }
 
 message IncidenceResponse {
@@ -141,11 +142,11 @@ message ListHistoryRequest{
 	AppsId appId = 1;
 	int32 eventId = 2;
 	string objectId = 3;
-	int32 limit = 4;	
+	protoMessages.PageInfo pageInfo = 4;	
 	google.protobuf.Timestamp dateFrom = 5;
 	google.protobuf.Timestamp dateTo = 6;
 	repeated AlertsStates states = 7;
-	repeated string users = 8;
+	repeated string users = 8;	
 }
 
 message ExcludedIncidenceMessage {
