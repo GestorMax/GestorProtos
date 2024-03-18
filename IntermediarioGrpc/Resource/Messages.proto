@@ -82,6 +82,11 @@ message BalanceContableResponse {
 	intermediarioSharedMessages.BalanceContableMessage message = 2;
 }
 
+message CuentasCorrientesSaldosRequest {
+	google.protobuf.Timestamp fechaCorte = 1;
+	int32 prioridadPlan = 2;
+}
+
 message LuciusBalanceContableResponse {
 	protoMessages.ResponseResult result = 1;
 	intermediarioSharedMessages.LuciusBalanceContableMessage message = 2;
