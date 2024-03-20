@@ -15,7 +15,7 @@ service IntermediarioResource {
 	rpc ListFlujoDeFondos(FlujoDeFondosRequest) returns (stream FlujoDeFondosResponse);
 	rpc ListCuentasACobrar(google.protobuf.Empty) returns  (stream CuentasACobrarResponse);
 	rpc ListCuentasAPagar(google.protobuf.Empty) returns  (stream CuentasAPagarResponse);
-	rpc ListCuentasCorrientesSaldos(google.protobuf.Empty) returns (stream CuentasCorrientesSaldosResponse);
+	rpc ListCuentasCorrientesSaldos(CuentasCorrientesSaldosRequest) returns (stream CuentasCorrientesSaldosResponse);
 	rpc ListValoresEnCartera(ValoresEnCarteraRequest) returns (stream ValoresEnCarteraResponse);
 	rpc ListMayorDiarioFisicos (MayorDiarioFisicosRequest) returns (stream MayorDiarioFisicosResponse);
 	rpc ListBalanceContable(BalanceContableRequest) returns (stream BalanceContableResponse);
