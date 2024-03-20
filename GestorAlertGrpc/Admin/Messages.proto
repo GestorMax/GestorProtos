@@ -142,11 +142,13 @@ message ListHistoryRequest{
 	AppsId appId = 1;
 	int32 eventId = 2;
 	string objectId = 3;
-	protoMessages.PageInfo pageInfo = 4;	
 	google.protobuf.Timestamp dateFrom = 5;
 	google.protobuf.Timestamp dateTo = 6;
 	repeated AlertsStates states = 7;
 	repeated string users = 8;	
+	protoMessages.PageInfo pageInfo = 9;	
+	repeated protoMessages.SortValue sorting = 10;
+	string searchText = 11;
 }
 
 message ExcludedIncidenceMessage {
