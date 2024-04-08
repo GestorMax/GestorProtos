@@ -16,6 +16,6 @@ service SchedulerAdmin {
 	rpc SaveScheduledConfig(ScheduledTaskConfigRequest) returns (protoMessages.ResponseResult);
 
 	rpc ListScheduledTaskLog(ScheduledTaskLogRequest) returns (ScheduledTaskLogMessageList);
-	rpc ListScheduledTasksActives(protoMessages.BoolMessage) returns (ScheduledTaskMessageList);
+	rpc ListScheduledTasksActives(ScheduledTaskRequest) returns (ScheduledTaskMessageList);
 
 }
