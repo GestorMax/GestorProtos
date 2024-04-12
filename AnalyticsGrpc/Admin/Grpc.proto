@@ -52,7 +52,7 @@ service AnalyticsAdmin {
 	rpc RemoveScraping (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
 	//Measurement
-	rpc ListMeasurements (protoMessages.Int32Message) returns (MeasurementMessageList);
+	rpc ListMeasurements (MeasurementRequest) returns (MeasurementMessageList);
 	rpc RemoveAllMeasurements (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 	rpc ListLastMeasurementFromSource (protoMessages.Int32Message) returns (MeasurementMessageList);
 	rpc ListLastMeasurement (google.protobuf.Timestamp) returns (MeasurementMessageList);

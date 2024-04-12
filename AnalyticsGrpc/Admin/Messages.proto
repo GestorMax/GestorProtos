@@ -190,6 +190,7 @@ message MeasurementMessage {
 message MeasurementMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated MeasurementMessage values = 1;
+	protoMessages.PageInfo pageInfo = 3;
 }
 
 message MeasurementRequest {
@@ -197,6 +198,9 @@ message MeasurementRequest {
 	int32 dataId = 2;
 	google.protobuf.Timestamp dateFrom = 4;
 	google.protobuf.Timestamp dateTo = 5;
+	protoMessages.PageInfo pageInfo = 9;	
+	repeated protoMessages.SortValue sorting = 10;
+	string searchText = 11;
 }
 
 message MeasurementResponse{
