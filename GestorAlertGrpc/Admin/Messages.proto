@@ -198,4 +198,5 @@ message ChangeUserIncidenceRequest {
 
 message AlertTimeExcludedMessage {
 	google.protobuf.Timestamp dateExcluded = 1;
+	string description = 2;
 }
