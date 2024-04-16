@@ -47,7 +47,7 @@ service AnalyticsAdmin {
 	rpc RemoveMetric (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
 	//Scraping
-	rpc ListScrapings (protoMessages.Int32Message) returns (ScrapingMessageList);
+	rpc ListScrapings (ScrapingRequest) returns (ScrapingMessageList);
 	rpc GetScraping (protoMessages.Int32Message) returns (ScrapingResponse);
 	rpc RemoveScraping (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 

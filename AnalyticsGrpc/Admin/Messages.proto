@@ -219,11 +219,20 @@ message ScrapingMessage {
 message ScrapingMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated ScrapingMessage values = 1;
+	protoMessages.PageInfo pageInfo = 3;
 }
 
 message ScrapingResponse{
 	protoMessages.ResponseResult result = 1;
 	ScrapingMessage message = 2;
+}
+
+message ScrapingRequest{
+	int32 id = 1;
+	int32 sourceId = 2;
+	protoMessages.PageInfo pageInfo = 3;	
+	repeated protoMessages.SortValue sorting = 4;
+	string searchText = 5;
 }
 
 message HTMLAdquisitionMessage {
