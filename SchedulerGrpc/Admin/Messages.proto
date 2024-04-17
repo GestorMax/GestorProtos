@@ -58,4 +58,12 @@ message ScheduledTaskLogRequest{
 message ScheduledTaskMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated schedulerGrpcShared.ScheduledTaskMessage values = 1;
+	protoMessages.PageInfo pageInfo = 3;
+}
+
+message ScheduledTaskRequest {		
+	protoMessages.PageInfo pageInfo = 1;	
+	repeated protoMessages.SortValue sorting = 2;
+	string searchText = 3;
+	bool onlyActives = 4;
 }

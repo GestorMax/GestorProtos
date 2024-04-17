@@ -47,12 +47,12 @@ service AnalyticsAdmin {
 	rpc RemoveMetric (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
 	//Scraping
-	rpc ListScrapings (protoMessages.Int32Message) returns (ScrapingMessageList);
+	rpc ListScrapings (ScrapingRequest) returns (ScrapingMessageList);
 	rpc GetScraping (protoMessages.Int32Message) returns (ScrapingResponse);
 	rpc RemoveScraping (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
 	//Measurement
-	rpc ListMeasurements (protoMessages.Int32Message) returns (MeasurementMessageList);
+	rpc ListMeasurements (MeasurementRequest) returns (MeasurementMessageList);
 	rpc RemoveAllMeasurements (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 	rpc ListLastMeasurementFromSource (protoMessages.Int32Message) returns (MeasurementMessageList);
 	rpc ListLastMeasurement (google.protobuf.Timestamp) returns (MeasurementMessageList);
