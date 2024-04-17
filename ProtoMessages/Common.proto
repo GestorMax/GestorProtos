@@ -111,9 +111,10 @@ message ValueMessageList {
 }
 
 message ListRequest {
-	repeated FilterValue filter = 1;
+	//repeated FilterValue filter = 1;
 	repeated SortValue sorting = 2;
 	PageInfo pageInfo = 3;
+	string searchText = 4;
 }
  
 message PageInfo {

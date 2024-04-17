@@ -112,5 +112,6 @@ message EmailLogMessage {
 
 message EmailLogMessageList {
 	protoMessages.ResponseResult result = 2;
+	protoMessages.PageInfo pageInfo = 3;
 	repeated EmailLogMessage values = 1;
 }
