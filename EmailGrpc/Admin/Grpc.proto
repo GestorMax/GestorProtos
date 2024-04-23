@@ -31,6 +31,6 @@ service EmailAdmin {
 	rpc DeleteTemplate(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
 	//EmailLogs
-	rpc ListEmailLog(google.protobuf.Empty) returns (EmailLogMessageList);
+	rpc ListEmailLog(protoMessages.ListRequest) returns (EmailLogMessageList);
 	rpc DeleteEmailLog(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 }
