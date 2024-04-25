@@ -48,6 +48,13 @@ message GestorAlertSetting {
 	int32 smtpServer = 4;
 }
 
+message GestorAlertUserNotificationSetting {
+	int32 singleTemplateId = 1;
+	int32 multiTemplateId = 2;
+	int32 senderId = 3;
+	int32 smtpServer = 4;
+}
+
 message SubscriptionRequest {
 	AppsId appId = 1;
 	int32 eventId = 2;
@@ -188,15 +195,23 @@ message ExcludedRequest {
 message ChangeStateIncidenceRequest {
 	int32 id = 1;
 	AlertsStates State = 2;
-	protoMessages.StringMessage userId = 3;
+	protoMessages.StringMessage userId = 3;	
 }
 
 message ChangeUserIncidenceRequest {
 	protoMessages.StringMessage userId = 1;
 	int32 incidenceId = 2;
+	bool sendMessageNotify = 3;
+	protoMessages.StringMessage userName = 4;
+	protoMessages.StringMessage userEmail = 5;
 }
 
 message AlertTimeExcludedMessage {
 	google.protobuf.Timestamp dateExcluded = 1;
 	string description = 2;
+}
+
+message ChangeUserMessage {
+	protoMessages.StringMessage userId = 1;
+	bool sendMessageNotify = 2;
 }
