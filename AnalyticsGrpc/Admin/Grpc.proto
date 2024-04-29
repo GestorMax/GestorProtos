@@ -15,6 +15,7 @@ service AnalyticsAdmin {
 	rpc CreateSource (SourceMessage) returns (SourceResponse);
 	rpc EditSource (SourceMessage) returns (SourceResponse);
 	rpc RemoveSource (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc CloneSource(SourceMessage) returns (SourceResponse);
 	
 	//Data
 	rpc ListDatas (google.protobuf.Empty) returns (ScrapDataMessageList);
