@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package intermediarioBlackConnectGrpc;
+
+message AuthenticateRequest {
+	int32 id = 1;
+}
+
+message AuthenticateResponse {
+	bool result = 1;
+}

@@ -1,0 +1,11 @@
+﻿syntax = "proto3";
+
+//import "google/protobuf/Empty.proto";
+//import "ProtoMessages/Common.proto";
+//import "IntermediarioBlackGrpc/Shared/IntermediarioShared.proto";
+//import "IntermediarioBlackGrpc/Admin/Messages.proto";
+
+package intermediarioBlackGrpcAdmin;
+
+service IntermediarioBlackAdmin {
+}
