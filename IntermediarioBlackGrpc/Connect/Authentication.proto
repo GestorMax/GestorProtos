@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "ProtoMessages/Common.proto";
+
 package intermediarioBlackConnectGrpc;
 
 message AuthenticateRequest {
@@ -7,5 +9,6 @@ message AuthenticateRequest {
 }
 
 message AuthenticateResponse {
-	bool result = 1;
+	protoMessages.ResponseResult result = 1;
+	protoMessages.GuidMessage token = 2;
 }
