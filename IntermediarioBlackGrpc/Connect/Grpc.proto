@@ -22,4 +22,6 @@ service IntermediarioBlackConnect {
 	rpc CreateDataBaseInfo(DataBaseInfo) returns (DataBaseInfo);
 
 	rpc ApplyUpdate(ApplyUpdateRequest) returns (ApplyUpdateResponse);
+
+	rpc ConnectNoDataForUpdate(ApplyUpdateRequest) returns (ApplyUpdateResponse);
 }

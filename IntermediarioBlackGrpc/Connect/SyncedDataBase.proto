@@ -61,6 +61,10 @@ enum ApplyUpdateState {
   NotUpdated = 1;
   // Un error inesperado sucedio
   UnexpectedError = 2;
+  // Intermediario dessincronizado
+  OutOfSync = 3;
+  // Intermediario sincronizado
+  Synchronized = 4;
 }
 
 message ApplyUpdateResponse{
