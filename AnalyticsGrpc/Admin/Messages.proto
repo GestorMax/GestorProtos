@@ -121,6 +121,7 @@ message ScrapDataRequest{
 	protoMessages.PageInfo pageInfo = 2;	
 	repeated protoMessages.SortValue sorting = 3;
 	string searchText = 4;
+	bool onlyActives = 5;
 }
 
 
