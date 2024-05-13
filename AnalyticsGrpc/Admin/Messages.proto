@@ -51,6 +51,7 @@ enum ScrapDataTypes {
 message SourceMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated SourceMessage values = 1;
+	protoMessages.PageInfo pageInfo = 3;
 }
 
 message SourceMessage {
@@ -84,6 +85,7 @@ message SourceResponse{
 message ScrapDataMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated ScrapDataMessage values = 1;
+	protoMessages.PageInfo pageInfo = 3;
 }
 
 message ScrapDataMessage {
@@ -113,6 +115,15 @@ message ScrapDataMessage {
 	bool onlyNews = 28;
 	int32 maximumAntiquity = 29;
 }
+
+message ScrapDataRequest{
+	int32 sourceId = 1;
+	protoMessages.PageInfo pageInfo = 2;	
+	repeated protoMessages.SortValue sorting = 3;
+	string searchText = 4;
+	bool onlyActives = 5;
+}
+
 
 message ScrapDataResponse {
 	protoMessages.ResponseResult result = 1;
