@@ -447,3 +447,51 @@ message DataHistoryValue {
 	google.protobuf.Timestamp date = 1;
 	double value = 2;
 }
+
+message DateGeneratorMessage{
+		
+	message TodayExpression{
+		oneof parameter {
+			int32 offset = 2;
+		}
+	}
+
+	message DateExpression{
+		DayExpression day = 1;
+		MonthExpression month = 2;
+		YearExpression year = 3;
+	}
+
+	message DayExpression {
+		oneof parameter {
+			uint32 fixed = 1;
+			MonthLastDayExpression lastDay = 2;
+			TodayExpression today = 3;
+		}
+	}
+
+	message MonthExpression {
+		oneof parameter {
+			int32 offset = 1;
+			TodayExpression today = 2;
+		}
+	}
+
+	message YearExpression {
+		oneof parameter {
+			int32 offset = 1;
+			TodayExpression today = 2;
+		}
+	}
+
+	message MonthLastDayExpression {
+		oneof parameter {
+			int32 offset = 1;
+		}
+	}
+
+	oneof parameter {
+		TodayExpression today = 1;
+		DateExpression date = 2;
+	}
+}
