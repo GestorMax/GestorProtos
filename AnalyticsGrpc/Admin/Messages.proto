@@ -449,7 +449,12 @@ message DataHistoryValue {
 }
 
 message DateGeneratorMessage{
-		
+	
+	oneof parameter {
+		TodayExpression today = 1;
+		DateExpression date = 2;
+	}
+
 	message TodayExpression{
 		oneof parameter {
 			int32 offset = 2;
@@ -488,10 +493,5 @@ message DateGeneratorMessage{
 		oneof parameter {
 			int32 offset = 1;
 		}
-	}
-
-	oneof parameter {
-		TodayExpression today = 1;
-		DateExpression date = 2;
-	}
+	}	
 }
