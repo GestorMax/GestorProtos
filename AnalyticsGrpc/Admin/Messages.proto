@@ -60,6 +60,7 @@ message SourceMessage {
 	int32 URLType = 3;
 	string URL = 4;
 	protoMessages.StringMessage URLParams = 5;
+	repeated UrlParameterMessage UrlParameters = 24;
 	SourceTypes sourceType = 6;
 	protoMessages.StringMessage schedule = 7;
 	int32 scheduledTaskId = 9;
@@ -448,7 +449,14 @@ message DataHistoryValue {
 	double value = 2;
 }
 
-message DateGeneratorMessage{
+message UrlParameterMessage {
+	oneof parameter {
+		DateGeneratorMessage Date = 1;
+		bool FromData = 2;
+	}
+}
+
+message DateGeneratorMessage {
 	
 	oneof parameter {
 		TodayExpression today = 1;
