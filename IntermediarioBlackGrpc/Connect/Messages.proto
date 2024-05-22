@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package intermediarioBlackConnectGrpc;
+
+message ChangesMessage {
+	int32 test = 1;
+}

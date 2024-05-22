@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "IntermediarioBlackGrpc/Connect/Messages.proto";
+import "IntermediarioBlackGrpc/Connect/Authentication.proto";
+import "IntermediarioBlackGrpc/Connect/SyncedDataBase.proto";
+
+package intermediarioBlackConnectGrpc;
+
+service IntermediarioBlackConnect {
+	rpc ProcessChanges(ChangesMessage) returns (protoMessages.ResponseResult);
+
+	rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+
+	rpc Authenticate(AuthenticateRequest) returns (AuthenticateResponse);
+
+	rpc Identify(InstanceIdentityRequest) returns (InstanceIdentityResponse);
+
+	rpc GetCurrentState(GetCurrentStateRequest) returns (GetCurrentStateResponse);
+
+	rpc SendDBDump(stream SendDBDumpRequest) returns (SendDBDumpResponse);
+
+	rpc CreateDataBaseInfo(DataBaseInfo) returns (DataBaseInfo);
+
+	rpc ApplyUpdate(ApplyUpdateRequest) returns (ApplyUpdateResponse);
+
+	rpc ConnectNoDataForUpdate(ApplyUpdateRequest) returns (ApplyUpdateResponse);
+
+
+}

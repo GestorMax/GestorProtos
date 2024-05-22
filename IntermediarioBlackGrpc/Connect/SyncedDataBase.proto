@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package intermediarioBlackConnectGrpc;
+
+enum CurrentState {
+  // La base de datos esta creada y lista para recibir novedades
+  DataBaseCreated = 0;
+  // No existe la base de datos y se tiene que inicializar
+  DataBaseMissing = 1;
+  // Existe la base de datos pero mi ultimo registro codHistorial es mayor al tuyo
+  DataBaseOutOfSync = 2;
+}
+
+enum SendDBDumpState {
+  // La base de datos fue creada y espero novedades
+  Created = 0;
+  // Fallo por algun motivo
+  Failed = 1;
+}
+
+message GetCurrentStateRequest {
+	// Mando el guid id de la base de datos que recibo de GestorCore
+	string id = 1;
+	// Opcional Mando ultimo codhistorial 
+	// para saber si estamos desincronizados o sea si master tiene menor valor que slave
+	optional int32 codHistorial = 2;
+	optional int32 codTipoHistorial = 3;
+}
+
+message GetCurrentStateResponse {
+	CurrentState result = 1;
+}
+
+message SendDBDumpRequest {
+	// String dump con el backup
+	bytes dump = 1;
+	string id = 2;
+}
+
+message SendDBDumpResponse {
+	SendDBDumpState state = 1;
+	string message = 2;
+}
+
+message DataBaseInfo {
+  string uniqueId = 1;
+  string name = 2;
+  int32 ultimoCodigoHistorial = 3;
+  int32 ultimoTipoCodigoHistorial = 4;
+}
+
+message ApplyUpdateRequest {
+	DataBaseInfo dataBaseInfo = 1;
+	string sqlStatement = 2;
+}
+
+enum ApplyUpdateState {
+// Se actualizo correctamente
+  Updated = 0;
+  // El SP no se ejecuto en su totalidad y/o hubo un error al ejecutarlo
+  NotUpdated = 1;
+  // Un error inesperado sucedio
+  UnexpectedError = 2;
+  // Intermediario dessincronizado
+  OutOfSync = 3;
+  // Intermediario sincronizado
+  Synchronized = 4;
+}
+
+message ApplyUpdateResponse{
+	ApplyUpdateState state = 1;
+	string message = 2;
+}
