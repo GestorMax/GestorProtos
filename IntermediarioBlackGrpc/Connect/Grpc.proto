@@ -15,6 +15,8 @@ service IntermediarioBlackConnect {
 
 	rpc Authenticate(AuthenticateRequest) returns (AuthenticateResponse);
 
+	rpc Identify(InstanceIdentityRequest) returns (InstanceIdentityResponse);
+
 	rpc GetCurrentState(GetCurrentStateRequest) returns (GetCurrentStateResponse);
 
 	rpc SendDBDump(stream SendDBDumpRequest) returns (SendDBDumpResponse);
@@ -24,4 +26,6 @@ service IntermediarioBlackConnect {
 	rpc ApplyUpdate(ApplyUpdateRequest) returns (ApplyUpdateResponse);
 
 	rpc ConnectNoDataForUpdate(ApplyUpdateRequest) returns (ApplyUpdateResponse);
+
+
 }
