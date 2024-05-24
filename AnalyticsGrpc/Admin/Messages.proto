@@ -277,7 +277,7 @@ message JSONAdquisitionMessage {
 	protoMessages.StringMessage params = 3;
 	protoMessages.StringMessage paramsFormat = 4;
 	protoMessages.StringMessage CultureLanguage = 5;
-	repeated UrlParameterMessage UrlParameters = 6;
+	DateGeneratorMessage dateGenerator = 6;
 }
 
 message SourceBatchRequest {
