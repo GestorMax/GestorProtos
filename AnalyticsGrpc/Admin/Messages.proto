@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 import "google/protobuf/Timestamp.proto";
-import "google/protobuf/Any.proto";
 import "ProtoMessages/Common.proto";
 
 package analyticsGrpc;
@@ -96,7 +95,7 @@ message ScrapDataMessage {
 	string urlParameter = 30;
 	MetricMessage metric = 5;
 	protoMessages.StringMessage100 name = 6;
-	google.protobuf.Any acquisition = 9;
+	AcquisitionMessage acquisition = 9;
 	int32 dataDateId = 10;
 	ScrapDataDateMessage dataDate = 11;
 	int32 timeZoneOffset = 12;
@@ -118,6 +117,16 @@ message ScrapDataMessage {
 	int32 maximumAntiquity = 29;
 }
 
+message AcquisitionMessage {
+	oneof type {
+		HTMLAdquisitionMessage html = 1;
+		XLSAdquisitionMessage xls = 2;
+		XMLAdquisitionMessage xml = 3;
+		CSVAdquisitionMessage csv = 4;
+		JSONAdquisitionMessage json = 5;
+	}
+}
+
 message ScrapDataRequest{
 	int32 sourceId = 1;
 	protoMessages.PageInfo pageInfo = 2;	
@@ -132,11 +141,11 @@ message ScrapDataResponse {
 	ScrapDataMessage message = 2;
 }
 
-message ScrapDataDateMessage{
+message ScrapDataDateMessage {
 	int32 id = 1;
 	int32 sourceId = 2;
 	string name = 3;
-	google.protobuf.Any acquisition = 4;
+	AcquisitionMessage acquisition = 4;
 	string cultureName = 5;
 }
 
@@ -274,9 +283,8 @@ message CSVAdquisitionMessage {
 message JSONAdquisitionMessage {
 	string node = 1;
 	string value = 2;	
-	protoMessages.StringMessage params = 3;
-	protoMessages.StringMessage paramsFormat = 4;
-	protoMessages.StringMessage CultureLanguage = 5;
+	string paramsFormat = 4;
+	string cultureLanguage = 5;
 	DateGeneratorMessage dateGenerator = 6;
 }
 
