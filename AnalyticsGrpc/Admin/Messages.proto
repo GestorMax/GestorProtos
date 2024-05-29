@@ -283,6 +283,7 @@ message CSVAdquisitionMessage {
 message JSONAdquisitionMessage {
 	string node = 1;
 	string value = 2;	
+	string params = 3;
 	string paramsFormat = 4;
 	string cultureLanguage = 5;
 	DateGeneratorMessage dateGenerator = 6;
