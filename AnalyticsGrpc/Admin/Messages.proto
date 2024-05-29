@@ -95,7 +95,7 @@ message ScrapDataMessage {
 	string urlParameter = 30;
 	MetricMessage metric = 5;
 	protoMessages.StringMessage100 name = 6;
-	AcquisitionMessage acquisition = 9;
+	AcquisitionMessage acquisitionJson = 9;
 	int32 dataDateId = 10;
 	ScrapDataDateMessage dataDate = 11;
 	int32 timeZoneOffset = 12;
@@ -145,7 +145,7 @@ message ScrapDataDateMessage {
 	int32 id = 1;
 	int32 sourceId = 2;
 	string name = 3;
-	AcquisitionMessage acquisition = 4;
+	AcquisitionMessage acquisitionJson = 4;
 	string cultureName = 5;
 }
 
