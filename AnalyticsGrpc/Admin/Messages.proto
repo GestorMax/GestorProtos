@@ -123,7 +123,7 @@ message AcquisitionMessage {
 		XLSAdquisitionMessage xls = 2;
 		XMLAdquisitionMessage xml = 3;
 		CSVAdquisitionMessage csv = 4;
-		JSONAdquisitionMessage json = 5;
+		JSONAdquisitionMessageNew json = 5;
 	}
 }
 
@@ -280,13 +280,21 @@ message CSVAdquisitionMessage {
 	int32 returnColumn = 5;
 }
 
-message JSONAdquisitionMessage {
+message JSONAdquisitionMessageNew {
 	string node = 1;
-	string value = 2;	
+	string value = 2;
 	string params = 3;
 	string paramsFormat = 4;
 	string cultureLanguage = 5;
 	DateGeneratorMessage dateGenerator = 6;
+}
+
+message JSONAdquisitionMessage {
+	string node = 1;
+	string value = 2;
+	protoMessages.StringMessage params = 3;
+	protoMessages.StringMessage paramsFormat = 4;
+	protoMessages.StringMessage cultureLanguage = 5;
 }
 
 message SourceBatchRequest {
