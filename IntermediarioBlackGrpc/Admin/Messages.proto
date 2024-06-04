@@ -13,6 +13,7 @@ message DataBaseInfoMessage {
 	int32 HistoryLastDataCode = 3;
 	int32 HistoryLastStructureCode = 4;
 	int32 HistoryLastStoreProceduresCode = 5;
+	int32 GestorCoreDatabaseId = 6;
 }
 
 message DataBaseInfoMessageList {
