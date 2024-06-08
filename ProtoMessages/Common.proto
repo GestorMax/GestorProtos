@@ -32,6 +32,10 @@ message Int64Message {
 	int64 value = 1;
 }
 
+message Uint64Message {
+	uint64 value = 1;
+}
+
 message DoubleMessage {
 	double value = 1;
 }
@@ -86,21 +90,23 @@ message ValueMessage {
 		Int32Message int32MessageValue = 2;
 		int64 int64Value = 3;
 		Int64Message int64MessageValue = 4;
-		float floatValue = 5;
-		FloatMessage floatMessageValue = 6;
-		double doubleValue = 7;
-		DoubleMessage doubleMessageValue = 8;
-		DecimalMessage decimalMessageValue = 9;
-		bool boolValue = 10;
-		BoolMessage boolMessageValue = 11;
-		string stringValue = 12;
-		StringMessage stringMessageValue = 13;
-		google.protobuf.Timestamp timestampMessage = 14;
-		bytes bytesValue = 15;
+		uint64 uint64Value = 5;
+		Uint64Message uint64MessageValue = 6;
+		float floatValue = 7;
+		FloatMessage floatMessageValue = 8;
+		double doubleValue = 9;
+		DoubleMessage doubleMessageValue = 10;
+		DecimalMessage decimalMessageValue = 11;
+		bool boolValue = 12;
+		BoolMessage boolMessageValue = 13;
+		string stringValue = 14;
+		StringMessage stringMessageValue = 15;
+		google.protobuf.Timestamp timestampMessage = 16;
+		bytes bytesValue = 17;
 
-		ValueMessageList listValue = 16;
+		ValueMessageList listValue = 18;
 
-		StructMessage structMessage = 17;
+		StructMessage structMessage = 19;
 	}
 }
 
