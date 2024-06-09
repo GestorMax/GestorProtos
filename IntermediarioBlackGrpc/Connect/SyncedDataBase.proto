@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "ProtoMessages/Common.proto";
+
 package intermediarioBlackConnectGrpc;
 
 enum CurrentState {
@@ -33,8 +35,8 @@ message GetCurrentStateResponse {
 
 message SendDBDumpRequest {
 	// String dump con el backup
-	bytes dump = 1;
-	string id = 2;
+	string token = 1;
+	bytes dump = 2;
 }
 
 message SendDBDumpResponse {
@@ -50,8 +52,11 @@ message DataBaseInfo {
 }
 
 message ApplyUpdateRequest {
-	DataBaseInfo dataBaseInfo = 1;
-	string sqlStatement = 2;
+	string token = 1;
+	uint64 codTipoActualizacion = 2;
+	uint64 codHistorial = 3;
+	DataBaseInfo dataBaseInfo = 4;
+	string sqlStatement = 5;
 }
 
 enum ApplyUpdateState {

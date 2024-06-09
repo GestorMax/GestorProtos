@@ -21,8 +21,6 @@ service IntermediarioBlackConnect {
 
 	rpc SendDBDump(stream SendDBDumpRequest) returns (SendDBDumpResponse);
 
-	rpc CreateDataBaseInfo(DataBaseInfo) returns (DataBaseInfo);
-
 	rpc ApplyUpdate(ApplyUpdateRequest) returns (ApplyUpdateResponse);
 
 	rpc ConnectNoDataForUpdate(ApplyUpdateRequest) returns (ApplyUpdateResponse);
