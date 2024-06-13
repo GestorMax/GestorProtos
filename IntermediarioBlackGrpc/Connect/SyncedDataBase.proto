@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "ProtoMessages/Common.proto";
+
 package intermediarioBlackConnectGrpc;
 
 enum CurrentState {
@@ -33,8 +35,8 @@ message GetCurrentStateResponse {
 
 message SendDBDumpRequest {
 	// String dump con el backup
-	bytes dump = 1;
-	string id = 2;
+	string token = 1;
+	bytes dump = 2;
 }
 
 message SendDBDumpResponse {
@@ -42,19 +44,14 @@ message SendDBDumpResponse {
 	string message = 2;
 }
 
-message DataBaseInfo {
-  string uniqueId = 1;
-  string name = 2;
-  int32 ultimoCodigoHistorial = 3;
-  int32 ultimoTipoCodigoHistorial = 4;
+message SendUpdateRequest {
+	string token = 1;
+	ConnectUpdateType codTipoActualizacion = 2;
+	uint64 codActualizacion = 3;
+	string sqlStatement = 5;
 }
 
-message ApplyUpdateRequest {
-	DataBaseInfo dataBaseInfo = 1;
-	string sqlStatement = 2;
-}
-
-enum ApplyUpdateState {
+enum SendUpdateState {
 // Se actualizo correctamente
   Updated = 0;
   // El SP no se ejecuto en su totalidad y/o hubo un error al ejecutarlo
@@ -67,7 +64,23 @@ enum ApplyUpdateState {
   Synchronized = 4;
 }
 
-message ApplyUpdateResponse{
-	ApplyUpdateState state = 1;
+enum ConnectUpdateType {
+	// 1	Actualización de Base de Datos (Estructura)
+	// 2	Actualización de un Stored Procedure o Trigger
+	// 3	Actualización de un Dato
+	// 4	Actualizando Base de Datos GestorMax
+	// 5	Intermediario Interrumpido
+	// 6	Intermediario Sincronizado
+	NoDataToSend = 0;
+	UpdateStructure = 1;
+	UpdateRoutines = 2;
+	UpdateData = 3;
+	UpdatingDataBase = 4;
+	IntermediarioInterrupted = 5;
+	ConnectCheckVersion = 6;
+}
+
+message SendUpdateResponse{
+	SendUpdateState state = 1;
 	string message = 2;
 }
