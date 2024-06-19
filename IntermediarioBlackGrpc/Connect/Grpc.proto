@@ -25,5 +25,6 @@ service IntermediarioBlackConnect {
 
 	rpc ConnectNoDataForUpdate(SendUpdateRequest) returns (SendUpdateResponse);
 
+	rpc Connect(protoMessages.GuidMessage) returns (stream DataMessage);
 
 }

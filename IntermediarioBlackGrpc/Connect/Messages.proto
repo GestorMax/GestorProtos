@@ -5,3 +5,26 @@ package intermediarioBlackConnectGrpc;
 message ChangesMessage {
 	int32 test = 1;
 }
+
+message DataMessage {
+	enum CommandTypes {
+		Ping = 0;
+		ChannelClosed = 1;
+		SetActive = 2;
+		SetInactive = 3;
+		ActiveTablesChanged = 4;
+		UpdateYourself = 5;
+		CloseProgram = 6;
+		UnidentifiedCompanion = 7;
+	}
+
+	oneof type {
+		CommandTypes Command = 1;
+	}
+}
+
+message IntermediarioConnectStateChangedMessage {
+	int32 id = 1;
+	bool gestorConnectActive = 2;
+	bool intermediarioInitialized = 3;
+}
