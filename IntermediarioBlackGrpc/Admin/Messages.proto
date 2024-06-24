@@ -9,11 +9,9 @@ package intermediarioBlackGrpcAdmin;
 
 message DataBaseInfoMessage {
 	int32 Id = 1;
-	string Name = 2;
-	int32 HistoryLastDataCode = 3;
-	int32 HistoryLastStructureCode = 4;
-	int32 HistoryLastStoreProceduresCode = 5;
-	int32 GestorCoreDatabaseId = 6;
+	uint64 HistoryLastDataCode = 2;
+	uint64 HistoryLastStructureCode = 3;
+	uint64 HistoryLastStoreProceduresCode = 4;
 }
 
 message DataBaseInfoMessageList {
