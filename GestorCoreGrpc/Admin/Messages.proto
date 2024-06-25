@@ -113,6 +113,7 @@ message UnlinkedDatabaseMessage {
 	string databaseName = 2;
 	repeated string companies = 3;
 	string displayName = 4;
+	gestorCoreGrpcShared.GestorMaxVersionTypes version = 5;
 }
 
 message DatabaseResultMessage {
@@ -139,6 +140,7 @@ message CreateCustomerResponse {
 
 message CreateDatabaseResquest {
 	string name = 2;
+	gestorCoreGrpcShared.GestorMaxVersionTypes version = 3;
 }
 
 message GetGestorDbTokenRequest {
@@ -454,6 +456,8 @@ message DatabaseMessage {
 	DatabaseInstanceMessageDatabaseMessage mainInstance = 7;
 	string redactedId = 8;
 	protoMessages.Int32Message vaultId = 9;
+	gestorCoreGrpcShared.GestorMaxVersionTypes Version = 10;
+
 }
 
 message DatabaseInstanceMessageDatabaseMessage {
