@@ -29,3 +29,8 @@ message CompanyMessage {
 	string name = 2;
 	string taxId = 3;
 }
+
+enum GestorMaxVersionTypes {
+	GESTOR_MAX_VERSION_TYPES_G3 = 0;
+	GESTOR_MAX_VERSION_TYPES_G4 = 1;
+}
