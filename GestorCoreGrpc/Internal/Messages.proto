@@ -34,8 +34,7 @@ message IdentifyDatabaseResponse {
 	bool canUse = 5;
 	bool canUpdate = 6;
 	string MaxVersionAllowed = 7;
-	bool InvalidGestorVersion = 9;
-
+	bool invalidGestorVersion = 9;
 }
 
 message DatabaseIdByGuidResponse {
