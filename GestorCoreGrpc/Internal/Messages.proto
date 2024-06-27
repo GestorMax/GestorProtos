@@ -21,7 +21,8 @@ message UseDbTokenResponse {
 
 message IdentifyDatabaseRequest {
 	string databaseGuid = 1;
-	string gestorVersion = 2;
+	string releaseVersion = 2;
+	gestorCoreGrpcShared.GestorMaxVersionTypes gestorVersion = 3;
 }
 
 message IdentifyDatabaseResponse {
@@ -33,6 +34,8 @@ message IdentifyDatabaseResponse {
 	bool canUse = 5;
 	bool canUpdate = 6;
 	string MaxVersionAllowed = 7;
+	bool InvalidGestorVersion = 9;
+
 }
 
 message DatabaseIdByGuidResponse {
