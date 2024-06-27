@@ -1,6 +1,6 @@
 ﻿syntax = "proto3";
 
-//import "google/protobuf/Timestamp.proto";
+import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
 //import "IntermediarioBlackGrpc/Shared/IntermediarioShared.proto";
 
@@ -12,6 +12,9 @@ message DataBaseInfoMessage {
 	uint64 HistoryLastDataCode = 2;
 	uint64 HistoryLastStructureCode = 3;
 	uint64 HistoryLastStoreProceduresCode = 4;
+	bool Initialized = 5;
+	google.protobuf.Timestamp InitializationStart = 6;
+	google.protobuf.Timestamp InitializationEnd = 7;
 }
 
 message DataBaseInfoMessageList {

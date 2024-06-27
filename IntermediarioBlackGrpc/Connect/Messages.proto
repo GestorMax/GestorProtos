@@ -12,10 +12,9 @@ message DataMessage {
 		ChannelClosed = 1;
 		SetActive = 2;
 		SetInactive = 3;
-		ActiveTablesChanged = 4;
-		UpdateYourself = 5;
-		CloseProgram = 6;
-		UnidentifiedCompanion = 7;
+		UpdateYourself = 4;
+		CloseProgram = 5;
+		UnidentifiedConnect = 6;
 	}
 
 	oneof type {

@@ -6,11 +6,9 @@ package intermediarioBlackConnectGrpc;
 
 enum CurrentState {
   // La base de datos esta creada y lista para recibir novedades
-  DataBaseCreated = 0;
-  // No existe la base de datos y se tiene que inicializar
-  DataBaseMissing = 1;
-  // Existe la base de datos pero mi ultimo registro codHistorial es mayor al tuyo
-  DataBaseOutOfSync = 2;
+  DatabaseOk = 0;
+  DatabaseOutOfSync = 1;
+  DatabaseError = 2;
 }
 
 enum SendDBDumpState {
@@ -21,12 +19,7 @@ enum SendDBDumpState {
 }
 
 message GetCurrentStateRequest {
-	// Mando el guid id de la base de datos que recibo de GestorCore
-	string id = 1;
-	// Opcional Mando ultimo codhistorial 
-	// para saber si estamos desincronizados o sea si master tiene menor valor que slave
-	optional int32 codHistorial = 2;
-	optional int32 codTipoHistorial = 3;
+	string token = 1;
 }
 
 message GetCurrentStateResponse {
@@ -44,12 +37,21 @@ message SendDBDumpResponse {
 	string message = 2;
 }
 
+message SendDumpPermissionRequest {
+	string token = 1;
+}
+
+message SendDumpPermissionResponse {
+	bool permissionGranted = 1;
+}
+
 message SendUpdateRequest {
 	string token = 1;
 	ConnectUpdateType codTipoActualizacion = 2;
 	uint64 codActualizacion = 3;
 	string sqlStatement = 5;
 }
+
 
 enum SendUpdateState {
 // Se actualizo correctamente
