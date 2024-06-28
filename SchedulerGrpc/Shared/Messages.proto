@@ -21,7 +21,7 @@ message ScheduledTaskResponse {
 
 message ScheduledTaskMessage {
 	int32 id = 1;
-	protoMessages.StringMessage name = 2;
+	string name = 2;
 	string schedule = 3;
 	bool active = 4;
 	CallbackClientTypes callbackClient = 5;

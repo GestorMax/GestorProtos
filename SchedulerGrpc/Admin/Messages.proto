@@ -43,6 +43,7 @@ message ScheduledTaskLogMessage {
 message ScheduledTaskLogMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated ScheduledTaskLogMessage values = 1;
+	protoMessages.PageInfo pageInfo = 3;
 }
 
 message ScheduledTaskLogResponse{
@@ -51,8 +52,10 @@ message ScheduledTaskLogResponse{
 }
 
 message ScheduledTaskLogRequest{
-	int32 countMaxLogs = 1;
-	bool onlyError = 2;
+	protoMessages.PageInfo pageInfo = 1;	
+	repeated protoMessages.SortValue sorting = 2;
+	string searchText = 3;
+	bool onlyError = 4;
 }
 
 message ScheduledTaskMessageList {

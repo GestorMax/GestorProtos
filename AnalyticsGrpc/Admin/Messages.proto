@@ -73,7 +73,7 @@ message SourceMessage {
 	int32 downloadSourceType = 19;
 	int32 DelaySecondsSelenium = 20;
 	string Delimiter = 21;
-	int32 CultureLanguageId = 22;
+	protoMessages.Int32Message CultureLanguageId = 22;
 	CultureLanguageMessage CultureLanguage = 23;
 }
 
@@ -110,7 +110,7 @@ message ScrapDataMessage {
 	protoMessages.Int32Message parentId = 22;
 	google.protobuf.Timestamp futureDateParameter = 23;
 	bool neverZero = 24;
-	int32 CultureLanguageId = 25;
+	protoMessages.Int32Message CultureLanguageId = 25;
 	CultureLanguageMessage CultureLanguage = 26;
 	bool onlyDate = 27;
 	bool onlyNews = 28;
