@@ -1,8 +1,6 @@
 syntax = "proto3";
 
-//import "ProtoMessages/Common.proto";
-
-package intermediario.G4.Grpc.Connect;
+package intermediarioBlackConnectGrpc;
 
 enum CurrentState {
   // La base de datos esta creada y lista para recibir novedades
@@ -67,9 +65,9 @@ enum SendUpdateState {
 }
 
 enum ConnectUpdateType {
-	// 1	Actualización de Base de Datos (Estructura)
-	// 2	Actualización de un Stored Procedure o Trigger
-	// 3	Actualización de un Dato
+	// 1	Actualizaciï¿½n de Base de Datos (Estructura)
+	// 2	Actualizaciï¿½n de un Stored Procedure o Trigger
+	// 3	Actualizaciï¿½n de un Dato
 	// 4	Actualizando Base de Datos GestorMax
 	// 5	Intermediario Interrumpido
 	// 6	Intermediario Sincronizado

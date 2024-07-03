@@ -35,8 +35,8 @@ message InstanceIdentityRequest {
 }
 
 message InstanceIdentityResponse {
-	protoMessages.ResponseResult result =1;
-	protoMessages.GuidMessage token = 2;
+	protoMessages.ResponseResult result = 1;
+	string token = 2;
 	bool isActive = 3;
 	bool isOutdated = 4;
 }
