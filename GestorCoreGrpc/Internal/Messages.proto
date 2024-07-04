@@ -7,10 +7,11 @@ import "GestorCoreGrpc/Shared/Messages.proto";
 package gestorCoreGrpcInternal;
 
 message UseDbTokenRequest {
-	string Token = 1;
+	string token = 1;
 	string databaseGuid = 2;
-	string Terminal = 3;
-	string Version = 4;
+	string terminal = 3;
+	string releaseVersion = 4;
+	gestorCoreGrpcShared.GestorMaxVersionTypes gestorVersion = 5;
 }
 
 message UseDbTokenResponse {
