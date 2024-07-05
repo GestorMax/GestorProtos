@@ -147,6 +147,8 @@ message ScrapDataDateMessage {
 	string name = 3;
 	AcquisitionMessage acquisitionJson = 4;
 	string cultureName = 5;
+	DateGeneratorMessage customDate = 6;
+	bool isCustomized = 7;
 }
 
 message ScrapDataDateMessageList {
