@@ -1,10 +1,10 @@
 ﻿syntax = "proto3";
 
-import "google/protobuf/Any.proto";
+//import "google/protobuf/Any.proto";
 import "google/protobuf/Timestamp.proto";
-import "ProtoMessages/Common.proto";
+//import "ProtoMessages/Common.proto";
 
-package intermediarioBlackShared;
+package intermediario.G4.Shared;
 
 
 message IntermediarioConfiguration {

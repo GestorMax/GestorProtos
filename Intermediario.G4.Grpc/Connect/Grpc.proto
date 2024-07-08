@@ -2,13 +2,13 @@ syntax = "proto3";
 
 import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
-import "IntermediarioBlackGrpc/Connect/Messages.proto";
-import "IntermediarioBlackGrpc/Connect/Authentication.proto";
-import "IntermediarioBlackGrpc/Connect/SyncedDataBase.proto";
+import "Intermediario.G4.Grpc/Connect/Messages.proto";
+import "Intermediario.G4.Grpc/Connect/Authentication.proto";
+import "Intermediario.G4.Grpc/Connect/SyncedDataBase.proto";
 
-package intermediarioBlackConnectGrpc;
+package intermediario.G4.Grpc.Connect;
 
-service IntermediarioBlackConnect {
+service IntermediarioG4Connect {
 	rpc ProcessChanges(ChangesMessage) returns (protoMessages.ResponseResult);
 
 	rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);

@@ -5,7 +5,7 @@
 //import "IntermediarioBlackGrpc/Shared/IntermediarioShared.proto";
 //import "IntermediarioBlackGrpc/Admin/Messages.proto";
 
-package intermediarioBlackGrpcAdmin;
+package intermediario.G4.Grpc.Admin;
 
-service IntermediarioBlackAdmin {
+service IntermediarioG4Admin {
 }

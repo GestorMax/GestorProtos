@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "ProtoMessages/Common.proto";
 
-package intermediarioBlackConnectGrpc;
+package intermediario.G4.Grpc.Connect;
 
 message AuthenticateRequest {
 	int32 id = 1;
