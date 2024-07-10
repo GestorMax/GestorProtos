@@ -4,15 +4,6 @@ import "ProtoMessages/Common.proto";
 
 package intermediario.G4.Grpc.Connect;
 
-message AuthenticateRequest {
-	int32 id = 1;
-}
-
-message AuthenticateResponse {
-	protoMessages.ResponseResult result = 1;
-	protoMessages.GuidMessage token = 2;
-}
-
 message OSVersionMessage {
 	string versionString = 1;
 	int32 major = 2;
