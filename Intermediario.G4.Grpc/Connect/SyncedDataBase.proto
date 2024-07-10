@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package intermediarioBlackConnectGrpc;
+package intermediario.G4.Grpc.Connect;
 
 enum CurrentState {
   // La base de datos esta creada y lista para recibir novedades
