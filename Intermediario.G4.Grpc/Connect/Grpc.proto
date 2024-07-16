@@ -3,8 +3,6 @@ syntax = "proto3";
 import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
 import "Intermediario.G4.Grpc/Connect/Messages.proto";
-import "Intermediario.G4.Grpc/Connect/Authentication.proto";
-import "Intermediario.G4.Grpc/Connect/SyncedDataBase.proto";
 
 package intermediario.G4.Grpc.Connect;
 
