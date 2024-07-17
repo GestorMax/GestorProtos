@@ -15,6 +15,9 @@ message DataBaseInfoMessage {
 	bool Initialized = 5;
 	google.protobuf.Timestamp InitializationStart = 6;
 	google.protobuf.Timestamp InitializationEnd = 7;
+	string Server = 8;
+	string Instance = 9;
+	string DatabaseName = 10;
 }
 
 message DataBaseInfoMessageList {
