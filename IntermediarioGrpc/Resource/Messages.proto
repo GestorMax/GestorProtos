@@ -124,6 +124,7 @@ message LuciusMayorRequest {
 	google.protobuf.Timestamp fechaDesde = 2;
 	google.protobuf.Timestamp fechaHasta = 3;
 	bool remedido = 4;
+	bool omitirCierre = 12;
 	bool soloApertura = 5;
 	string filtroRubro = 6;
 	string filtroActividad = 7;
@@ -138,6 +139,7 @@ message LuciusBalanceRequest {
 	google.protobuf.Timestamp fechaDesde = 2;
 	google.protobuf.Timestamp fechaHasta = 3;
 	bool remedido = 4;
+	bool omitirCierre = 12;
 	string apertura = 5;
 	string filtroRubro = 6;
 	string filtroActividad = 7;
