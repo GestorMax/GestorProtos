@@ -73,6 +73,7 @@ message FileVersionMessage {
 	//FileMessage file = 7;
 	int32 fileId = 8;
 	string MD5 = 9;
+	bool isDisabled = 10;
 }
 
 message GetFileRequest {
@@ -91,4 +92,14 @@ message DownloadLinkRequest {
 message DownloadLinkResponse{
 	string URL = 1;
 	google.protobuf.Timestamp validTo = 2;
+}
+
+message ToggleFileVersionDisabledRequest {
+	int32 id = 1;
+}
+
+message ToggleFileVersionDisabledResponse {
+	bool success = 1;
+    bool isDisabled = 2;
+    string message = 3;
 }

@@ -25,4 +25,5 @@ service GestorUpdateAdmin {
 	rpc GetFileVersionDownloadLink (GetFileVersionRequest) returns (DownloadLinkResponse);
 
 	rpc GetConnectVersions (google.protobuf.Empty) returns (ConnectVersionMessageList);
+	rpc ToggleFileVersionDisabled (ToggleFileVersionDisabledRequest) returns (ToggleFileVersionDisabledResponse);
 }
