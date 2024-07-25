@@ -17,6 +17,8 @@ service IntermediarioG4Connect {
 
 	rpc SendDBDump(stream SendDBDumpRequest) returns (SendDBDumpResponse);
 
+	rpc SendRoutinesDump(stream SendDBDumpRequest) returns (SendDBDumpResponse);
+
 	rpc SendDbDumpPermissionRequest(google.protobuf.Empty) returns (SendDumpPermissionResponse);
 
 	rpc SendUpdate(SendUpdateRequest) returns (SendUpdateResponse);
