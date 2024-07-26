@@ -1,0 +1,12 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "InvoiceReaderGrpc/Resource/Messages.proto";
+
+package invoiceReaderGrpcResource;
+
+service InvoiceReaderResource {
+	rpc ListInvoices (google.protobuf.Empty) returns (InvoiceMessageList);
+	rpc InvoiceUpload (InvoiceUploadRequest) returns (protoMessages.ResponseResult);
+}

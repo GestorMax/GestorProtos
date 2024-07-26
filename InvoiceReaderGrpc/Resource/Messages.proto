@@ -1,0 +1,24 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Timestamp.proto";
+import "ProtoMessages/Common.proto";
+
+package invoiceReaderGrpcResource;
+
+message InvoiceReaderConfiguration {
+	string uri = 1;
+}
+
+message InvoiceMessage {
+	string uri = 1;
+}
+
+message InvoiceMessageList {
+	repeated InvoiceMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
+message InvoiceUploadRequest {
+	bytes data = 1;
+}
+
