@@ -173,6 +173,7 @@ message AllowedResponse {
 message CustomerMessage {
 	int32 id = 1;
 	string companyName = 2;
+	protoMessages.DateOnlyMessage creationDate = 27;
 	string taxId = 3;
 	repeated string phones = 4;
 	repeated string emails = 5;
@@ -199,6 +200,7 @@ message CustomerMessage {
 		PaymentOptionPending = 0;
 		CashPayment = 1;
 		FourInstallments = 2;
+		Rent = 3;
 	}
 	PaymentOption paymentOption = 20;
 	enum Fertilizer{
