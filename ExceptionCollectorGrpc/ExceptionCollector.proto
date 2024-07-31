@@ -40,6 +40,7 @@ enum ServiceTypes {
 
 	SERVICE_TYPES_GESTOR_ALERT = 16;
 	SERVICE_TYPES_GESTOR_FLOW = 17;
+	SERVICE_TYPES_INVOICE_READER = 18;
 }
 
 message ExceptionMessage {
