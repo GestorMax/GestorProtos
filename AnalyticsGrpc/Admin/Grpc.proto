@@ -51,7 +51,7 @@ service AnalyticsAdmin {
 	//Scraping
 	rpc ListScrapings (ScrapingRequest) returns (ScrapingMessageList);
 	rpc GetScraping (protoMessages.Int32Message) returns (ScrapingResponse);
-	rpc RemoveScraping (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc RemoveScraping (protoMessages.Int32Message) returns (protoMessages.ResponseResult);	
 
 	//Measurement
 	rpc ListMeasurements (MeasurementRequest) returns (MeasurementMessageList);
@@ -59,6 +59,7 @@ service AnalyticsAdmin {
 	rpc ListLastMeasurementFromSource (protoMessages.Int32Message) returns (MeasurementMessageList);
 	rpc ListLastMeasurement (google.protobuf.Timestamp) returns (MeasurementMessageList);
 	rpc ConfirmMeasurement (MeasurementMessage) returns (protoMessages.ResponseResult);
+	rpc EditMeasurement (MeasurementMessage) returns (MeasurementResponse);
 
 	//Scraper
 	rpc TestScraperData (ScrapDataMessage) returns (ScrapingResponse);
