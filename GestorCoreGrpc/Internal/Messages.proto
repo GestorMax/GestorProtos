@@ -75,3 +75,15 @@ message VaultValueResponse {
 	protoMessages.ResponseResult result = 1;
 	string value = 2;
 }
+
+message G4DatabaseMigrationRequest {
+	string databaseGuidG3 = 1;
+}
+
+message G4DatabaseMigrationResponse {
+	bool alreadyExistent = 1;
+	bool cloneSuccessful = 2;
+	string error = 3;
+	string databaseGuidG3 = 4;
+	string databaseGuidG4 = 5;
+}
