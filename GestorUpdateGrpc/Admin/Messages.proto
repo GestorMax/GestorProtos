@@ -70,10 +70,10 @@ message FileVersionMessage {
 	int32 version = 4;
 	string fileName = 5;
 	bool isDeleted = 6;
-	//FileMessage file = 7;
-	int32 fileId = 8;
-	string MD5 = 9;
-	bool isDisabled = 10;
+	int32 fileId = 7;
+	string MD5 = 8;
+	bool isDisabled = 9;
+	string disableReason = 10;
 }
 
 message GetFileRequest {
@@ -100,6 +100,6 @@ message ToggleFileVersionDisabledRequest {
 
 message ToggleFileVersionDisabledResponse {
 	bool success = 1;
-    bool isDisabled = 2;
-    string message = 3;
+	bool isDisabled = 2;
+	string message = 3;
 }

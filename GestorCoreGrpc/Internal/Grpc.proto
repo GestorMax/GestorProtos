@@ -13,4 +13,5 @@ service GestorCoreInternal {
 	rpc UseGestorDbToken(UseDbTokenRequest) returns (UseDbTokenResponse);
 	rpc CanEnableIntermediarioDatabase(protoMessages.Int32Message) returns (protoMessages.BoolMessage);
 	rpc GetVaultValue(VaultValueRequest) returns (VaultValueResponse);
+	rpc GetG4DatabaseId(G4DatabaseMigrationRequest) returns (G4DatabaseMigrationResponse);
 }
