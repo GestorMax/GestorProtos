@@ -123,6 +123,7 @@ enum ConnectUpdateType {
 	UpdatingDataBase = 4;
 	IntermediarioInterrupted = 5;
 	ConnectCheckVersion = 6;
+	SendRoutinesDump = 7;
 }
 
 message SendUpdateResponse{
