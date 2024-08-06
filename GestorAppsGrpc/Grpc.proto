@@ -10,7 +10,6 @@ import "FinancieroGrpc/Resource/Messages.proto";
 import "AnalyticsGrpc/Resource/Messages.proto";
 import "GestorAppsGrpc/Messages.proto";
 import "HereIsDataShared/Messages.proto";
-import "InvoiceReaderGrpc/Resource/Messages.proto";
 
 package gestorAppsGrpc;
 
@@ -106,8 +105,4 @@ service GestorApps {
 	rpc DeleteProductExtended (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 	rpc GetCardAndGraphDashboard(google.protobuf.Empty) returns (financieroGrpcResource.CardAndGraphDashboardMessage);
 	rpc ListGrainAndFarmStocks(google.protobuf.Empty) returns (financieroGrpcResource.GrainAndFarmStockMessage);
-
-	// Invoice Reader
-	rpc ListInvoices (google.protobuf.Empty) returns (invoiceReaderGrpcResource.InvoiceMessageList);
-	rpc InvoiceUpload (invoiceReaderGrpcResource.InvoiceUploadRequest) returns (protoMessages.ResponseResult);
 }
