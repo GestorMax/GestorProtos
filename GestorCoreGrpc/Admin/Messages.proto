@@ -734,21 +734,19 @@ message ProcessMessage{
 	}
 	BonusCloudMonth bonusCloudMonth = 16;
 	enum BillCloudMonth {
-		BillCloudMonth_Undefined = 0;
-		BillCloudMonth_January = 1;
-		BillCloudMonth_February = 2;
-		BillCloudMonth_March = 3;
-		BillCloudMonth_April = 4;
-		BillCloudMonth_May = 5;
-		BillCloudMonth_June = 6;
-		BillCloudMonth_July = 7;
-		BillCloudMonth_August = 8;
-		BillCloudMonth_September = 9;
-		BillCloudMonth_October = 10;
-		BillCloudMonth_November = 11;
-		BillCloudMonth_December = 12;
+		BillCloudMonth_January = 0;
+		BillCloudMonth_February = 1;
+		BillCloudMonth_March = 2;
+		BillCloudMonth_April = 3;
+		BillCloudMonth_May = 4;
+		BillCloudMonth_June = 5;
+		BillCloudMonth_July = 6;
+		BillCloudMonth_August = 7;
+		BillCloudMonth_September = 8;
+		BillCloudMonth_October = 9;
+		BillCloudMonth_November = 10;
+		BillCloudMonth_December = 11;
 	}
-	BillCloudMonth billCloudMonth = 17;
 	enum CloudFertilizer{
 		CloudFertilizer_Pending = 0;
 		CloudFertilizer_Programmed = 1;
@@ -780,7 +778,6 @@ message EditProcessRequest{
 		ProcessMessage.Drive drive = 7;
 		ProcessMessage.Modality modality = 8;
 		ProcessMessage.BonusCloudMonth bonusCloudMonth = 9;
-		ProcessMessage.BillCloudMonth billCloudMonth = 10;
 		ProcessMessage.CloudFertilizer cloudFertilizer = 11;
 	}
 	protoMessages.DateOnlyMessage accessDate = 12;
