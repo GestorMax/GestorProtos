@@ -2,7 +2,8 @@
 
 import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
-//import "IntermediarioBlackGrpc/Shared/IntermediarioShared.proto";
+import "Intermediario.G4.Grpc/Shared/IntermediarioShared.proto";
+import "Intermediario.G4.Grpc/Shared/IntermediarioConnectMessages.proto";
 
 package intermediario.G4.Grpc.Admin;
 
@@ -29,4 +30,39 @@ message DataBaseInfoMessageList {
 message DataBaseInfoResponse {
 	protoMessages.ResponseResult result = 1;
 	DataBaseInfoMessage message = 2;
+}
+
+message ConnectInfoMessage {
+	int32 databaseId = 1;
+	bool active = 2;
+	bool connected = 3;
+	string server = 4;
+	string instance = 5;
+	string database = 6;
+	string MD5 = 7;
+	intermediario.G4.Shared.SyncedDatabaseMessage completeInfoDatabase = 8;
+}
+
+message SyncedDatabaseResponse {
+	intermediario.G4.Shared.SyncedDatabaseMessage database = 1;
+	repeated intermediario.G4.Shared.ConnectIdentityMessage connectedInstances = 2;
+	repeated UserMessage users = 3;
+	repeated intermediario.G4.Connect.Grpc.EmpresaMessage companies = 4;
+}
+
+message UserMessage {
+	int32 databaseId = 1;
+	int32 userId = 2;
+	protoMessages.StringMessage email = 4;
+	string name  = 5;
+	string alias = 6;
+	bool enabled = 7;
+}
+
+message ListConnectInfoRequest {
+	bool IncludeDisconnected = 1;
+}
+
+message ConnectInfoMessageList {
+	repeated ConnectInfoMessage values = 1;
 }

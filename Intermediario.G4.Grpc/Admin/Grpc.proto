@@ -1,11 +1,22 @@
 ﻿syntax = "proto3";
 
-//import "google/protobuf/Empty.proto";
-//import "ProtoMessages/Common.proto";
-//import "IntermediarioBlackGrpc/Shared/IntermediarioShared.proto";
-//import "IntermediarioBlackGrpc/Admin/Messages.proto";
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "Intermediario.G4.Grpc/Shared/IntermediarioShared.proto";
+import "Intermediario.G4.Grpc/Admin/Messages.proto";
 
 package intermediario.G4.Grpc.Admin;
 
-service IntermediarioG4Admin {
+service IntermediarioGAdmin {
+	rpc GetSyncedDatabase(protoMessages.Int32Message) returns (SyncedDatabaseResponse);
+	rpc ListCompanies(protoMessages.Int32Message) returns (intermediario.G4.Shared.CompanyMessageList);
+	rpc ListPersons(protoMessages.Int32Message) returns (intermediario.G4.Shared.PersonMessageList);
+
+	//Gestor Connect
+	rpc SetActiveInstance(intermediario.G4.Shared.ConnectIdentityMessage) returns (protoMessages.ResponseResult);
+	rpc UpdateConnect(intermediario.G4.Shared.ConnectIdentityMessage) returns (google.protobuf.Empty); 
+	rpc CloseConnect(intermediario.G4.Shared.ConnectIdentityMessage) returns (google.protobuf.Empty); 
+	rpc ListConnectInfos(ListConnectInfoRequest) returns (ConnectInfoMessageList);
+	rpc GetConnectStatus(protoMessages.Int32Message) returns (intermediario.G4.Shared.ConnectStatusMessage);
+
 }

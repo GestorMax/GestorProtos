@@ -1,14 +1,84 @@
 ﻿syntax = "proto3";
 
-//import "google/protobuf/Any.proto";
+import "google/protobuf/Any.proto";
 import "google/protobuf/Timestamp.proto";
-//import "ProtoMessages/Common.proto";
+import "ProtoMessages/Common.proto";
 
 package intermediario.G4.Shared;
 
 
 message IntermediarioG4Configuration {
 	string uri = 1;
+}
+
+enum ConnectLogSender {
+	CONNECT_LOG_SENDER_INTERMEDIARY = 0;
+	CONNECT_LOG_SENDER_CONNECT = 1;
+}
+
+enum ConnectLogType {
+	CONNECT_LOG_TYPE_INFO = 0;
+	CONNECT_LOG_TYPE_WARNING = 1;
+	CONNECT_LOG_TYPE_ERROR = 2;
+}
+
+message ConnectLogMessage {
+	int32 Id = 1;
+	google.protobuf.Timestamp LogDate = 2;
+	ConnectLogType LogType = 3;
+	ConnectLogSender Sender = 4;
+	string Text = 5;
+	string AdditionalInfo = 6;
+}
+
+message OSVersionMessage {
+	string versionString = 1;
+	int32 major = 2;
+	int32 minor = 3;
+	int32 revision = 4;
+	int32 build = 5;
+	int32 bits = 6;
+	string servicePack = 7;
+}
+
+message ConnectInstanceMessage {
+	bool connected = 1;
+	google.protobuf.Timestamp connectedSince = 2;
+	ConnectIdentityMessage connectIdentity = 3;
+}
+
+message ConnectStatusMessage {
+	repeated ConnectLogMessage logs = 1;
+	repeated ConnectInstanceMessage instances = 2;
+}
+
+// Ojo, este mensaje se usa por los companions (connects)
+// cualquier cambio que quite campos o que cambie numeros de mensaje,
+// o incluso cambiarle el nombre de mensaje va a romper todos los companions para atrás
+message InstanceIdentityMessage {
+	string databaseId = 1;
+	string server = 2;
+	string instance = 3;
+	string databaseName = 4;
+	// todas opcionales desde acá
+	string mD5 = 5;
+	bool canAutoUpdate = 6;
+	OSVersionMessage version = 7;
+}
+
+// Este mensaje, si bien es muy similar al anterior, es usado por la interfaz
+// administrativa del Intermerdiario. OJO porque cambia el primer campo por un int32
+// Es que el companion se identifica con el GUID de la database, e internamente se
+// usa el id de la database.
+message ConnectIdentityMessage {
+	int32 databaseId = 1;
+	string server = 2;
+	string instance = 3;
+	string databaseName = 4;
+	// todas opcionales desde acá
+	string mD5 = 5;
+	bool canAutoUpdate = 6;
+	OSVersionMessage version = 7;
 }
 
 message SyncedDatabaseMessage {
@@ -19,4 +89,24 @@ message SyncedDatabaseMessage {
 	bool initialized = 6;
 	google.protobuf.Timestamp initializationStart = 7;
 	google.protobuf.Timestamp initializationEnd = 8;
+}
+
+message CompanyMessage {
+	int32 id = 1;
+	string name = 2;
+	string taxId = 3;
+}
+
+message CompanyMessageList {
+	repeated CompanyMessage values = 1;
+}
+
+message PersonMessage {
+	int32 id = 1;
+	string name = 2;
+	string taxId = 3;
+}
+
+message PersonMessageList {
+	repeated PersonMessage values = 1;
 }
