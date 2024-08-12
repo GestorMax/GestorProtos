@@ -8,7 +8,7 @@ import "Intermediario.G4.Grpc/Shared/IntermediarioConnectMessages.proto";
 package intermediario.G4.Grpc.Admin;
 
 
-message DataBaseInfoMessage {
+message DatabaseInfoMessage {
 	int32 Id = 1;
 	uint64 HistoryLastDataCode = 2;
 	uint64 HistoryLastStructureCode = 3;
@@ -21,15 +21,15 @@ message DataBaseInfoMessage {
 	string DatabaseName = 10;
 }
 
-message DataBaseInfoMessageList {
+message DatabaseInfoMessageList {
 	protoMessages.ResponseResult result = 1;
 	protoMessages.PageInfo pageInfo = 2;
-	repeated DataBaseInfoMessage values = 3; 
+	repeated DatabaseInfoMessage values = 3; 
 }
 
-message DataBaseInfoResponse {
+message DatabaseInfoResponse {
 	protoMessages.ResponseResult result = 1;
-	DataBaseInfoMessage message = 2;
+	DatabaseInfoMessage message = 2;
 }
 
 message ConnectInfoMessage {
@@ -44,10 +44,11 @@ message ConnectInfoMessage {
 }
 
 message SyncedDatabaseResponse {
-	intermediario.G4.Shared.SyncedDatabaseMessage database = 1;
-	repeated intermediario.G4.Shared.ConnectIdentityMessage connectedInstances = 2;
-	repeated UserMessage users = 3;
-	repeated intermediario.G4.Connect.Grpc.EmpresaMessage companies = 4;
+	protoMessages.ResponseResult result = 1;
+	intermediario.G4.Shared.SyncedDatabaseMessage database = 2;
+	repeated intermediario.G4.Shared.ConnectIdentityMessage connectedInstances = 3;
+	repeated UserMessage users = 4;
+	repeated intermediario.G4.Connect.Grpc.EmpresaMessage companies = 5;
 }
 
 message UserMessage {
