@@ -7,14 +7,13 @@ import "Intermediario.G4.Grpc/Admin/Messages.proto";
 
 package intermediario.G4.Grpc.Admin;
 
-service IntermediarioGAdmin {
+service IntermediarioG4Admin {
 	rpc GetSyncedDatabase(protoMessages.Int32Message) returns (SyncedDatabaseResponse);
 	rpc ListCompanies(protoMessages.Int32Message) returns (intermediario.G4.Shared.CompanyMessageList);
 	rpc ListPersons(protoMessages.Int32Message) returns (intermediario.G4.Shared.PersonMessageList);
 
 	//Gestor Connect
 	rpc SetActiveInstance(intermediario.G4.Shared.ConnectIdentityMessage) returns (protoMessages.ResponseResult);
-	rpc UpdateConnect(intermediario.G4.Shared.ConnectIdentityMessage) returns (google.protobuf.Empty); 
 	rpc CloseConnect(intermediario.G4.Shared.ConnectIdentityMessage) returns (google.protobuf.Empty); 
 	rpc ListConnectInfos(ListConnectInfoRequest) returns (ConnectInfoMessageList);
 	rpc GetConnectStatus(protoMessages.Int32Message) returns (intermediario.G4.Shared.ConnectStatusMessage);

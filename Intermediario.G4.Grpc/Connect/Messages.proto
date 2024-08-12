@@ -1,6 +1,7 @@
 ﻿syntax = "proto3";
 
 import "ProtoMessages/Common.proto";
+import "Intermediario.G4.Grpc/Shared/IntermediarioShared.proto";
 
 package intermediario.G4.Grpc.Connect;
 
@@ -30,16 +31,6 @@ message IntermediarioConnectStateChangedMessage {
 	bool intermediarioInitialized = 3;
 }
 
-message OSVersionMessage {
-	string versionString = 1;
-	int32 major = 2;
-	int32 minor = 3;
-	int32 revision = 4;
-	int32 build = 5;
-	int32 bits = 6;
-	string servicePack = 7;
-}
-
 message InstanceIdentityRequest {
 	string databaseId = 1;
 	string server = 2;
@@ -48,7 +39,7 @@ message InstanceIdentityRequest {
 	// todas opcionales desde acá
 	string mD5 = 5;
 	bool canAutoUpdate = 6;
-	OSVersionMessage version = 7;
+	intermediario.G4.Shared.OSVersionMessage version = 7;
 }
 
 message InstanceIdentityResponse {
