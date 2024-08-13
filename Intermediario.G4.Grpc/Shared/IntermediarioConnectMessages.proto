@@ -6,8 +6,29 @@ import "ProtoMessages/Common.proto";
 package intermediario.G4.Connect.Grpc;
 
 message EmpresaMessage {
-	int32 Codempre = 1;
-	string Nombre = 2;
-	string Cuit = 3;
+	uint64 CodEmpresa = 1;
+	//protoMessages.UInt32Message CodEmpresa = 1;
+	uint64 CodPersona = 2;
+	protoMessages.StringMessage Persona = 3;
+	protoMessages.StringMessage NroDocumento = 4;
+	uint64 CodMoneda = 5;
+	protoMessages.StringMessage Moneda = 6;
+	google.protobuf.Timestamp FechaInicioActividades = 7;
+	google.protobuf.Timestamp FechaCierreContable = 8;
+	google.protobuf.Timestamp FechaTopeContable = 9;
+	google.protobuf.Timestamp FechaAltaCompras = 10;
+	google.protobuf.Timestamp FechaAltaVentas = 11;
+	google.protobuf.Timestamp FechaCierreGestion = 12;
+	uint64 CodPlanContabilidad = 13;
+	protoMessages.StringMessage PlanContabilidad = 14;
+	uint64 CodPlanGestion = 15;
+	protoMessages.StringMessage PlanGestion = 16;
+	uint64 CodPlanCentro = 17;
+	protoMessages.StringMessage PlanCentro = 18;
+	uint64 CodPlanAuxiliar = 19;
+	protoMessages.StringMessage PlanAuxiliar = 20;
+	bool Habilitado = 21;
+	protoMessages.StringMessage Notas = 22;
+	
 }
 
