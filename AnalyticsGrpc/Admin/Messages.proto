@@ -119,6 +119,8 @@ message ScrapDataMessage {
 	bool onlyNews = 28;
 	int32 maximumAntiquity = 29;
 	google.protobuf.Timestamp creationDate = 31;
+	bool hasNodeParent = 32;
+	AcquisitionMessage acquisitionParentJson = 33;
 }
 
 message AcquisitionMessage {
