@@ -1,6 +1,8 @@
 ﻿syntax = "proto3";
 
 import "google/protobuf/Timestamp.proto";
+import "ProtoMessages/Common.proto";
+
 
 package intermediario.G4.Shared;
 
@@ -90,7 +92,7 @@ message SyncedDatabaseMessage {
 }
 
 message CompanyMessage {
-	uint64 id = 1;
+	protoMessages.UInt64Message id = 1;
 	string name = 2;
 	string taxId = 3;
 }
@@ -100,7 +102,7 @@ message CompanyMessageList {
 }
 
 message PersonMessage {
-	uint64 id = 1;
+	protoMessages.UInt64Message id = 1;
 	string name = 2;
 	string taxId = 3;
 }

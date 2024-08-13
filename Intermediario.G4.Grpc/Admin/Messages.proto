@@ -53,7 +53,7 @@ message SyncedDatabaseResponse {
 
 message UserMessage {
 	int32 databaseId = 1;
-	uint64 userId = 2;
+	protoMessages.UInt64Message userId = 2;
 	protoMessages.StringMessage email = 4;
 	string name  = 5;
 	string alias = 6;
