@@ -36,10 +36,6 @@ message InstanceIdentityRequest {
 	string server = 2;
 	string instance = 3;
 	string databaseName = 4;
-	// todas opcionales desde acá
-	string mD5 = 5;
-	bool canAutoUpdate = 6;
-	intermediario.G4.Shared.OSVersionMessage version = 7;
 }
 
 message InstanceIdentityResponse {

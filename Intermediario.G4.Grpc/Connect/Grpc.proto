@@ -7,8 +7,6 @@ import "Intermediario.G4.Grpc/Connect/Messages.proto";
 package intermediario.G4.Grpc.Connect;
 
 service IntermediarioG4Connect {
-	rpc ProcessChanges(ChangesMessage) returns (protoMessages.ResponseResult);
-
 	rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 
 	rpc Identify(InstanceIdentityRequest) returns (InstanceIdentityResponse);

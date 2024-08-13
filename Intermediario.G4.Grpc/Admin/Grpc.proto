@@ -4,18 +4,19 @@ import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
 import "Intermediario.G4.Grpc/Shared/IntermediarioShared.proto";
 import "Intermediario.G4.Grpc/Admin/Messages.proto";
+import "IntermediarioCommon/Common.proto";
 
 package intermediario.G4.Grpc.Admin;
 
 service IntermediarioG4Admin {
-	rpc GetSyncedDatabase(protoMessages.Int32Message) returns (SyncedDatabaseResponse);
-	rpc ListCompanies(protoMessages.Int32Message) returns (intermediario.G4.Shared.CompanyMessageList);
-	rpc ListPersons(protoMessages.Int32Message) returns (intermediario.G4.Shared.PersonMessageList);
+	rpc GetSyncedDatabase(protoMessages.Int32Message) returns (intermediario.grpc.common.SyncedDatabaseResponse);
+	rpc ListCompanies(protoMessages.Int32Message) returns (intermediario.grpc.common.CompanyMessageList);
+	rpc ListPersons(protoMessages.Int32Message) returns (intermediario.grpc.common.PersonMessageList);
 
 	//Gestor Connect
-	rpc SetActiveInstance(intermediario.G4.Shared.ConnectIdentityMessage) returns (protoMessages.ResponseResult);
-	rpc CloseConnect(intermediario.G4.Shared.ConnectIdentityMessage) returns (google.protobuf.Empty); 
+	rpc SetActiveInstance(intermediario.grpc.common.ConnectIdentityMessage) returns (protoMessages.ResponseResult);
+	rpc CloseConnect(intermediario.grpc.common.ConnectIdentityMessage) returns (google.protobuf.Empty); 
 	rpc ListConnectInfos(ListConnectInfoRequest) returns (ConnectInfoMessageList);
-	rpc GetConnectStatus(protoMessages.Int32Message) returns (intermediario.G4.Shared.ConnectStatusMessage);
+	rpc GetConnectStatus(protoMessages.Int32Message) returns (intermediario.grpc.common.ConnectStatusMessage);
 
 }
