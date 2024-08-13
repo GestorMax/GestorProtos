@@ -76,6 +76,8 @@ message SourceMessage {
 	string Delimiter = 21;
 	protoMessages.Int32Message CultureLanguageId = 22;
 	CultureLanguageMessage CultureLanguage = 23;
+	google.protobuf.Timestamp creationDate = 25;
+
 }
 
 message SourceResponse{
@@ -116,6 +118,7 @@ message ScrapDataMessage {
 	bool onlyDate = 27;
 	bool onlyNews = 28;
 	int32 maximumAntiquity = 29;
+	google.protobuf.Timestamp creationDate = 31;
 }
 
 message AcquisitionMessage {
