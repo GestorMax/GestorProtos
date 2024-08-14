@@ -50,6 +50,8 @@ enum CurrentState {
   DatabaseOk = 0;
   DatabaseOutOfSync = 1;
   DatabaseError = 2;
+  ConnectInactive = 3;
+  ConnectError = 4;
 }
 
 enum SendDBDumpState {
