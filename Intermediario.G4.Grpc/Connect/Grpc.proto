@@ -13,11 +13,11 @@ service IntermediarioG4Connect {
 
 	rpc GetCurrentState(google.protobuf.Empty) returns (GetCurrentStateResponse);
 
-	rpc SendDBDump(stream SendDBDumpRequest) returns (SendDBDumpResponse);
+	rpc SendDBDump(stream SendDBDumpRequest) returns (protoMessages.ResponseResult);
 
-	rpc SendRoutinesDump(stream SendDBDumpRequest) returns (SendDBDumpResponse);
+	rpc SendRoutinesDump(stream SendDBDumpRequest) returns (protoMessages.ResponseResult);
 
-	rpc SendDbDumpPermissionRequest(google.protobuf.Empty) returns (SendDumpPermissionResponse);
+	rpc SendDbDumpPermissionRequest(google.protobuf.Empty) returns (protoMessages.ResponseResult);
 
 	rpc SendUpdate(SendUpdateRequest) returns (SendUpdateResponse);
 

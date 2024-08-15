@@ -53,13 +53,6 @@ enum CurrentState {
   ConnectError = 4;
 }
 
-enum SendDBDumpState {
-  // La base de datos fue creada y espero novedades
-  Created = 0;
-  // Fallo por algun motivo
-  Failed = 1;
-}
-
 message GetCurrentStateResponse {
 	CurrentState result = 1;
 }
@@ -67,15 +60,6 @@ message GetCurrentStateResponse {
 message SendDBDumpRequest {
 	// String dump con el backup
 	bytes dump = 2;
-}
-
-message SendDBDumpResponse {
-	SendDBDumpState state = 1;
-	string message = 2;
-}
-
-message SendDumpPermissionResponse {
-	bool permissionGranted = 1;
 }
 
 message SendUpdateRequest {
