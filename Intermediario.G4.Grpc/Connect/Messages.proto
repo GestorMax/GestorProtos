@@ -1,7 +1,6 @@
 ﻿syntax = "proto3";
 
 import "ProtoMessages/Common.proto";
-import "Intermediario.G4.Grpc/Shared/IntermediarioShared.proto";
 
 package intermediario.G4.Grpc.Connect;
 

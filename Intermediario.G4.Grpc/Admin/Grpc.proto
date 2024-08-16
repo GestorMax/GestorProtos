@@ -2,7 +2,6 @@
 
 import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
-import "Intermediario.G4.Grpc/Shared/IntermediarioShared.proto";
 import "Intermediario.G4.Grpc/Admin/Messages.proto";
 import "IntermediarioCommon/Common.proto";
 
