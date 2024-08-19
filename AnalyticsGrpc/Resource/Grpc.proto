@@ -9,7 +9,7 @@ package analyticsGrpcResource;
 service AnalyticsResource {
 	rpc ListSources (google.protobuf.Empty) returns (ApiSourceMessageList);
 	rpc ListMetrics (google.protobuf.Empty) returns (ApiMetricMessageList);
-	rpc ListDatas (DataRequest) returns (ApiScrapDataMessageList);
+	rpc ListDatas (DataRequest) returns (stream ApiScrapDataResponse);
 	rpc ListLastMeasurements (google.protobuf.Empty) returns (ApiMeasurementMessageList);
 	rpc LastMeasurement (google.protobuf.Empty) returns (ApiMeasurementMessageList);
 	rpc ListMeasurements (ApiMeasurementRequest) returns (ApiMeasurementMessageList);

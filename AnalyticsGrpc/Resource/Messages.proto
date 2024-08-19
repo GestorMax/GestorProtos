@@ -18,7 +18,6 @@ message ApiSourceMessage {
 message ApiMetricMessageList {
 	repeated ApiMetricMessage values = 1;
 	protoMessages.ResponseResult result = 2;
-
 }
 
 message ApiMetricMessage {
@@ -35,6 +34,11 @@ message ApiScrapDataMessage {
 	repeated LabelWithTypeMessage dataLabels = 5;
 	string SourceName = 6;
 	bool enabled = 7;	
+}
+
+message ApiScrapDataResponse {
+	protoMessages.ResponseResult result = 1;
+	ApiScrapDataMessage message = 2;
 }
 
 message ApiScrapDataMessageList {

@@ -78,7 +78,6 @@ message SqlCommandResponse {
 	protoMessages.ResponseResult result = 1;
 	protoMessages.GuidMessage token = 2;
 	int32 id = 3;
-	int32 totalSize = 4;
 	SqlMessageResponse value = 5;
 }
 
