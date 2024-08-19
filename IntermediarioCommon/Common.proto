@@ -8,6 +8,7 @@ package intermediario.grpc.common;
 message SyncedDatabaseResponse {
 	protoMessages.ResponseResult result = 1;
 	SyncedDatabaseMessage database = 2;
+	repeated ConnectIdentityMessage connectedInstances = 3;
 }
 
 message SyncedDatabaseMessage {
