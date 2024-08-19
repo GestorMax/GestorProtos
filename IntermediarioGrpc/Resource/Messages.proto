@@ -4,6 +4,7 @@ import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
 import "IntermediarioGrpc/Shared/IntermediarioShared.proto";
 import "IntermediarioGrpc/Shared/IntermediarioCompanionMessages.g.proto";
+import "IntermediarioCommon/Common.proto";
 
 package intermediarioGrpcResource;
 
@@ -372,7 +373,7 @@ message DatabaseMessage {
 	string serverInstance = 4;
 	string serverDBName = 5;
 	google.protobuf.Timestamp lastBackup = 6;
-	repeated intermediarioSharedMessages.CompanyMessage companies = 7;
+	repeated intermediario.grpc.common.CompanyMessage companies = 7;
 
 	string customerCompanyName = 8;
 

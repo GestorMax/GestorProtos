@@ -1,22 +1,9 @@
 ﻿syntax = "proto3";
 
-//import "google/protobuf/Any.proto";
-import "google/protobuf/Timestamp.proto";
-//import "ProtoMessages/Common.proto";
 
 package intermediario.G4.Shared;
 
 
 message IntermediarioG4Configuration {
 	string uri = 1;
-}
-
-message SyncedDatabaseMessage {
-	int32 id = 1;
-	string server = 3;
-	string instance = 4;
-	string databaseName = 5;
-	bool initialized = 6;
-	google.protobuf.Timestamp initializationStart = 7;
-	google.protobuf.Timestamp initializationEnd = 8;
 }

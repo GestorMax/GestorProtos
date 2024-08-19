@@ -32,7 +32,7 @@ message Int64Message {
 	int64 value = 1;
 }
 
-message Uint64Message {
+message UInt64Message {
 	uint64 value = 1;
 }
 
@@ -91,7 +91,7 @@ message ValueMessage {
 		int64 int64Value = 3;
 		Int64Message int64MessageValue = 4;
 		uint64 uint64Value = 5;
-		Uint64Message uint64MessageValue = 6;
+		UInt64Message uint64MessageValue = 6;
 		float floatValue = 7;
 		FloatMessage floatMessageValue = 8;
 		double doubleValue = 9;

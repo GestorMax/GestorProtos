@@ -4,6 +4,7 @@ import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
 import "IntermediarioGrpc/Shared/IntermediarioShared.proto";
 import "IntermediarioGrpc/Shared/IntermediarioCompanionMessages.g.proto";
+import "IntermediarioCommon/Common.proto";
 
 package intermediarioGrpcAdmin;
 
@@ -15,14 +16,7 @@ message ConnectInfoMessage {
 	string instance = 5;
 	string database = 6;
 	string MD5 = 7;
-	intermediarioSharedMessages.SyncedDatabaseMessage completeInfoDatabase = 8;
-}
-
-message SyncedDatabaseResponse {
-	intermediarioSharedMessages.SyncedDatabaseMessage database = 1;
-	repeated intermediarioSharedMessages.ConnectIdentityMessage connectedInstances = 2;
-	repeated UserMessage users = 3;
-	repeated intermediarioCompanionGrpc.GsEmpresaMessage companies = 4;
+	intermediario.grpc.common.SyncedDatabaseMessage completeInfoDatabase = 8;
 }
 
 message UserMessage {

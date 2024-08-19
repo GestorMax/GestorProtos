@@ -7,19 +7,17 @@ import "Intermediario.G4.Grpc/Connect/Messages.proto";
 package intermediario.G4.Grpc.Connect;
 
 service IntermediarioG4Connect {
-	rpc ProcessChanges(ChangesMessage) returns (protoMessages.ResponseResult);
-
 	rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 
 	rpc Identify(InstanceIdentityRequest) returns (InstanceIdentityResponse);
 
 	rpc GetCurrentState(google.protobuf.Empty) returns (GetCurrentStateResponse);
 
-	rpc SendDBDump(stream SendDBDumpRequest) returns (SendDBDumpResponse);
+	rpc SendDBDump(stream SendDBDumpRequest) returns (protoMessages.ResponseResult);
 
-	rpc SendRoutinesDump(stream SendDBDumpRequest) returns (SendDBDumpResponse);
+	rpc SendRoutinesDump(stream SendDBDumpRequest) returns (protoMessages.ResponseResult);
 
-	rpc SendDbDumpPermissionRequest(google.protobuf.Empty) returns (SendDumpPermissionResponse);
+	rpc SendDbDumpPermissionRequest(google.protobuf.Empty) returns (protoMessages.ResponseResult);
 
 	rpc SendUpdate(SendUpdateRequest) returns (SendUpdateResponse);
 
