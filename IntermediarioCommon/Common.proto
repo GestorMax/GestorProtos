@@ -22,7 +22,7 @@ message SyncedDatabaseMessage {
 }
 
 message CompanyMessage {
-	protoMessages.UInt64Message id = 1;
+	int32 id = 1;
 	string name = 2;
 	string taxId = 3;
 }
@@ -32,7 +32,7 @@ message CompanyMessageList {
 }
 
 message PersonMessage {
-	protoMessages.UInt64Message id = 1;
+	int32 id = 1;
 	string name = 2;
 	string taxId = 3;
 }
@@ -40,7 +40,6 @@ message PersonMessage {
 message PersonMessageList {
 	repeated PersonMessage values = 1;
 }
-
 
 message OSVersionMessage {
 	string versionString = 1;

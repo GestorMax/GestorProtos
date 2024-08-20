@@ -31,6 +31,10 @@ message DatabaseInfoResponse {
 	DatabaseInfoMessage message = 2;
 }
 
+message ListConnectInfoRequest {
+	bool IncludeDisconnected = 1;
+}
+
 message ConnectInfoMessage {
 	int32 databaseId = 1;
 	bool active = 2;
@@ -42,6 +46,11 @@ message ConnectInfoMessage {
 	intermediario.grpc.common.SyncedDatabaseMessage completeInfoDatabase = 8;
 }
 
+message ConnectInfoMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated ConnectInfoMessage values = 2;
+}
+
 message UserMessage {
 	int32 databaseId = 1;
 	protoMessages.UInt64Message userId = 2;
@@ -51,10 +60,3 @@ message UserMessage {
 	bool enabled = 7;
 }
 
-message ListConnectInfoRequest {
-	bool IncludeDisconnected = 1;
-}
-
-message ConnectInfoMessageList {
-	repeated ConnectInfoMessage values = 1;
-}

@@ -33,9 +33,9 @@ message ListConnectInfoRequest {
 }
 
 message ConnectInfoMessageList {
+	protoMessages.ResponseResult result = 2;
 	repeated ConnectInfoMessage values = 1;
 }
-
 
 message ListGestorUsersReportResponse {
 	protoMessages.ResponseResult result = 1;
