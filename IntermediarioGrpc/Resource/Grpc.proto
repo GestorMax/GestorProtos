@@ -61,6 +61,7 @@ service IntermediarioResource {
 	// Lucius
 	rpc ListLuciusMayor(LuciusMayorRequest) returns (stream LuciusMayorContableResponse);
 	rpc ListLuciusBalance(LuciusBalanceRequest) returns (stream LuciusBalanceContableResponse);
+	rpc ListLuciusBalanceMensualizado(LuciusBalanceMensualizadoRequest) returns (stream LuciusBalanceMensualizadoResponse);
 	rpc ListLuciusPlanDeCuentas(protoMessages.Int32Message) returns (stream LuciusPlanDeCuentasResponse);
 
 }
