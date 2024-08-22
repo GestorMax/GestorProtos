@@ -20,5 +20,6 @@ message InvoiceMessageList {
 
 message InvoiceUploadRequest {
 	bytes data = 1;
+	string fileName = 2;
 }
 
