@@ -2,7 +2,7 @@
 
 import "ProtoMessages/Common.proto";
 
-package intermediario.G4.Grpc.Connect;
+package intermediario.g4.grpc.connect;
 
 message ChangesMessage {
 	int32 test = 1;

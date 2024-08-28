@@ -2,7 +2,8 @@ syntax = "proto3";
 
 import "ProtoMessages/Common.proto";
 
-package intermediario.G4.Connect.Grpc;
+package intermediario.g4.grpc.shared;
+
 
 message EmpresaMessage {
 	//uint64 CodEmpresa = 1;
