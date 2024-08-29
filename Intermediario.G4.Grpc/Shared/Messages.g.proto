@@ -6,13 +6,9 @@ package intermediario.g4.grpc.shared;
 
 
 message EmpresaMessage {
-	//uint64 CodEmpresa = 1;
-	protoMessages.UInt64Message CodEmpresa = 1;
+	uint64 CodEmpresa = 1;
 	protoMessages.UInt64Message CodPersona = 2;
-	protoMessages.StringMessage Persona = 3;
-	protoMessages.StringMessage NroDocumento = 4;
 	protoMessages.UInt64Message CodMoneda = 5;
-	protoMessages.StringMessage Moneda = 6;
 	protoMessages.DateOnlyMessage FechaInicioActividades = 7;
 	protoMessages.DateOnlyMessage FechaCierreContable = 8;
 	protoMessages.DateOnlyMessage FechaTopeContable = 9;
@@ -20,15 +16,9 @@ message EmpresaMessage {
 	protoMessages.DateOnlyMessage FechaAltaVentas = 11;
 	protoMessages.DateOnlyMessage FechaCierreGestion = 12;
 	protoMessages.UInt64Message CodPlanContabilidad = 13;
-	protoMessages.StringMessage PlanContabilidad = 14;
 	protoMessages.UInt64Message CodPlanGestion = 15;
-	protoMessages.StringMessage PlanGestion = 16;
 	protoMessages.UInt64Message CodPlanCentro = 17;
-	protoMessages.StringMessage PlanCentro = 18;
 	protoMessages.UInt64Message CodPlanAuxiliar = 19;
-	protoMessages.StringMessage PlanAuxiliar = 20;
-	bool Habilitado = 21;
-	protoMessages.StringMessage Notas = 22;
-	
+	bool Habilitado = 21;	
 }
 
