@@ -33,6 +33,7 @@ service AnalyticsAdmin {
 	rpc CreateDataDate (ScrapDataDateMessage) returns (ScrapDataDateResponse);
 	rpc EditDataDate (ScrapDataDateMessage) returns (ScrapDataDateResponse);
 	rpc RemoveDataDate (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc IsUseDataDate (protoMessages.Int32Message) returns (ScrapDataMessageList);
 	
 	//Unit
 	rpc ListUnits (google.protobuf.Empty) returns (UnitMessageList);
