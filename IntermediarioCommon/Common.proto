@@ -41,6 +41,20 @@ message PersonMessageList {
 	repeated PersonMessage values = 1;
 }
 
+message UserMessage {
+	int32 databaseId = 1;
+	int32 userId = 2;
+	protoMessages.StringMessage email = 4;
+	string name  = 5;
+	string alias = 6;
+	bool enabled = 7;
+}
+
+message UserMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated UserMessage values = 2;
+}
+
 message OSVersionMessage {
 	string versionString = 1;
 	int32 major = 2;
