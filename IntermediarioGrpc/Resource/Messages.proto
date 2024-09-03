@@ -93,6 +93,10 @@ message LuciusBalanceContableResponse {
 	intermediarioSharedMessages.LuciusBalanceContableMessage message = 2;
 }
 
+message LuciusBalanceMensualizadoResponse {
+	protoMessages.ResponseResult result = 1;
+	intermediarioSharedMessages.LuciusBalanceMensualizadoMessage message = 2;
+}
 
 message FlujoDeFondosRequest {
 	string soloGestion = 1;
@@ -150,6 +154,21 @@ message LuciusBalanceRequest {
 	string filtroCampo = 11; 
 }
 
+message LuciusBalanceMensualizadoRequest {
+	int32 codigoMoneda = 1;
+	google.protobuf.Timestamp fechaDesde = 2;
+	google.protobuf.Timestamp fechaHasta = 3;
+	bool remedido = 4;
+	bool omitirCierre = 5;
+	string apertura = 6;
+	bool acumulado = 7;
+	string filtroRubro = 8;
+	string filtroActividad = 9;
+	string filtroMacro = 10;
+	string filtroMicro = 11;
+	string filtroTipo = 12;
+	string filtroCampo = 13; 
+}
 
 message MayorDiarioFisicosRequest {
 	int32 prioridad = 1;

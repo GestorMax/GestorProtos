@@ -422,6 +422,40 @@ message LuciusBalanceContableMessage {
 	protoMessages.StringMessage campo = 37;
 }
 
+message LuciusBalanceMensualizadoMessage {
+	protoMessages.Int32Message orden = 1;
+	protoMessages.Int32Message codcuenta = 3;
+	protoMessages.StringMessage descrip = 4;
+	protoMessages.Int32Message ctactro = 5;
+	protoMessages.StringMessage ctactrodesc = 6;
+	protoMessages.StringMessage astosuma = 7;
+	protoMessages.Int32Message nivel = 8;
+	protoMessages.Int32Message sumaria = 9;
+	protoMessages.StringMessage simbolo = 10;
+	protoMessages.DoubleMessage msaldoant = 11;
+	protoMessages.DoubleMessage saldom1 = 12;
+	protoMessages.DoubleMessage saldom2 = 13;
+	protoMessages.DoubleMessage saldom3 = 14;
+	protoMessages.DoubleMessage saldom4 = 15;
+	protoMessages.DoubleMessage saldom5 = 16;
+	protoMessages.DoubleMessage saldom6 = 17;
+	protoMessages.DoubleMessage saldom7 = 18;
+	protoMessages.DoubleMessage saldom8 = 19;
+	protoMessages.DoubleMessage saldom9 = 20;
+	protoMessages.DoubleMessage saldom10 = 21;
+	protoMessages.DoubleMessage saldom11 = 22;
+	protoMessages.DoubleMessage saldom12 = 23;
+	protoMessages.DoubleMessage saldo = 24;
+	protoMessages.StringMessage solo_gestion = 25;
+	protoMessages.Int32Message cant_movimientos = 26;
+	protoMessages.StringMessage rubro = 27;
+	protoMessages.StringMessage actividad = 28;
+	protoMessages.StringMessage macro = 29;
+	protoMessages.StringMessage micro = 30;
+	protoMessages.StringMessage tipo = 31;
+	protoMessages.StringMessage campo = 32;
+}
+
 message FisicosPorVencimientoMessage {
 	int32 codempre = 1;
 	int32 numero = 2;
