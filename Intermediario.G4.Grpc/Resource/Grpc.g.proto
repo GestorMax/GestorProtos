@@ -2,7 +2,7 @@
 
 import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
-import "Intermediario.G4.Grpc/Resource/Messages.proto";
+import "Intermediario.G4.Grpc/Resource/Messages.g.proto";
 
 package intermediario.g4.grpc.resource;
 
