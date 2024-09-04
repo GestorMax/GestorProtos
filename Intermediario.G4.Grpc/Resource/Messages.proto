@@ -8,5 +8,5 @@ package intermediario.g4.grpc.resource;
 
 message ListEmpresasResponse {
 	protoMessages.ResponseResult result = 1;
-	intermediario.g4.grpc.shared.EmpresaMessage value = 2;
+	intermediario.g4.grpc.shared.ListEmpresasMessage value = 2;
 }

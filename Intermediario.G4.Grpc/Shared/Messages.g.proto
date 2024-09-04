@@ -4,21 +4,28 @@ import "ProtoMessages/Common.proto";
 
 package intermediario.g4.grpc.shared;
 
-
-message EmpresaMessage {
-	uint64 CodEmpresa = 1;
-	protoMessages.UInt64Message CodPersona = 2;
-	protoMessages.UInt64Message CodMoneda = 5;
-	protoMessages.DateOnlyMessage FechaInicioActividades = 7;
-	protoMessages.DateOnlyMessage FechaCierreContable = 8;
-	protoMessages.DateOnlyMessage FechaTopeContable = 9;
-	protoMessages.DateOnlyMessage FechaAltaCompras = 10;
-	protoMessages.DateOnlyMessage FechaAltaVentas = 11;
-	protoMessages.DateOnlyMessage FechaCierreGestion = 12;
-	protoMessages.UInt64Message CodPlanContabilidad = 13;
-	protoMessages.UInt64Message CodPlanGestion = 15;
-	protoMessages.UInt64Message CodPlanCentro = 17;
-	protoMessages.UInt64Message CodPlanAuxiliar = 19;
-	bool Habilitado = 21;	
+message ListEmpresasMessage {
+	uint64 codEmpresa = 1;
+	uint64 codPersona = 2;
+	string persona = 3;
+	string nroDocumento = 4;
+	protoMessages.UInt64Message codMoneda = 5;
+	protoMessages.StringMessage moneda = 6;
+	protoMessages.DateOnlyMessage fechaInicioActividades = 7;
+	protoMessages.DateOnlyMessage fechaCierreContable = 8;
+	protoMessages.DateOnlyMessage fechaTopeContable = 9;
+	protoMessages.DateOnlyMessage fechaAltaCompras = 10;
+	protoMessages.DateOnlyMessage fechaAltaVentas = 11;
+	protoMessages.DateOnlyMessage fechaCierreGestion = 12;
+	protoMessages.UInt64Message codPlanContabilidad = 13;
+	//protoMessages.StringMessage PlanContabilidad = 14;
+	protoMessages.UInt64Message codPlanGestion = 15;
+	//protoMessages.StringMessage PlanGestion = 16;
+	protoMessages.UInt64Message codPlanCentro = 17;
+	//protoMessages.StringMessage PlanCentro = 18;
+	protoMessages.UInt64Message codPlanAuxiliar = 19;
+	//protoMessages.StringMessage PlanAuxiliar = 20;
+	protoMessages.BoolMessage habilitado = 21;
+	//protoMessages.StringMessage notas = 22;
 }
 
