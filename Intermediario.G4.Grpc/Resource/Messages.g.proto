@@ -1,6 +1,5 @@
 ﻿syntax = "proto3";
 
-import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
 import "Intermediario.G4.Grpc/Shared/Messages.g.proto";
 
