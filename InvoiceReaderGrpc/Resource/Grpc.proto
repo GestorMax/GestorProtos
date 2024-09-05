@@ -9,4 +9,6 @@ package invoiceReaderGrpcResource;
 service InvoiceReaderResource {
 	rpc ListInvoices (google.protobuf.Empty) returns (InvoiceMessageList);
 	rpc InvoiceUpload (InvoiceUploadRequest) returns (protoMessages.ResponseResult);
+	rpc DeleteInvoice (InvoiceDeleteRequest) returns (protoMessages.ResponseResult);
+	rpc ReadInvoice (InvoiceReadRequest) returns (InvoiceReadResponse);
 }
