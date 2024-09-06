@@ -6,5 +6,5 @@ import "Intermediario.G4.Grpc/Resource/Messages.g.proto";
 package intermediario.g4.grpc.resource;
 
 service IntermediarioG4Resource {
-	rpc ListEmpresas(google.protobuf.Empty) returns (ListEmpresasResponse);
+	rpc ListEmpresas(google.protobuf.Empty) returns (stream ListEmpresasResponse);
 }
