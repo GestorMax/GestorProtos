@@ -61,6 +61,7 @@ service AnalyticsAdmin {
 	rpc ListLastMeasurement (google.protobuf.Timestamp) returns (MeasurementMessageList);
 	rpc ConfirmMeasurement (MeasurementMessage) returns (protoMessages.ResponseResult);
 	rpc EditMeasurement (MeasurementMessage) returns (MeasurementResponse);
+	rpc RemoveMeasurement (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
 	//Scraper
 	rpc TestScraperData (ScrapDataMessage) returns (ScrapingResponse);
