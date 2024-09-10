@@ -1,0 +1,13 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "Intermediario.G4.Grpc/Resource/Messages.g.proto";
+
+package intermediario.g4.grpc.resource;
+
+service IntermediarioG4Resource {
+	rpc GetEmpresa(GetEmpresaRequest) returns (stream GetEmpresaResponse);
+	rpc ListEmpresas(google.protobuf.Empty) returns (stream ListEmpresasResponse);
+	rpc ListUsuario(google.protobuf.Empty) returns (stream ListUsuarioResponse);
+}

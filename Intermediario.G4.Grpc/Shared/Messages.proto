@@ -1,7 +1,7 @@
 ﻿syntax = "proto3";
 
 
-package intermediario.G4.Shared;
+package intermediario.g4.grpc.shared;
 
 
 message IntermediarioG4Configuration {

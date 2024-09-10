@@ -4,7 +4,7 @@ import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
 import "Intermediario.G4.Grpc/Connect/Messages.proto";
 
-package intermediario.G4.Grpc.Connect;
+package intermediario.g4.grpc.connect;
 
 service IntermediarioG4Connect {
 	rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);

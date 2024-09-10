@@ -4,7 +4,7 @@ import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
 import "IntermediarioCommon/Common.proto";
 
-package intermediario.G4.Grpc.Admin;
+package intermediario.g4.grpc.admin;
 
 
 message DatabaseInfoMessage {

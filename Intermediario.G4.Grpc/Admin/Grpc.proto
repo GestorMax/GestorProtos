@@ -5,7 +5,7 @@ import "ProtoMessages/Common.proto";
 import "Intermediario.G4.Grpc/Admin/Messages.proto";
 import "IntermediarioCommon/Common.proto";
 
-package intermediario.G4.Grpc.Admin;
+package intermediario.g4.grpc.admin;
 
 service IntermediarioG4Admin {
 	rpc GetSyncedDatabase(protoMessages.Int32Message) returns (intermediario.grpc.common.SyncedDatabaseResponse);
