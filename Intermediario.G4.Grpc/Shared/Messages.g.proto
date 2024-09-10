@@ -4,6 +4,31 @@ import "ProtoMessages/Common.proto";
 
 package intermediario.g4.grpc.shared;
 
+message GetEmpresaMessage {
+	uint64 codEmpresa = 1;
+	protoMessages.UInt64Message codPersona = 2;
+	protoMessages.StringMessage persona = 3;
+	protoMessages.StringMessage nroDocumento = 4;
+	protoMessages.UInt64Message codMoneda = 5;
+	protoMessages.StringMessage moneda = 6;
+	protoMessages.DateOnlyMessage fechaInicioActividades = 7;
+	protoMessages.DateOnlyMessage fechaCierreContable = 8;
+	protoMessages.DateOnlyMessage fechaTopeContable = 9;
+	protoMessages.DateOnlyMessage fechaAltaCompras = 10;
+	protoMessages.DateOnlyMessage fechaAltaVentas = 11;
+	protoMessages.DateOnlyMessage fechaCierreGestion = 12;
+	protoMessages.UInt64Message codPlanContabilidad = 13;
+	protoMessages.StringMessage PlanContabilidad = 14;
+	protoMessages.UInt64Message codPlanGestion = 15;
+	protoMessages.StringMessage PlanGestion = 16;
+	protoMessages.UInt64Message codPlanCentro = 17;
+	protoMessages.StringMessage PlanCentro = 18;
+	protoMessages.UInt64Message codPlanAuxiliar = 19;
+	protoMessages.StringMessage PlanAuxiliar = 20;
+	protoMessages.BoolMessage habilitado = 21;
+	//protoMessages.StringMessage notas = 22;
+}
+
 message ListEmpresasMessage {
 	uint64 codEmpresa = 1;
 	uint64 codPersona = 2;
@@ -27,5 +52,16 @@ message ListEmpresasMessage {
 	//protoMessages.StringMessage PlanAuxiliar = 20;
 	protoMessages.BoolMessage habilitado = 21;
 	//protoMessages.StringMessage notas = 22;
+}
+
+message ListUsuarioMessage {
+	protoMessages.UInt64Message codPersona = 1;
+	protoMessages.StringMessage persona = 2;
+	protoMessages.StringMessage alias = 3;
+	protoMessages.UInt64Message codTipoDocumentoAFIP = 4;
+	protoMessages.StringMessage tipoDocumentoAFIP = 5;
+	protoMessages.StringMessage nroDocumento = 6;
+	protoMessages.StringMessage email = 7;
+	protoMessages.BoolMessage habilitado = 8;
 }
 

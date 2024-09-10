@@ -5,7 +5,24 @@ import "Intermediario.G4.Grpc/Shared/Messages.g.proto";
 
 package intermediario.g4.grpc.resource;
 
+message GetEmpresaRequest {
+	protoMessages.UInt64Message codEmpresa = 1;
+	//protoMessages.BoolMessage soloHabilitados = 2;
+	//protoMessages.UInt64Message filterID = 3;
+}
+
+message GetEmpresaResponse {
+	protoMessages.ResponseResult result = 1;
+	intermediario.g4.grpc.shared.GetEmpresaMessage message = 2;
+}
+
 message ListEmpresasResponse {
 	protoMessages.ResponseResult result = 1;
 	intermediario.g4.grpc.shared.ListEmpresasMessage message = 2;
 }
+
+message ListUsuarioResponse {
+	protoMessages.ResponseResult result = 1;
+	intermediario.g4.grpc.shared.ListUsuarioMessage message = 2;
+}
+
