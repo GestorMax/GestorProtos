@@ -4,6 +4,18 @@ import "ProtoMessages/Common.proto";
 
 package intermediario.g4.grpc.shared;
 
+
+message GetEmpresaRequest {
+	uint64 codEmpresa = 1;
+	//protoMessages.BoolMessage soloHabilitados = 2;
+	//protoMessages.UInt64Message filterID = 3;
+}
+
+message GetEmpresaResponse {
+	protoMessages.ResponseResult result = 1;
+	GetEmpresaMessage message = 2;
+}
+
 message GetEmpresaMessage {
 	uint64 codEmpresa = 1;
 	protoMessages.UInt64Message codPersona = 2;
@@ -29,6 +41,11 @@ message GetEmpresaMessage {
 	//protoMessages.StringMessage notas = 22;
 }
 
+message ListEmpresasResponse {
+	protoMessages.ResponseResult result = 1;
+	ListEmpresasMessage message = 2;
+}
+
 message ListEmpresasMessage {
 	uint64 codEmpresa = 1;
 	uint64 codPersona = 2;
@@ -52,6 +69,11 @@ message ListEmpresasMessage {
 	//protoMessages.StringMessage PlanAuxiliar = 20;
 	protoMessages.BoolMessage habilitado = 21;
 	//protoMessages.StringMessage notas = 22;
+}
+
+message ListUsuarioResponse {
+	protoMessages.ResponseResult result = 1;
+	ListUsuarioMessage message = 2;
 }
 
 message ListUsuarioMessage {

@@ -3,6 +3,7 @@ syntax = "proto3";
 import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
 import "Intermediario.G4.Grpc/Connect/Messages.proto";
+import "Intermediario.G4.Grpc/Connect/Endpoints.g.proto";
 
 package intermediario.g4.grpc.connect;
 
@@ -22,5 +23,7 @@ service IntermediarioG4Connect {
 	rpc SendUpdate(SendUpdateRequest) returns (SendUpdateResponse);
 
 	rpc Connect(google.protobuf.Empty) returns (stream DataMessage);
+
+	rpc SendEndpointResponse(stream EndpointResponse) returns (protoMessages.ResponseResult);
 
 }

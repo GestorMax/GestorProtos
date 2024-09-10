@@ -1,0 +1,20 @@
+﻿syntax = "proto3";
+
+import "ProtoMessages/Common.proto";
+import "Intermediario.G4.Grpc/Shared/Messages.g.proto";
+
+package intermediario.g4.grpc.connect;
+
+message EndpointRequest {
+	oneof type {
+		intermediario.g4.grpc.shared.GetEmpresaRequest GetEmpresa = 1;
+		bool ListEmpresas = 2;
+	}
+}
+
+message EndpointResponse {
+	oneof type {
+		intermediario.g4.grpc.shared.GetEmpresaResponse GetEmpresa = 1;
+		intermediario.g4.grpc.shared.ListEmpresasResponse ListEmpresas = 2;
+	}
+}

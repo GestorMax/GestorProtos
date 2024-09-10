@@ -1,6 +1,7 @@
 ﻿syntax = "proto3";
 
 import "ProtoMessages/Common.proto";
+import "Intermediario.G4.Grpc/Connect/Endpoints.g.proto";
 
 package intermediario.g4.grpc.connect;
 
@@ -21,6 +22,7 @@ message DataMessage {
 
 	oneof type {
 		CommandTypes Command = 1;
+		EndpointRequest EndpontRequest = 2;
 	}
 }
 

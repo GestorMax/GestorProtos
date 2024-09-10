@@ -2,12 +2,12 @@
 
 import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
-import "Intermediario.G4.Grpc/Resource/Messages.g.proto";
+import "Intermediario.G4.Grpc/Shared/Messages.g.proto";
 
 package intermediario.g4.grpc.resource;
 
 service IntermediarioG4Resource {
-	rpc GetEmpresa(GetEmpresaRequest) returns (stream GetEmpresaResponse);
-	rpc ListEmpresas(google.protobuf.Empty) returns (stream ListEmpresasResponse);
-	rpc ListUsuario(google.protobuf.Empty) returns (stream ListUsuarioResponse);
+	rpc GetEmpresa(intermediario.g4.grpc.shared.GetEmpresaRequest) returns (stream intermediario.g4.grpc.shared.GetEmpresaResponse);
+	rpc ListEmpresas(google.protobuf.Empty) returns (stream intermediario.g4.grpc.shared.ListEmpresasResponse);
+	rpc ListUsuario(google.protobuf.Empty) returns (stream intermediario.g4.grpc.shared.ListUsuarioResponse);
 }
