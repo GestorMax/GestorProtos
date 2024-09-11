@@ -6,15 +6,19 @@ import "Intermediario.G4.Grpc/Shared/Messages.g.proto";
 package intermediario.g4.grpc.connect;
 
 message EndpointRequest {
+	uint32 id = 1;
+
 	oneof type {
-		intermediario.g4.grpc.shared.GetEmpresaRequest GetEmpresa = 1;
-		bool ListEmpresas = 2;
+		intermediario.g4.grpc.shared.GetEmpresaRequest GetEmpresa = 2;
+		bool ListEmpresas = 3;
 	}
 }
 
 message EndpointResponse {
+	uint32 id = 1;
+
 	oneof type {
-		intermediario.g4.grpc.shared.GetEmpresaResponse GetEmpresa = 1;
-		intermediario.g4.grpc.shared.ListEmpresasResponse ListEmpresas = 2;
+		intermediario.g4.grpc.shared.GetEmpresaResponse GetEmpresa = 2;
+		intermediario.g4.grpc.shared.ListEmpresasResponse ListEmpresas = 3;
 	}
 }
