@@ -205,7 +205,7 @@ message MetricResponse {
 }
 
 message MeasurementMessage {
-	int32 scrapingId = 1;
+	int32 scrappingId = 1;
 	protoMessages.ResponseResult result = 2;
 	int32 dataId = 3;
 	google.protobuf.Timestamp date = 6;
@@ -224,7 +224,7 @@ message MeasurementMessageList {
 }
 
 message MeasurementRequest {
-	int32 scrapingId = 1;
+	int32 scrappingId = 1;
 	int32 dataId = 2;
 	google.protobuf.Timestamp dateFrom = 4;
 	google.protobuf.Timestamp dateTo = 5;
