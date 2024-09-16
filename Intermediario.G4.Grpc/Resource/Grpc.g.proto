@@ -8,5 +8,5 @@ package intermediario.g4.grpc.resource;
 service IntermediarioG4Resource {
 	rpc GetEmpresa(intermediario.g4.grpc.shared.GetEmpresaRequest) returns (intermediario.g4.grpc.shared.GetEmpresaMessage);
 	rpc ListEmpresas(google.protobuf.Empty) returns (stream intermediario.g4.grpc.shared.ListEmpresasResponse);
-	rpc ListUsuario(google.protobuf.Empty) returns (stream intermediario.g4.grpc.shared.ListUsuarioResponse);
+	rpc ListUsuarios(google.protobuf.Empty) returns (stream intermediario.g4.grpc.shared.ListUsuariosResponse);
 }

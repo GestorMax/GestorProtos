@@ -68,7 +68,7 @@ message ListEmpresasResponse {
 	ListEmpresasMessage message = 2;
 }
 
-message ListUsuarioMessage {
+message ListUsuariosMessage {
 	protoMessages.UInt64Message codPersona = 1;
 	protoMessages.StringMessage persona = 2;
 	protoMessages.StringMessage alias = 3;
@@ -79,8 +79,8 @@ message ListUsuarioMessage {
 	protoMessages.BoolMessage habilitado = 8;
 }
 
-message ListUsuarioResponse {
+message ListUsuariosResponse {
 	protoMessages.ResponseResult result = 1;
-	ListUsuarioMessage message = 2;
+	ListUsuariosMessage message = 2;
 }
 
