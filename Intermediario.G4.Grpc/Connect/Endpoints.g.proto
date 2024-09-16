@@ -9,8 +9,9 @@ message EndpointRequest {
 	uint32 id = 1;
 
 	oneof type {
-		intermediario.g4.grpc.shared.GetEmpresaRequest GetEmpresa = 2;
-		bool ListEmpresas = 3;
+		bool ListEmpresas = 2;
+		bool ListUsuarios = 3;
+		intermediario.g4.grpc.shared.GetEmpresaRequest GetEmpresa = 4;
 	}
 }
 
@@ -18,7 +19,8 @@ message EndpointResponse {
 	uint32 id = 1;
 
 	oneof type {
-		intermediario.g4.grpc.shared.GetEmpresaResponse GetEmpresa = 2;
-		intermediario.g4.grpc.shared.ListEmpresasResponse ListEmpresas = 3;
+		intermediario.g4.grpc.shared.ListEmpresasResponse ListEmpresas = 2;
+		intermediario.g4.grpc.shared.ListUsuariosResponse ListUsuarios = 3;
+		intermediario.g4.grpc.shared.GetEmpresaResponse GetEmpresa = 4;
 	}
 }

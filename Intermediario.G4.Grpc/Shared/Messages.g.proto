@@ -4,20 +4,8 @@ import "ProtoMessages/Common.proto";
 
 package intermediario.g4.grpc.shared;
 
-
-message GetEmpresaRequest {
-	uint64 codEmpresa = 1;
-	//protoMessages.BoolMessage soloHabilitados = 2;
-	//protoMessages.UInt64Message filterID = 3;
-}
-
-message GetEmpresaResponse {
-	protoMessages.ResponseResult result = 1;
-	GetEmpresaMessage message = 2;
-}
-
 message GetEmpresaMessage {
-	uint64 codEmpresa = 1;
+	protoMessages.UInt64Message codEmpresa = 1;
 	protoMessages.UInt64Message codPersona = 2;
 	protoMessages.StringMessage persona = 3;
 	protoMessages.StringMessage nroDocumento = 4;
@@ -41,42 +29,46 @@ message GetEmpresaMessage {
 	//protoMessages.StringMessage notas = 22;
 }
 
+message GetEmpresaRequest {
+	uint64 codEmpresa = 1;
+}
+
+message GetEmpresaResponse {
+	protoMessages.ResponseResult result = 1;
+	GetEmpresaMessage message = 2;
+}
+
+message ListEmpresasMessage {
+	uint64 codEmpresa = 1;
+	//uint64 codPersona = 2;
+	string persona = 3;
+	string nroDocumento = 4;
+	//protoMessages.UInt64Message codMoneda = 5;
+	//protoMessages.StringMessage moneda = 6;
+	//protoMessages.DateOnlyMessage fechaInicioActividades = 7;
+	//protoMessages.DateOnlyMessage fechaCierreContable = 8;
+	//protoMessages.DateOnlyMessage fechaTopeContable = 9;
+	//protoMessages.DateOnlyMessage fechaAltaCompras = 10;
+	//protoMessages.DateOnlyMessage fechaAltaVentas = 11;
+	//protoMessages.DateOnlyMessage fechaCierreGestion = 12;
+	//protoMessages.UInt64Message codPlanContabilidad = 13;
+	//protoMessages.StringMessage PlanContabilidad = 14;
+	//protoMessages.UInt64Message codPlanGestion = 15;
+	//protoMessages.StringMessage PlanGestion = 16;
+	//protoMessages.UInt64Message codPlanCentro = 17;
+	//protoMessages.StringMessage PlanCentro = 18;
+	//protoMessages.UInt64Message codPlanAuxiliar = 19;
+	//protoMessages.StringMessage PlanAuxiliar = 20;
+	//protoMessages.BoolMessage habilitado = 21;
+	//protoMessages.StringMessage notas = 22;
+}
+
 message ListEmpresasResponse {
 	protoMessages.ResponseResult result = 1;
 	ListEmpresasMessage message = 2;
 }
 
-message ListEmpresasMessage {
-	uint64 codEmpresa = 1;
-	uint64 codPersona = 2;
-	string persona = 3;
-	string nroDocumento = 4;
-	protoMessages.UInt64Message codMoneda = 5;
-	protoMessages.StringMessage moneda = 6;
-	protoMessages.DateOnlyMessage fechaInicioActividades = 7;
-	protoMessages.DateOnlyMessage fechaCierreContable = 8;
-	protoMessages.DateOnlyMessage fechaTopeContable = 9;
-	protoMessages.DateOnlyMessage fechaAltaCompras = 10;
-	protoMessages.DateOnlyMessage fechaAltaVentas = 11;
-	protoMessages.DateOnlyMessage fechaCierreGestion = 12;
-	protoMessages.UInt64Message codPlanContabilidad = 13;
-	//protoMessages.StringMessage PlanContabilidad = 14;
-	protoMessages.UInt64Message codPlanGestion = 15;
-	//protoMessages.StringMessage PlanGestion = 16;
-	protoMessages.UInt64Message codPlanCentro = 17;
-	//protoMessages.StringMessage PlanCentro = 18;
-	protoMessages.UInt64Message codPlanAuxiliar = 19;
-	//protoMessages.StringMessage PlanAuxiliar = 20;
-	protoMessages.BoolMessage habilitado = 21;
-	//protoMessages.StringMessage notas = 22;
-}
-
-message ListUsuarioResponse {
-	protoMessages.ResponseResult result = 1;
-	ListUsuarioMessage message = 2;
-}
-
-message ListUsuarioMessage {
+message ListUsuariosMessage {
 	protoMessages.UInt64Message codPersona = 1;
 	protoMessages.StringMessage persona = 2;
 	protoMessages.StringMessage alias = 3;
@@ -85,5 +77,10 @@ message ListUsuarioMessage {
 	protoMessages.StringMessage nroDocumento = 6;
 	protoMessages.StringMessage email = 7;
 	protoMessages.BoolMessage habilitado = 8;
+}
+
+message ListUsuariosResponse {
+	protoMessages.ResponseResult result = 1;
+	ListUsuariosMessage message = 2;
 }
 
