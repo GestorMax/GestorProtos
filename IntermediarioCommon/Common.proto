@@ -42,7 +42,6 @@ message PersonMessageList {
 }
 
 message UserMessage {
-	int32 databaseId = 1;
 	int32 userId = 2;
 	protoMessages.StringMessage email = 4;
 	string name  = 5;

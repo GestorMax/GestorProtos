@@ -4,13 +4,14 @@ import "ProtoMessages/Common.proto";
 
 package intermediario.g4.grpc.shared;
 
+
 message GetEmpresaMessage {
-	protoMessages.UInt64Message codEmpresa = 1;
-	protoMessages.UInt64Message codPersona = 2;
-	protoMessages.StringMessage persona = 3;
-	protoMessages.StringMessage nroDocumento = 4;
-	protoMessages.UInt64Message codMoneda = 5;
-	protoMessages.StringMessage moneda = 6;
+	uint64 codEmpresa = 1;
+	uint64 codPersona = 2;
+	string persona = 3;
+	string nroDocumento = 4;
+	uint64 codMoneda = 5;
+	string moneda = 6;
 	protoMessages.DateOnlyMessage fechaInicioActividades = 7;
 	protoMessages.DateOnlyMessage fechaCierreContable = 8;
 	protoMessages.DateOnlyMessage fechaTopeContable = 9;
@@ -68,15 +69,41 @@ message ListEmpresasResponse {
 	ListEmpresasMessage message = 2;
 }
 
+message ListPlanDeCuentasMessage {
+	protoMessages.UInt64Message codPlan = 1;
+	protoMessages.UInt64Message codCuenta = 2;
+	protoMessages.UInt64Message codigoCuenta = 3;
+	protoMessages.StringMessage cuenta = 4;
+	protoMessages.StringMessage cuentaDesc = 5;
+	protoMessages.UInt64Message codTipoCuenta = 6;
+	protoMessages.StringMessage tipoCuenta = 7;
+	protoMessages.StringMessage moneda = 8;
+	protoMessages.UInt64Message codSumaria = 9;
+	protoMessages.BoolMessage habilitado = 10;
+	//protoMessages.StringMessage notas = 11;
+}
+
+message ListPlanDeCuentasRequest {
+	protoMessages.UInt64Message codPlan = 1;
+	//protoMessages.UInt64Message codCuenta = 2;
+	//protoMessages.BoolMessage soloHabilitados = 3;
+	//protoMessages.UInt64Message filterID = 4;
+}
+
+message ListPlanDeCuentasResponse {
+	protoMessages.ResponseResult result = 1;
+	ListPlanDeCuentasMessage message = 2;
+}
+
 message ListUsuariosMessage {
-	protoMessages.UInt64Message codPersona = 1;
-	protoMessages.StringMessage persona = 2;
-	protoMessages.StringMessage alias = 3;
-	protoMessages.UInt64Message codTipoDocumentoAFIP = 4;
-	protoMessages.StringMessage tipoDocumentoAFIP = 5;
-	protoMessages.StringMessage nroDocumento = 6;
+	uint64 codPersona = 1;
+	string persona = 2;
+	string alias = 3;
+	//protoMessages.UInt64Message codTipoDocumentoAFIP = 4;
+	//protoMessages.StringMessage tipoDocumentoAFIP = 5;
+	//protoMessages.StringMessage nroDocumento = 6;
 	protoMessages.StringMessage email = 7;
-	protoMessages.BoolMessage habilitado = 8;
+	bool habilitado = 8;
 }
 
 message ListUsuariosResponse {
