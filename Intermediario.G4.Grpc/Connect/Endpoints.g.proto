@@ -1,4 +1,7 @@
-﻿syntax = "proto3";
+﻿// ATENCIÓN: archivo autogenerado por el Generador de Código (Delphi).
+// No editar porque puede ser pisado la próxima vez que se corra.
+
+syntax = "proto3";
 
 import "ProtoMessages/Common.proto";
 import "Intermediario.G4.Grpc/Shared/Messages.g.proto";
@@ -9,9 +12,10 @@ message EndpointRequest {
 	uint32 id = 1;
 
 	oneof type {
-		bool ListEmpresas = 2;
-		bool ListUsuarios = 3;
 		intermediario.g4.grpc.shared.GetEmpresaRequest GetEmpresa = 4;
+		bool ListEmpresas = 2;
+		intermediario.g4.grpc.shared.ListPlanDeCuentasRequest ListPlanDeCuentas = 5;
+		bool ListUsuarios = 3;
 	}
 }
 
@@ -19,8 +23,10 @@ message EndpointResponse {
 	uint32 id = 1;
 
 	oneof type {
-		intermediario.g4.grpc.shared.ListEmpresasResponse ListEmpresas = 2;
-		intermediario.g4.grpc.shared.ListUsuariosResponse ListUsuarios = 3;
 		intermediario.g4.grpc.shared.GetEmpresaResponse GetEmpresa = 4;
+		intermediario.g4.grpc.shared.ListEmpresasResponse ListEmpresas = 2;
+		intermediario.g4.grpc.shared.ListPlanDeCuentasResponse ListPlanDeCuentas = 5;
+		intermediario.g4.grpc.shared.ListUsuariosResponse ListUsuarios = 3;
 	}
 }
+
