@@ -84,12 +84,6 @@ enum SendUpdateState {
 }
 
 enum ConnectUpdateType {
-	// 1	Actualizaci�n de Base de Datos (Estructura)
-	// 2	Actualizaci�n de un Stored Procedure o Trigger
-	// 3	Actualizaci�n de un Dato
-	// 4	Actualizando Base de Datos GestorMax
-	// 5	Intermediario Interrumpido
-	// 6	Intermediario Sincronizado
 	NoDataToSend = 0;
 	UpdateStructure = 1;
 	UpdateRoutines = 2;
@@ -98,6 +92,7 @@ enum ConnectUpdateType {
 	IntermediarioInterrupted = 5;
 	ConnectCheckVersion = 6;
 	SendRoutinesDump = 7;
+	DatabaseVersionUpdated = 8;
 }
 
 message SendUpdateResponse{
