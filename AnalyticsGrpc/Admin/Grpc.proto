@@ -70,8 +70,8 @@ service AnalyticsAdmin {
 	rpc SaveScraping (ScrapingMessage) returns (protoMessages.ResponseResult);
 	rpc ScraperSourceBatch(SourceBatchRequest) returns (stream SourceBatchResponse);
 
-	//Label
-	rpc ListLabels (protoMessages.Int32Message) returns (LabelMessageList);
+	//Label	
+	rpc ListLabels (LabelRequest) returns (LabelMessageList);
 	rpc GetLabel (protoMessages.Int32Message) returns (LabelResponse);
 	rpc CreateLabel (LabelMessage) returns (LabelResponse);
 	rpc EditLabel (LabelMessage) returns (LabelResponse);
