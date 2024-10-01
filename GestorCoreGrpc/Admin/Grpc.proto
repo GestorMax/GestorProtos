@@ -61,6 +61,8 @@ service GestorCoreAdmin {
 
 	//Databases
 	rpc CreateDatabase (CreateDatabaseResquest) returns (DatabaseMessage);
+	
+	rpc GetDatabase(protoMessages.Int32Message) returns (DatabaseMessage);
 
 	rpc ListDatabases (google.protobuf.Empty) returns (DatabaseResultMessageList);
 
@@ -81,8 +83,6 @@ service GestorCoreAdmin {
 	rpc AddDatabaseVault(protoMessages.Int32Message) returns (VaultResponse);
 	
 	//Licenses
-	rpc GetDatabase(protoMessages.Int32Message) returns (DatabaseMessage);
-
 	rpc DeleteLicense(LicenseRequest) returns (protoMessages.ResponseResult);
 
 	rpc CancelLicense(LicenseMessage) returns (protoMessages.ResponseResult);
@@ -134,21 +134,13 @@ service GestorCoreAdmin {
 	rpc ListAvailableDatabasesByServerId (AvailableDatabasesRequest) returns (AvailableDatabasesMessageList);
 
 	//ServerUsers
-	rpc ListServerUsersByDatabase (protoMessages.Int32Message) returns (ServerUserMessageList);
+	rpc ListServerUsersByDatabase(protoMessages.Int32Message) returns (ServerUserMessageList);
 	
-	rpc GetServerUser (protoMessages.Int32Message) returns (ServerUserResponse);
+	rpc GetServerUser(protoMessages.Int32Message) returns (ServerUserResponse);
 
-	rpc CreateServerUser (ServerUserMessage) returns (ServerUserResponse);
+	rpc CreateServerUser(ServerUserMessage) returns (ServerUserResponse);
 
-	rpc EditServerUser (ServerUserMessage) returns (ServerUserResponse);
-
-	//Process
-
-	rpc GetProcessByDatabaseId (protoMessages.Int32Message) returns (ProcessResponse);
-
-	rpc CreateProcess (ProcessMessage) returns (ProcessResponse);
-
-	rpc EditProcessOneField (EditProcessRequest) returns (protoMessages.ResponseResult);
+	rpc EditServerUser(ServerUserMessage) returns (ServerUserResponse);
 
 	//apikey
 	rpc GenerateApiKeyForDatabase (GenerateApiKeyRequest) returns (GenerateApiKeyResponse);
