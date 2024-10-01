@@ -43,34 +43,21 @@ message InstanceIdentityResponse {
 	protoMessages.ResponseResult result = 1;
 	string token = 2;
 	bool isActive = 3;
-	bool isOutdated = 4;
+	bool outOfSync = 4;
 }
 
-enum CurrentState {
-  // La base de datos esta creada y lista para recibir novedades
-  DatabaseOk = 0;
-  DatabaseOutOfSync = 1;
-  DatabaseError = 2;
-  ConnectInactive = 3;
-  ConnectError = 4;
-}
-
-message GetCurrentStateResponse {
-	CurrentState result = 1;
-}
-
-message SendDBDumpRequest {
+message DBDumpRequest {
 	// String dump con el backup
 	bytes dump = 2;
 }
 
-message SendUpdateRequest {
+message UpdateRequest {
 	ConnectUpdateType codTipoActualizacion = 2;
 	uint64 codActualizacion = 3;
 	string sqlStatement = 5;
 }
 
-enum SendUpdateState {
+enum UpdateState {
 // Se actualizo correctamente
   Updated = 0;
   // El SP no se ejecuto en su totalidad y/o hubo un error al ejecutarlo
@@ -95,7 +82,7 @@ enum ConnectUpdateType {
 	DatabaseVersionUpdated = 8;
 }
 
-message SendUpdateResponse{
-	SendUpdateState state = 1;
+message UpdateResponse {
+	UpdateState state = 1;
 	string message = 2;
 }
