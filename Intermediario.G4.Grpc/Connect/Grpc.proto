@@ -12,20 +12,18 @@ service IntermediarioG4Connect {
 
 	rpc Identify(InstanceIdentityRequest) returns (InstanceIdentityResponse);
 
-	rpc GetCurrentState(google.protobuf.Empty) returns (GetCurrentStateResponse);
+	rpc DbDumpPermissionRequest(google.protobuf.Empty) returns (protoMessages.ResponseResult);
+	
+	rpc DBDump(stream DBDumpRequest) returns (protoMessages.ResponseResult);
+	
+	rpc RoutinesDump(stream DBDumpRequest) returns (protoMessages.ResponseResult);
 
-	rpc SendDBDump(stream SendDBDumpRequest) returns (protoMessages.ResponseResult);
+	rpc Update(UpdateRequest) returns (UpdateResponse);
 
-	rpc SendRoutinesDump(stream SendDBDumpRequest) returns (protoMessages.ResponseResult);
+	rpc UpdateDatabaseVersion(google.protobuf.Empty) returns (UpdateResponse);
 
-	rpc SendDbDumpPermissionRequest(google.protobuf.Empty) returns (protoMessages.ResponseResult);
+	rpc Connect(google.protobuf.Empty) returns (stream DataMessage);
 
-	rpc SendUpdate(SendUpdateRequest) returns (SendUpdateResponse);
-
-	rpc SendUpdateDatabaseVersion(google.protobuf.Empty) returns (SendUpdateResponse);
-
-rpc Connect(google.protobuf.Empty) returns (stream DataMessage);
-
-	rpc SendEndpointResponse(stream EndpointResponse) returns (protoMessages.ResponseResult);
+	rpc EndpointReturn(stream EndpointResponse) returns (protoMessages.ResponseResult);
 
 }
