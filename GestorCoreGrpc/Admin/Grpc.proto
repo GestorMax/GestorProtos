@@ -68,7 +68,7 @@ service GestorCoreAdmin {
 
 	rpc ListUnlinkedDatabases (google.protobuf.Empty) returns (UnlinkedDatabaseMessageList);
 
-	rpc EditDatabase(EditDatabaseNameRequest) returns (protoMessages.ResponseResult);
+	rpc EditDatabase(DatabaseMessage) returns (protoMessages.ResponseResult);
 	
 	rpc ListDatabaseInstances(google.protobuf.Empty) returns (DatabaseInstanceMessageList);
 

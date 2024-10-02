@@ -182,7 +182,6 @@ message CustomerMessage {
 
 	BudgetTypes budget = 18;
 	BinnacleTypes binnacle = 19;
-	PlanTypes plan = 21;	
 	BillTypes bill = 22;
 	protoMessages.DateOnlyMessage billDate  = 23;
 	PageTypes page = 24;
@@ -198,10 +197,6 @@ message CustomerMessage {
 	enum BinnacleTypes {
 		BinnacleTypes_Pending = 0;
 		BinnacleTypes_Ready = 1;
-	}
-	enum PlanTypes {
-		PlanTypes_Pending = 0;
-		PlanTypes_Programmed = 1;
 	}
 	enum BillTypes {
 		BillTypes_Pending = 0;
@@ -451,19 +446,24 @@ message DatabaseMessage {
 	protoMessages.Int32Message vaultId = 9;
 	gestorCoreGrpcShared.GestorMaxVersionTypes Version = 10;
 
-	DataTypes data = 11;
-	DatabaseTypes databaseState = 12;
-	AccessTypes access = 13;
-	protoMessages.DateOnlyMessage accessDate = 14;
-	HomeMailTypes homeMail = 15;
-	DriveTypes drive = 16;
-	ModalityTypes modality = 17;
-	PaymentOptionTypes paymentOption = 18;
-	BonusCloudMonthTypes bonusCloudMonth = 19;
-	CloudPlanTypes cloudPlan = 20;
-	string commercialId = 21;
-	string executiveId = 22;
+	string commercialId = 11;
+	string executiveId = 12;
+	DataTypes data = 13;
+	DatabaseTypes databaseConfiguration = 14;
+	AccessTypes access = 15;
+	protoMessages.DateOnlyMessage accessDate = 16;
+	HomeMailTypes homeMail = 17;
+	DriveTypes drive = 18;
+	ModalityTypes modality = 19;
+	PaymentOptionTypes paymentOption = 20;
+	BonusCloudMonthTypes bonusCloudMonth = 21;
+	CloudPlanTypes cloudPlan = 22;
+	PlanTypes plan = 23;
 
+	enum PlanTypes {
+		PlanTypes_Pending = 0;
+		PlanTypes_Programmed = 1;
+	}
 	enum DataTypes {
 		DataTypes_Pending = 0;
 		DataTypes_Partial = 1;
@@ -530,6 +530,7 @@ message DatabaseMessage {
 	enum CloudPlanTypes {
 		CloudPlanTypes_Pending = 0;
 		CloudPlanTypes_Programmed = 1;
+		CloudPlanTypes_NoCloud = 2;
 	}
 }
 
