@@ -355,11 +355,19 @@ message LabelTypeMessage {
 message LabelTypeMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated LabelTypeMessage values = 1;
+	protoMessages.PageInfo pageInfo = 3;
 }
 
 message LabelTypeResponse{
 	protoMessages.ResponseResult result = 1;
 	LabelTypeMessage message = 2;
+}
+
+message LabelTypeRequest {
+	int32 Id = 1;	
+	protoMessages.PageInfo pageInfo = 9;	
+	repeated protoMessages.SortValue sorting = 10;
+	string searchText = 11;
 }
 
 message DataLabelMessage{

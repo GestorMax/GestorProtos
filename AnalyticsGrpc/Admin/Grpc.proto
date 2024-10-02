@@ -79,7 +79,7 @@ service AnalyticsAdmin {
 	rpc InUseLabel (protoMessages.Int32Message) returns (protoMessages.BoolMessage);
 
 	//LabelType
-	rpc ListLabelTypes (google.protobuf.Empty) returns (LabelTypeMessageList);
+	rpc ListLabelTypes (LabelTypeRequest) returns (LabelTypeMessageList);
 	rpc GetLabelType (protoMessages.Int32Message) returns (LabelTypeResponse);
 	rpc CreateLabelType (LabelTypeMessage) returns (LabelTypeResponse);
 	rpc EditLabelType (LabelTypeMessage) returns (LabelTypeResponse);
