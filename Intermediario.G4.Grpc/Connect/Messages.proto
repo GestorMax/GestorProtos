@@ -80,6 +80,7 @@ enum ConnectUpdateType {
 	ConnectCheckVersion = 6;
 	SendRoutinesDump = 7;
 	DatabaseVersionUpdated = 8;
+	UpdatingConnect = 9;
 }
 
 message UpdateResponse {
