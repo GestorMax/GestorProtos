@@ -68,13 +68,13 @@ message ServerMessageList{
 	protoMessages.ResponseResult result = 2;
 }
 
-message RdpUserMessageList{
-	repeated RdpUserMessage values = 1;
+message RdpDatabaseMessageList{
+	repeated RdpDatabaseMessage values = 1;
 	protoMessages.ResponseResult result = 2;
 }
 
-message ServerUserMessageList{
-	repeated ServerUserMessage values = 1;
+message RdpUserMessageList{
+	repeated RdpUserMessage values = 1;
 	protoMessages.ResponseResult result = 2;
 }
 
@@ -446,8 +446,8 @@ message DatabaseMessage {
 	protoMessages.Int32Message vaultId = 9;
 	gestorCoreGrpcShared.GestorMaxVersionTypes Version = 10;
 
-	string commercialId = 11;
-	string executiveId = 12;
+	UserMessage commercial = 11;
+	UserMessage executive = 12;
 	DataTypes data = 13;
 	DatabaseTypes databaseConfiguration = 14;
 	AccessTypes access = 15;
@@ -708,7 +708,7 @@ message ServerResponse {
 	ServerMessage message = 2;
 }
 
-message RdpUserMessage {
+message RdpDatabaseMessage {
 	int32 id = 1;
 	int32 databaseId = 2;
 	int32 serverDatabaseNumber = 3;
@@ -717,18 +717,17 @@ message RdpUserMessage {
 	string file = 6;
 	string rightsGroup = 7;
 	string withholding = 8;
-	string database = 9;
 	VirtualServerMessage virtualServer = 10;
 }
 
-message RdpUserResponse {
+message RdpDatabaseResponse {
 	protoMessages.ResponseResult result = 1;
-	RdpUserMessage message = 2;
+	RdpDatabaseMessage message = 2;
 }
 
-message ServerUserMessage {
+message RdpUserMessage {
 	int32 id = 1;
-	int32 databaseId = 2;
+	int32 rdpDatabaseId = 2;
 	string password = 3;
 	string name = 4;
 	string email = 5;
@@ -736,16 +735,17 @@ message ServerUserMessage {
 	int32 order = 7;
 }
 
-message ServerUserResponse {
+message RdpUserResponse {
 	protoMessages.ResponseResult result = 1;
-	ServerUserMessage message = 2;
+	RdpUserMessage message = 2;
 }
 
-message AvailableDatabasesMessageList {
-	repeated int32 values = 1;
+message AvailableRdpDatabasesMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated int32 values = 2;
 }
 
-message AvailableDatabasesRequest {
+message AvailableRdpDatabasesRequest {
 	int32 virtualServerId = 1;
 	int32 databaseId = 2;
 }
