@@ -330,6 +330,7 @@ message LabelMessage {
 message LabelMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated LabelMessage values = 1;
+	protoMessages.PageInfo pageInfo = 3;
 }
 
 message LabelResponse{
@@ -340,6 +341,9 @@ message LabelResponse{
 message LabelRequest {
 	int32 labelTypeId = 1;
 	string labelName = 2;
+	protoMessages.PageInfo pageInfo = 9;	
+	repeated protoMessages.SortValue sorting = 10;
+	string searchText = 11;
 }
 
 message LabelTypeMessage {
@@ -351,11 +355,19 @@ message LabelTypeMessage {
 message LabelTypeMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated LabelTypeMessage values = 1;
+	protoMessages.PageInfo pageInfo = 3;
 }
 
 message LabelTypeResponse{
 	protoMessages.ResponseResult result = 1;
 	LabelTypeMessage message = 2;
+}
+
+message LabelTypeRequest {
+	int32 Id = 1;	
+	protoMessages.PageInfo pageInfo = 9;	
+	repeated protoMessages.SortValue sorting = 10;
+	string searchText = 11;
 }
 
 message DataLabelMessage{
