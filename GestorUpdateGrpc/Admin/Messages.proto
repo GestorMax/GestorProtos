@@ -1,6 +1,6 @@
 syntax = "proto3";
 import "google/protobuf/Timestamp.proto";
-//import "ProtoMessages/Protos/Common.proto";
+import "ProtoMessages/Common.proto";
 
 package gestorUpdateGrpcAdmin;
 
@@ -9,32 +9,20 @@ message GestorUpdateConfiguration {
 	string controllerUri = 2;
 }
 
-message ConnectVersionMessage {
-	int32 version = 1;
-	string MD5 = 2;
-	bool isLast = 3;
-}
-
-message ConnectVersionMessageList {
-	repeated ConnectVersionMessage values = 1;
-}
-
-message GetLatestFileVersionRequest {
-	int32 fileId = 1;
+message FileVersionMessageList {
+	protoMessages.ResponseResult result = 1;
+	map<string, FileVersionMessage> valuesByMd5 = 2;
+	string lastVersionMd5 = 3;
 }
 
 message GetLatestFileVersionResponse {
-	string Version = 1;
+	protoMessages.ResponseResult result = 1;
+	string Version = 2;
 }
 
 message DeleteRequest {
 	int32 id = 1;
 	bool deleted = 2;
-}
-
-message DeleteResponse {
-	bool success = 1;
-	string message = 2;
 }
 
 message UploadFileVersionRequest {
@@ -44,13 +32,17 @@ message UploadFileVersionRequest {
 }
 
 message UploadFileVersionResponse {
-	bool success = 1;
-	string message = 2;
-	int32 fileVersionId = 3;
+	protoMessages.ResponseResult result = 1;
+	int32 fileVersionId = 2;
 }
 
 message FileMessageList {
 	repeated FileMessage files = 1;
+}
+
+message FileResponse {
+	protoMessages.ResponseResult result = 1;
+	FileMessage message = 2;
 }
 
 message FileMessage {
@@ -71,17 +63,9 @@ message FileVersionMessage {
 	string fileName = 5;
 	bool isDeleted = 6;
 	int32 fileId = 7;
-	string MD5 = 8;
+	string md5 = 8;
 	bool isDisabled = 9;
 	string disableReason = 10;
-}
-
-message GetFileRequest {
-	int32 id = 1;
-}
-
-message GetFileVersionRequest {
-	int32 id = 1;
 }
 
 message DownloadLinkRequest {
@@ -94,12 +78,7 @@ message DownloadLinkResponse{
 	google.protobuf.Timestamp validTo = 2;
 }
 
-message ToggleFileVersionDisabledRequest {
-	int32 id = 1;
-}
-
 message ToggleFileVersionDisabledResponse {
-	bool success = 1;
+	protoMessages.ResponseResult result = 1;
 	bool isDisabled = 2;
-	string message = 3;
 }

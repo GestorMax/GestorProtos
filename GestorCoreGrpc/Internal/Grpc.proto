@@ -7,7 +7,7 @@ package gestorCoreGrpcInternal;
 
 service GestorCoreInternal {
 	rpc IdentifyDatabase(IdentifyDatabaseRequest) returns (IdentifyDatabaseResponse);
-	rpc GetDatabaseIdByGuid(protoMessages.StringMessage) returns (DatabaseIdByGuidResponse);
+	rpc GetDatabaseIdByGuid(DatabaseIdByGuidRequest) returns (DatabaseIdByGuidResponse);
 	rpc SetMaxVersion(SetMaxVersionRequest) returns (protoMessages.ResponseResult);
 	rpc ReportCompanies(CompanyReportMessage) returns (protoMessages.ResponseResult);
 	rpc UseGestorDbToken(UseDbTokenRequest) returns (UseDbTokenResponse);
