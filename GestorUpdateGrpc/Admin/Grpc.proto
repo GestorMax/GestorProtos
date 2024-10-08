@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
 import "GestorUpdateGrpc/Admin/Messages.proto";
 
