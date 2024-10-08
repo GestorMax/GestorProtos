@@ -38,6 +38,11 @@ message IdentifyDatabaseResponse {
 	bool invalidGestorVersion = 9;
 }
 
+message DatabaseIdByGuidRequest {
+	string databaseGuid = 1;
+	gestorCoreGrpcShared.GestorMaxVersionTypes gestorVersion = 2;
+}
+
 message DatabaseIdByGuidResponse {
 	protoMessages.ResponseResult result = 1;
 	protoMessages.Int32Message id = 2;
@@ -87,3 +92,4 @@ message G4DatabaseMigrationResponse {
 	string databaseGuidG3 = 4;
 	string databaseGuidG4 = 5;
 }
+

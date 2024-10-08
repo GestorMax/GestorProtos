@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
 import "GestorUpdateGrpc/Admin/Messages.proto";
 
@@ -11,19 +10,18 @@ service GestorUpdateAdmin {
 	rpc ListModuleFiles (protoMessages.Int32Message) returns (FileMessageList);
 
 	//files
-	rpc GetFile (GetFileRequest) returns (FileMessage);
+	rpc GetFile (protoMessages.Int32Message) returns (FileResponse);
 	rpc FileChangeDeleted (DeleteRequest) returns (protoMessages.ResponseResult);
 
 	//fileversions
 	rpc CheckUploadFileVersionName (UploadFileVersionRequest) returns (UploadFileVersionResponse);
 	rpc UploadFileVersion (stream UploadFileVersionRequest) returns (UploadFileVersionResponse);
-	rpc DeleteFileVersion (protoMessages.Int32Message) returns (DeleteResponse);
-	rpc GetFileVersion (GetFileVersionRequest) returns (FileVersionMessage);
+	rpc DeleteFileVersion (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ToggleFileVersionDisabled (protoMessages.Int32Message) returns (ToggleFileVersionDisabledResponse);
 
-	rpc GetLatestFileVersion(GetLatestFileVersionRequest) returns (GetLatestFileVersionResponse);
+	rpc GetLatestFileVersion(protoMessages.Int32Message) returns (GetLatestFileVersionResponse);
 
-	rpc GetFileVersionDownloadLink (GetFileVersionRequest) returns (DownloadLinkResponse);
+	rpc GetFileVersionDownloadLink (protoMessages.Int32Message) returns (DownloadLinkResponse);
 
-	rpc GetConnectVersions (google.protobuf.Empty) returns (ConnectVersionMessageList);
-	rpc ToggleFileVersionDisabled (ToggleFileVersionDisabledRequest) returns (ToggleFileVersionDisabledResponse);
+	rpc ListFileVersions (protoMessages.Int32Message) returns (FileVersionMessageList);
 }
