@@ -2,8 +2,6 @@
 
 import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
-import "IntermediarioGrpc/Shared/IntermediarioShared.proto";
-import "IntermediarioGrpc/Shared/IntermediarioCompanionMessages.g.proto";
 import "IntermediarioCommon/Common.proto";
 
 package intermediarioGrpcAdmin;
