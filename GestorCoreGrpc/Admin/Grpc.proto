@@ -61,12 +61,14 @@ service GestorCoreAdmin {
 
 	//Databases
 	rpc CreateDatabase (CreateDatabaseResquest) returns (DatabaseMessage);
+	
+	rpc GetDatabase(protoMessages.Int32Message) returns (DatabaseMessage);
 
 	rpc ListDatabases (google.protobuf.Empty) returns (DatabaseResultMessageList);
 
 	rpc ListUnlinkedDatabases (google.protobuf.Empty) returns (UnlinkedDatabaseMessageList);
 
-	rpc EditDatabase(EditDatabaseNameRequest) returns (protoMessages.ResponseResult);
+	rpc EditDatabase(DatabaseMessage) returns (protoMessages.ResponseResult);
 	
 	rpc ListDatabaseInstances(google.protobuf.Empty) returns (DatabaseInstanceMessageList);
 
@@ -81,8 +83,6 @@ service GestorCoreAdmin {
 	rpc AddDatabaseVault(protoMessages.Int32Message) returns (VaultResponse);
 	
 	//Licenses
-	rpc GetDatabase(protoMessages.Int32Message) returns (DatabaseMessage);
-
 	rpc DeleteLicense(LicenseRequest) returns (protoMessages.ResponseResult);
 
 	rpc CancelLicense(LicenseMessage) returns (protoMessages.ResponseResult);
@@ -118,37 +118,25 @@ service GestorCoreAdmin {
 
 	rpc EditServer (ServerMessage) returns (ServerResponse);
 
-	//Rdp Users
-	rpc ListRdpUsers (google.protobuf.Empty) returns (RdpUserMessageList);
+	//RdpDatabase
+	rpc GetRdpDatabaseByDatabase (protoMessages.Int32Message) returns (RdpDatabaseResponse);
 
-	rpc GetRdpUser (protoMessages.Int32Message) returns (RdpUserResponse);
+	rpc CreateRdpDatabase (RdpDatabaseMessage) returns (RdpDatabaseResponse);
 
-	rpc GetRdpUserByDatabase (protoMessages.Int32Message) returns (RdpUserResponse);
+	rpc EditRdpDatabase (RdpDatabaseMessage) returns (RdpDatabaseResponse);
 
-	rpc CreateRdpUser (RdpUserMessage) returns (RdpUserResponse);
+	rpc DeleteRdpDatabase (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
-	rpc EditRdpUser (RdpUserMessage) returns (RdpUserResponse);
+	rpc ListAvailableRdpDatabasesByServerId (AvailableRdpDatabasesRequest) returns (AvailableRdpDatabasesMessageList);
 
-	rpc DeleteRdpUser (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
-
-	rpc ListAvailableDatabasesByServerId (AvailableDatabasesRequest) returns (AvailableDatabasesMessageList);
-
-	//ServerUsers
-	rpc ListServerUsersByDatabase (protoMessages.Int32Message) returns (ServerUserMessageList);
+	//RdpUsers
+	rpc ListRdpUsersByRdpDatabase(protoMessages.Int32Message) returns (RdpUserMessageList);
 	
-	rpc GetServerUser (protoMessages.Int32Message) returns (ServerUserResponse);
+	rpc GetRdpUser(protoMessages.Int32Message) returns (RdpUserResponse);
 
-	rpc CreateServerUser (ServerUserMessage) returns (ServerUserResponse);
+	rpc CreateRdpUser(RdpUserMessage) returns (RdpUserResponse);
 
-	rpc EditServerUser (ServerUserMessage) returns (ServerUserResponse);
-
-	//Process
-
-	rpc GetProcessByDatabaseId (protoMessages.Int32Message) returns (ProcessResponse);
-
-	rpc CreateProcess (ProcessMessage) returns (ProcessResponse);
-
-	rpc EditProcessOneField (EditProcessRequest) returns (protoMessages.ResponseResult);
+	rpc EditRdpUser(RdpUserMessage) returns (RdpUserResponse);
 
 	//apikey
 	rpc GenerateApiKeyForDatabase (GenerateApiKeyRequest) returns (GenerateApiKeyResponse);

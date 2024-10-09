@@ -225,8 +225,8 @@ message LuciusMayorContableMessage {
 	protoMessages.StringMessage micro = 52;
 	protoMessages.StringMessage tipo = 53;
 	protoMessages.StringMessage campo = 54;
-
 }
+
 message FlujoDeFondosMessage {
 	int32 orden = 1;
 	protoMessages.Int32Message codempre	= 2;				

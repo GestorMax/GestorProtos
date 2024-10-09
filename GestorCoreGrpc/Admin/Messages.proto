@@ -68,18 +68,13 @@ message ServerMessageList{
 	protoMessages.ResponseResult result = 2;
 }
 
+message RdpDatabaseMessageList{
+	repeated RdpDatabaseMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
 message RdpUserMessageList{
 	repeated RdpUserMessage values = 1;
-	protoMessages.ResponseResult result = 2;
-}
-
-message ServerUserMessageList{
-	repeated ServerUserMessage values = 1;
-	protoMessages.ResponseResult result = 2;
-}
-
-message ProcessMessageList{
-	repeated ProcessMessage values = 1;
 	protoMessages.ResponseResult result = 2;
 }
 
@@ -184,55 +179,45 @@ message CustomerMessage {
 	protoMessages.StringMessage budgetLink = 10;
 	protoMessages.StringMessage binnacleLink = 11;
 	protoMessages.StringMessage archiveLink = 12;
-	enum Budget {
-		Budget_Pending = 0;
-		Budget_ReadyToSend = 1;
-		Budget_Sent = 2;
-		Budget_Approved = 3;
-	}
-	Budget budget = 18;
-	enum Binnacle{
-		Binnacle_Pending = 0;
-		Binnacle_Ready = 1;
-	}
-	Binnacle binnacle = 19;
-	enum PaymentOption{
-		PaymentOption_Pending = 0;
-		PaymentOption_CashPayment = 1;
-		PaymentOption_FourInstallments = 2;
-		PaymentOption_Rent = 3;
-	}
-	PaymentOption paymentOption = 20;
-	enum Fertilizer{
-		Fertilizer_Pending = 0;
-		Fertilizer_Programmed = 1;
-	}
-	Fertilizer fertilizer = 21;	
-	enum Bill{
-		Bill_Pending = 0;
-		Bill_Check = 1;
-		Bill_Checked = 2;
-		Bill_Free = 3;
-	}
-	Bill bill = 22;
+
+	BudgetTypes budget = 18;
+	BinnacleTypes binnacle = 19;
+	BillTypes bill = 22;
 	protoMessages.DateOnlyMessage billDate  = 23;
-	enum Page {
-		Page_Pending = 0;
-		Page_Updated = 1;
+	PageTypes page = 24;
+	BillingTicketTypes billingTicket = 25;
+	StartTicketTypes startTicket = 26;
+
+	enum BudgetTypes {
+		BudgetTypes_Pending = 0;
+		BudgetTypes_ReadyToSend = 1;
+		BudgetTypes_Sent = 2;
+		BudgetTypes_Approved = 3;
 	}
-	Page page = 24;
-	enum BillingTicket{
-		BillingTicket_Pending = 0;
-		BillingTicket_Send = 1;
-		BillingTicket_Sent = 2;
+	enum BinnacleTypes {
+		BinnacleTypes_Pending = 0;
+		BinnacleTypes_Ready = 1;
 	}
-	BillingTicket billingTicket = 25;
-	enum StartTicket{
-		StartTicket_Pending = 0;
-		StartTicket_Send = 1;
-		StartTicket_Sent = 2;
+	enum BillTypes {
+		BillTypes_Pending = 0;
+		BillTypes_Check = 1;
+		BillTypes_Checked = 2;
+		BillTypes_Free = 3;
 	}
-	StartTicket startTicket = 26;
+	enum PageTypes {
+		PageTypes_Pending = 0;
+		PageTypes_Updated = 1;
+	}
+	enum BillingTicketTypes {
+		BillingTicketTypes_Pending = 0;
+		BillingTicketTypes_Send = 1;
+		BillingTicketTypes_Sent = 2;
+	}
+	enum StartTicketTypes {
+		StartTicketTypes_Pending = 0;
+		StartTicketTypes_Send = 1;
+		StartTicketTypes_Sent = 2;
+	}
 }
 
 message CustomerResponse{
@@ -461,6 +446,92 @@ message DatabaseMessage {
 	protoMessages.Int32Message vaultId = 9;
 	gestorCoreGrpcShared.GestorMaxVersionTypes Version = 10;
 
+	UserMessage commercial = 11;
+	UserMessage executive = 12;
+	DataTypes data = 13;
+	DatabaseTypes databaseConfiguration = 14;
+	AccessTypes access = 15;
+	protoMessages.DateOnlyMessage accessDate = 16;
+	HomeMailTypes homeMail = 17;
+	DriveTypes drive = 18;
+	ModalityTypes modality = 19;
+	PaymentOptionTypes paymentOption = 20;
+	BonusCloudMonthTypes bonusCloudMonth = 21;
+	CloudPlanTypes cloudPlan = 22;
+	PlanTypes plan = 23;
+
+	enum PlanTypes {
+		PlanTypes_Pending = 0;
+		PlanTypes_Programmed = 1;
+	}
+	enum DataTypes {
+		DataTypes_Pending = 0;
+		DataTypes_Partial = 1;
+		DataTypes_Complete = 2;
+	}
+	enum DatabaseTypes {
+		DatabaseTypes_Pending = 0;
+		DatabaseTypes_InProgress = 1;
+		DatabaseTypes_Configured = 2;
+	}
+	enum AccessTypes {
+		AccessTypes_Pending = 0;
+		AccessTypes_Send = 1;
+		AccessTypes_Sent = 2;
+	}
+	enum HomeMailTypes {
+		HomeMailTypes_Pending = 0;
+		HomeMailTypes_Send = 1;
+		HomeMailTypes_Sent = 2;
+	}
+	enum DriveTypes {
+		DriveTypes_Pending = 0;
+		DriveTypes_Shared = 1;
+	}
+	enum ModalityTypes {
+		ModalityTypes_Pending = 0;
+		ModalityTypes_Buys = 1;
+		ModalityTypes_Rent = 2;
+	}
+	enum PaymentOptionTypes {
+		PaymentOptionTypes_Pending = 0;
+		PaymentOptionTypes_CashPayment = 1;
+		PaymentOptionTypes_FourInstallments = 2;
+	}
+	enum BonusCloudMonthTypes {
+		BonusCloudMonthTypes_NoBonus = 0;
+		BonusCloudMonthTypes_JanFeb = 1;
+		BonusCloudMonthTypes_FebMar = 2;
+		BonusCloudMonthTypes_MarApr = 3;
+		BonusCloudMonthTypes_AprMay = 4;
+		BonusCloudMonthTypes_MayJun = 5;
+		BonusCloudMonthTypes_JunJul = 6;
+		BonusCloudMonthTypes_JulAug = 7;
+		BonusCloudMonthTypes_AugSep = 8;
+		BonusCloudMonthTypes_SepOct = 9;
+		BonusCloudMonthTypes_OctNov = 10;
+		BonusCloudMonthTypes_NovDec = 11;
+		BonusCloudMonthTypes_DecJan = 12;
+	}
+	enum BillCloudMonthTypes {
+		BillCloudMonthTypes_January = 0;
+		BillCloudMonthTypes_February = 1;
+		BillCloudMonthTypes_March = 2;
+		BillCloudMonthTypes_April = 3;
+		BillCloudMonthTypes_May = 4;
+		BillCloudMonthTypes_June = 5;
+		BillCloudMonthTypes_July = 6;
+		BillCloudMonthTypes_August = 7;
+		BillCloudMonthTypes_September = 8;
+		BillCloudMonthTypes_October = 9;
+		BillCloudMonthTypes_November = 10;
+		BillCloudMonthTypes_December = 11;
+	}
+	enum CloudPlanTypes {
+		CloudPlanTypes_Pending = 0;
+		CloudPlanTypes_Programmed = 1;
+		CloudPlanTypes_NoCloud = 2;
+	}
 }
 
 message DatabaseInstanceMessageDatabaseMessage {
@@ -594,7 +665,7 @@ message InstanceNameRequest {
 	string newName = 2;
 }
 
-message DatabaseCustomerMessage{
+message DatabaseCustomerMessage {
 	string companyName = 1;
 	int32 customerId = 2;
 	string taxId = 3;
@@ -605,7 +676,7 @@ message DatabaseCustomerMessage{
 	int32 dashboardLicense = 8;
 }
 
-message ServerMessage{
+message ServerMessage {
 	int32 id = 1;
 	string name = 2;
 	int32 Number = 3;
@@ -616,7 +687,7 @@ message ServerMessage{
 	}
 	State state = 4;
 	string Ip = 5;
-	enum InternetProvider{
+	enum InternetProvider {
 		 Personal = 0;
 		 Duppini = 1;
 	}
@@ -632,12 +703,12 @@ message ServerMessage{
 	protoMessages.StringMessage notes = 15;
 }
 
-message ServerResponse{
+message ServerResponse {
 	protoMessages.ResponseResult result = 1;
 	ServerMessage message = 2;
 }
 
-message RdpUserMessage{
+message RdpDatabaseMessage {
 	int32 id = 1;
 	int32 databaseId = 2;
 	int32 serverDatabaseNumber = 3;
@@ -646,18 +717,17 @@ message RdpUserMessage{
 	string file = 6;
 	string rightsGroup = 7;
 	string withholding = 8;
-	string database = 9;
 	VirtualServerMessage virtualServer = 10;
 }
 
-message RdpUserResponse{
+message RdpDatabaseResponse {
 	protoMessages.ResponseResult result = 1;
-	RdpUserMessage message = 2;
+	RdpDatabaseMessage message = 2;
 }
 
-message ServerUserMessage{
+message RdpUserMessage {
 	int32 id = 1;
-	int32 databaseId = 2;
+	int32 rdpDatabaseId = 2;
 	string password = 3;
 	string name = 4;
 	string email = 5;
@@ -665,127 +735,22 @@ message ServerUserMessage{
 	int32 order = 7;
 }
 
-message ServerUserResponse{
+message RdpUserResponse {
 	protoMessages.ResponseResult result = 1;
-	ServerUserMessage message = 2;
+	RdpUserMessage message = 2;
 }
 
-message AvailableDatabasesMessageList{
-	repeated int32 values = 1;
+message AvailableRdpDatabasesMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated int32 values = 2;
 }
 
-message AvailableDatabasesRequest{
+message AvailableRdpDatabasesRequest {
 	int32 virtualServerId = 1;
 	int32 databaseId = 2;
 }
 
-message ProcessMessage{
-	int32 id = 1;
-	enum Data {
-		Data_Pending = 0;
-		Data_Partial = 1;
-		Data_Complete = 2;
-	}
-	Data data = 4;
-	enum Database {
-		Database_Pending = 0;
-		Database_InProgress = 1;
-		Database_Configured = 2;
-	}
-	Database processDatabase = 5;
-	enum Access {
-		Access_Pending = 0;
-		Access_Send = 1;
-		Access_Sent = 2;
-	}
-	Access access = 6;
-	protoMessages.DateOnlyMessage accessDate = 7;
-	enum HomeMail {
-		HomeMail_Pending = 0;
-		HomeMail_Send = 1;
-		HomeMail_Sent = 2;
-	}
-	HomeMail homeMail = 8;
-	enum Drive {
-		Drive_Pending = 0;
-		Drive_Shared = 1;
-	}
-	Drive drive = 10;
-	enum Modality {
-		Modality_Pending = 0;
-		Modality_Buys = 1;
-		Modality_Rent = 2;
-	}
-	Modality modality = 13;
-	enum BonusCloudMonth {
-		BonusCloudMonth_NoBonus = 0;
-		BonusCloudMonth_JanFeb = 1;
-		BonusCloudMonth_FebMar = 2;
-		BonusCloudMonth_MarApr = 3;
-		BonusCloudMonth_AprMay = 4;
-		BonusCloudMonth_MayJun = 5;
-		BonusCloudMonth_JunJul = 6;
-		BonusCloudMonth_JulAug = 7;
-		BonusCloudMonth_AugSep = 8;
-		BonusCloudMonth_SepOct = 9;
-		BonusCloudMonth_OctNov = 10;
-		BonusCloudMonth_NovDec = 11;
-		BonusCloudMonth_DecJan = 12;
-	}
-	BonusCloudMonth bonusCloudMonth = 16;
-	enum BillCloudMonth {
-		BillCloudMonth_January = 0;
-		BillCloudMonth_February = 1;
-		BillCloudMonth_March = 2;
-		BillCloudMonth_April = 3;
-		BillCloudMonth_May = 4;
-		BillCloudMonth_June = 5;
-		BillCloudMonth_July = 6;
-		BillCloudMonth_August = 7;
-		BillCloudMonth_September = 8;
-		BillCloudMonth_October = 9;
-		BillCloudMonth_November = 10;
-		BillCloudMonth_December = 11;
-	}
-	enum CloudFertilizer{
-		CloudFertilizer_Pending = 0;
-		CloudFertilizer_Programmed = 1;
-	}
-	CloudFertilizer cloudFertilizer = 18;
-	int32 databaseId = 21;
-	string commercialId = 22;
-	string executiveId = 23;
-}
-message ProcessResponse{
-	protoMessages.ResponseResult result = 1;
-	ProcessMessage message = 2;
-}
-
-message ProcessRequest{
-	int32 databaseId = 1;
-	string name = 2;
-	int32 value = 3;
-}
-
-message EditProcessRequest{
-	int32 id = 1;
-	int32 databaseId = 2;
-	oneof value {
-		ProcessMessage.Data data = 3;
-		ProcessMessage.Database database = 4;
-		ProcessMessage.Access access = 5;
-		ProcessMessage.HomeMail homeMail = 6;
-		ProcessMessage.Drive drive = 7;
-		ProcessMessage.Modality modality = 8;
-		ProcessMessage.BonusCloudMonth bonusCloudMonth = 9;
-		ProcessMessage.CloudFertilizer cloudFertilizer = 11;
-	}
-	protoMessages.DateOnlyMessage accessDate = 12;
-	string commercialId = 13;
-	string executiveId = 14;
-}
-
-message VirtualServerMessage{
+message VirtualServerMessage {
 	int32 id = 1;
 	int32 serverId = 2;
 	string name = 3;
