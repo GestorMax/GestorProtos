@@ -37,6 +37,8 @@ message InstanceIdentityRequest {
 	string server = 2;
 	string instance = 3;
 	string databaseName = 4;
+	string version = 5;
+	string md5 = 6;
 }
 
 message InstanceIdentityResponse {
@@ -44,6 +46,7 @@ message InstanceIdentityResponse {
 	string token = 2;
 	bool isActive = 3;
 	bool outOfSync = 4;
+	bool IsOutdated = 5;
 }
 
 message DBDumpRequest {
@@ -77,7 +80,7 @@ enum ConnectUpdateType {
 	UpdateData = 3;
 	UpdatingDataBase = 4;
 	IntermediarioInterrupted = 5;
-	ConnectCheckVersion = 6;
+	ConnectUpdate = 6;
 	SendRoutinesDump = 7;
 	DatabaseVersionUpdated = 8;
 	UpdatingConnect = 9;

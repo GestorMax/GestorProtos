@@ -15,6 +15,7 @@ service GestorUpdatePublic {
 	
 	rpc GetConnectVersionByMD5 (protoMessages.StringMessage) returns (protoMessages.Int32Message);
 
+	rpc VerifyVersionByMD5 (VersionVerifyRequest) returns (protoMessages.ResponseResult);
 }
 
 message CompanionVersionRequest {
@@ -26,4 +27,10 @@ message CompanionVersionResponse {
 	bool newVersion = 1;
 	int32 version = 2;
 	bytes data = 3;
+}
+
+message VersionVerifyRequest {
+	int32 fileId = 1;
+	string version = 2;
+	string md5 = 3;
 }
