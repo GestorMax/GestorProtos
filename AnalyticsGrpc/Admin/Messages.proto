@@ -480,12 +480,30 @@ message ScrapDataActivateMessage {
 message DataHistorialMessage {
 	int32 sourceId = 1;	
 	int32 scrapDataId = 2;
-	repeated DataHistoryValue values = 3;
+	repeated DataHistoryValueMessage values = 3;
 }
 
-message DataHistoryValue {
-	google.protobuf.Timestamp date = 1;
-	double value = 2;
+message DataHistoryValueMessage {
+	int32 id = 1;
+	google.protobuf.Timestamp date = 2;
+	double value = 3;
+}
+
+message DataHistoryValueMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated DataHistoryValueMessage values = 1;
+	protoMessages.PageInfo pageInfo = 3;
+}
+
+message DataHistoryValueResponse{
+	protoMessages.ResponseResult result = 1;
+	DataHistoryValueMessage message = 2;
+}
+
+message DataHistoryValueRequest {	
+	protoMessages.PageInfo pageInfo = 9;	
+	repeated protoMessages.SortValue sorting = 10;
+	string searchText = 11;
 }
 
 message UrlParameterMessage {
@@ -540,3 +558,4 @@ message DateGeneratorMessage {
 		}
 	}	
 }
+
