@@ -24,7 +24,8 @@ service AnalyticsAdmin {
 	rpc CreateData (ScrapDataMessage) returns (ScrapDataResponse);
 	rpc EditData (ScrapDataMessage) returns (ScrapDataResponse);
 	rpc RemoveData (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
-	rpc ActivateDatasBySource (ScrapDataActivateMessage) returns (protoMessages.ResponseResult);
+	rpc ActivateDatasBySource (ScrapDataActivateBySourceMessage) returns (protoMessages.ResponseResult);
+	rpc ActivateDatas (ScrapDataActivateMessage) returns (protoMessages.ResponseResult);
 	rpc CountDatas (protoMessages.Int32Message) returns (protoMessages.Int32Message);
 	
 	//DataDate
