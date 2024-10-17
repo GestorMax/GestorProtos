@@ -472,8 +472,13 @@ message CultureLanguageResponse {
 	CultureLanguageMessage message = 2;
 }
 
-message ScrapDataActivateMessage {
+message ScrapDataActivateBySourceMessage {
 	int32 sourceId = 1;
+	bool activate = 2;
+}
+
+message ScrapDataActivateMessage {
+	int32 dataId = 1;
 	bool activate = 2;
 }
 
