@@ -1,6 +1,7 @@
 ﻿syntax = "proto3";
 
 import "ProtoMessages/Common.proto";
+import "google/protobuf/Timestamp.proto";
 import "Intermediario.G4.Grpc/Connect/Endpoints.g.proto";
 
 package intermediario.g4.grpc.connect;
@@ -56,8 +57,9 @@ message DBDumpRequest {
 
 message UpdateRequest {
 	ConnectUpdateType codTipoActualizacion = 2;
-	uint64 codActualizacion = 3;
-	string sqlStatement = 5;
+	protoMessages.UInt64Message codHistorial = 3;
+	string sqlStatement = 4;
+	google.protobuf.Timestamp FechaActualizacion = 5;
 }
 
 enum UpdateState {

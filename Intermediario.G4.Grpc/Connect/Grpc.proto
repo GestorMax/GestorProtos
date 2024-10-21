@@ -18,7 +18,7 @@ service IntermediarioG4Connect {
 	
 	rpc RoutinesDump(stream DBDumpRequest) returns (protoMessages.ResponseResult);
 
-	rpc Update(UpdateRequest) returns (UpdateResponse);
+	rpc Update(stream UpdateRequest) returns (UpdateResponse);
 
 	rpc UpdateDatabaseVersion(google.protobuf.Empty) returns (UpdateResponse);
 
