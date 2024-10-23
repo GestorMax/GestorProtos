@@ -77,7 +77,12 @@ message SourceMessage {
 	protoMessages.Int32Message CultureLanguageId = 22;
 	CultureLanguageMessage CultureLanguage = 23;
 	google.protobuf.Timestamp creationDate = 25;
+	repeated HeaderSourceMessage headers = 26;
+}
 
+message HeaderSourceMessage{
+	string key = 1;
+	string Value = 2;
 }
 
 message SourceResponse{
