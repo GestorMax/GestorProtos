@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
+import "GestorContact.Grpc/Admin/Messages.proto";
+import "google/protobuf/Timestamp.proto";
+
+package gestorContact.Grpc;
+
+service GestorContactAdmin {
+	
+}
