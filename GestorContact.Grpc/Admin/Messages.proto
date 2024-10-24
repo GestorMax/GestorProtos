@@ -1,7 +1,39 @@
 syntax = "proto3";
 
-import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
 
 package gestorContact.Grpc;
 
+message ContactMessage {
+	int32 id = 1;
+	int32 userId = 2;
+	protoMessages.StringMessage name = 3;
+	protoMessages.StringMessage email = 4;
+	protoMessages.StringMessage20 phoneNumber = 5;
+}
+
+message ContactResponse{
+	protoMessages.ResponseResult result = 1;
+	ContactMessage message = 2;
+}
+
+message ContactMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated ContactMessage values = 1;
+}
+
+
+message RoleMessage {
+	int32 id = 1;	
+	protoMessages.StringMessage name = 2;	
+}
+
+message RoleResponse{
+	protoMessages.ResponseResult result = 1;
+	RoleMessage message = 2;
+}
+
+message RoleMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated RoleMessage values = 1;
+}
