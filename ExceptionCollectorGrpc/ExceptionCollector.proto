@@ -2,15 +2,16 @@ syntax = "proto3";
 
 import "google/protobuf/Empty.proto";
 import "google/protobuf/Timestamp.proto";
+import "ProtoMessages/Common.proto";
 
 package exceptionCollectorAPI;
 
 service ExceptionCollector {
-  rpc ReportException(ExceptionMessage) returns (google.protobuf.Empty);
-  rpc ListExceptions(google.protobuf.Empty) returns (ExceptionListMessage);
-  rpc GetException(IdRequest) returns (ExceptionMessage);
-  rpc DeleteExceptions(IdListRequest) returns (google.protobuf.Empty);
-  rpc CleanExceptions(google.protobuf.Empty) returns (google.protobuf.Empty);
+  rpc ReportException(ExceptionMessage) returns (protoMessages.ResponseResult);
+  rpc ListExceptions(protoMessages.ListRequest) returns (ExceptionMessageList);
+  rpc GetException(protoMessages.Int32Message) returns (ExceptionResponse);
+  rpc DeleteExceptions(ExceptionDeleteRequest) returns (protoMessages.ResponseResult);
+  rpc CleanExceptions(google.protobuf.Empty) returns (protoMessages.ResponseResult);
 }
 
 
@@ -44,6 +45,11 @@ enum ServiceTypes {
 	SERVICE_TYPES_INVOICE_READER = 18;
 }
 
+message ExceptionDeleteRequest {
+	int32 id = 1;
+	bool deleteAllEquals = 2;
+}
+
 message ExceptionMessage {
 	int32 id = 1;
 	google.protobuf.Timestamp date = 2;
@@ -51,16 +57,16 @@ message ExceptionMessage {
 	string message = 4;
 	string stackTrace = 5;
 	string userMessage = 6;
+	int32 duplicated = 7;
 }
 
-message IdRequest {
-	int32 id = 1;
+message ExceptionMessageList {
+	protoMessages.ResponseResult result = 1;
+	protoMessages.PageInfo pageInfo = 2;
+	repeated ExceptionMessage values = 3;
 }
 
-message IdListRequest {
-	repeated int32 ids = 1;
-}
-
-message ExceptionListMessage {
-	repeated ExceptionMessage exceptions = 1;
+message ExceptionResponse {
+	protoMessages.ResponseResult result = 1;
+	ExceptionMessage message = 2;
 }
