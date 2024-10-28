@@ -7,5 +7,8 @@ import "GestorContact.Grpc/Admin/Messages.proto";
 package gestorContact.Grpc;
 
 service GestorContactAdmin {
+	rpc ListContacts (google.protobuf.Empty) returns (ContactMessageList);
+	rpc GetContact (protoMessages.Int32Message) returns (ContactResponse);
+	rpc CreateContact (ContactMessage) returns (ContactResponse);
 	
 }

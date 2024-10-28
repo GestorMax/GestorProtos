@@ -18,8 +18,16 @@ message ContactResponse{
 }
 
 message ContactMessageList {
-	protoMessages.ResponseResult result = 2;
 	repeated ContactMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+	protoMessages.PageInfo pageInfo = 3;
+}
+
+message ContactRequest {
+	string name = 1;
+	protoMessages.PageInfo pageInfo = 2;	
+	repeated protoMessages.SortValue sorting = 3;
+	string searchText = 4;
 }
 
 
@@ -36,4 +44,10 @@ message RoleResponse{
 message RoleMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated RoleMessage values = 1;
+}
+
+message ContactRoleMessage {
+	int32 id = 1;
+	int32 contactId = 2;
+	int32 roleId = 3;
 }
