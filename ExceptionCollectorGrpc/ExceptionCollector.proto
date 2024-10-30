@@ -11,7 +11,7 @@ service ExceptionCollector {
   rpc ListExceptions(protoMessages.ListRequest) returns (ExceptionMessageList);
   rpc ListEventsByException(protoMessages.Int32Message) returns (EventMessageList);
   rpc GetException(protoMessages.Int32Message) returns (ExceptionResponse);
-  rpc DeleteExceptions(ExceptionDeleteRequest) returns (protoMessages.ResponseResult);
+  rpc DeleteExceptions(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
   rpc CleanExceptions(google.protobuf.Empty) returns (protoMessages.ResponseResult);
 }
 
