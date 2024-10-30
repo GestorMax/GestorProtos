@@ -9,11 +9,11 @@ package exceptionCollectorAPI;
 service ExceptionCollector {
   rpc ReportException(ExceptionMessage) returns (protoMessages.ResponseResult);
   rpc ListExceptions(protoMessages.ListRequest) returns (ExceptionMessageList);
+  rpc ListEventsByException(protoMessages.Int32Message) returns (EventMessageList);
   rpc GetException(protoMessages.Int32Message) returns (ExceptionResponse);
-  rpc DeleteExceptions(ExceptionDeleteRequest) returns (protoMessages.ResponseResult);
+  rpc DeleteExceptions(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
   rpc CleanExceptions(google.protobuf.Empty) returns (protoMessages.ResponseResult);
 }
-
 
 message ExceptionReporterConfiguration {
 	string uri = 1;
@@ -69,4 +69,9 @@ message ExceptionMessageList {
 message ExceptionResponse {
 	protoMessages.ResponseResult result = 1;
 	ExceptionMessage message = 2;
+}
+
+message EventMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated google.protobuf.Timestamp values = 2;
 }
