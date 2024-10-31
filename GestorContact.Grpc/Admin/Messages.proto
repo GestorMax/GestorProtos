@@ -10,6 +10,7 @@ message ContactMessage {
 	protoMessages.StringMessage name = 3;
 	protoMessages.StringMessage email = 4;
 	protoMessages.StringMessage20 phoneNumber = 5;
+	protoMessages.StringMessage notes = 6;
 }
 
 message ContactResponse{
@@ -30,24 +31,28 @@ message ContactRequest {
 	string searchText = 4;
 }
 
-
-message RoleMessage {
+message GroupMessage {
 	int32 id = 1;	
 	protoMessages.StringMessage name = 2;	
 }
 
-message RoleResponse{
+message GroupResponse{
 	protoMessages.ResponseResult result = 1;
-	RoleMessage message = 2;
+	GroupMessage message = 2;
 }
 
-message RoleMessageList {
+message GroupMessageList {
 	protoMessages.ResponseResult result = 2;
-	repeated RoleMessage values = 1;
+	repeated GroupMessage values = 1;
 }
 
-message ContactRoleMessage {
+message ContactGroupMessage {
 	int32 id = 1;
 	int32 contactId = 2;
-	int32 roleId = 3;
+	int32 groupId = 3;
+}
+
+message ContactExistsRequest {
+	int32 id = 1;
+	protoMessages.StringMessage email = 2;
 }
