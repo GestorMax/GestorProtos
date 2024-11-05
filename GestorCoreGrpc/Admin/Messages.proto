@@ -459,45 +459,54 @@ message DatabaseMessage {
 	BonusCloudMonthTypes bonusCloudMonth = 21;
 	CloudPlanTypes cloudPlan = 22;
 	PlanTypes plan = 23;
+	GrossIncomeWithholdingTypes GrossIncomeWithholding = 24;
 
 	enum PlanTypes {
 		PlanTypes_Pending = 0;
 		PlanTypes_Programmed = 1;
 	}
+	
 	enum DataTypes {
 		DataTypes_Pending = 0;
 		DataTypes_Partial = 1;
 		DataTypes_Complete = 2;
 	}
+	
 	enum DatabaseTypes {
 		DatabaseTypes_Pending = 0;
 		DatabaseTypes_InProgress = 1;
 		DatabaseTypes_Configured = 2;
 	}
+	
 	enum AccessTypes {
 		AccessTypes_Pending = 0;
 		AccessTypes_Send = 1;
 		AccessTypes_Sent = 2;
 	}
+	
 	enum HomeMailTypes {
 		HomeMailTypes_Pending = 0;
 		HomeMailTypes_Send = 1;
 		HomeMailTypes_Sent = 2;
 	}
+	
 	enum DriveTypes {
 		DriveTypes_Pending = 0;
 		DriveTypes_Shared = 1;
 	}
+	
 	enum ModalityTypes {
 		ModalityTypes_Pending = 0;
 		ModalityTypes_Buys = 1;
 		ModalityTypes_Rent = 2;
 	}
+	
 	enum PaymentOptionTypes {
 		PaymentOptionTypes_Pending = 0;
 		PaymentOptionTypes_CashPayment = 1;
 		PaymentOptionTypes_FourInstallments = 2;
 	}
+	
 	enum BonusCloudMonthTypes {
 		BonusCloudMonthTypes_NoBonus = 0;
 		BonusCloudMonthTypes_JanFeb = 1;
@@ -513,6 +522,7 @@ message DatabaseMessage {
 		BonusCloudMonthTypes_NovDec = 11;
 		BonusCloudMonthTypes_DecJan = 12;
 	}
+	
 	enum BillCloudMonthTypes {
 		BillCloudMonthTypes_January = 0;
 		BillCloudMonthTypes_February = 1;
@@ -527,10 +537,18 @@ message DatabaseMessage {
 		BillCloudMonthTypes_November = 10;
 		BillCloudMonthTypes_December = 11;
 	}
+	
 	enum CloudPlanTypes {
 		CloudPlanTypes_Pending = 0;
 		CloudPlanTypes_Programmed = 1;
 		CloudPlanTypes_NoCloud = 2;
+	}
+
+	enum GrossIncomeWithholdingTypes {
+		GrossIncomeWithholdingTypes_None = 0;
+		GrossIncomeWithholdingTypes_ArbaGeneral = 1;
+		GrossIncomeWithholdingTypes_ArbaEspecial = 2;
+		GrossIncomeWithholdingTypes_Agip = 4;
 	}
 }
 
@@ -716,7 +734,6 @@ message RdpDatabaseMessage {
 	string databaseName = 5;
 	string file = 6;
 	string rightsGroup = 7;
-	string withholding = 8;
 	VirtualServerMessage virtualServer = 10;
 }
 
