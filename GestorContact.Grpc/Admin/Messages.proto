@@ -4,6 +4,10 @@ import "ProtoMessages/Common.proto";
 
 package gestorContact.Grpc;
 
+message GestorContactConfiguration {
+	string uri = 1;
+}
+
 message ContactMessage {
 	int32 id = 1;
 	int32 userId = 2;
