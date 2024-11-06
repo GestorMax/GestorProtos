@@ -118,19 +118,19 @@ service GestorCoreAdmin {
 
 	rpc EditServer (ServerMessage) returns (ServerResponse);
 
-	//RdpDatabase
-	rpc GetRdpDatabaseByDatabase (protoMessages.Int32Message) returns (RdpDatabaseResponse);
+	//CloudDatabase
+	rpc GetCloudDatabaseByDatabase (protoMessages.Int32Message) returns (CloudDatabaseResponse);
 
-	rpc CreateRdpDatabase (RdpDatabaseMessage) returns (RdpDatabaseResponse);
+	rpc CreateCloudDatabase (CloudDatabaseMessage) returns (CloudDatabaseResponse);
 
-	rpc EditRdpDatabase (RdpDatabaseMessage) returns (RdpDatabaseResponse);
+	rpc EditCloudDatabase (CloudDatabaseMessage) returns (CloudDatabaseResponse);
 
-	rpc DeleteRdpDatabase (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc DeleteCloudDatabase (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 
-	rpc ListAvailableRdpDatabasesByServerId (AvailableRdpDatabasesRequest) returns (AvailableRdpDatabasesMessageList);
+	rpc ListAvailableCloudDatabasesByServerId (AvailableCloudDatabasesRequest) returns (AvailableCloudDatabasesMessageList);
 
 	//RdpUsers
-	rpc ListRdpUsersByRdpDatabase(protoMessages.Int32Message) returns (RdpUserMessageList);
+	rpc ListRdpUsersByCloudDatabase(protoMessages.Int32Message) returns (RdpUserMessageList);
 	
 	rpc GetRdpUser(protoMessages.Int32Message) returns (RdpUserResponse);
 

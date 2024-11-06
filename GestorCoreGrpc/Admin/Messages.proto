@@ -68,9 +68,9 @@ message ServerMessageList{
 	protoMessages.ResponseResult result = 2;
 }
 
-message RdpDatabaseMessageList{
-	repeated RdpDatabaseMessage values = 1;
-	protoMessages.ResponseResult result = 2;
+message CloudDatabaseMessageList{
+	protoMessages.ResponseResult result = 1;
+	repeated CloudDatabaseMessage values = 2;
 }
 
 message RdpUserMessageList{
@@ -459,7 +459,6 @@ message DatabaseMessage {
 	BonusCloudMonthTypes bonusCloudMonth = 21;
 	CloudPlanTypes cloudPlan = 22;
 	PlanTypes plan = 23;
-	GrossIncomeWithholdingTypes GrossIncomeWithholding = 24;
 
 	enum PlanTypes {
 		PlanTypes_Pending = 0;
@@ -544,12 +543,6 @@ message DatabaseMessage {
 		CloudPlanTypes_NoCloud = 2;
 	}
 
-	enum GrossIncomeWithholdingTypes {
-		GrossIncomeWithholdingTypes_None = 0;
-		GrossIncomeWithholdingTypes_ArbaGeneral = 1;
-		GrossIncomeWithholdingTypes_ArbaEspecial = 2;
-		GrossIncomeWithholdingTypes_Agip = 4;
-	}
 }
 
 message DatabaseInstanceMessageDatabaseMessage {
@@ -726,7 +719,7 @@ message ServerResponse {
 	ServerMessage message = 2;
 }
 
-message RdpDatabaseMessage {
+message CloudDatabaseMessage {
 	int32 id = 1;
 	int32 databaseId = 2;
 	int32 serverDatabaseNumber = 3;
@@ -735,16 +728,26 @@ message RdpDatabaseMessage {
 	string file = 6;
 	string rightsGroup = 7;
 	VirtualServerMessage virtualServer = 10;
+	
+	GrossIncomeWithholdingTypes GrossIncomeWithholding = 11;
+	
+	enum GrossIncomeWithholdingTypes {
+		GrossIncomeWithholdingTypes_None = 0;
+		GrossIncomeWithholdingTypes_NoWithholding = 1;
+		GrossIncomeWithholdingTypes_ArbaGeneral = 2;
+		GrossIncomeWithholdingTypes_ArbaEspecial = 4;
+		GrossIncomeWithholdingTypes_Agip = 8;
+	}
 }
 
-message RdpDatabaseResponse {
+message CloudDatabaseResponse {
 	protoMessages.ResponseResult result = 1;
-	RdpDatabaseMessage message = 2;
+	CloudDatabaseMessage message = 2;
 }
 
 message RdpUserMessage {
 	int32 id = 1;
-	int32 rdpDatabaseId = 2;
+	int32 cloudDatabaseId = 2;
 	string password = 3;
 	string name = 4;
 	string email = 5;
@@ -757,12 +760,12 @@ message RdpUserResponse {
 	RdpUserMessage message = 2;
 }
 
-message AvailableRdpDatabasesMessageList {
+message AvailableCloudDatabasesMessageList {
 	protoMessages.ResponseResult result = 1;
 	repeated int32 values = 2;
 }
 
-message AvailableRdpDatabasesRequest {
+message AvailableCloudDatabasesRequest {
 	int32 virtualServerId = 1;
 	int32 databaseId = 2;
 }
