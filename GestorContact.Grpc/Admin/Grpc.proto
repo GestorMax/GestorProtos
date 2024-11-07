@@ -12,5 +12,5 @@ service GestorContactAdmin {
 	rpc CreateContact (ContactMessage) returns (ContactResponse);
 	rpc EditContact (ContactMessage) returns (ContactResponse);
 	rpc RemoveContact (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
-	rpc ExistMailContact (protoMessages.StringMessage) returns (protoMessages.BoolMessage);
+	rpc ExistMailContact (ContactExistsRequest) returns (ContactExistsResponse);
 }
