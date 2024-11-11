@@ -132,6 +132,8 @@ service GestorCoreAdmin {
 	//RdpUsers
 	rpc ListRdpUsersByCloudDatabase(protoMessages.Int32Message) returns (RdpUserMessageList);
 	
+	rpc ListRdpUsersByVirtualServer(protoMessages.Int32Message) returns (RdpUserMessageList);
+	
 	rpc GetRdpUser(protoMessages.Int32Message) returns (RdpUserResponse);
 
 	rpc CreateRdpUser(RdpUserMessage) returns (RdpUserResponse);

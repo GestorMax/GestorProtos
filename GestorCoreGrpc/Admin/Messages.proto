@@ -753,6 +753,8 @@ message RdpUserMessage {
 	string email = 5;
 	string userId = 6;
 	int32 order = 7;
+	protoMessages.Int32Message changeToUserId = 8;
+	repeated RdpUserMessage linked = 9;
 }
 
 message RdpUserResponse {
