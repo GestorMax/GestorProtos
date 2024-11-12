@@ -148,6 +148,7 @@ message MultiMeasurementRequest {
 
 message DataRequest{
 	bool active = 1;
+	google.protobuf.Timestamp from = 2;
 }
 
 message LastMeasurementRequest {
