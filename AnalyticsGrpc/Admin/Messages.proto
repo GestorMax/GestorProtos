@@ -80,14 +80,14 @@ message SourceMessage {
 	repeated HeaderSourceMessage headers = 26;
 }
 
-message HeaderSourceMessage{
-	string key = 1;
-	string Value = 2;
-}
-
 message SourceResponse{
 	protoMessages.ResponseResult result = 1;
 	SourceMessage message = 2;
+}
+
+message HeaderSourceMessage{
+	string key = 1;
+	string Value = 2;
 }
 
 message ScrapDataMessageList {
