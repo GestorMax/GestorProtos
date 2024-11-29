@@ -248,7 +248,7 @@ message ScrapingMessage {
 	int32 sourceId = 2;
 	google.protobuf.Timestamp dateTime = 3;	
 	repeated MeasurementMessage measurements = 4;
-	protoMessages.ResponseResult result = 5;
+	protoMessages.StringMessage ErrorMsg = 5;
 }
 
 message ScrapingMessageList {
