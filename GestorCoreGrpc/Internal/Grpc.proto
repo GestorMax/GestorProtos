@@ -2,12 +2,13 @@
 
 import "ProtoMessages/Common.proto";
 import "GestorCoreGrpc/Internal/Messages.proto";
+import "GestorCoreGrpc/Shared/Messages.proto";
 
 package gestorCoreGrpcInternal;
 
 service GestorCoreInternal {
 	rpc IdentifyDatabase(IdentifyDatabaseRequest) returns (IdentifyDatabaseResponse);
-	rpc GetDatabaseIdByGuid(DatabaseIdByGuidRequest) returns (DatabaseIdByGuidResponse);
+	rpc GetDatabaseIdByGuid(DatabaseIdByGuidRequest) returns (gestorCoreGrpcShared.DatabaseIdResponse);
 	rpc SetMaxVersion(SetMaxVersionRequest) returns (protoMessages.ResponseResult);
 	rpc ReportCompanies(CompanyReportMessage) returns (protoMessages.ResponseResult);
 	rpc UseGestorDbToken(UseDbTokenRequest) returns (UseDbTokenResponse);

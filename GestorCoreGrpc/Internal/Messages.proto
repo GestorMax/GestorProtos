@@ -43,11 +43,6 @@ message DatabaseIdByGuidRequest {
 	gestorCoreGrpcShared.GestorMaxVersionTypes gestorVersion = 2;
 }
 
-message DatabaseIdByGuidResponse {
-	protoMessages.ResponseResult result = 1;
-	protoMessages.Int32Message id = 2;
-}
-
 message SetMaxVersionRequest {
 	int32 databaseId = 1;
 	string maxVersion = 2;
