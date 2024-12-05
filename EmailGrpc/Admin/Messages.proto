@@ -5,6 +5,17 @@ import "google/protobuf/Timestamp.proto";
 
 package emailGrpcAdmin;
 
+enum TemplateDataTypes {
+	TEMPLATE_DATA_TYPES_TEXT = 0;	
+	TEMPLATE_DATA_TYPES_HTML = 1;		
+}
+
+enum TemplateTypes {
+	TEMPLATE_TYPES_GRAPH = 0;
+	TEMPLATE_TYPES_SYSTEM = 1;
+	TEMPLATE_TYPES_MAILING = 2;
+}
+
 message EmailConfiguration {
 	string uri = 1;
 }
@@ -82,11 +93,22 @@ message TemplateMessage {
 	int32 id = 1;
 	protoMessages.StringMessage100 name = 2;
 	string content = 3;
+	TemplateTypes templateType = 4;
+	repeated TemplateDataDefinition datas = 5;
+	protoMessages.Int32Message templateHeaderId = 6;
+	protoMessages.Int32Message templateFooterId = 7;
 }
 
 message TemplateMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated TemplateMessage values = 1;
+}
+
+message TemplateDataDefinition {
+	int32 id = 1;
+	string tag = 2;
+	string name = 3;
+	TemplateDataTypes type = 4;
 }
 
 //EmailLogs
