@@ -94,7 +94,7 @@ message TemplateMessage {
 	protoMessages.StringMessage100 name = 2;
 	string content = 3;
 	TemplateTypes templateType = 4;
-	repeated TemplateDataDefinition datas = 5;
+	repeated TemplateDataDefinitionMessage datas = 5;
 	protoMessages.Int32Message templateHeaderId = 6;
 	protoMessages.Int32Message templateFooterId = 7;
 }
@@ -104,11 +104,11 @@ message TemplateMessageList {
 	repeated TemplateMessage values = 1;
 }
 
-message TemplateDataDefinition {
+message TemplateDataDefinitionMessage {
 	int32 id = 1;
 	string tag = 2;
 	string name = 3;
-	TemplateDataTypes type = 4;
+	int32 type = 4;
 }
 
 //EmailLogs
