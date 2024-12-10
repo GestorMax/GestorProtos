@@ -7,6 +7,14 @@ import "ServicePermissions/Messages.proto";
 
 package gestorCoreGrpcAdmin;
 
+enum GrossIncomeWithholdingTypes {
+	GrossIncomeWithholdingTypes_None = 0;
+	GrossIncomeWithholdingTypes_NoWithholding = 1;
+	GrossIncomeWithholdingTypes_ArbaGeneral = 2;
+	GrossIncomeWithholdingTypes_ArbaEspecial = 4;
+	GrossIncomeWithholdingTypes_Agip = 8;
+}
+
 //LISTS ---------------------------------------------------------------
 message DatabaseMessageList {
 	repeated DatabaseMessage values = 1;
@@ -730,14 +738,6 @@ message CloudDatabaseMessage {
 	VirtualServerMessage virtualServer = 10;
 	
 	GrossIncomeWithholdingTypes GrossIncomeWithholding = 11;
-	
-	enum GrossIncomeWithholdingTypes {
-		GrossIncomeWithholdingTypes_None = 0;
-		GrossIncomeWithholdingTypes_NoWithholding = 1;
-		GrossIncomeWithholdingTypes_ArbaGeneral = 2;
-		GrossIncomeWithholdingTypes_ArbaEspecial = 4;
-		GrossIncomeWithholdingTypes_Agip = 8;
-	}
 }
 
 message CloudDatabaseResponse {
@@ -808,14 +808,15 @@ message VirtualServerMessage {
 	ServerMessage server = 16;
 }
 
-message VirtualServerResponse{
+message VirtualServerResponse {
 	protoMessages.ResponseResult result = 1;
 	VirtualServerMessage message = 2;
 }
 
-message VirtualServerDatabaseMessage{
+message VirtualServerDatabaseMessage {
 	int32 databaseId = 1;
 	string databaseName = 2;
 	string displayName = 3;
 	string customerName = 4;
+	GrossIncomeWithholdingTypes GrossIncomeWithholding = 5;
 }
