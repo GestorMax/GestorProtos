@@ -3,6 +3,7 @@
 import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
 import "GestorCoreGrpc/Admin/Messages.proto";
+import "GestorCoreGrpc/Shared/Messages.proto";
 import "ServicePermissions/Messages.proto";
 
 package gestorCoreGrpcAdmin;
@@ -63,6 +64,8 @@ service GestorCoreAdmin {
 	rpc CreateDatabase (CreateDatabaseResquest) returns (DatabaseMessage);
 	
 	rpc GetDatabase(protoMessages.Int32Message) returns (DatabaseMessage);
+	
+	rpc GetDatabaseIdByCloudDatabase(protoMessages.Int32Message) returns (gestorCoreGrpcShared.DatabaseIdResponse);
 
 	rpc ListDatabases (google.protobuf.Empty) returns (DatabaseResultMessageList);
 
@@ -131,6 +134,8 @@ service GestorCoreAdmin {
 
 	//RdpUsers
 	rpc ListRdpUsersByCloudDatabase(protoMessages.Int32Message) returns (RdpUserMessageList);
+	
+	rpc ListRdpUsers(google.protobuf.Empty) returns (RdpUserMessageList);
 	
 	rpc GetRdpUser(protoMessages.Int32Message) returns (RdpUserResponse);
 

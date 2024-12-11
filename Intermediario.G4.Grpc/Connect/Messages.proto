@@ -23,7 +23,7 @@ message DataMessage {
 
 	oneof type {
 		CommandTypes Command = 1;
-		EndpointRequest EndpontRequest = 2;
+		EndpointRequest EndpointRequest = 2;
 	}
 }
 
