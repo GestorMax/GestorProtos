@@ -13,6 +13,7 @@ message EndpointRequest {
 
 	oneof type {
 		intermediario.g4.grpc.shared.GetEmpresaRequest GetEmpresa = 4;
+		intermediario.g4.grpc.shared.ListConceptosRequest ListConceptos = 19;
 		intermediario.g4.grpc.shared.ListControlesReporteLuciusRequest ListControlesReporteLucius = 12;
 		intermediario.g4.grpc.shared.ListCuentasPlanCentrosLuciusRequest ListCuentasPlanCentrosLucius = 14;
 		intermediario.g4.grpc.shared.ListCuentasPlanGestionLuciusRequest ListCuentasPlanGestionLucius = 13;
@@ -21,7 +22,9 @@ message EndpointRequest {
 		bool ListEmpresas = 2;
 		intermediario.g4.grpc.shared.ListEstructuraReporteLuciusRequest ListEstructuraReporteLucius = 11;
 		intermediario.g4.grpc.shared.ListMayorReporteLuciusRequest ListMayorReporteLucius = 17;
-		intermediario.g4.grpc.shared.ListPlanDeCuentasRequest ListPlanDeCuentas = 5;
+		bool ListPersonas = 20;
+		intermediario.g4.grpc.shared.ListPlanDeCuentasCuentasRequest ListPlanDeCuentasCuentas = 5;
+		bool ListPlanesDeCuentas = 18;
 		intermediario.g4.grpc.shared.ListPresupuestosLuciusRequest ListPresupuestosLucius = 7;
 		intermediario.g4.grpc.shared.ListReporteLuciusRequest ListReporteLucius = 16;
 		bool ListReportesLucius = 10;
@@ -36,6 +39,7 @@ message EndpointResponse {
 
 	oneof type {
 		intermediario.g4.grpc.shared.GetEmpresaResponse GetEmpresa = 4;
+		intermediario.g4.grpc.shared.ListConceptosResponse ListConceptos = 19;
 		intermediario.g4.grpc.shared.ListControlesReporteLuciusResponse ListControlesReporteLucius = 12;
 		intermediario.g4.grpc.shared.ListCuentasPlanCentrosLuciusResponse ListCuentasPlanCentrosLucius = 14;
 		intermediario.g4.grpc.shared.ListCuentasPlanGestionLuciusResponse ListCuentasPlanGestionLucius = 13;
@@ -44,7 +48,9 @@ message EndpointResponse {
 		intermediario.g4.grpc.shared.ListEmpresasResponse ListEmpresas = 2;
 		intermediario.g4.grpc.shared.ListEstructuraReporteLuciusResponse ListEstructuraReporteLucius = 11;
 		intermediario.g4.grpc.shared.ListMayorReporteLuciusResponse ListMayorReporteLucius = 17;
-		intermediario.g4.grpc.shared.ListPlanDeCuentasResponse ListPlanDeCuentas = 5;
+		intermediario.g4.grpc.shared.ListPersonasResponse ListPersonas = 20;
+		intermediario.g4.grpc.shared.ListPlanDeCuentasCuentasResponse ListPlanDeCuentasCuentas = 5;
+		intermediario.g4.grpc.shared.ListPlanesDeCuentasResponse ListPlanesDeCuentas = 18;
 		intermediario.g4.grpc.shared.ListPresupuestosLuciusResponse ListPresupuestosLucius = 7;
 		intermediario.g4.grpc.shared.ListReporteLuciusResponse ListReporteLucius = 16;
 		intermediario.g4.grpc.shared.ListReportesLuciusResponse ListReportesLucius = 10;

@@ -39,6 +39,67 @@ message GetEmpresaResponse {
 	GetEmpresaMessage message = 2;
 }
 
+message ListConceptosMessage {
+	protoMessages.UInt64Message filterID = 1;
+	protoMessages.UInt64Message codigo = 2;
+	protoMessages.UInt64Message codGrupoConceptos = 3;
+	protoMessages.UInt64Message codSubgrupoConceptos = 4;
+	protoMessages.UInt64Message codClasificacionConceptos = 5;
+	protoMessages.UInt64Message codSubClasificacionConceptos = 6;
+	uint64 codConcepto = 7;
+	protoMessages.UInt64Message codigoConcepto = 8;
+	protoMessages.StringMessage codigoAuxiliar = 9;
+	protoMessages.UInt64Message codigoBarras = 10;
+	protoMessages.UInt64Message ordenGrupoConceptos = 11;
+	protoMessages.UInt64Message ordenSubgrupoConceptos = 12;
+	protoMessages.UInt64Message ordenClasificacionConceptos = 13;
+	protoMessages.UInt64Message ordenSubClasificacionConceptos = 14;
+	protoMessages.UInt64Message ordenConceptos = 15;
+	protoMessages.StringMessage descripcion = 16;
+	protoMessages.StringMessage descripcionIdentada = 17;
+	protoMessages.StringMessage descripcionCodigo = 18;
+	protoMessages.StringMessage descripcionDetallada = 19;
+	protoMessages.StringMessage grupoConceptos = 20;
+	protoMessages.StringMessage subgrupoConceptos = 21;
+	protoMessages.StringMessage clasificacionConceptos = 22;
+	protoMessages.StringMessage subclasificacionConceptos = 23;
+	protoMessages.StringMessage tipo = 24;
+	protoMessages.UInt64Message codTipo = 25;
+	protoMessages.UInt64Message codPadre = 26;
+	protoMessages.UInt64Message codTipoConceptoBasico = 27;
+	protoMessages.StringMessage tipoConceptoBasico = 28;
+	protoMessages.UInt64Message codTipoConcepto = 29;
+	protoMessages.StringMessage tipoConcepto = 30;
+	protoMessages.UInt64Message codTipoCalculoAlicuota = 31;
+	protoMessages.StringMessage tipoCalculoAlicuota = 32;
+	protoMessages.UInt64Message codTipoCalculoRetencion = 33;
+	protoMessages.StringMessage tipoCalculo = 34;
+	protoMessages.UInt64Message ordenOperativo = 35;
+	protoMessages.BoolMessage alicuotaAplicaACompras = 36;
+	protoMessages.BoolMessage alicuotaAplicaAVentas = 37;
+	protoMessages.BoolMessage habilitado = 38;
+	protoMessages.BoolMessage soloLectura = 39;
+	//protoMessages.StringMessage notas = 40;
+	//protoMessages.DateOnlyMessage fechaAlta = 41;
+	//protoMessages.DateOnlyMessage fechaModificacion = 42;
+	//protoMessages.UInt64Message codUsuarioAlta = 43;
+	//protoMessages.UInt64Message codUsuarioModificacion = 44;
+	protoMessages.Int32Message imgIndex = 45;
+}
+
+message ListConceptosRequest {
+	protoMessages.UInt64Message codGrupoConceptos = 1;
+	//protoMessages.UInt64Message codigo = 2;
+	//protoMessages.BoolMessage soloHabilitados = 3;
+	protoMessages.BoolMessage soloConceptos = 4;
+	//protoMessages.UInt64Message filterID = 5;
+}
+
+message ListConceptosResponse {
+	protoMessages.ResponseResult result = 1;
+	ListConceptosMessage message = 2;
+}
+
 message ListControlesReporteLuciusMessage {
 	protoMessages.UInt64Message codControlReporteLucius = 1;
 	protoMessages.UInt64Message codReporteLucius = 2;
@@ -314,7 +375,64 @@ message ListMayorReporteLuciusResponse {
 	ListMayorReporteLuciusMessage message = 2;
 }
 
-message ListPlanDeCuentasMessage {
+message ListPersonasMessage {
+	uint64 codPersona = 1;
+	protoMessages.StringMessage persona = 2;
+	protoMessages.StringMessage alias = 3;
+	protoMessages.UInt64Message codTipoPersonaAFIP = 4;
+	protoMessages.StringMessage tipoPersonaAFIP = 5;
+	protoMessages.UInt64Message codTipoDocumentoAFIP = 6;
+	protoMessages.StringMessage tipoDocumentoAFIP = 7;
+	protoMessages.StringMessage nroDocumento = 8;
+	protoMessages.UInt64Message codPaisAFIP = 9;
+	protoMessages.StringMessage paisAFIP = 10;
+	protoMessages.UInt64Message codProvinciaAFIP = 11;
+	protoMessages.StringMessage provincia = 12;
+	protoMessages.StringMessage direccion = 13;
+	protoMessages.StringMessage localidad = 14;
+	protoMessages.StringMessage codPostal = 15;
+	protoMessages.StringMessage telefono = 16;
+	protoMessages.StringMessage celular = 17;
+	protoMessages.StringMessage email = 18;
+	protoMessages.UInt64Message codTipoResponsableIVA = 19;
+	protoMessages.StringMessage tipoResponsableIVA = 20;
+	protoMessages.UInt64Message codTipoResponsableRRGG = 21;
+	protoMessages.StringMessage tipoResponsableRRGG = 22;
+	protoMessages.UInt64Message codTipoResponsableIIBB = 23;
+	protoMessages.StringMessage tipoResponsableIIBB = 24;
+	protoMessages.StringMessage nroInscrpIIBB = 25;
+	protoMessages.UInt64Message codGrupoPersonas = 26;
+	protoMessages.StringMessage grupoPersonas = 27;
+	protoMessages.UInt64Message codCondicionIVAAfip = 28;
+	protoMessages.StringMessage condicionIVAAFIP = 29;
+	//protoMessages.UInt64Message codCategoriaIVAComprasAfip = 30;
+	//protoMessages.StringMessage categoriaIVAComprasAfip = 31;
+	//protoMessages.UInt64Message codProvinciaAFIPPorDefecto = 32;
+	//protoMessages.StringMessage provinciaPorDefecto = 33;
+	//protoMessages.UInt64Message codRubroRRGGAfip = 34;
+	//protoMessages.StringMessage rubroRRGGAFIP = 35;
+	//protoMessages.UInt64Message codListaDePrecios = 36;
+	//protoMessages.StringMessage listaDePrecios = 37;
+	//protoMessages.UInt64Message codCondicionVenta = 38;
+	//protoMessages.StringMessage condicionVenta = 39;
+	//protoMessages.StringMessage ordenCheque = 40;
+	//protoMessages.DoubleMessage limiteCredito = 41;
+	protoMessages.UInt64Message codClasificacionPersonas = 42;
+	protoMessages.StringMessage clasificacionPersonas = 43;
+	protoMessages.StringMessage datos_correo = 44;
+	protoMessages.BoolMessage habilitado = 45;
+	//protoMessages.BoolMessage soloLectura = 46;
+	//protoMessages.UInt64Message orden = 47;
+	//protoMessages.StringMessage Roles = 48;
+	//protoMessages.StringMessage notas = 49;
+}
+
+message ListPersonasResponse {
+	protoMessages.ResponseResult result = 1;
+	ListPersonasMessage message = 2;
+}
+
+message ListPlanDeCuentasCuentasMessage {
 	protoMessages.UInt64Message codPlan = 1;
 	protoMessages.UInt64Message codCuenta = 2;
 	protoMessages.UInt64Message codigoCuenta = 3;
@@ -328,16 +446,31 @@ message ListPlanDeCuentasMessage {
 	//protoMessages.StringMessage notas = 11;
 }
 
-message ListPlanDeCuentasRequest {
+message ListPlanDeCuentasCuentasRequest {
 	protoMessages.UInt64Message codPlan = 1;
 	//protoMessages.UInt64Message codCuenta = 2;
 	//protoMessages.BoolMessage soloHabilitados = 3;
 	//protoMessages.UInt64Message filterID = 4;
 }
 
-message ListPlanDeCuentasResponse {
+message ListPlanDeCuentasCuentasResponse {
 	protoMessages.ResponseResult result = 1;
-	ListPlanDeCuentasMessage message = 2;
+	ListPlanDeCuentasCuentasMessage message = 2;
+}
+
+message ListPlanesDeCuentasMessage {
+	protoMessages.UInt64Message codigo = 1;
+	uint64 codPlan = 2;
+	protoMessages.StringMessage plan = 3;
+	protoMessages.UInt64Message codTipoPlan = 8;
+	protoMessages.BoolMessage habilitado = 16;
+	//protoMessages.StringMessage notas = 17;
+	protoMessages.StringMessage tipoPlan = 4748;
+}
+
+message ListPlanesDeCuentasResponse {
+	protoMessages.ResponseResult result = 1;
+	ListPlanesDeCuentasMessage message = 2;
 }
 
 message ListPresupuestosLuciusMessage {
