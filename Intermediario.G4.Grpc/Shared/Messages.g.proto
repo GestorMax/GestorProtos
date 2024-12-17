@@ -2,7 +2,7 @@
 
 import "ProtoMessages/Common.proto";
 
-package intermediario.g4.grpc.shared;
+package gestor.g4.grpc.shared;
 
 
 message GetEmpresaMessage {
