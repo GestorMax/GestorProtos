@@ -30,5 +30,5 @@ service IntermediarioG4Resource {
 	rpc ListReportesLucius(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListReportesLuciusResponse);
 	rpc ListSuperficiesPresupuestoLucius(gestor.g4.grpc.shared.ListSuperficiesPresupuestoLuciusRequest) returns (stream gestor.g4.grpc.shared.ListSuperficiesPresupuestoLuciusResponse);
 	rpc ListUsuarios(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListUsuariosResponse);
-	rpc PrepareReporteLucius(gestor.g4.grpc.shared.PrepareReporteLuciusRequest) returns (gestor.g4.grpc.shared.PrepareReporteLuciusResponse);
+	rpc PrepareReporteLucius(gestor.g4.grpc.shared.PrepareReporteLuciusRequest) returns (stream gestor.g4.grpc.shared.PrepareReporteLuciusResponse);
 }
