@@ -39,6 +39,40 @@ message GetEmpresaResponse {
 	GetEmpresaMessage message = 2;
 }
 
+message ListaDePreciosHereIsDataSerieSetMessage {
+	protoMessages.StringMessage updatedKeyField = 1;
+	protoMessages.UInt64Message updatedKeyValue = 2;
+}
+
+message ListaDePreciosHereIsDataSerieSetRequest {
+	protoMessages.UInt64Message codListaDePrecios = 5;
+	protoMessages.UInt64Message codConcepto = 6;
+	protoMessages.UInt64Message idSerieHereIsData = 7;
+	protoMessages.DecimalMessage coeficienteHereIsData = 8;
+}
+
+message ListaDePreciosHereIsDataSerieSetResponse {
+	protoMessages.ResponseResult result = 1;
+	ListaDePreciosHereIsDataSerieSetMessage message = 2;
+}
+
+message ListaDePreciosPrecioUpdateMessage {
+	protoMessages.StringMessage updatedKeyField = 1;
+	protoMessages.UInt64Message updatedKeyValue = 2;
+}
+
+message ListaDePreciosPrecioUpdateRequest {
+	protoMessages.UInt64Message codListaDePrecios = 1;
+	protoMessages.UInt64Message codConcepto = 2;
+	protoMessages.DateOnlyMessage vigenciaDesde = 3;
+	protoMessages.DecimalMessage precio = 4;
+}
+
+message ListaDePreciosPrecioUpdateResponse {
+	protoMessages.ResponseResult result = 1;
+	ListaDePreciosPrecioUpdateMessage message = 2;
+}
+
 message ListConceptosMessage {
 	protoMessages.UInt64Message filterID = 1;
 	protoMessages.UInt64Message codigo = 2;
@@ -98,6 +132,26 @@ message ListConceptosRequest {
 message ListConceptosResponse {
 	protoMessages.ResponseResult result = 1;
 	ListConceptosMessage message = 2;
+}
+
+message ListConceptosListaDePreciosMessage {
+	protoMessages.UInt64Message codConcepto = 1;
+	protoMessages.StringMessage concepto = 2;
+	protoMessages.UInt64Message codMoneda = 3;
+	protoMessages.StringMessage moneda = 4;
+	protoMessages.UInt64Message idSerieHereIsData = 5;
+	protoMessages.DecimalMessage coeficienteHereIsData = 6;
+}
+
+message ListConceptosListaDePreciosRequest {
+	uint64 codListaDePrecios = 1;
+	protoMessages.BoolMessage soloPreciosFijos = 2;
+	//protoMessages.UInt64Message filterID = 3;
+}
+
+message ListConceptosListaDePreciosResponse {
+	protoMessages.ResponseResult result = 1;
+	ListConceptosListaDePreciosMessage message = 2;
 }
 
 message ListControlesReporteLuciusMessage {
@@ -320,6 +374,45 @@ message ListEstructuraReporteLuciusRequest {
 message ListEstructuraReporteLuciusResponse {
 	protoMessages.ResponseResult result = 1;
 	ListEstructuraReporteLuciusMessage message = 2;
+}
+
+message ListListasDePreciosMessage {
+	uint64 codListaDePrecios = 1;
+	protoMessages.StringMessage listaDePrecios = 2;
+	protoMessages.BoolMessage listaCompuesta = 3;
+	//protoMessages.StringMessage notas = 4;
+}
+
+message ListListasDePreciosRequest {
+	//protoMessages.UInt64Message codListaDePrecios = 1;
+	//protoMessages.BoolMessage soloHabilitados = 2;
+	protoMessages.BoolMessage excluirListasCompuestas = 3;
+	//protoMessages.UInt64Message filterID = 4;
+}
+
+message ListListasDePreciosResponse {
+	protoMessages.ResponseResult result = 1;
+	ListListasDePreciosMessage message = 2;
+}
+
+message ListListasDePreciosPreciosVigentesMessage {
+	protoMessages.UInt64Message codConcepto = 1;
+	protoMessages.StringMessage concepto = 2;
+	protoMessages.StringMessage moneda = 3;
+	protoMessages.DecimalMessage precio = 4;
+	protoMessages.UInt64Message codMoneda = 5;
+}
+
+message ListListasDePreciosPreciosVigentesRequest {
+	uint64 codListaDePrecios = 1;
+	protoMessages.DateOnlyMessage fechaVigencia = 2;
+	protoMessages.BoolMessage soloAsociadosAHereIsData = 3;
+	//protoMessages.UInt64Message filterID = 4;
+}
+
+message ListListasDePreciosPreciosVigentesResponse {
+	protoMessages.ResponseResult result = 1;
+	ListListasDePreciosPreciosVigentesMessage message = 2;
 }
 
 message ListMayorReporteLuciusMessage {

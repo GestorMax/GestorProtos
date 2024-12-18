@@ -62,19 +62,6 @@ message UpdateRequest {
 	google.protobuf.Timestamp FechaActualizacion = 5;
 }
 
-enum UpdateState {
-// Se actualizo correctamente
-  Updated = 0;
-  // El SP no se ejecuto en su totalidad y/o hubo un error al ejecutarlo
-  NotUpdated = 1;
-  // Un error inesperado sucedio
-  UnexpectedError = 2;
-  // Intermediario dessincronizado
-  OutOfSync = 3;
-  // Intermediario sincronizado
-  Synchronized = 4;
-}
-
 enum ConnectUpdateType {
 	NoDataToSend = 0;
 	UpdateStructure = 1;
@@ -86,9 +73,4 @@ enum ConnectUpdateType {
 	SendRoutinesDump = 7;
 	DatabaseVersionUpdated = 8;
 	UpdatingConnect = 9;
-}
-
-message UpdateResponse {
-	UpdateState state = 1;
-	string message = 2;
 }
