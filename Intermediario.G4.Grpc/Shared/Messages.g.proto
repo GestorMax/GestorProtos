@@ -73,6 +73,77 @@ message ListaDePreciosPrecioUpdateResponse {
 	ListaDePreciosPrecioUpdateMessage message = 2;
 }
 
+message ListComprobantesMessage {
+	uint64 codComprobante = 1;
+	protoMessages.StringMessage comprobante = 2;
+	protoMessages.UInt64Message orden = 3;
+	protoMessages.StringMessage alias = 4;
+	protoMessages.UInt64Message codTipoComprobante = 5;
+	protoMessages.StringMessage tipoComprobante = 6;
+	protoMessages.StringMessage letraComprobante = 7;
+	protoMessages.StringMessage referencia = 8;
+	protoMessages.UInt64Message codTipoOperativoBasico = 9;
+	protoMessages.UInt64Message codTipoComprobanteAFIP = 10;
+	protoMessages.StringMessage tipoOperativo = 11;
+	protoMessages.UInt64Message codTipoConceptoAFIP = 12;
+	protoMessages.UInt64Message codGrupoConceptosFiltroPorDefecto = 13;
+	protoMessages.StringMessage tipoConceptoAFIP = 14;
+	protoMessages.BoolMessage invierteImputacion = 15;
+	protoMessages.UInt64Message codFormularioImpresion = 16;
+	protoMessages.StringMessage formularioImpresion = 17;
+	protoMessages.UInt64Message codListaDePrecios = 18;
+	protoMessages.StringMessage listaDePrecios = 19;
+	protoMessages.UInt64Message codTipoAjuste = 20;
+	protoMessages.StringMessage tipoAjuste = 21;
+	protoMessages.BoolMessage noImputaGestionPorDefecto = 22;
+	protoMessages.BoolMessage noImputaContabilidadPorDefecto = 23;
+	protoMessages.UInt64Message codCondicionVenta = 24;
+	protoMessages.StringMessage condicionVenta = 25;
+	protoMessages.UInt64Message codConceptoPorDefecto = 26;
+	protoMessages.StringMessage concepto = 27;
+	protoMessages.BoolMessage codConceptoObligatorio = 28;
+	protoMessages.UInt64Message codPersonaPorDefecto = 29;
+	protoMessages.StringMessage persona = 30;
+	protoMessages.BoolMessage codPersonaObligatoria = 31;
+	protoMessages.UInt64Message codPerfilPorDefecto = 32;
+	protoMessages.StringMessage perfilImputacion = 33;
+	protoMessages.BoolMessage codPerfilObligatorio = 34;
+	protoMessages.UInt64Message codPerfilOrigenPorDefecto = 35;
+	protoMessages.StringMessage perfilOrigen = 36;
+	protoMessages.BoolMessage codPerfilOrigenObligatorio = 37;
+	protoMessages.UInt64Message codMonedaPorDefecto = 38;
+	protoMessages.StringMessage moneda = 39;
+	protoMessages.UInt64Message codCondicionIVAAfipPorDefecto = 40;
+	protoMessages.StringMessage condicionIVAAFIP = 41;
+	protoMessages.UInt64Message codRubroRRGGAfipPorDefecto = 42;
+	protoMessages.StringMessage rubroRRGGAFIP = 43;
+	protoMessages.BoolMessage retieneIIBBPorDefecto = 44;
+	protoMessages.BoolMessage repetirPerfil = 45;
+	protoMessages.BoolMessage repetirPerfilOrig = 46;
+	protoMessages.BoolMessage sincronizarPerfilOrigDest = 47;
+	protoMessages.BoolMessage repetirCentroCostos = 48;
+	protoMessages.BoolMessage repetirCentroCostosOrig = 49;
+	protoMessages.BoolMessage repetirCodRubroRRGGAfip = 50;
+	protoMessages.BoolMessage repetirCodCategoriaIVAComprasAfip = 51;
+	protoMessages.BoolMessage repetirCodActividadIVAAFIP = 52;
+	protoMessages.BoolMessage soloLectura = 53;
+	protoMessages.BoolMessage habilitado = 54;
+	//protoMessages.StringMessage notas = 55;
+	protoMessages.BoolMessage presupuestoLuciusPorDefecto = 5852;
+}
+
+message ListComprobantesRequest {
+	protoMessages.UInt64Message codTipoOperativoBasico = 1;
+	//protoMessages.UInt64Message codComprobante = 2;
+	//protoMessages.BoolMessage soloHabilitados = 3;
+	//protoMessages.UInt64Message filterID = 4;
+}
+
+message ListComprobantesResponse {
+	protoMessages.ResponseResult result = 1;
+	ListComprobantesMessage message = 2;
+}
+
 message ListConceptosMessage {
 	protoMessages.UInt64Message filterID = 1;
 	protoMessages.UInt64Message codigo = 2;
