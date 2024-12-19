@@ -376,6 +376,24 @@ message ListEstructuraReporteLuciusResponse {
 	ListEstructuraReporteLuciusMessage message = 2;
 }
 
+message ListEtiquetasLuciusMessage {
+	uint64 codEtiquetaLucius = 1;
+	protoMessages.UInt64Message codTipoEtiquetaLucius = 2;
+	protoMessages.StringMessage tipoEtiquetaLucius = 3;
+	protoMessages.StringMessage etiquetaLucius = 4;
+	protoMessages.BoolMessage habilitado = 5;
+	//protoMessages.StringMessage notas = 6;
+	//protoMessages.DateOnlyMessage fechaAlta = 7;
+	//protoMessages.DateOnlyMessage fechaModificacion = 8;
+	//protoMessages.UInt64Message codUsuarioAlta = 9;
+	//protoMessages.UInt64Message codUsuarioModificacion = 10;
+}
+
+message ListEtiquetasLuciusResponse {
+	protoMessages.ResponseResult result = 1;
+	ListEtiquetasLuciusMessage message = 2;
+}
+
 message ListListasDePreciosMessage {
 	uint64 codListaDePrecios = 1;
 	protoMessages.StringMessage listaDePrecios = 2;
