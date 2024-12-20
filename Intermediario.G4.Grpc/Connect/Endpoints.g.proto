@@ -13,8 +13,8 @@ message EndpointRequest {
 
 	oneof type {
 		gestor.g4.grpc.shared.GetEmpresaRequest GetEmpresa = 4;
-		gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetRequest ListaDePreciosHereIsDataSerieSet = 21;
-		gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateRequest ListaDePreciosPrecioUpdate = 22;
+		gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetRequest ListaDePreciosHereIsDataSerieSet = 28;
+		gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateRequest ListaDePreciosPrecioUpdate = 29;
 		gestor.g4.grpc.shared.ListComprobantesRequest ListComprobantes = 27;
 		bool ListConceptos = 19;
 		gestor.g4.grpc.shared.ListConceptosListaDePreciosRequest ListConceptosListaDePrecios = 24;
@@ -46,8 +46,8 @@ message EndpointResponse {
 
 	oneof type {
 		gestor.g4.grpc.shared.GetEmpresaResponse GetEmpresa = 4;
-		gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetResponse ListaDePreciosHereIsDataSerieSet = 21;
-		gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateResponse ListaDePreciosPrecioUpdate = 22;
+		gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetResponse ListaDePreciosHereIsDataSerieSet = 28;
+		gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateResponse ListaDePreciosPrecioUpdate = 29;
 		gestor.g4.grpc.shared.ListComprobantesResponse ListComprobantes = 27;
 		gestor.g4.grpc.shared.ListConceptosResponse ListConceptos = 19;
 		gestor.g4.grpc.shared.ListConceptosListaDePreciosResponse ListConceptosListaDePrecios = 24;

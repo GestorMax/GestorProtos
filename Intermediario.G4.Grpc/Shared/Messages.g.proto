@@ -40,15 +40,14 @@ message GetEmpresaResponse {
 }
 
 message ListaDePreciosHereIsDataSerieSetMessage {
-	protoMessages.StringMessage updatedKeyField = 1;
-	protoMessages.UInt64Message updatedKeyValue = 2;
+	protoMessages.BoolMessage result = 1;
 }
 
 message ListaDePreciosHereIsDataSerieSetRequest {
-	protoMessages.UInt64Message codListaDePrecios = 5;
-	protoMessages.UInt64Message codConcepto = 6;
-	protoMessages.UInt64Message idSerieHereIsData = 7;
-	protoMessages.DecimalMessage coeficienteHereIsData = 8;
+	protoMessages.UInt64Message codListaDePrecios = 1;
+	protoMessages.UInt64Message codConcepto = 2;
+	protoMessages.UInt64Message idSerieHereIsData = 3;
+	protoMessages.DecimalMessage coeficienteHereIsData = 4;
 }
 
 message ListaDePreciosHereIsDataSerieSetResponse {
@@ -57,8 +56,7 @@ message ListaDePreciosHereIsDataSerieSetResponse {
 }
 
 message ListaDePreciosPrecioUpdateMessage {
-	protoMessages.StringMessage updatedKeyField = 1;
-	protoMessages.UInt64Message updatedKeyValue = 2;
+	protoMessages.BoolMessage result = 1;
 }
 
 message ListaDePreciosPrecioUpdateRequest {
