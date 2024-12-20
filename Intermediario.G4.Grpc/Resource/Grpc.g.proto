@@ -11,7 +11,7 @@ service IntermediarioG4Resource {
 	rpc ListaDePreciosHereIsDataSerieSet(gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetRequest) returns (gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetResponse);
 	rpc ListaDePreciosPrecioUpdate(gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateRequest) returns (gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateResponse);
 	rpc ListComprobantes(gestor.g4.grpc.shared.ListComprobantesRequest) returns (stream gestor.g4.grpc.shared.ListComprobantesResponse);
-	rpc ListConceptos(gestor.g4.grpc.shared.ListConceptosRequest) returns (stream gestor.g4.grpc.shared.ListConceptosResponse);
+	rpc ListConceptos(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListConceptosResponse);
 	rpc ListConceptosListaDePrecios(gestor.g4.grpc.shared.ListConceptosListaDePreciosRequest) returns (stream gestor.g4.grpc.shared.ListConceptosListaDePreciosResponse);
 	rpc ListControlesReporteLucius(gestor.g4.grpc.shared.ListControlesReporteLuciusRequest) returns (stream gestor.g4.grpc.shared.ListControlesReporteLuciusResponse);
 	rpc ListCuentasPlanCentrosLucius(gestor.g4.grpc.shared.ListCuentasPlanCentrosLuciusRequest) returns (stream gestor.g4.grpc.shared.ListCuentasPlanCentrosLuciusResponse);

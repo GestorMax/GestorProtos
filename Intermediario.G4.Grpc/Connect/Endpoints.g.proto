@@ -16,7 +16,7 @@ message EndpointRequest {
 		gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetRequest ListaDePreciosHereIsDataSerieSet = 21;
 		gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateRequest ListaDePreciosPrecioUpdate = 22;
 		gestor.g4.grpc.shared.ListComprobantesRequest ListComprobantes = 27;
-		gestor.g4.grpc.shared.ListConceptosRequest ListConceptos = 19;
+		bool ListConceptos = 19;
 		gestor.g4.grpc.shared.ListConceptosListaDePreciosRequest ListConceptosListaDePrecios = 24;
 		gestor.g4.grpc.shared.ListControlesReporteLuciusRequest ListControlesReporteLucius = 12;
 		gestor.g4.grpc.shared.ListCuentasPlanCentrosLuciusRequest ListCuentasPlanCentrosLucius = 14;
