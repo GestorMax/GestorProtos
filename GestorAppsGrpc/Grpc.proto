@@ -56,7 +56,7 @@ service GestorApps {
 	rpc ListOnlyProductMapping (priceImporterGrpcResource.ProductMappingRequest) returns (priceImporterGrpcResource.OnlyProductMappingMessageList);
 	rpc ListPricesList (google.protobuf.Empty) returns (priceImporterGrpcResource.PriceListListResponse);	
 	rpc UpdateProducts (priceImporterGrpcResource.OnlyProductMappingMessageList) returns (protoMessages.ResponseResult);
-	rpc RemoveProductMapping (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc RemoveProductMapping (priceImporterGrpcResource.RemoveProductMappingRequest) returns (protoMessages.ResponseResult);
 	rpc ListSeries (google.protobuf.Empty) returns (hereIsDataShared.SerieMessageList);
 	rpc SaveProductMapping (priceImporterGrpcResource.ProductMappingMessage) returns (priceImporterGrpcResource.ProductMappingResponse);
 	rpc GetPricesList (protoMessages.UInt64Message) returns (priceImporterGrpcResource.PriceListResponse);

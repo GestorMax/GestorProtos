@@ -10,12 +10,12 @@ message PriceImporterConfiguration {
 }
 
 message ProductMessage {
-	int32 CodList = 2;
-	int32 CodProduct = 3;
-	protoMessages.StringMessage ProductName = 4;
-	int32 SerieId = 5;
-	protoMessages.StringMessage100 SerieAlias = 6;
-	protoMessages.StringMessage Formula = 10;
+	uint64 CodListaDePrecios = 2;
+	uint64 CodConcepto = 3;
+	protoMessages.StringMessage Concepto = 4;
+	protoMessages.UInt64Message IdSerieHereIsData = 5;
+	protoMessages.StringMessage100 AliasHereIsData = 6;
+	protoMessages.DecimalMessage CoeficienteHereIsData = 10;
 	protoMessages.Int32Message ProductMappingId = 12;
 }
 
@@ -60,6 +60,12 @@ message ProductMappingMessage {
 	int32 CodProducto = 4;
 	int32 DataId = 5;
 	protoMessages.StringMessage Formula = 6;
+}
+
+message RemoveProductMappingRequest {
+	int32 DatabaseId = 2;
+	uint64 CodListaDePrecios = 3;
+	uint64 CodConcepto = 4;
 }
 
 message ProductMappingResponse {
@@ -117,8 +123,8 @@ message ProductLogsMessageList {
 }
 
 message PriceListMessage {
-	uint64 codListaDePrecios = 1;
-	string listaDePrecios = 2;
+	uint64 CodListaDePrecios = 1;
+	string ListaDePrecios = 2;
 }
 
 message PriceListListResponse {

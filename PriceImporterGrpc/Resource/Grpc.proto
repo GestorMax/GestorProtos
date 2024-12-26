@@ -21,7 +21,7 @@ service PriceImporterResource {
 	rpc ListOnlyProductsMapping (ProductMappingRequest) returns (OnlyProductMappingMessageList);	
 
 	rpc GetProductMapping (ProductMappingRequest) returns (ProductMappingResponse);
-	rpc RemoveProductMapping (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc RemoveProductMapping (RemoveProductMappingRequest) returns (protoMessages.ResponseResult);
 
 	rpc SaveProductMapping (ProductMappingMessage) returns (ProductMappingResponse);
 	rpc UpdateProducts (OnlyProductMappingMessageList) returns (protoMessages.ResponseResult);	
