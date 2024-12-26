@@ -117,8 +117,8 @@ message ProductLogsMessageList {
 }
 
 message PriceListMessage {
-	int32 id = 1;
-	string name = 2;
+	uint64 codListaDePrecios = 1;
+	string listaDePrecios = 2;
 }
 
 message PriceListListResponse {

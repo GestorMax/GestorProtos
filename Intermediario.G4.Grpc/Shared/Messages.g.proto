@@ -467,7 +467,7 @@ message ListListasDePreciosMessage {
 }
 
 message ListListasDePreciosRequest {
-	//protoMessages.UInt64Message codListaDePrecios = 1;
+	protoMessages.UInt64Message codListaDePrecios = 1;
 	//protoMessages.BoolMessage soloHabilitados = 2;
 	protoMessages.BoolMessage excluirListasCompuestas = 3;
 	//protoMessages.UInt64Message filterID = 4;

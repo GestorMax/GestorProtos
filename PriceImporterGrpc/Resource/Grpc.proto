@@ -28,6 +28,6 @@ service PriceImporterResource {
 
 	rpc ListSeries(google.protobuf.Empty) returns (hereIsDataShared.SerieMessageList);
 	rpc ListPricesList(google.protobuf.Empty) returns (PriceListListResponse);
-	rpc GetListPrice(protoMessages.Int32Message) returns (PriceListResponse);
+	rpc GetPricesList(protoMessages.UInt64Message) returns (PriceListResponse);
 	
 }
