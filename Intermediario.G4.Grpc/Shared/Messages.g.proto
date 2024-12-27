@@ -484,13 +484,16 @@ message ListListasDePreciosPreciosVigentesMessage {
 	protoMessages.StringMessage moneda = 3;
 	protoMessages.DecimalMessage precio = 4;
 	protoMessages.UInt64Message codMoneda = 5;
+	protoMessages.UInt64Message idSerieHereIsData = 6;
+	protoMessages.DecimalMessage coeficienteHereIsData = 7;
+	protoMessages.DateOnlyMessage vigenciaDesde = 8;
 }
 
 message ListListasDePreciosPreciosVigentesRequest {
-	uint64 codListaDePrecios = 1;
-	protoMessages.DateOnlyMessage fechaVigencia = 2;
-	protoMessages.BoolMessage soloAsociadosAHereIsData = 3;
-	//protoMessages.UInt64Message filterID = 4;
+	protoMessages.UInt64Message codListaDePrecios = 5;
+	protoMessages.DateOnlyMessage fechaVigencia = 6;
+	protoMessages.BoolMessage soloAsociadosAHereIsData = 7;
+	//protoMessages.UInt64Message filterID = 8;
 }
 
 message ListListasDePreciosPreciosVigentesResponse {
