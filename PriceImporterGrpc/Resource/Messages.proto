@@ -16,25 +16,23 @@ message ProductMessage {
 	protoMessages.UInt64Message IdSerieHereIsData = 5;
 	protoMessages.StringMessage100 AliasHereIsData = 6;
 	protoMessages.DecimalMessage CoeficienteHereIsData = 10;
-	protoMessages.Int32Message ProductMappingId = 12;
 }
 
 message OnlyProductMappingMessage {
-	int32 CodList = 2;
-	int32 CodProduct = 3;
-	int32 ProductMappingId = 4;
-	int32 SerieId = 5;
-	protoMessages.StringMessage ProductName = 6;
-	protoMessages.StringMessage100 SerieAlias = 8;
+	uint64 CodListaDePrecios = 2;
+	uint64 CodConcepto = 3;
+	int32 SerieHereIsDataId = 5;
+	protoMessages.StringMessage Concepto = 6;
+	protoMessages.StringMessage100 SerieHereIsDataAlias = 8;
 	protoMessages.DateOnlyMessage VigDesde = 9;
-	protoMessages.DecimalMessage ProductValue = 11;	
-	protoMessages.DecimalMessage ScrapDataValue = 12;	
+	protoMessages.DecimalMessage Precio = 11;	
+	protoMessages.DecimalMessage PrecioSerie = 12;	
 	protoMessages.StringMessage UnitProduct = 13;
 	protoMessages.StringMessage UnitScrapData = 14;
-	protoMessages.DecimalMessage ScrapDataFormulaValue = 15;
-	protoMessages.StringMessage Formula = 16;
+	protoMessages.DecimalMessage PrecioCalculado = 15;
+	protoMessages.DecimalMessage CoeficienteHereIsData = 16;
 	bool ActiveUpdate = 17;
-	int32 CodMonedaProduct = 20;
+	uint64 CodMoneda = 20;
 	google.protobuf.Timestamp ScrapDataDate = 21;
 
 }
@@ -51,12 +49,11 @@ message OnlyProductMappingMessageList {
 }
 
 message ProductMappingMessage {
-	int32 Id = 1;
 	int32 DatabaseId = 2;
-	int32 CodLista = 3;
-	int32 CodProducto = 4;
-	int32 DataId = 5;
-	protoMessages.StringMessage Formula = 6;
+	uint64 CodListaDePrecios = 3;
+	uint64 CodConcepto = 4;
+	uint64 SerieHereIsDataId = 5;
+	protoMessages.DecimalMessage CoeficienteHereIsData = 6;
 }
 
 message RemoveProductMappingRequest {
@@ -79,44 +76,6 @@ message ProductMappingRequest {
 	int32 CodLista = 2;
 	int32 CodProducto = 3;
 	protoMessages.DateOnlyMessage DateTo = 4;
-}
-
-message OperationLogMessage {
-	int32 Id = 1;
-	int32 DatabaseId = 2;
-	int32 CodLista = 3;
-	google.protobuf.Timestamp Date = 4;
-	repeated ProductLogMessage ProductLogs = 5;
-}
-
-message OperationLogResponse {
-	protoMessages.ResponseResult result = 1;
-	OperationLogMessage message = 2;
-}
-
-message OperationsLogMessageList {
-	protoMessages.ResponseResult result = 2;
-	repeated OperationLogMessage values = 1;
-}
-
-
-message ProductLogMessage {
-	int32 Id = 1;
-	int32 OperationListLogId = 2;
-	int32 CodProducto = 3;
-	protoMessages.DoubleMessage Value = 4;
-	protoMessages.DoubleMessage BonifValue = 5;
-	protoMessages.ResponseResult result = 6;
-}
-
-message ProductLogResponse {
-	protoMessages.ResponseResult result = 1;
-	ProductLogMessage message = 2;
-}
-
-message ProductLogsMessageList {
-	protoMessages.ResponseResult result = 2;
-	repeated ProductLogMessage values = 1;
 }
 
 message PriceListMessage {

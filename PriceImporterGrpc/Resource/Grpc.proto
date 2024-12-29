@@ -8,14 +8,6 @@ import "HereIsDataShared/Messages.proto";
 package priceImporterGrpcResource;
 
 service PriceImporterResource {
-	//OperationListLog
-	rpc ListOperationLog (protoMessages.Int32Message) returns (OperationsLogMessageList);	
-	rpc GetOperationLog (protoMessages.Int32Message) returns (OperationLogResponse);
-
-	//ProductLog
-	//rpc ListProductLog (protoMessages.Int32Message) returns (ProductLogsMessageList);	
-	//rpc GetProductLog (protoMessages.Int32Message) returns (ProductLogResponse);
-
 	//ProductMapping
 	rpc ListProducts (ProductMappingRequest) returns (ProductMessageList);	
 	rpc ListOnlyProductsMapping (ProductMappingRequest) returns (OnlyProductMappingMessageList);	
