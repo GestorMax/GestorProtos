@@ -44,10 +44,11 @@ message ListaDePreciosHereIsDataSerieSetMessage {
 }
 
 message ListaDePreciosHereIsDataSerieSetRequest {
-	protoMessages.UInt64Message codListaDePrecios = 1;
-	protoMessages.UInt64Message codConcepto = 2;
-	protoMessages.UInt64Message idSerieHereIsData = 3;
-	protoMessages.DecimalMessage coeficienteHereIsData = 4;
+	uint64 codListaDePrecios = 5;
+	uint64 codConcepto = 6;
+	protoMessages.UInt64Message idSerieHereIsData = 7;
+	protoMessages.DecimalMessage coeficienteHereIsData = 8;
+	uint64 codUsuario = 9;
 }
 
 message ListaDePreciosHereIsDataSerieSetResponse {
@@ -60,10 +61,11 @@ message ListaDePreciosPrecioUpdateMessage {
 }
 
 message ListaDePreciosPrecioUpdateRequest {
-	protoMessages.UInt64Message codListaDePrecios = 1;
-	protoMessages.UInt64Message codConcepto = 2;
-	protoMessages.DateOnlyMessage vigenciaDesde = 3;
-	protoMessages.DecimalMessage precio = 4;
+	uint64 codListaDePrecios = 5;
+	uint64 codConcepto = 6;
+	protoMessages.DateOnlyMessage vigenciaDesde = 7;
+	protoMessages.DecimalMessage precio = 8;
+	uint64 codUsuario = 9;
 }
 
 message ListaDePreciosPrecioUpdateResponse {
