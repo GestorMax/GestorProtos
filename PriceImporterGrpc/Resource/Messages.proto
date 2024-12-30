@@ -18,7 +18,7 @@ message ProductMessage {
 	protoMessages.DecimalMessage CoeficienteHereIsData = 10;
 }
 
-message OnlyProductMappingMessage {
+message CurrentPricesMessage {
 	uint64 CodListaDePrecios = 2;
 	uint64 CodConcepto = 3;
 	int32 SerieHereIsDataId = 5;
@@ -42,8 +42,8 @@ message ProductMessageList {
 	repeated ProductMessage values = 1;
 }
 
-message OnlyProductMappingMessageList {
-	repeated OnlyProductMappingMessage values = 1;
+message CurrentPricesMessageList {
+	repeated CurrentPricesMessage values = 1;
 	protoMessages.DateOnlyMessage DateUpdate = 2;
 	protoMessages.ResponseResult result = 3;
 }
@@ -54,12 +54,6 @@ message ProductMappingMessage {
 	uint64 CodConcepto = 4;
 	uint64 SerieHereIsDataId = 5;
 	protoMessages.DecimalMessage CoeficienteHereIsData = 6;
-}
-
-message RemoveProductMappingRequest {
-	int32 DatabaseId = 2;
-	uint64 CodListaDePrecios = 3;
-	uint64 CodConcepto = 4;
 }
 
 message ProductMappingResponse {

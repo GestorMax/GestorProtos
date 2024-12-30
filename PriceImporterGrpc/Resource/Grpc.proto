@@ -10,13 +10,13 @@ package priceImporterGrpcResource;
 service PriceImporterResource {
 	//ProductMapping
 	rpc ListProducts (ProductMappingRequest) returns (ProductMessageList);	
-	rpc ListOnlyProductsMapping (ProductMappingRequest) returns (OnlyProductMappingMessageList);	
+	rpc ListCurrentPrices (ProductMappingRequest) returns (CurrentPricesMessageList);	
 
 	rpc GetProductMapping (ProductMappingRequest) returns (ProductMappingResponse);
-	rpc RemoveProductMapping (RemoveProductMappingRequest) returns (protoMessages.ResponseResult);
+	rpc UpdateProductSerieMapping(ProductMappingMessage) returns (ProductMappingResponse);
+	rpc RemoveProductSerieMapping (ProductMappingMessage) returns (protoMessages.ResponseResult);
 
-	rpc SaveProductMapping (ProductMappingMessage) returns (ProductMappingResponse);
-	rpc UpdateProducts (OnlyProductMappingMessageList) returns (protoMessages.ResponseResult);	
+	rpc UpdateProductPrices(CurrentPricesMessageList) returns (protoMessages.ResponseResult);	
 
 	rpc ListSeries(google.protobuf.Empty) returns (hereIsDataShared.SerieMessageList);
 	rpc ListPricesList(google.protobuf.Empty) returns (PriceListListResponse);
