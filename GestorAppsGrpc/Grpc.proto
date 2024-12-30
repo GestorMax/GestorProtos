@@ -52,12 +52,12 @@ service GestorApps {
 	rpc GetDashboardCompany(protoMessages.Int32Message) returns (dashboardGrpcShared.DashboardCompanyMessage);
 	
 	//PriceImporter
-	rpc ListProducts (priceImporterGrpcResource.ProductMappingRequest) returns (priceImporterGrpcResource.ProductMessageList);	
-	rpc ListCurrentPrices (priceImporterGrpcResource.ProductMappingRequest) returns (priceImporterGrpcResource.CurrentPricesMessageList);
+	rpc ListProducts (priceImporterGrpcResource.ListProductsRequest) returns (priceImporterGrpcResource.ProductMessageList);	
+	rpc ListCurrentPrices (priceImporterGrpcResource.CurrentPricesRequest) returns (priceImporterGrpcResource.CurrentPricesMessageList);
 	rpc ListPricesList (google.protobuf.Empty) returns (priceImporterGrpcResource.PriceListListResponse);	
 	rpc UpdateProductPrices(priceImporterGrpcResource.CurrentPricesMessageList) returns (protoMessages.ResponseResult);
 	rpc ListSeries (google.protobuf.Empty) returns (hereIsDataShared.SerieMessageList);
-	rpc UpdateProductSerieMapping (priceImporterGrpcResource.ProductMappingMessage) returns (priceImporterGrpcResource.ProductMappingResponse);
+	rpc UpdateProductSerieMapping (priceImporterGrpcResource.ProductMappingMessage) returns (protoMessages.ResponseResult);
 	rpc RemoveProductSerieMapping (priceImporterGrpcResource.ProductMappingMessage) returns (protoMessages.ResponseResult);
 	rpc GetPricesList (protoMessages.UInt64Message) returns (priceImporterGrpcResource.PriceListResponse);
 

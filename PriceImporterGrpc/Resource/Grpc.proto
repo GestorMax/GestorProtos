@@ -8,18 +8,17 @@ import "HereIsDataShared/Messages.proto";
 package priceImporterGrpcResource;
 
 service PriceImporterResource {
-	//ProductMapping
-	rpc ListProducts (ProductMappingRequest) returns (ProductMessageList);	
-	rpc ListCurrentPrices (ProductMappingRequest) returns (CurrentPricesMessageList);	
+	rpc GetPricesList(protoMessages.UInt64Message) returns (PriceListResponse);
+	rpc ListPricesList(google.protobuf.Empty) returns (PriceListListResponse);
 
-	rpc GetProductMapping (ProductMappingRequest) returns (ProductMappingResponse);
-	rpc UpdateProductSerieMapping(ProductMappingMessage) returns (ProductMappingResponse);
+	rpc ListProducts (ListProductsRequest) returns (ProductMessageList);	
+
+	rpc UpdateProductSerieMapping(ProductMappingMessage) returns (protoMessages.ResponseResult);
 	rpc RemoveProductSerieMapping (ProductMappingMessage) returns (protoMessages.ResponseResult);
 
+	rpc ListCurrentPrices (CurrentPricesRequest) returns (CurrentPricesMessageList);	
 	rpc UpdateProductPrices(CurrentPricesMessageList) returns (protoMessages.ResponseResult);	
 
 	rpc ListSeries(google.protobuf.Empty) returns (hereIsDataShared.SerieMessageList);
-	rpc ListPricesList(google.protobuf.Empty) returns (PriceListListResponse);
-	rpc GetPricesList(protoMessages.UInt64Message) returns (PriceListResponse);
 	
 }
