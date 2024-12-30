@@ -1,8 +1,14 @@
 ﻿syntax = "proto3";
 
 import "google/protobuf/Timestamp.proto";
+import "GestorCoreGrpc/Shared/Messages.proto";
 
 package gestorCoreGrpcResource;
+
+
+message ListDatabasesRequest {
+	gestorCoreGrpcShared.GestorMaxVersionTypes version = 1;
+}
 
 message DatabaseMessageList {
 	repeated DatabaseMessage values = 1;

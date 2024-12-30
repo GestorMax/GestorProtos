@@ -6,5 +6,5 @@ import "GestorCoreGrpc/Resource/Messages.proto";
 package gestorCoreGrpcResource;
 
 service GestorCoreResource {
-	rpc ListDatabases(google.protobuf.Empty) returns (DatabaseMessageList);
+	rpc ListDatabases(ListDatabasesRequest) returns (DatabaseMessageList);
 }
