@@ -44,11 +44,11 @@ message ListaDePreciosHereIsDataSerieSetMessage {
 }
 
 message ListaDePreciosHereIsDataSerieSetRequest {
-	uint64 codListaDePrecios = 5;
-	uint64 codConcepto = 6;
-	protoMessages.UInt64Message idSerieHereIsData = 7;
-	protoMessages.DecimalMessage coeficienteHereIsData = 8;
-	uint64 codUsuario = 9;
+	uint64 codListaDePrecios = 10;
+	uint64 codConcepto = 11;
+	protoMessages.Int32Message idSerieHereIsData = 12;
+	protoMessages.DecimalMessage coeficienteHereIsData = 13;
+	protoMessages.UInt64Message codUsuario = 14;
 }
 
 message ListaDePreciosHereIsDataSerieSetResponse {
@@ -206,14 +206,14 @@ message ListConceptosListaDePreciosMessage {
 	protoMessages.StringMessage concepto = 2;
 	protoMessages.UInt64Message codMoneda = 3;
 	protoMessages.StringMessage moneda = 4;
-	protoMessages.UInt64Message idSerieHereIsData = 5;
+	protoMessages.Int32Message idSerieHereIsData = 5;
 	protoMessages.DecimalMessage coeficienteHereIsData = 6;
 }
 
 message ListConceptosListaDePreciosRequest {
-	uint64 codListaDePrecios = 1;
-	protoMessages.BoolMessage soloPreciosFijos = 2;
-	//protoMessages.UInt64Message filterID = 3;
+	uint64 codListaDePrecios = 7;
+	protoMessages.BoolMessage soloPreciosFijos = 8;
+	//protoMessages.UInt64Message filterID = 9;
 }
 
 message ListConceptosListaDePreciosResponse {
@@ -486,16 +486,18 @@ message ListListasDePreciosPreciosVigentesMessage {
 	protoMessages.StringMessage moneda = 3;
 	protoMessages.DecimalMessage precio = 4;
 	protoMessages.UInt64Message codMoneda = 5;
-	protoMessages.UInt64Message idSerieHereIsData = 6;
+	protoMessages.Int32Message idSerieHereIsData = 6;
 	protoMessages.DecimalMessage coeficienteHereIsData = 7;
 	protoMessages.DateOnlyMessage vigenciaDesde = 8;
+	protoMessages.UInt64Message codUnidadPrecio = 82;
+	protoMessages.StringMessage unidad = 83;
 }
 
 message ListListasDePreciosPreciosVigentesRequest {
-	protoMessages.UInt64Message codListaDePrecios = 5;
-	protoMessages.DateOnlyMessage fechaVigencia = 6;
-	protoMessages.BoolMessage soloAsociadosAHereIsData = 7;
-	//protoMessages.UInt64Message filterID = 8;
+	uint64 codListaDePrecios = 17;
+	protoMessages.DateOnlyMessage fechaVigencia = 18;
+	protoMessages.BoolMessage soloAsociadosAHereIsData = 19;
+	//protoMessages.UInt64Message filterID = 20;
 }
 
 message ListListasDePreciosPreciosVigentesResponse {

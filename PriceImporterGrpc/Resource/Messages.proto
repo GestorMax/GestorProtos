@@ -13,7 +13,7 @@ message ProductMessage {
 	uint64 CodListaDePrecios = 2;
 	uint64 CodConcepto = 3;
 	protoMessages.StringMessage Concepto = 4;
-	protoMessages.UInt64Message IdSerieHereIsData = 5;
+	protoMessages.Int32Message SerieHereIsDataId = 5;
 	protoMessages.StringMessage100 AliasHereIsData = 6;
 	protoMessages.DecimalMessage CoeficienteHereIsData = 10;
 }
@@ -27,8 +27,8 @@ message CurrentPricesMessage {
 	protoMessages.DateOnlyMessage VigDesde = 9;
 	protoMessages.DecimalMessage Precio = 11;	
 	protoMessages.DecimalMessage PrecioSerie = 12;	
-	protoMessages.StringMessage UnitProduct = 13;
-	protoMessages.StringMessage UnitScrapData = 14;
+	protoMessages.StringMessage UnidadesGestor = 13;
+	protoMessages.StringMessage UnidadesHereIsData = 14;
 	protoMessages.DecimalMessage PrecioCalculado = 15;
 	protoMessages.DecimalMessage CoeficienteHereIsData = 16;
 	bool ActiveUpdate = 17;
@@ -61,7 +61,7 @@ message ProductMappingMessage {
 	int32 DatabaseId = 2;
 	uint64 CodListaDePrecios = 3;
 	uint64 CodConcepto = 4;
-	uint64 SerieHereIsDataId = 5;
+	int32 SerieHereIsDataId = 5;
 	protoMessages.DecimalMessage CoeficienteHereIsData = 6;
 }
 
