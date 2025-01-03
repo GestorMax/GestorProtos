@@ -11,6 +11,8 @@ import "AnalyticsGrpc/Resource/Messages.proto";
 import "GestorAppsGrpc/Messages.proto";
 import "HereIsDataShared/Messages.proto";
 import "InvoiceReaderGrpc/Resource/Messages.proto";
+import "Intermediario.G4.Grpc/Shared/Messages.proto";
+
 
 package gestorAppsGrpc;
 
@@ -18,7 +20,7 @@ service GestorApps {
 	rpc UserCallback(google.protobuf.Empty) returns (stream UserCallbackMessage);
 	
 	//resources
-	rpc ListDatabases(google.protobuf.Empty) returns (intermediarioGrpcResource.DatabaseMessageList);
+	rpc ListDatabases(google.protobuf.Empty) returns (gestor.g4.grpc.shared.DatabaseMessageList);
 	//rpc ListEmpresas(google.protobuf.Empty) returns (intermediarioGrpcResource.EmpresaResponse);
 	//rpc ListPersonas(google.protobuf.Empty) returns (intermediarioGrpcResource.PersonaResponse);
 
