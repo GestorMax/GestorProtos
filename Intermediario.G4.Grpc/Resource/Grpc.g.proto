@@ -1,4 +1,7 @@
-﻿syntax = "proto3";
+﻿// ATENCIÓN: archivo autogenerado por el Generador de Código (Delphi).
+// No editar porque puede ser pisado la próxima vez que se corra.
+
+syntax = "proto3";
 
 import "Intermediario.G4.Grpc/Shared/Messages.g.proto";
 import "Intermediario.G4.Grpc/Shared/Messages.proto";
@@ -34,4 +37,5 @@ service IntermediarioG4Resource {
 	rpc ListSuperficiesPresupuestoLucius(gestor.g4.grpc.shared.ListSuperficiesPresupuestoLuciusRequest) returns (stream gestor.g4.grpc.shared.ListSuperficiesPresupuestoLuciusResponse);
 	rpc ListUsuarios(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListUsuariosResponse);
 	rpc PrepareReporteLucius(gestor.g4.grpc.shared.PrepareReporteLuciusRequest) returns (stream gestor.g4.grpc.shared.PrepareReporteLuciusResponse);
+
 }

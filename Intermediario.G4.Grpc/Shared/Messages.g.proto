@@ -1,9 +1,11 @@
-﻿syntax = "proto3";
+﻿// ATENCIÓN: archivo autogenerado por el Generador de Código (Delphi).
+// No editar porque puede ser pisado la próxima vez que se corra.
+
+syntax = "proto3";
 
 import "ProtoMessages/Common.proto";
 
 package gestor.g4.grpc.shared;
-
 
 message GetEmpresaMessage {
 	uint64 codEmpresa = 1;
@@ -850,4 +852,5 @@ message PrepareReporteLuciusResponse {
 	protoMessages.ResponseResult result = 1;
 	PrepareReporteLuciusMessage message = 2;
 }
+
 
