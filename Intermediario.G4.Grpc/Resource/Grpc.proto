@@ -1,0 +1,9 @@
+﻿syntax = "proto3";
+
+import "Intermediario.G4.Grpc/Shared/Messages.g.proto";
+import "google/protobuf/Empty.proto";
+
+package intermediario.g4.grpc.resource;
+
+service IntermediarioG4Resource {
+}

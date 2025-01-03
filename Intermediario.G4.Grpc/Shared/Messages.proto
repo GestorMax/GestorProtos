@@ -1,4 +1,7 @@
 ﻿syntax = "proto3";
+import "google/protobuf/Timestamp.proto";
+import "IntermediarioCommon/Common.proto";
+import "ProtoMessages/Common.proto";
 
 
 package gestor.g4.grpc.shared;
@@ -7,3 +10,24 @@ package gestor.g4.grpc.shared;
 message IntermediarioG4Configuration {
 	string uri = 1;
 }
+
+message DatabaseMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated DatabaseMessage values = 2;
+}
+
+message DatabaseMessage {
+	int32 id = 1;
+	string name = 2;
+	string serverName = 3;
+	string serverInstance = 4;
+	string serverDBName = 5;
+	google.protobuf.Timestamp lastBackup = 6;
+	repeated intermediario.grpc.common.CompanyMessage companies = 7;
+
+	string customerCompanyName = 8;
+
+	bool gestorConnectActive = 9;
+	bool intermediarioInitialized = 10;
+}
+
