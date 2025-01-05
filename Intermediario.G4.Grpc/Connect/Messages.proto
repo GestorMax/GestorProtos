@@ -73,4 +73,5 @@ enum ConnectUpdateType {
 	SendRoutinesDump = 7;
 	DatabaseVersionUpdated = 8;
 	UpdatingConnect = 9;
+	CloseConnect = 10;
 }
