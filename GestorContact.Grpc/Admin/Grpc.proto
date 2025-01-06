@@ -19,6 +19,7 @@ service GestorContactAdmin {
 	rpc CreateGroup (GroupMessage) returns (GroupResponse);
 	rpc EditGroup (GroupMessage) returns (GroupResponse);
 	rpc RemoveGroup (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	
+	rpc ListContactsByGroups(GroupsRequest) returns(ContactFullMessageList);
 
-	rpc SendMail (ContactSendMailMessage) returns (protoMessages.ResponseResult);
 }

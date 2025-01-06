@@ -8,6 +8,7 @@ package emailGrpcAdmin;
 
 service EmailAdmin {
 	rpc Send (EmailRequest) returns (EmailResponse);
+	rpc SendMailByGroupContact(SendMailGroupContactRequest) returns (EmailResponse);
 
 	//EmailSender
 	rpc ListEmailSender(google.protobuf.Empty) returns (EmailSenderMessageList);
@@ -33,4 +34,5 @@ service EmailAdmin {
 	//EmailLogs
 	rpc ListEmailLog(protoMessages.ListRequest) returns (EmailLogMessageList);
 	rpc DeleteEmailLog(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
 }

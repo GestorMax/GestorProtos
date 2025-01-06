@@ -28,6 +28,11 @@ message ContactMessageList {
 	protoMessages.PageInfo pageInfo = 3;
 }
 
+message ContactFullMessageList {
+	repeated ContactMessage values = 1;
+	protoMessages.ResponseResult result = 2;	
+}
+
 message ContactRequest {
 	string name = 1;
 	protoMessages.PageInfo pageInfo = 2;	
@@ -58,6 +63,10 @@ message GroupMessageList {
 	protoMessages.PageInfo pageInfo = 3;
 }
 
+message GroupsRequest {
+	repeated int32 values = 1;
+}
+
 message ContactGroupMessage {
 	int32 id = 1;
 	int32 contactId = 2;
@@ -72,11 +81,4 @@ message ContactExistsRequest {
 message ContactExistsResponse {
 	protoMessages.BoolMessage exists = 1;
 	ContactMessage contact = 2;
-}
-
-message ContactSendMailMessage {
-	int32 senderId = 1;
-	GroupMessageList groups = 2;
-	protoMessages.StringMessage subject = 3;
-	protoMessages.StringMessage content = 4;
 }

@@ -27,6 +27,7 @@ message EmailRequest {
 	int32 template = 4;
 	protoMessages.StructMessage templateData = 5;
 	bool test = 6;
+
 }
 
 message EmailResponse {
@@ -136,4 +137,27 @@ message EmailLogMessageList {
 	protoMessages.ResponseResult result = 2;
 	protoMessages.PageInfo pageInfo = 3;
 	repeated EmailLogMessage values = 1;
+}
+
+message SendMailGroupContactRequest {
+	int32 senderId = 1;
+	repeated int32 groupsContacts = 2;
+	protoMessages.StringMessage subject = 3;
+	protoMessages.StringMessage content = 4;
+	int32 templateId = 5;
+	repeated TemplateDataValuesMessage templateDataValues = 6;
+}
+
+message TemplateDataValuesMessage {
+	string key = 1;
+	string value = 2;
+}
+
+message ContactsMessageList {
+	string name = 1;
+	string email =2;
+}
+
+message GestorEmailSetting {
+	int32 smtpServer = 4;
 }
