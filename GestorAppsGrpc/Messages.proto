@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "IntermediarioGrpc/Resource/Messages.proto";
+import "Intermediario.G4.Grpc/Shared/Messages.proto";
 import "ServicePermissions/Messages.proto";
 
 package gestorAppsGrpc;
@@ -12,6 +12,6 @@ message GestorAppsConfiguration {
 message UserCallbackMessage { 
 	oneof type {
 		servicePermissions.IdentityPermissionMessage Permissions = 1;
-		intermediarioGrpcResource.IntermediarioConnectStateChangedMessage IntermediarioConnectStateChanged = 2;
+		gestor.g4.grpc.shared.IntermediarioConnectStateChangedMessage IntermediarioConnectStateChanged = 2;
 	}
 }

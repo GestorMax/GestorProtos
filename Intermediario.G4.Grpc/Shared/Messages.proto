@@ -31,3 +31,8 @@ message DatabaseMessage {
 	bool intermediarioInitialized = 10;
 }
 
+message IntermediarioConnectStateChangedMessage {
+	int32 id = 1;
+	bool gestorConnectActive = 2;
+	bool intermediarioInitialized = 3;
+}
