@@ -8,26 +8,17 @@ import "HereIsDataShared/Messages.proto";
 package priceImporterGrpcResource;
 
 service PriceImporterResource {
-	//OperationListLog
-	rpc ListOperationLog (protoMessages.Int32Message) returns (OperationsLogMessageList);	
-	rpc GetOperationLog (protoMessages.Int32Message) returns (OperationLogResponse);
+	rpc GetPricesList(protoMessages.UInt64Message) returns (PriceListResponse);
+	rpc ListPricesList(google.protobuf.Empty) returns (PriceListListResponse);
 
-	//ProductLog
-	//rpc ListProductLog (protoMessages.Int32Message) returns (ProductLogsMessageList);	
-	//rpc GetProductLog (protoMessages.Int32Message) returns (ProductLogResponse);
+	rpc ListProducts (ListProductsRequest) returns (ProductMessageList);	
 
-	//ProductMapping
-	rpc ListProducts (ProductMappingRequest) returns (ProductMessageList);	
-	rpc ListOnlyProductsMapping (ProductMappingRequest) returns (OnlyProductMappingMessageList);	
+	rpc UpdateProductSerieMapping(ProductMappingMessage) returns (protoMessages.ResponseResult);
+	rpc RemoveProductSerieMapping (ProductMappingMessage) returns (protoMessages.ResponseResult);
 
-	rpc GetProductMapping (ProductMappingRequest) returns (ProductMappingResponse);
-	rpc RemoveProductMapping (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
-
-	rpc SaveProductMapping (ProductMappingMessage) returns (ProductMappingResponse);
-	rpc UpdateProducts (OnlyProductMappingMessageList) returns (protoMessages.ResponseResult);	
+	rpc ListCurrentPrices (CurrentPricesRequest) returns (CurrentPricesMessageList);	
+	rpc UpdateProductPrices(CurrentPricesMessageList) returns (protoMessages.ResponseResult);	
 
 	rpc ListSeries(google.protobuf.Empty) returns (hereIsDataShared.SerieMessageList);
-	rpc ListPricesList(google.protobuf.Empty) returns (PriceListListResponse);
-	rpc GetListPrice(protoMessages.Int32Message) returns (PriceListResponse);
 	
 }

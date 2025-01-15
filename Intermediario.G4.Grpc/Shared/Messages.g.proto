@@ -1,9 +1,11 @@
-﻿syntax = "proto3";
+﻿// ATENCIÓN: archivo autogenerado por el Generador de Código (Delphi).
+// No editar porque puede ser pisado la próxima vez que se corra.
+
+syntax = "proto3";
 
 import "ProtoMessages/Common.proto";
 
 package gestor.g4.grpc.shared;
-
 
 message GetEmpresaMessage {
 	uint64 codEmpresa = 1;
@@ -44,10 +46,11 @@ message ListaDePreciosHereIsDataSerieSetMessage {
 }
 
 message ListaDePreciosHereIsDataSerieSetRequest {
-	protoMessages.UInt64Message codListaDePrecios = 1;
-	protoMessages.UInt64Message codConcepto = 2;
-	protoMessages.UInt64Message idSerieHereIsData = 3;
-	protoMessages.DecimalMessage coeficienteHereIsData = 4;
+	uint64 codListaDePrecios = 10;
+	uint64 codConcepto = 11;
+	protoMessages.Int32Message idSerieHereIsData = 12;
+	protoMessages.DecimalMessage coeficienteHereIsData = 13;
+	protoMessages.UInt64Message codUsuario = 14;
 }
 
 message ListaDePreciosHereIsDataSerieSetResponse {
@@ -60,10 +63,11 @@ message ListaDePreciosPrecioUpdateMessage {
 }
 
 message ListaDePreciosPrecioUpdateRequest {
-	protoMessages.UInt64Message codListaDePrecios = 1;
-	protoMessages.UInt64Message codConcepto = 2;
-	protoMessages.DateOnlyMessage vigenciaDesde = 3;
-	protoMessages.DecimalMessage precio = 4;
+	uint64 codListaDePrecios = 5;
+	uint64 codConcepto = 6;
+	protoMessages.DateOnlyMessage vigenciaDesde = 7;
+	protoMessages.DecimalMessage precio = 8;
+	uint64 codUsuario = 9;
 }
 
 message ListaDePreciosPrecioUpdateResponse {
@@ -204,14 +208,14 @@ message ListConceptosListaDePreciosMessage {
 	protoMessages.StringMessage concepto = 2;
 	protoMessages.UInt64Message codMoneda = 3;
 	protoMessages.StringMessage moneda = 4;
-	protoMessages.UInt64Message idSerieHereIsData = 5;
+	protoMessages.Int32Message idSerieHereIsData = 5;
 	protoMessages.DecimalMessage coeficienteHereIsData = 6;
 }
 
 message ListConceptosListaDePreciosRequest {
-	uint64 codListaDePrecios = 1;
-	protoMessages.BoolMessage soloPreciosFijos = 2;
-	//protoMessages.UInt64Message filterID = 3;
+	uint64 codListaDePrecios = 7;
+	protoMessages.BoolMessage soloPreciosFijos = 8;
+	//protoMessages.UInt64Message filterID = 9;
 }
 
 message ListConceptosListaDePreciosResponse {
@@ -467,7 +471,7 @@ message ListListasDePreciosMessage {
 }
 
 message ListListasDePreciosRequest {
-	//protoMessages.UInt64Message codListaDePrecios = 1;
+	protoMessages.UInt64Message codListaDePrecios = 1;
 	//protoMessages.BoolMessage soloHabilitados = 2;
 	protoMessages.BoolMessage excluirListasCompuestas = 3;
 	//protoMessages.UInt64Message filterID = 4;
@@ -484,13 +488,18 @@ message ListListasDePreciosPreciosVigentesMessage {
 	protoMessages.StringMessage moneda = 3;
 	protoMessages.DecimalMessage precio = 4;
 	protoMessages.UInt64Message codMoneda = 5;
+	protoMessages.Int32Message idSerieHereIsData = 6;
+	protoMessages.DecimalMessage coeficienteHereIsData = 7;
+	protoMessages.DateOnlyMessage vigenciaDesde = 8;
+	protoMessages.UInt64Message codUnidadPrecio = 82;
+	protoMessages.StringMessage unidad = 83;
 }
 
 message ListListasDePreciosPreciosVigentesRequest {
-	uint64 codListaDePrecios = 1;
-	protoMessages.DateOnlyMessage fechaVigencia = 2;
-	protoMessages.BoolMessage soloAsociadosAHereIsData = 3;
-	//protoMessages.UInt64Message filterID = 4;
+	uint64 codListaDePrecios = 17;
+	protoMessages.DateOnlyMessage fechaVigencia = 18;
+	protoMessages.BoolMessage soloAsociadosAHereIsData = 19;
+	//protoMessages.UInt64Message filterID = 20;
 }
 
 message ListListasDePreciosPreciosVigentesResponse {
@@ -843,4 +852,5 @@ message PrepareReporteLuciusResponse {
 	protoMessages.ResponseResult result = 1;
 	PrepareReporteLuciusMessage message = 2;
 }
+
 

@@ -27,12 +27,6 @@ message DataMessage {
 	}
 }
 
-message IntermediarioConnectStateChangedMessage {
-	int32 id = 1;
-	bool gestorConnectActive = 2;
-	bool intermediarioInitialized = 3;
-}
-
 message InstanceIdentityRequest {
 	string databaseId = 1;
 	string server = 2;
@@ -73,4 +67,5 @@ enum ConnectUpdateType {
 	SendRoutinesDump = 7;
 	DatabaseVersionUpdated = 8;
 	UpdatingConnect = 9;
+	CloseConnect = 10;
 }
