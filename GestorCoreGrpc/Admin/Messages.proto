@@ -178,8 +178,6 @@ message CustomerMessage {
 	string companyName = 2;
 	protoMessages.DateOnlyMessage creationDate = 27;
 	string taxId = 3;
-	repeated string phones = 4;
-	repeated string emails = 5;
 	string notes = 6;
 	repeated AddressMessage addresses = 7;
 	repeated PackBundleMessage packBundles = 8;
@@ -187,7 +185,7 @@ message CustomerMessage {
 	protoMessages.StringMessage budgetLink = 10;
 	protoMessages.StringMessage binnacleLink = 11;
 	protoMessages.StringMessage archiveLink = 12;
-
+	repeated int32 contactsList = 13;
 	BudgetTypes budget = 18;
 	BinnacleTypes binnacle = 19;
 	BillTypes bill = 22;
@@ -590,8 +588,7 @@ message CustomerMessagePackBundleMessage {
 	int32 id = 1;
 	string companyName = 2;
 	string taxId = 3;
-	repeated string phones = 4;
-	repeated string emails = 5;
+	repeated int32 contactsList = 8;
 	string notes = 6;
 	repeated AddressMessage addresses = 7;
 	//repeated PackBundleMessage packBundles = 8;

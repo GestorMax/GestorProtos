@@ -40,6 +40,10 @@ message ContactRequest {
 	string searchText = 4;
 }
 
+message ContactListRequest{
+	repeated int32 contactsListIds = 1;
+}
+
 message GroupMessage {
 	int32 id = 1;	
 	protoMessages.StringMessage name = 2;	

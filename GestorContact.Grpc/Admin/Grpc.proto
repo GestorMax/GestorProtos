@@ -14,6 +14,8 @@ service GestorContactAdmin {
 	rpc RemoveContact (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 	rpc ExistMailContact (ContactExistsRequest) returns (ContactExistsResponse);
 
+	rpc ListContactsByIds (ContactListRequest) returns (ContactMessageList);
+
 	rpc ListGroups (GroupRequest) returns (GroupMessageList);
 	rpc GetGroup (protoMessages.Int32Message) returns (GroupResponse);
 	rpc CreateGroup (GroupMessage) returns (GroupResponse);
