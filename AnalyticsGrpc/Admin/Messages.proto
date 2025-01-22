@@ -33,9 +33,19 @@ enum MethodAuthorizationTypes {
 	METHOD_AUTHORIZATION_TYPES_TOKEN = 2;	
 }
 
+enum BodyAuthorizationTypes {
+	BODY_AUTHORIZATION_TYPES_JSON = 0;
+	BODY_AUTHORIZATION_TYPES_URL_ENCODED = 1;	
+}
+
 enum ModeAuthorizationResponseTypes {	
 	MODE_AUTHORIZATION_RESPONSE_TYPES_HEADERS = 0;
 	MODE_AUTHORIZATION_RESPONSE_TYPES_BODY = 1;
+}
+
+enum RequestAuthorizationTypes {
+	REQUEST_AUTHORIZATION_TYPES_BEARER = 0;
+	REQUEST_AUTHORIZATION_TYPES_CUSTOM = 1;	
 }
 
 enum DownloadSourceTypes {
@@ -57,7 +67,6 @@ message SourceMessageList {
 message SourceMessage {
 	int32 id = 1;	
 	protoMessages.StringMessage100 name = 2;
-	int32 URLType = 3;
 	string URL = 4;
 	protoMessages.StringMessage URLParams = 5;
 	repeated UrlParameterMessage UrlParameters = 24;
@@ -286,7 +295,7 @@ message XMLAdquisitionMessage {
 }
 
 message CSVAdquisitionMessage {
-	ScrapDataTypes type = 3; 
+	ScrapDataTypes type = 3;
 	int32 row = 1;
 	int32 column = 2;
 	string searchKey = 4;
@@ -296,10 +305,12 @@ message CSVAdquisitionMessage {
 message JSONAdquisitionMessageNew {
 	string node = 1;
 	string value = 2;
-	string params = 3;
-	string paramsFormat = 4;
-	string cultureLanguage = 5;
-	DateGeneratorMessage dateGenerator = 6;
+	string nodeParamsFormat = 4;
+	string paramsFormat = 5;
+	string cultureLanguage = 6;
+	string nodeCultureLanguage = 7;
+	DateGeneratorMessage nodeDateGenerator = 8;
+	DateGeneratorMessage dateGenerator = 9;
 }
 
 message JSONAdquisitionMessage {
@@ -430,7 +441,9 @@ message AuthorizationMessage{
 	ModeAuthorizationResponseTypes ModeResponse = 9;
 	protoMessages.StringMessage FixedToken = 10;
 	protoMessages.StringMessage Body = 11;
+	BodyAuthorizationTypes BodyContentType = 13;
 	protoMessages.StringMessage TokenKeyNameRequest = 12;
+	RequestAuthorizationTypes TokenRequestType = 14;
 }
 
 message AuthorizationResponse {
