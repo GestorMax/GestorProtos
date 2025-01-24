@@ -15,9 +15,10 @@ service IntermediarioG4Resource {
 	rpc ListaDePreciosHereIsDataSerieSet(gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetRequest) returns (gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetResponse);
 	rpc ListaDePreciosPrecioUpdate(gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateRequest) returns (gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateResponse);
 	rpc ListComprobantes(gestor.g4.grpc.shared.ListComprobantesRequest) returns (stream gestor.g4.grpc.shared.ListComprobantesResponse);
-	rpc ListConceptos(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListConceptosResponse);
+	rpc ListConceptos(gestor.g4.grpc.shared.ListConceptosRequest) returns (stream gestor.g4.grpc.shared.ListConceptosResponse);
 	rpc ListConceptosListaDePrecios(gestor.g4.grpc.shared.ListConceptosListaDePreciosRequest) returns (stream gestor.g4.grpc.shared.ListConceptosListaDePreciosResponse);
 	rpc ListControlesReporteLucius(gestor.g4.grpc.shared.ListControlesReporteLuciusRequest) returns (stream gestor.g4.grpc.shared.ListControlesReporteLuciusResponse);
+	rpc ListCuentasDeFondos(gestor.g4.grpc.shared.ListCuentasDeFondosRequest) returns (stream gestor.g4.grpc.shared.ListCuentasDeFondosResponse);
 	rpc ListCuentasPlanCentrosLucius(gestor.g4.grpc.shared.ListCuentasPlanCentrosLuciusRequest) returns (stream gestor.g4.grpc.shared.ListCuentasPlanCentrosLuciusResponse);
 	rpc ListCuentasPlanGestionLucius(gestor.g4.grpc.shared.ListCuentasPlanGestionLuciusRequest) returns (stream gestor.g4.grpc.shared.ListCuentasPlanGestionLuciusResponse);
 	rpc ListDatosPresupuestoLucius(gestor.g4.grpc.shared.ListDatosPresupuestoLuciusRequest) returns (stream gestor.g4.grpc.shared.ListDatosPresupuestoLuciusResponse);
@@ -25,6 +26,7 @@ service IntermediarioG4Resource {
 	rpc ListEmpresas(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListEmpresasResponse);
 	rpc ListEstructuraReporteLucius(gestor.g4.grpc.shared.ListEstructuraReporteLuciusRequest) returns (stream gestor.g4.grpc.shared.ListEstructuraReporteLuciusResponse);
 	rpc ListEtiquetasLucius(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListEtiquetasLuciusResponse);
+	rpc ListFlujoDeFondos(gestor.g4.grpc.shared.ListFlujoDeFondosRequest) returns (stream gestor.g4.grpc.shared.ListFlujoDeFondosResponse);
 	rpc ListListasDePrecios(gestor.g4.grpc.shared.ListListasDePreciosRequest) returns (stream gestor.g4.grpc.shared.ListListasDePreciosResponse);
 	rpc ListListasDePreciosPreciosVigentes(gestor.g4.grpc.shared.ListListasDePreciosPreciosVigentesRequest) returns (stream gestor.g4.grpc.shared.ListListasDePreciosPreciosVigentesResponse);
 	rpc ListMayorReporteLucius(gestor.g4.grpc.shared.ListMayorReporteLuciusRequest) returns (stream gestor.g4.grpc.shared.ListMayorReporteLuciusResponse);

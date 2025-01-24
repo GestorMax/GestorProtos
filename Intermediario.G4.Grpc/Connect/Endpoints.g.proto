@@ -16,9 +16,10 @@ message EndpointRequest {
 		gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetRequest ListaDePreciosHereIsDataSerieSet = 28;
 		gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateRequest ListaDePreciosPrecioUpdate = 29;
 		gestor.g4.grpc.shared.ListComprobantesRequest ListComprobantes = 27;
-		bool ListConceptos = 19;
+		gestor.g4.grpc.shared.ListConceptosRequest ListConceptos = 19;
 		gestor.g4.grpc.shared.ListConceptosListaDePreciosRequest ListConceptosListaDePrecios = 24;
 		gestor.g4.grpc.shared.ListControlesReporteLuciusRequest ListControlesReporteLucius = 12;
+		gestor.g4.grpc.shared.ListCuentasDeFondosRequest ListCuentasDeFondos = 30;
 		gestor.g4.grpc.shared.ListCuentasPlanCentrosLuciusRequest ListCuentasPlanCentrosLucius = 14;
 		gestor.g4.grpc.shared.ListCuentasPlanGestionLuciusRequest ListCuentasPlanGestionLucius = 13;
 		gestor.g4.grpc.shared.ListDatosPresupuestoLuciusRequest ListDatosPresupuestoLucius = 8;
@@ -26,6 +27,7 @@ message EndpointRequest {
 		bool ListEmpresas = 2;
 		gestor.g4.grpc.shared.ListEstructuraReporteLuciusRequest ListEstructuraReporteLucius = 11;
 		bool ListEtiquetasLucius = 26;
+		gestor.g4.grpc.shared.ListFlujoDeFondosRequest ListFlujoDeFondos = 31;
 		gestor.g4.grpc.shared.ListListasDePreciosRequest ListListasDePrecios = 23;
 		gestor.g4.grpc.shared.ListListasDePreciosPreciosVigentesRequest ListListasDePreciosPreciosVigentes = 25;
 		gestor.g4.grpc.shared.ListMayorReporteLuciusRequest ListMayorReporteLucius = 17;
@@ -52,6 +54,7 @@ message EndpointResponse {
 		gestor.g4.grpc.shared.ListConceptosResponse ListConceptos = 19;
 		gestor.g4.grpc.shared.ListConceptosListaDePreciosResponse ListConceptosListaDePrecios = 24;
 		gestor.g4.grpc.shared.ListControlesReporteLuciusResponse ListControlesReporteLucius = 12;
+		gestor.g4.grpc.shared.ListCuentasDeFondosResponse ListCuentasDeFondos = 30;
 		gestor.g4.grpc.shared.ListCuentasPlanCentrosLuciusResponse ListCuentasPlanCentrosLucius = 14;
 		gestor.g4.grpc.shared.ListCuentasPlanGestionLuciusResponse ListCuentasPlanGestionLucius = 13;
 		gestor.g4.grpc.shared.ListDatosPresupuestoLuciusResponse ListDatosPresupuestoLucius = 8;
@@ -59,6 +62,7 @@ message EndpointResponse {
 		gestor.g4.grpc.shared.ListEmpresasResponse ListEmpresas = 2;
 		gestor.g4.grpc.shared.ListEstructuraReporteLuciusResponse ListEstructuraReporteLucius = 11;
 		gestor.g4.grpc.shared.ListEtiquetasLuciusResponse ListEtiquetasLucius = 26;
+		gestor.g4.grpc.shared.ListFlujoDeFondosResponse ListFlujoDeFondos = 31;
 		gestor.g4.grpc.shared.ListListasDePreciosResponse ListListasDePrecios = 23;
 		gestor.g4.grpc.shared.ListListasDePreciosPreciosVigentesResponse ListListasDePreciosPreciosVigentes = 25;
 		gestor.g4.grpc.shared.ListMayorReporteLuciusResponse ListMayorReporteLucius = 17;

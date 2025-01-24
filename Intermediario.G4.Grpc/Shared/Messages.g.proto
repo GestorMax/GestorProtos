@@ -198,6 +198,14 @@ message ListConceptosMessage {
 	protoMessages.StringMessage UnidadPrecio = 6581;
 }
 
+message ListConceptosRequest {
+	//protoMessages.UInt64Message codGrupoConceptos = 6;
+	//protoMessages.UInt64Message codigo = 7;
+	//protoMessages.BoolMessage soloHabilitados = 8;
+	protoMessages.BoolMessage soloFisicos = 9;
+	//protoMessages.UInt64Message filterID = 10;
+}
+
 message ListConceptosResponse {
 	protoMessages.ResponseResult result = 1;
 	ListConceptosMessage message = 2;
@@ -247,6 +255,45 @@ message ListControlesReporteLuciusRequest {
 message ListControlesReporteLuciusResponse {
 	protoMessages.ResponseResult result = 1;
 	ListControlesReporteLuciusMessage message = 2;
+}
+
+message ListCuentasDeFondosMessage {
+	uint64 codCuentaDeFondos = 1;
+	protoMessages.UInt64Message codEmpresa = 2;
+	//protoMessages.StringMessage Empresa = 3;
+	protoMessages.StringMessage cuentaDeFondos = 4;
+	//protoMessages.DecimalMessage saldoInicial = 5;
+	protoMessages.UInt64Message codMoneda = 6;
+	protoMessages.StringMessage simbolo = 7;
+	//protoMessages.StringMessage moneda = 8;
+	protoMessages.BoolMessage soloGestion = 9;
+	//protoMessages.BoolMessage concilia = 10;
+	//protoMessages.BoolMessage valoresDeTerceros = 11;
+	//protoMessages.UInt64Message codBancoBCRA = 12;
+	//protoMessages.StringMessage bancoBCRA = 13;
+	//protoMessages.BoolMessage importaExtracto = 14;
+	//protoMessages.BoolMessage habilitado = 15;
+	//protoMessages.StringMessage notas = 16;
+	//protoMessages.UInt64Message orden = 17;
+	//protoMessages.DateOnlyMessage fechaAlta = 18;
+	//protoMessages.UInt64Message codUsuarioAlta = 19;
+	//protoMessages.StringMessage usuarioAlta = 20;
+	//protoMessages.DateOnlyMessage fechaModificacion = 21;
+	//protoMessages.UInt64Message codUsuarioModificacion = 22;
+	//protoMessages.StringMessage usuarioModificacion = 23;
+}
+
+message ListCuentasDeFondosRequest {
+	protoMessages.UInt64Message codEmpresa = 1;
+	//protoMessages.UInt64Message codCuentaDeFondos = 2;
+	//protoMessages.BoolMessage soloHabilitados = 3;
+	//protoMessages.UInt64Message soloGestion = 4;
+	//protoMessages.UInt64Message filterID = 5;
+}
+
+message ListCuentasDeFondosResponse {
+	protoMessages.ResponseResult result = 1;
+	ListCuentasDeFondosMessage message = 2;
 }
 
 message ListCuentasPlanCentrosLuciusMessage {
@@ -461,6 +508,61 @@ message ListEtiquetasLuciusMessage {
 message ListEtiquetasLuciusResponse {
 	protoMessages.ResponseResult result = 1;
 	ListEtiquetasLuciusMessage message = 2;
+}
+
+message ListFlujoDeFondosMessage {
+	//protoMessages.UInt64Message filterID = 1;
+	//protoMessages.UInt64Message codClave = 2;
+	protoMessages.UInt64Message codInterno = 3;
+	protoMessages.UInt64Message codTabla = 4;
+	//protoMessages.UInt64Message orden = 5;
+	protoMessages.UInt64Message codEmpresa = 6;
+	//protoMessages.UInt64Message codSucursalEmpresa = 7;
+	protoMessages.UInt64Message codigoOperativo = 8;
+	protoMessages.UInt64Message codigoFinanciero = 9;
+	protoMessages.UInt64Message codCuentaDeFondos = 10;
+	protoMessages.StringMessage cuentaDeFondos = 11;
+	protoMessages.DateOnlyMessage fechaVencimiento = 12;
+	protoMessages.DateOnlyMessage fechaEstimadaPago = 13;
+	protoMessages.UInt64Message codComprobante = 14;
+	protoMessages.StringMessage comprobante = 15;
+	protoMessages.StringMessage nroComprobante = 16;
+	protoMessages.UInt64Message codpersona = 17;
+	protoMessages.StringMessage persona = 18;
+	protoMessages.StringMessage concepto = 19;
+	protoMessages.UInt64Message codMoneda = 20;
+	//protoMessages.StringMessage moneda = 21;
+	protoMessages.StringMessage simbolo = 22;
+	protoMessages.DecimalMessage cotizacion = 23;
+	protoMessages.DecimalMessage debe = 24;
+	protoMessages.DecimalMessage haber = 25;
+	protoMessages.DecimalMessage debeBase = 26;
+	protoMessages.DecimalMessage haberBase = 27;
+	//protoMessages.DecimalMessage saldoBase = 28;
+	//protoMessages.BoolMessage modificado = 29;
+	//protoMessages.Int32Message color = 30;
+	//protoMessages.UInt64Message codOperativo = 31;
+	//protoMessages.UInt64Message codFinanciero = 32;
+}
+
+message ListFlujoDeFondosRequest {
+	uint64 codEmpresa = 1;
+	//protoMessages.UInt64Message codSucursalEmpresa = 2;
+	//protoMessages.UInt64Message codUsuario = 3;
+	protoMessages.UInt64Message soloGestion = 4;
+	//protoMessages.DateOnlyMessage fechaDesde = 5;
+	//protoMessages.DateOnlyMessage fechaHasta = 6;
+	//protoMessages.DateOnlyMessage vtosDesde = 7;
+	//protoMessages.BoolMessage ExcluirAntPendientes = 8;
+	//protoMessages.BoolMessage ExcluirNoConciliadosDelSaldo = 9;
+	//protoMessages.BoolMessage mostrarVacio = 10;
+	//protoMessages.BoolMessage mostrarResultados = 11;
+	//protoMessages.UInt64Message filterID = 12;
+}
+
+message ListFlujoDeFondosResponse {
+	protoMessages.ResponseResult result = 1;
+	ListFlujoDeFondosMessage message = 2;
 }
 
 message ListListasDePreciosMessage {
