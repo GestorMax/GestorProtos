@@ -12,7 +12,7 @@ service GestorContactAdmin {
 	rpc CreateContact (ContactMessage) returns (ContactResponse);
 	rpc EditContact (ContactMessage) returns (ContactResponse);
 	rpc RemoveContact (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
-	rpc ExistMailContact (ContactExistsRequest) returns (ContactExistsResponse);
+	rpc ExistMailContact (ContactExistsRequest) returns (ContactResponse);
 
 	rpc ListContactsByIds (ContactListRequest) returns (ContactMessageList);
 
