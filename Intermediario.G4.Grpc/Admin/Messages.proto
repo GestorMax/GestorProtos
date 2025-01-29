@@ -42,7 +42,7 @@ message ConnectInfoMessage {
 	string server = 4;
 	string instance = 5;
 	string database = 6;
-	string MD5 = 7;
+	string databaseVersion = 7;
 	intermediario.grpc.common.SyncedDatabaseMessage completeInfoDatabase = 8;
 }
 
