@@ -9,9 +9,14 @@ message GestorContactConfiguration {
 }
 
 enum ContactRolesTypes {
-	CONTACT_ROLES_TYPE_COMPANY = 0;	
-	CONTACT_ROLES_TYPE_ADMINISTRATIVE = 1;
-	CONTACT_ROLES_TYPE_BACKUP = 2;
+	CONTACT_ROLES_TYPES_COMPANY = 0;	
+	CONTACT_ROLES_TYPES_ADMINISTRATIVE = 1;
+	CONTACT_ROLES_TYPES_BACKUP = 2;
+}
+
+enum ContactType {
+	CONTACT_TYPE_COMPANY = 0;
+	CONTACT_TYPE_RDPUSER = 1;
 }
 
 message ContactMessage {
@@ -19,8 +24,26 @@ message ContactMessage {
 	protoMessages.StringMessage name = 2;
 	protoMessages.StringMessage email = 3;
 	protoMessages.StringMessage20 phoneNumber = 4;
-	protoMessages.StringMessage notes = 5;
 	repeated GroupMessage groups = 6;
+	repeated ContactExtendedMessage contactExtended = 7;
+}
+
+message ContactExtendedMessage {
+	ContactRolesTypes role = 1;
+
+	oneof item {
+		ContactCompany company = 2;
+		ContactRdpUser rdpUser = 3;
+	}
+
+	message ContactCompany {
+		int32 companyId = 1;
+	}
+
+	message ContactRdpUser {
+		int32 userId = 1;
+	}
+
 }
 
 message ContactResponse{
