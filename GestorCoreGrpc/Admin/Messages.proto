@@ -173,6 +173,17 @@ message AllowedResponse {
 	bool isAllowed = 1;
 }
 
+message CustomerContactMessage {
+	enum ContactRoleTypes {
+		CONTACT_ROLE_TYPES_COMPANY = 0;	
+		CONTACT_ROLE_TYPES_ADMINISTRATIVE = 1;
+		CONTACT_ROLE_TYPES_BACKUP = 2;
+	}
+
+	int32 contactId = 1;
+	ContactRoleTypes contactRoleType = 2;
+}
+
 message CustomerMessage {
 	int32 id = 1;
 	string companyName = 2;
@@ -185,7 +196,7 @@ message CustomerMessage {
 	protoMessages.StringMessage budgetLink = 10;
 	protoMessages.StringMessage binnacleLink = 11;
 	protoMessages.StringMessage archiveLink = 12;
-	repeated int32 contactsList = 13;
+	repeated CustomerContactMessage contactsList = 13;
 	BudgetTypes budget = 18;
 	BinnacleTypes binnacle = 19;
 	BillTypes bill = 22;
