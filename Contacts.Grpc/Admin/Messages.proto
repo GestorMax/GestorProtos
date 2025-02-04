@@ -2,9 +2,9 @@ syntax = "proto3";
 
 import "ProtoMessages/Common.proto";
 
-package gestorContact.Grpc;
+package contacts.Grpc.Admin;
 
-message GestorContactConfiguration {
+message ContactsConfiguration {
 	string uri = 1;
 }
 
@@ -76,9 +76,8 @@ message ContactGroupMessage {
 	int32 groupId = 3;
 }
 
-message ContactExistsRequest {
-	int32 id = 1;
-	string email = 2;
+message ContactExistResponse {
+	protoMessages.ResponseResult result = 1;
+	bool alreadyExist = 2;
+	int32 id = 3;
 }
-
-

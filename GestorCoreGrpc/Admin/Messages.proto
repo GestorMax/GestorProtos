@@ -175,13 +175,14 @@ message AllowedResponse {
 
 message CustomerContactMessage {
 	enum ContactRoleTypes {
-		CONTACT_ROLE_TYPES_COMPANY = 0;	
-		CONTACT_ROLE_TYPES_ADMINISTRATIVE = 1;
-		CONTACT_ROLE_TYPES_BACKUP = 2;
+		CONTACT_ROLE_TYPES_NONE = 0;
+		CONTACT_ROLE_TYPES_COMPANY = 1;	
+		CONTACT_ROLE_TYPES_ADMINISTRATIVE = 2;
+		CONTACT_ROLE_TYPES_BACKUP = 4;
 	}
 
 	int32 contactId = 1;
-	ContactRoleTypes contactRoleType = 2;
+	ContactRoleTypes contactRole = 2;
 }
 
 message CustomerMessage {

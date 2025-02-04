@@ -90,6 +90,10 @@ message TemplateResponse {
 	TemplateMessage message = 2;
 }
 
+message TemplateByTypeRequest {
+	TemplateTypes type = 1;
+}
+
 message TemplateMessage {
 	int32 id = 1;
 	protoMessages.StringMessage100 name = 2;
@@ -139,15 +143,6 @@ message EmailLogMessageList {
 	repeated EmailLogMessage values = 1;
 }
 
-message SendMailGroupContactRequest {
-	int32 senderId = 1;
-	protoMessages.StringMessage subject = 3;
-	protoMessages.StringMessage content = 4;
-	int32 templateId = 5;
-	repeated TemplateDataValuesMessage templateDataValues = 6;
-	repeated ContactEmailMessage contacts = 7;
-}
-
 message TemplateDataValuesMessage {
 	string key = 1;
 	string value = 2;
@@ -155,9 +150,5 @@ message TemplateDataValuesMessage {
 
 message ContactEmailMessage {
 	string name = 1;
-	string email =2;
-}
-
-message GestorEmailSetting {
-	int32 smtpServer = 4;
+	string email = 2;
 }

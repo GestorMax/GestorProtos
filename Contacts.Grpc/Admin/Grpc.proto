@@ -1,18 +1,17 @@
 syntax = "proto3";
 
-import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
-import "GestorContact.Grpc/Admin/Messages.proto";
+import "Contacts.Grpc/Admin/Messages.proto";
 
-package gestorContact.Grpc;
+package contacts.Grpc.Admin;
 
-service GestorContactAdmin {
+service ContactsAdmin {
 	rpc ListContacts (ContactRequest) returns (ContactMessageList);
 	rpc GetContact (protoMessages.Int32Message) returns (ContactResponse);
 	rpc CreateContact (ContactMessage) returns (ContactResponse);
 	rpc EditContact (ContactMessage) returns (ContactResponse);
 	rpc RemoveContact (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
-	rpc ExistMailContact (ContactExistsRequest) returns (ContactResponse);
+	rpc ExistContactByEmail (protoMessages.StringMessage) returns (ContactExistResponse);
 
 	rpc ListContactsByIds (ContactListRequest) returns (ContactMessageList);
 
