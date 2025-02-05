@@ -13,7 +13,7 @@ enum TemplateDataTypes {
 enum TemplateTypes {
 	TEMPLATE_TYPES_GRAPH = 0;
 	TEMPLATE_TYPES_SYSTEM = 1;
-	TEMPLATE_TYPES_MAILING = 2;
+	TEMPLATE_TYPES_CONTACT = 2;
 }
 
 message EmailConfiguration {
