@@ -147,7 +147,7 @@ message ListComprobantesResponse {
 }
 
 message ListConceptosMessage {
-	protoMessages.UInt64Message filterID = 1;
+	//protoMessages.UInt64Message filterID = 1;
 	protoMessages.UInt64Message codigo = 2;
 	protoMessages.UInt64Message codGrupoConceptos = 3;
 	protoMessages.UInt64Message codSubgrupoConceptos = 4;
@@ -155,8 +155,8 @@ message ListConceptosMessage {
 	protoMessages.UInt64Message codSubClasificacionConceptos = 6;
 	uint64 codConcepto = 7;
 	protoMessages.UInt64Message codigoConcepto = 8;
-	protoMessages.StringMessage codigoAuxiliar = 9;
-	protoMessages.UInt64Message codigoBarras = 10;
+	//protoMessages.StringMessage codigoAuxiliar = 9;
+	//protoMessages.UInt64Message codigoBarras = 10;
 	protoMessages.UInt64Message ordenGrupoConceptos = 11;
 	protoMessages.UInt64Message ordenSubgrupoConceptos = 12;
 	protoMessages.UInt64Message ordenClasificacionConceptos = 13;
@@ -192,10 +192,10 @@ message ListConceptosMessage {
 	//protoMessages.UInt64Message codUsuarioAlta = 43;
 	//protoMessages.UInt64Message codUsuarioModificacion = 44;
 	protoMessages.Int32Message imgIndex = 45;
-	protoMessages.UInt64Message codUnidadAuxiliar = 6578;
-	protoMessages.StringMessage unidadAuxiliar = 6579;
-	protoMessages.UInt64Message codUnidadPrecio = 6580;
-	protoMessages.StringMessage UnidadPrecio = 6581;
+	protoMessages.UInt64Message codUnidadAuxiliar = 46;
+	protoMessages.StringMessage unidadAuxiliar = 47;
+	protoMessages.UInt64Message codUnidadPrecio = 48;
+	protoMessages.StringMessage UnidadPrecio = 49;
 }
 
 message ListConceptosRequest {
