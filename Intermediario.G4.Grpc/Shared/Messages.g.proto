@@ -46,11 +46,11 @@ message ListaDePreciosHereIsDataSerieSetMessage {
 }
 
 message ListaDePreciosHereIsDataSerieSetRequest {
-	uint64 codListaDePrecios = 10;
-	uint64 codConcepto = 11;
-	protoMessages.Int32Message idSerieHereIsData = 12;
-	protoMessages.DecimalMessage coeficienteHereIsData = 13;
-	protoMessages.UInt64Message codUsuario = 14;
+	uint64 codListaDePrecios = 1;
+	uint64 codConcepto = 2;
+	protoMessages.Int32Message idSerieHereIsData = 3;
+	protoMessages.DecimalMessage coeficienteHereIsData = 4;
+	protoMessages.UInt64Message codUsuario = 5;
 }
 
 message ListaDePreciosHereIsDataSerieSetResponse {
@@ -63,11 +63,11 @@ message ListaDePreciosPrecioUpdateMessage {
 }
 
 message ListaDePreciosPrecioUpdateRequest {
-	uint64 codListaDePrecios = 5;
-	uint64 codConcepto = 6;
-	protoMessages.DateOnlyMessage vigenciaDesde = 7;
-	protoMessages.DecimalMessage precio = 8;
-	uint64 codUsuario = 9;
+	uint64 codListaDePrecios = 1;
+	uint64 codConcepto = 2;
+	protoMessages.DateOnlyMessage vigenciaDesde = 3;
+	protoMessages.DecimalMessage precio = 4;
+	uint64 codUsuario = 5;
 }
 
 message ListaDePreciosPrecioUpdateResponse {
@@ -199,11 +199,11 @@ message ListConceptosMessage {
 }
 
 message ListConceptosRequest {
-	//protoMessages.UInt64Message codGrupoConceptos = 6;
-	//protoMessages.UInt64Message codigo = 7;
-	//protoMessages.BoolMessage soloHabilitados = 8;
-	protoMessages.BoolMessage soloFisicos = 9;
-	//protoMessages.UInt64Message filterID = 10;
+	//protoMessages.UInt64Message codGrupoConceptos = 1;
+	//protoMessages.UInt64Message codigo = 2;
+	//protoMessages.BoolMessage soloHabilitados = 3;
+	protoMessages.BoolMessage soloFisicos = 4;
+	//protoMessages.UInt64Message filterID = 5;
 }
 
 message ListConceptosResponse {
@@ -543,10 +543,12 @@ message ListFlujoDeFondosMessage {
 	//protoMessages.Int32Message color = 30;
 	//protoMessages.UInt64Message codOperativo = 31;
 	//protoMessages.UInt64Message codFinanciero = 32;
+	protoMessages.UInt64Message codVencimientoOperativo = 33;
+	protoMessages.UInt64Message codValorFinanciero = 34;
 }
 
 message ListFlujoDeFondosRequest {
-	uint64 codEmpresa = 1;
+	protoMessages.UInt64Message codEmpresa = 1;
 	//protoMessages.UInt64Message codSucursalEmpresa = 2;
 	//protoMessages.UInt64Message codUsuario = 3;
 	protoMessages.UInt64Message soloGestion = 4;
@@ -598,10 +600,10 @@ message ListListasDePreciosPreciosVigentesMessage {
 }
 
 message ListListasDePreciosPreciosVigentesRequest {
-	uint64 codListaDePrecios = 17;
-	protoMessages.DateOnlyMessage fechaVigencia = 18;
-	protoMessages.BoolMessage soloAsociadosAHereIsData = 19;
-	//protoMessages.UInt64Message filterID = 20;
+	uint64 codListaDePrecios = 1;
+	protoMessages.DateOnlyMessage fechaVigencia = 2;
+	protoMessages.BoolMessage soloAsociadosAHereIsData = 3;
+	//protoMessages.UInt64Message filterID = 4;
 }
 
 message ListListasDePreciosPreciosVigentesResponse {
