@@ -538,13 +538,13 @@ message ListFlujoDeFondosMessage {
 	protoMessages.DecimalMessage haber = 25;
 	protoMessages.DecimalMessage debeBase = 26;
 	protoMessages.DecimalMessage haberBase = 27;
-	//protoMessages.DecimalMessage saldoBase = 28;
+	protoMessages.DecimalMessage saldoBase = 28;
 	//protoMessages.BoolMessage modificado = 29;
 	//protoMessages.Int32Message color = 30;
 	//protoMessages.UInt64Message codOperativo = 31;
 	//protoMessages.UInt64Message codFinanciero = 32;
-	protoMessages.UInt64Message codVencimientoOperativo = 33;
-	protoMessages.UInt64Message codValorFinanciero = 34;
+	protoMessages.UInt64Message ordenVencimientoOperativo = 33;
+	protoMessages.UInt64Message ordenValorFinanciero = 34;
 }
 
 message ListFlujoDeFondosRequest {
