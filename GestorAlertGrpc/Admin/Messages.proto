@@ -198,6 +198,12 @@ message ChangeStateIncidenceRequest {
 	protoMessages.StringMessage userId = 3;	
 }
 
+message ChangeStateIncidenceListRequest {
+	repeated IncidenceMessage list = 1;
+	AlertsStates State = 2;
+	protoMessages.StringMessage userId = 3;	
+}
+
 message ChangeUserIncidenceRequest {
 	protoMessages.StringMessage userId = 1;
 	int32 incidenceId = 2;
