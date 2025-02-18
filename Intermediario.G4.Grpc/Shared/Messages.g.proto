@@ -763,10 +763,6 @@ message ListPlanesDeCuentasResponse {
 }
 
 message ListPresupuestosLuciusMessage {
-	uint64 codPresupuestoLucius = 1;
-	protoMessages.StringMessage presupuestoLucius = 2;
-	protoMessages.UInt64Message codEjercicioLucius = 3;
-	protoMessages.StringMessage ejercicioLucius = 4;
 	protoMessages.BoolMessage bloqueado = 5;
 	protoMessages.BoolMessage habilitado = 6;
 	//protoMessages.StringMessage notas = 7;
@@ -774,13 +770,18 @@ message ListPresupuestosLuciusMessage {
 	//protoMessages.DateOnlyMessage fechaModificacion = 9;
 	//protoMessages.UInt64Message codUsuarioAlta = 10;
 	//protoMessages.UInt64Message codUsuarioModificacion = 11;
+	uint64 codPresupuesto = 12;
+	protoMessages.StringMessage presupuesto = 13;
+	protoMessages.UInt64Message codEjercicio = 14;
+	protoMessages.StringMessage ejercicio = 15;
 }
 
 message ListPresupuestosLuciusRequest {
-	uint64 codEmpresa = 1;
-	//protoMessages.UInt64Message codPresupuestoLucius = 2;
-	//protoMessages.StringMessage soloHabilitados = 3;
-	//protoMessages.UInt64Message filterID = 4;
+	uint64 codEmpresa = 5;
+	//protoMessages.UInt64Message codPresupuesto = 6;
+	//protoMessages.UInt64Message codTipoPresupuesto = 7;
+	//protoMessages.StringMessage soloHabilitados = 8;
+	//protoMessages.UInt64Message filterID = 9;
 }
 
 message ListPresupuestosLuciusResponse {
