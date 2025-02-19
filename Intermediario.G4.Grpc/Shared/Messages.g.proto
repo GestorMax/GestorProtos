@@ -281,14 +281,17 @@ message ListCuentasDeFondosMessage {
 	//protoMessages.DateOnlyMessage fechaModificacion = 21;
 	//protoMessages.UInt64Message codUsuarioModificacion = 22;
 	//protoMessages.StringMessage usuarioModificacion = 23;
+	protoMessages.BoolMessage imprimeCheques = 24;
+	protoMessages.BoolMessage presupuesto = 25;
 }
 
 message ListCuentasDeFondosRequest {
-	protoMessages.UInt64Message codEmpresa = 1;
+	uint64 codEmpresa = 1;
 	//protoMessages.UInt64Message codCuentaDeFondos = 2;
 	//protoMessages.BoolMessage soloHabilitados = 3;
-	//protoMessages.UInt64Message soloGestion = 4;
-	//protoMessages.UInt64Message filterID = 5;
+	protoMessages.BoolMessage incluirPresupuestadas = 4;
+	//protoMessages.UInt64Message soloGestion = 5;
+	//protoMessages.UInt64Message filterID = 6;
 }
 
 message ListCuentasDeFondosResponse {
