@@ -143,6 +143,8 @@ service GestorCoreAdmin {
 
 	rpc EditRdpUser(RdpUserMessage) returns (RdpUserResponse);
 
+	rpc ListRdpUserContactsByVirtualServers (VirtualServerContactIdsRequest) returns (ContactIdsMessageList);
+
 	//apikey
 	rpc GenerateApiKeyForDatabase (GenerateApiKeyRequest) returns (GenerateApiKeyResponse);
 	rpc GenerateApiKeyForLicenses (GenerateApiKeyForLicensesRequest) returns (GenerateApiKeyResponse);

@@ -817,3 +817,12 @@ message VirtualServerDatabaseMessage {
 	string customerName = 4;
 	GrossIncomeWithholdingTypes GrossIncomeWithholding = 5;
 }
+
+message ContactIdsMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated int32 values = 2;
+}
+
+message VirtualServerContactIdsRequest {
+	repeated int32 virtualServerIds = 1;
+}
