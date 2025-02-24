@@ -81,3 +81,31 @@ message ContactExistResponse {
 	bool alreadyExist = 2;
 	int32 id = 3;
 }
+
+message EmailTemplateMessage {
+	int32 id = 1;
+	int32 senderId = 2;
+	int32 smtpServerId = 3;
+	repeated int32 groupIds = 4;
+	repeated int32 virtualServerIds = 5;
+	uint32 roles = 6;
+	string subject = 7;
+	int32 templateId = 8;
+}
+
+message EmailTemplateResponse {
+	protoMessages.ResponseResult result = 1;
+	EmailTemplateMessage message = 2;
+}
+
+message EmailTemplateMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated EmailTemplateMessage values = 2;
+	protoMessages.PageInfo pageInfo = 3;
+}
+
+message EmailTemplateRequest {
+	protoMessages.PageInfo pageInfo = 1;	
+	repeated protoMessages.SortValue sorting = 2;
+	string searchText = 3;
+}

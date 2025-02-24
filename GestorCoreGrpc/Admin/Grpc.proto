@@ -44,7 +44,6 @@ service GestorCoreAdmin {
 
 	rpc GetCustomer (protoMessages.Int32Message) returns (CustomerResponse);
 
-
 	rpc UpdateCustomer(CustomerMessage) returns (protoMessages.ResponseResult);
 
 	rpc CreateCustomer (CustomerMessage) returns (CustomerResponse);
@@ -54,6 +53,8 @@ service GestorCoreAdmin {
 	rpc CreatePackBundle (PackBundleMessage) returns (CreatePackBundleResponse);
 
 	rpc RemovePackBundle (PackBundleMessage) returns (protoMessages.ResponseResult);
+
+	rpc ListCustomerContactsByRole (protoMessages.UInt32Message) returns (ContactIdsMessageList);
 	
 	//Vaults
 	rpc GetVault(protoMessages.Int32Message) returns (VaultResponse);
