@@ -21,6 +21,11 @@ service ContactsAdmin {
 	rpc EditGroup (GroupMessage) returns (GroupResponse);
 	rpc RemoveGroup (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 	
-	rpc ListContactsByGroups(GroupsRequest) returns(ContactFullMessageList);
-
+	rpc ListEmailTemplates (EmailTemplateRequest) returns (EmailTemplateMessageList);
+	rpc GetEmailTemplate (protoMessages.Int32Message) returns (EmailTemplateResponse);
+	rpc CreateEmailTemplate (EmailTemplateMessage) returns (EmailTemplateResponse);
+	rpc EditEmailTemplate (EmailTemplateMessage) returns (EmailTemplateResponse);
+	rpc RemoveEmailTemplate (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	
+	rpc SendEmail(SendEmailRequest) returns (protoMessages.ResponseResult);
 }

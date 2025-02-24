@@ -27,16 +27,10 @@ message ContactMessageList {
 	protoMessages.PageInfo pageInfo = 3;
 }
 
-message ContactFullMessageList {
-	repeated ContactMessage values = 1;
-	protoMessages.ResponseResult result = 2;	
-}
-
 message ContactRequest {
-	string name = 1;
-	protoMessages.PageInfo pageInfo = 2;	
-	repeated protoMessages.SortValue sorting = 3;
-	string searchText = 4;
+	protoMessages.PageInfo pageInfo = 1;	
+	repeated protoMessages.SortValue sorting = 2;
+	string searchText = 3;
 }
 
 message ContactListRequest{
@@ -108,4 +102,9 @@ message EmailTemplateRequest {
 	protoMessages.PageInfo pageInfo = 1;	
 	repeated protoMessages.SortValue sorting = 2;
 	string searchText = 3;
+}
+
+message SendEmailRequest {
+	int32 emailTemplateId = 1;
+	protoMessages.StructMessage templateData = 2;
 }
