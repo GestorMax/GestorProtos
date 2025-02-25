@@ -30,6 +30,7 @@ service EmailAdmin {
 	rpc UpdateTemplate(TemplateMessage) returns (TemplateResponse);
 	rpc DeleteTemplate(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 	rpc ListTemplateByType(TemplateByTypeRequest) returns (TemplateMessageList);
+	rpc GetTemplateCombined(protoMessages.Int32Message) returns (TemplateResponse);
 
 	//EmailLogs
 	rpc ListEmailLog(protoMessages.ListRequest) returns (EmailLogMessageList);
