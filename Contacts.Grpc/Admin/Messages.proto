@@ -78,6 +78,7 @@ message ContactExistResponse {
 
 message EmailTemplateMessage {
 	int32 id = 1;
+	string name = 9;
 	int32 senderId = 2;
 	int32 smtpServerId = 3;
 	repeated int32 groupIds = 4;
