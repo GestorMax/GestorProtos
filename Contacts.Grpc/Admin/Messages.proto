@@ -107,5 +107,9 @@ message EmailTemplateRequest {
 
 message SendEmailRequest {
 	int32 emailTemplateId = 1;
-	protoMessages.StructMessage templateData = 2;
+	repeated int32 groupIds = 2;
+	repeated int32 virtualServerIds = 3;
+	uint32 roles = 4;
+	string subject = 5;
+	protoMessages.StructMessage templateData = 6;
 }
