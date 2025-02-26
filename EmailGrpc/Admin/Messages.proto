@@ -5,6 +5,17 @@ import "google/protobuf/Timestamp.proto";
 
 package emailGrpcAdmin;
 
+enum TemplateDataTypes {
+	TEMPLATE_DATA_TYPES_TEXT = 0;	
+	TEMPLATE_DATA_TYPES_HTML = 1;		
+}
+
+enum TemplateTypes {
+	TEMPLATE_TYPES_GRAPH = 0;
+	TEMPLATE_TYPES_SYSTEM = 1;
+	TEMPLATE_TYPES_CONTACT = 2;
+}
+
 message EmailConfiguration {
 	string uri = 1;
 }
@@ -16,6 +27,7 @@ message EmailRequest {
 	int32 template = 4;
 	protoMessages.StructMessage templateData = 5;
 	bool test = 6;
+
 }
 
 message EmailResponse {
@@ -78,15 +90,30 @@ message TemplateResponse {
 	TemplateMessage message = 2;
 }
 
+message TemplateByTypeRequest {
+	TemplateTypes type = 1;
+}
+
 message TemplateMessage {
 	int32 id = 1;
 	protoMessages.StringMessage100 name = 2;
 	string content = 3;
+	TemplateTypes templateType = 4;
+	repeated TemplateDataDefinitionMessage datas = 5;
+	protoMessages.Int32Message templateHeaderId = 6;
+	protoMessages.Int32Message templateFooterId = 7;
 }
 
 message TemplateMessageList {
 	protoMessages.ResponseResult result = 2;
 	repeated TemplateMessage values = 1;
+}
+
+message TemplateDataDefinitionMessage {
+	int32 id = 1;
+	string tag = 2;
+	string name = 3;
+	int32 type = 4;
 }
 
 //EmailLogs
@@ -114,4 +141,14 @@ message EmailLogMessageList {
 	protoMessages.ResponseResult result = 2;
 	protoMessages.PageInfo pageInfo = 3;
 	repeated EmailLogMessage values = 1;
+}
+
+message TemplateDataValuesMessage {
+	string key = 1;
+	string value = 2;
+}
+
+message ContactEmailMessage {
+	string name = 1;
+	string email = 2;
 }

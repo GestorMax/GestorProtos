@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+import "ProtoMessages/Common.proto";
+
+package contacts.Grpc.Admin;
+
+message ContactsConfiguration {
+	string uri = 1;
+}
+
+message ContactMessage {
+	int32 id = 1;	
+	string name = 2;
+	string email = 3;
+	string phoneNumber = 4;
+	repeated GroupMessage groups = 6;	
+}
+
+message ContactResponse {
+	protoMessages.ResponseResult result = 1;
+	ContactMessage message = 2;
+}
+
+message ContactMessageList {
+	repeated ContactMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+	protoMessages.PageInfo pageInfo = 3;
+}
+
+message ContactRequest {
+	protoMessages.PageInfo pageInfo = 1;	
+	repeated protoMessages.SortValue sorting = 2;
+	string searchText = 3;
+}
+
+message ContactListRequest{
+	repeated int32 contactsListIds = 1;
+}
+
+message GroupMessage {
+	int32 id = 1;	
+	string name = 2;	
+}
+
+message GroupResponse{
+	protoMessages.ResponseResult result = 1;
+	GroupMessage message = 2;
+}
+
+message GroupRequest {
+	int32 id = 1;
+	protoMessages.PageInfo pageInfo = 2;	
+	repeated protoMessages.SortValue sorting = 3;
+	string searchText = 4;
+}
+
+message GroupMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated GroupMessage values = 1;
+	protoMessages.PageInfo pageInfo = 3;
+}
+
+message GroupsRequest {
+	repeated int32 values = 1;
+}
+
+message ContactGroupMessage {
+	int32 id = 1;
+	int32 contactId = 2;
+	int32 groupId = 3;
+}
+
+message ContactExistResponse {
+	protoMessages.ResponseResult result = 1;
+	bool alreadyExist = 2;
+	int32 id = 3;
+}
+
+message EmailTemplateMessage {
+	int32 id = 1;
+	string name = 9;
+	int32 senderId = 2;
+	int32 smtpServerId = 3;
+	repeated int32 groupIds = 4;
+	repeated int32 virtualServerIds = 5;
+	uint32 roles = 6;
+	string subject = 7;
+	int32 templateId = 8;
+}
+
+message EmailTemplateResponse {
+	protoMessages.ResponseResult result = 1;
+	EmailTemplateMessage message = 2;
+}
+
+message EmailTemplateMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated EmailTemplateMessage values = 2;
+	protoMessages.PageInfo pageInfo = 3;
+}
+
+message EmailTemplateRequest {
+	protoMessages.PageInfo pageInfo = 1;	
+	repeated protoMessages.SortValue sorting = 2;
+	string searchText = 3;
+}
+
+message SendEmailRequest {
+	int32 emailTemplateId = 1;
+	repeated int32 groupIds = 2;
+	repeated int32 virtualServerIds = 3;
+	uint32 roles = 4;
+	string subject = 5;
+	protoMessages.StructMessage templateData = 6;
+}

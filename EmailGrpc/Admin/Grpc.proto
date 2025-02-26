@@ -7,7 +7,7 @@ import "EmailGrpc/Admin/Messages.proto";
 package emailGrpcAdmin;
 
 service EmailAdmin {
-	rpc Send (EmailRequest) returns (EmailResponse);
+	rpc Send(EmailRequest) returns (EmailResponse);
 
 	//EmailSender
 	rpc ListEmailSender(google.protobuf.Empty) returns (EmailSenderMessageList);
@@ -29,8 +29,11 @@ service EmailAdmin {
 	rpc CreateTemplate(TemplateMessage) returns (TemplateResponse);
 	rpc UpdateTemplate(TemplateMessage) returns (TemplateResponse);
 	rpc DeleteTemplate(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ListTemplateByType(TemplateByTypeRequest) returns (TemplateMessageList);
+	rpc GetTemplateCombined(protoMessages.Int32Message) returns (TemplateResponse);
 
 	//EmailLogs
 	rpc ListEmailLog(protoMessages.ListRequest) returns (EmailLogMessageList);
 	rpc DeleteEmailLog(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
 }

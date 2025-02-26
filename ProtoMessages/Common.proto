@@ -28,6 +28,10 @@ message Int32Message {
 	int32 value = 1;
 }
 
+message UInt32Message {
+	uint32 value = 1;
+}
+
 message Int64Message {
 	int64 value = 1;
 }
