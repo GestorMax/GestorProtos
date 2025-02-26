@@ -183,6 +183,8 @@ message CustomerMessage {
 	string companyName = 2;
 	protoMessages.DateOnlyMessage creationDate = 27;
 	string taxId = 3;
+	repeated string phones = 4;
+	repeated string emails = 5;
 	string notes = 6;
 	repeated AddressMessage addresses = 7;
 	repeated PackBundleMessage packBundles = 8;
@@ -237,7 +239,7 @@ message CustomerResponse{
 }
 
 
-message CustomerOtherDatasRequest{
+message CustomerOtherDatasRequest {
 	int32 id = 1;
 	protoMessages.StringMessage customerNotes = 2;
 	protoMessages.StringMessage customerContacts = 3;
