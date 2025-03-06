@@ -120,6 +120,11 @@ message IncidenceMessageList {
 	protoMessages.PageInfo pageInfo = 3;
 }
 
+message IncidenceIdsMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated int32 values = 1;
+}
+
 message IncidenceResponse {
 	protoMessages.ResponseResult result = 1;
 	IncidenceMessage message = 2;
@@ -199,7 +204,7 @@ message ChangeStateIncidenceRequest {
 }
 
 message ChangeStateIncidenceListRequest {
-	repeated IncidenceMessage list = 1;
+	repeated int32 listIncidenceIds = 1;
 	AlertsStates State = 2;
 	protoMessages.StringMessage userId = 3;	
 }
