@@ -38,6 +38,7 @@ message EndpointRequest {
 		gestor.g4.grpc.shared.ListReporteLuciusRequest ListReporteLucius = 16;
 		bool ListReportesLucius = 10;
 		gestor.g4.grpc.shared.ListSuperficiesPresupuestoLuciusRequest ListSuperficiesPresupuestoLucius = 9;
+		bool ListTiposReportesLucius = 32;
 		bool ListUsuarios = 3;
 		gestor.g4.grpc.shared.PrepareReporteLuciusRequest PrepareReporteLucius = 15;
 	}
@@ -73,6 +74,7 @@ message EndpointResponse {
 		gestor.g4.grpc.shared.ListReporteLuciusResponse ListReporteLucius = 16;
 		gestor.g4.grpc.shared.ListReportesLuciusResponse ListReportesLucius = 10;
 		gestor.g4.grpc.shared.ListSuperficiesPresupuestoLuciusResponse ListSuperficiesPresupuestoLucius = 9;
+		gestor.g4.grpc.shared.ListTiposReportesLuciusResponse ListTiposReportesLucius = 32;
 		gestor.g4.grpc.shared.ListUsuariosResponse ListUsuarios = 3;
 		gestor.g4.grpc.shared.PrepareReporteLuciusResponse PrepareReporteLucius = 15;
 	}

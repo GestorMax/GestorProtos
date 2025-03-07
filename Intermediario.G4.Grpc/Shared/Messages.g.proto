@@ -883,7 +883,7 @@ message ListReporteLuciusResponse {
 message ListReportesLuciusMessage {
 	uint64 codReporteLucius = 1;
 	protoMessages.UInt64Message codTipoReporteLucius = 2;
-	protoMessages.StringMessage tipoReporteLucius = 3;
+	//protoMessages.StringMessage tipoReporteLucius = 3;
 	protoMessages.StringMessage reporteLucius = 4;
 	protoMessages.BoolMessage habilitado = 5;
 	//protoMessages.StringMessage notas = 6;
@@ -924,6 +924,33 @@ message ListSuperficiesPresupuestoLuciusRequest {
 message ListSuperficiesPresupuestoLuciusResponse {
 	protoMessages.ResponseResult result = 1;
 	ListSuperficiesPresupuestoLuciusMessage message = 2;
+}
+
+message ListTiposReportesLuciusMessage {
+	protoMessages.UInt64Message codTipoReporteLucius = 1;
+	protoMessages.StringMessage tipoReporteLucius = 2;
+	//protoMessages.BoolMessage filtraPorRubro = 3;
+	//protoMessages.BoolMessage filtraPorActividad = 4;
+	//protoMessages.BoolMessage filtraPorMacro = 5;
+	//protoMessages.BoolMessage filtraPorMicro = 6;
+	//protoMessages.BoolMessage filtraPorTipo = 7;
+	//protoMessages.BoolMessage filtraPorTipo2 = 8;
+	//protoMessages.BoolMessage agrupaPorActividad = 9;
+	//protoMessages.BoolMessage datosFisicos = 10;
+	//protoMessages.BoolMessage discriminaCentros = 11;
+	//protoMessages.UInt64Message codTipoEtiquetaAgrupar = 12;
+	//protoMessages.BoolMessage soloLectura = 13;
+	//protoMessages.BoolMessage habilitado = 14;
+	//protoMessages.StringMessage notas = 15;
+	//protoMessages.DateOnlyMessage fechaAlta = 16;
+	//protoMessages.DateOnlyMessage fechaModificacion = 17;
+	//protoMessages.UInt64Message codUsuarioAlta = 18;
+	//protoMessages.UInt64Message codUsuarioModificacion = 19;
+}
+
+message ListTiposReportesLuciusResponse {
+	protoMessages.ResponseResult result = 1;
+	ListTiposReportesLuciusMessage message = 2;
 }
 
 message ListUsuariosMessage {
