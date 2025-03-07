@@ -14,6 +14,7 @@ service GestorAlertAdmin {
 	rpc CreateIncidence (CreateIncidenceRequest) returns (protoMessages.ResponseResult);
 	rpc ListIncidences (ListIncidenceRequest) returns (IncidenceMessageList);
 	rpc ListHistoryIncidences (ListHistoryRequest) returns (IncidenceMessageList);
+	rpc ListHistoryIncidencesIds (ListHistoryRequest) returns (IncidenceIdsMessageList);
 	rpc ChangeStateIncidence (ChangeStateIncidenceRequest) returns (protoMessages.ResponseResult);
 	rpc ChangeStateIncidenceList (ChangeStateIncidenceListRequest) returns (protoMessages.ResponseResult);
 	rpc SetUserIncidence (ChangeUserIncidenceRequest) returns (protoMessages.ResponseResult);
