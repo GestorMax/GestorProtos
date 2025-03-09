@@ -13,6 +13,7 @@ message EndpointRequest {
 
 	oneof type {
 		gestor.g4.grpc.shared.GetEmpresaRequest GetEmpresa = 4;
+		gestor.g4.grpc.shared.GetLuciusUltimoReportesGeneradoGetRequest GetLuciusUltimoReportesGeneradoGet = 33;
 		gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetRequest ListaDePreciosHereIsDataSerieSet = 28;
 		gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateRequest ListaDePreciosPrecioUpdate = 29;
 		gestor.g4.grpc.shared.ListComprobantesRequest ListComprobantes = 27;
@@ -49,6 +50,7 @@ message EndpointResponse {
 
 	oneof type {
 		gestor.g4.grpc.shared.GetEmpresaResponse GetEmpresa = 4;
+		gestor.g4.grpc.shared.GetLuciusUltimoReportesGeneradoGetResponse GetLuciusUltimoReportesGeneradoGet = 33;
 		gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetResponse ListaDePreciosHereIsDataSerieSet = 28;
 		gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateResponse ListaDePreciosPrecioUpdate = 29;
 		gestor.g4.grpc.shared.ListComprobantesResponse ListComprobantes = 27;

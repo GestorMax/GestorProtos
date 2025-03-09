@@ -12,6 +12,7 @@ package intermediario.g4.grpc.resource;
 service IntermediarioG4Resource {
 	rpc ListDatabases(google.protobuf.Empty) returns (gestor.g4.grpc.shared.DatabaseMessageList);
 	rpc GetEmpresa(gestor.g4.grpc.shared.GetEmpresaRequest) returns (gestor.g4.grpc.shared.GetEmpresaResponse);
+	rpc GetLuciusUltimoReportesGeneradoGet(gestor.g4.grpc.shared.GetLuciusUltimoReportesGeneradoGetRequest) returns (gestor.g4.grpc.shared.GetLuciusUltimoReportesGeneradoGetResponse);
 	rpc ListaDePreciosHereIsDataSerieSet(gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetRequest) returns (gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetResponse);
 	rpc ListaDePreciosPrecioUpdate(gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateRequest) returns (gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateResponse);
 	rpc ListComprobantes(gestor.g4.grpc.shared.ListComprobantesRequest) returns (stream gestor.g4.grpc.shared.ListComprobantesResponse);

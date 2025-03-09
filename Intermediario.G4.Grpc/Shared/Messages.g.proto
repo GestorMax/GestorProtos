@@ -41,6 +41,23 @@ message GetEmpresaResponse {
 	GetEmpresaMessage message = 2;
 }
 
+message GetLuciusUltimoReportesGeneradoGetMessage {
+	uint64 codReporteLuciusGenerado = 1;
+	uint64 codEjercicio = 2;
+	uint64 codPresupuestoOriginal = 3;
+	uint64 codPresupuestoActualizado = 4;
+	protoMessages.DateOnlyMessage fechaCortePresupuesto = 5;
+}
+
+message GetLuciusUltimoReportesGeneradoGetRequest {
+	uint64 codEmpresa = 1;
+}
+
+message GetLuciusUltimoReportesGeneradoGetResponse {
+	protoMessages.ResponseResult result = 1;
+	GetLuciusUltimoReportesGeneradoGetMessage message = 2;
+}
+
 message ListaDePreciosHereIsDataSerieSetMessage {
 	protoMessages.BoolMessage result = 1;
 }
@@ -77,61 +94,61 @@ message ListaDePreciosPrecioUpdateResponse {
 
 message ListComprobantesMessage {
 	uint64 codComprobante = 1;
-	protoMessages.StringMessage comprobante = 2;
-	protoMessages.UInt64Message orden = 3;
-	protoMessages.StringMessage alias = 4;
-	protoMessages.UInt64Message codTipoComprobante = 5;
-	protoMessages.StringMessage tipoComprobante = 6;
-	protoMessages.StringMessage letraComprobante = 7;
+	string comprobante = 2;
+	//uint64 orden = 3;
+	string alias = 4;
+	uint64 codTipoComprobante = 5;
+	//string tipoComprobante = 6;
+	string letraComprobante = 7;
 	protoMessages.StringMessage referencia = 8;
-	protoMessages.UInt64Message codTipoOperativoBasico = 9;
-	protoMessages.UInt64Message codTipoComprobanteAFIP = 10;
-	protoMessages.StringMessage tipoOperativo = 11;
-	protoMessages.UInt64Message codTipoConceptoAFIP = 12;
-	protoMessages.UInt64Message codGrupoConceptosFiltroPorDefecto = 13;
-	protoMessages.StringMessage tipoConceptoAFIP = 14;
-	protoMessages.BoolMessage invierteImputacion = 15;
-	protoMessages.UInt64Message codFormularioImpresion = 16;
-	protoMessages.StringMessage formularioImpresion = 17;
+	uint64 codTipoOperativoBasico = 9;
+	uint64 codTipoComprobanteAFIP = 10;
+	//string tipoOperativo = 11;
+	//uint64 codTipoConceptoAFIP = 12;
+	//uint64 codGrupoConceptosFiltroPorDefecto = 13;
+	//string tipoConceptoAFIP = 14;
+	bool invierteImputacion = 15;
+	//protoMessages.UInt64Message codFormularioImpresion = 16;
+	//protoMessages.StringMessage formularioImpresion = 17;
 	protoMessages.UInt64Message codListaDePrecios = 18;
-	protoMessages.StringMessage listaDePrecios = 19;
-	protoMessages.UInt64Message codTipoAjuste = 20;
+	//protoMessages.StringMessage listaDePrecios = 19;
+	//protoMessages.UInt64Message codTipoAjuste = 20;
 	protoMessages.StringMessage tipoAjuste = 21;
 	protoMessages.BoolMessage noImputaGestionPorDefecto = 22;
 	protoMessages.BoolMessage noImputaContabilidadPorDefecto = 23;
-	protoMessages.UInt64Message codCondicionVenta = 24;
-	protoMessages.StringMessage condicionVenta = 25;
-	protoMessages.UInt64Message codConceptoPorDefecto = 26;
-	protoMessages.StringMessage concepto = 27;
-	protoMessages.BoolMessage codConceptoObligatorio = 28;
-	protoMessages.UInt64Message codPersonaPorDefecto = 29;
-	protoMessages.StringMessage persona = 30;
-	protoMessages.BoolMessage codPersonaObligatoria = 31;
-	protoMessages.UInt64Message codPerfilPorDefecto = 32;
-	protoMessages.StringMessage perfilImputacion = 33;
-	protoMessages.BoolMessage codPerfilObligatorio = 34;
-	protoMessages.UInt64Message codPerfilOrigenPorDefecto = 35;
-	protoMessages.StringMessage perfilOrigen = 36;
-	protoMessages.BoolMessage codPerfilOrigenObligatorio = 37;
-	protoMessages.UInt64Message codMonedaPorDefecto = 38;
-	protoMessages.StringMessage moneda = 39;
-	protoMessages.UInt64Message codCondicionIVAAfipPorDefecto = 40;
-	protoMessages.StringMessage condicionIVAAFIP = 41;
-	protoMessages.UInt64Message codRubroRRGGAfipPorDefecto = 42;
-	protoMessages.StringMessage rubroRRGGAFIP = 43;
-	protoMessages.BoolMessage retieneIIBBPorDefecto = 44;
-	protoMessages.BoolMessage repetirPerfil = 45;
-	protoMessages.BoolMessage repetirPerfilOrig = 46;
-	protoMessages.BoolMessage sincronizarPerfilOrigDest = 47;
-	protoMessages.BoolMessage repetirCentroCostos = 48;
-	protoMessages.BoolMessage repetirCentroCostosOrig = 49;
-	protoMessages.BoolMessage repetirCodRubroRRGGAfip = 50;
-	protoMessages.BoolMessage repetirCodCategoriaIVAComprasAfip = 51;
-	protoMessages.BoolMessage repetirCodActividadIVAAFIP = 52;
-	protoMessages.BoolMessage soloLectura = 53;
-	protoMessages.BoolMessage habilitado = 54;
+	//protoMessages.UInt64Message codCondicionVenta = 24;
+	//protoMessages.StringMessage condicionVenta = 25;
+	//protoMessages.UInt64Message codConceptoPorDefecto = 26;
+	//protoMessages.StringMessage concepto = 27;
+	//protoMessages.BoolMessage codConceptoObligatorio = 28;
+	//protoMessages.UInt64Message codPersonaPorDefecto = 29;
+	//protoMessages.StringMessage persona = 30;
+	//protoMessages.BoolMessage codPersonaObligatoria = 31;
+	//protoMessages.UInt64Message codPerfilPorDefecto = 32;
+	//protoMessages.StringMessage perfilImputacion = 33;
+	//protoMessages.BoolMessage codPerfilObligatorio = 34;
+	//protoMessages.UInt64Message codPerfilOrigenPorDefecto = 35;
+	//protoMessages.StringMessage perfilOrigen = 36;
+	//protoMessages.BoolMessage codPerfilOrigenObligatorio = 37;
+	//protoMessages.UInt64Message codMonedaPorDefecto = 38;
+	//protoMessages.StringMessage moneda = 39;
+	//protoMessages.UInt64Message codCondicionIVAAfipPorDefecto = 40;
+	//protoMessages.StringMessage condicionIVAAFIP = 41;
+	//protoMessages.UInt64Message codRubroRRGGAfipPorDefecto = 42;
+	//protoMessages.StringMessage rubroRRGGAFIP = 43;
+	//protoMessages.BoolMessage retieneIIBBPorDefecto = 44;
+	//protoMessages.BoolMessage repetirPerfil = 45;
+	//protoMessages.BoolMessage repetirPerfilOrig = 46;
+	//protoMessages.BoolMessage sincronizarPerfilOrigDest = 47;
+	//protoMessages.BoolMessage repetirCentroCostos = 48;
+	//protoMessages.BoolMessage repetirCentroCostosOrig = 49;
+	//protoMessages.BoolMessage repetirCodRubroRRGGAfip = 50;
+	//protoMessages.BoolMessage repetirCodCategoriaIVAComprasAfip = 51;
+	//protoMessages.BoolMessage repetirCodActividadIVAAFIP = 52;
+	//protoMessages.BoolMessage soloLectura = 53;
+	//protoMessages.BoolMessage habilitado = 54;
 	//protoMessages.StringMessage notas = 55;
-	protoMessages.BoolMessage presupuestoLuciusPorDefecto = 5852;
+	//protoMessages.BoolMessage presupuestoPorDefecto = 5852;
 }
 
 message ListComprobantesRequest {
@@ -148,13 +165,13 @@ message ListComprobantesResponse {
 
 message ListConceptosMessage {
 	//protoMessages.UInt64Message filterID = 1;
-	protoMessages.UInt64Message codigo = 2;
-	protoMessages.UInt64Message codGrupoConceptos = 3;
-	protoMessages.UInt64Message codSubgrupoConceptos = 4;
+	uint64 codigo = 2;
+	uint64 codGrupoConceptos = 3;
+	uint64 codSubgrupoConceptos = 4;
 	protoMessages.UInt64Message codClasificacionConceptos = 5;
 	protoMessages.UInt64Message codSubClasificacionConceptos = 6;
 	uint64 codConcepto = 7;
-	protoMessages.UInt64Message codigoConcepto = 8;
+	uint64 codigoConcepto = 8;
 	//protoMessages.StringMessage codigoAuxiliar = 9;
 	//protoMessages.UInt64Message codigoBarras = 10;
 	protoMessages.UInt64Message ordenGrupoConceptos = 11;
@@ -162,7 +179,7 @@ message ListConceptosMessage {
 	protoMessages.UInt64Message ordenClasificacionConceptos = 13;
 	protoMessages.UInt64Message ordenSubClasificacionConceptos = 14;
 	protoMessages.UInt64Message ordenConceptos = 15;
-	protoMessages.StringMessage descripcion = 16;
+	string descripcion = 16;
 	protoMessages.StringMessage descripcionIdentada = 17;
 	protoMessages.StringMessage descripcionCodigo = 18;
 	protoMessages.StringMessage descripcionDetallada = 19;
@@ -232,8 +249,8 @@ message ListConceptosListaDePreciosResponse {
 }
 
 message ListControlesReporteLuciusMessage {
-	protoMessages.UInt64Message codControlReporteLucius = 1;
-	protoMessages.UInt64Message codReporteLucius = 2;
+	uint64 codControlReporteLucius = 1;
+	uint64 codReporteLucius = 2;
 	protoMessages.UInt64Message codRubroLucius = 3;
 	protoMessages.StringMessage RubroLucius = 4;
 	protoMessages.UInt64Message codActividadLucius = 5;
@@ -300,16 +317,16 @@ message ListCuentasDeFondosResponse {
 }
 
 message ListCuentasPlanCentrosLuciusMessage {
-	protoMessages.UInt64Message codPlan = 1;
-	protoMessages.UInt64Message codCuenta = 2;
-	protoMessages.UInt64Message codigoCuenta = 3;
-	protoMessages.StringMessage cuenta = 4;
-	protoMessages.StringMessage cuentaDesc = 5;
-	protoMessages.UInt64Message codTipoCuenta = 6;
-	protoMessages.StringMessage tipoCuenta = 7;
+	uint64 codPlan = 1;
+	uint64 codCuenta = 2;
+	uint64 codigoCuenta = 3;
+	string cuenta = 4;
+	string cuentaDesc = 5;
+	uint64 codTipoCuenta = 6;
+	string tipoCuenta = 7;
 	protoMessages.StringMessage moneda = 8;
 	protoMessages.UInt64Message codSumaria = 9;
-	protoMessages.BoolMessage habilitado = 10;
+	bool habilitado = 10;
 	protoMessages.UInt64Message codCampoLucius = 11;
 	protoMessages.StringMessage TipoLucius = 12;
 	//protoMessages.StringMessage notas = 13;
@@ -326,16 +343,16 @@ message ListCuentasPlanCentrosLuciusResponse {
 }
 
 message ListCuentasPlanGestionLuciusMessage {
-	protoMessages.UInt64Message codPlan = 1;
-	protoMessages.UInt64Message codCuenta = 2;
-	protoMessages.UInt64Message codigoCuenta = 3;
-	protoMessages.StringMessage cuenta = 4;
-	protoMessages.StringMessage cuentaDesc = 5;
-	protoMessages.UInt64Message codTipoCuenta = 6;
-	protoMessages.StringMessage tipoCuenta = 7;
+	uint64 codPlan = 1;
+	uint64 codCuenta = 2;
+	uint64 codigoCuenta = 3;
+	string cuenta = 4;
+	string cuentaDesc = 5;
+	uint64 codTipoCuenta = 6;
+	string tipoCuenta = 7;
 	protoMessages.StringMessage moneda = 8;
 	protoMessages.UInt64Message codSumaria = 9;
-	protoMessages.BoolMessage habilitado = 10;
+	bool habilitado = 10;
 	protoMessages.UInt64Message codRubroLucius = 11;
 	protoMessages.StringMessage RubroLucius = 12;
 	protoMessages.UInt64Message codActividadLucius = 13;
@@ -407,12 +424,12 @@ message ListDatosPresupuestoLuciusResponse {
 
 message ListEjerciciosLuciusMessage {
 	uint64 codEjercicioLucius = 1;
-	//protoMessages.UInt64Message codEmpresa = 2;
-	//protoMessages.StringMessage Empresa = 3;
-	protoMessages.StringMessage ejercicioLucius = 4;
+	uint64 codEmpresa = 2;
+	//string Empresa = 3;
+	string ejercicioLucius = 4;
 	protoMessages.DateOnlyMessage fechaIncioEjercicio = 5;
 	protoMessages.DateOnlyMessage fechaFinEjercicio = 6;
-	//protoMessages.BoolMessage habilitado = 7;
+	//bool habilitado = 7;
 	//protoMessages.StringMessage notas = 8;
 	//protoMessages.DateOnlyMessage fechaAlta = 9;
 	//protoMessages.DateOnlyMessage fechaModificacion = 10;
@@ -463,11 +480,11 @@ message ListEmpresasResponse {
 }
 
 message ListEstructuraReporteLuciusMessage {
-	protoMessages.UInt64Message codEstructuraReporteLucius = 1;
-	protoMessages.UInt64Message codReporteLucius = 2;
-	protoMessages.StringMessage estructura = 3;
-	protoMessages.BoolMessage esGrupo = 4;
-	protoMessages.UInt64Message orden = 5;
+	uint64 codEstructuraReporteLucius = 1;
+	uint64 codReporteLucius = 2;
+	string estructura = 3;
+	bool esGrupo = 4;
+	uint64 orden = 5;
 	protoMessages.UInt64Message nivelArbol = 6;
 	protoMessages.BoolMessage noTotalizar = 7;
 	protoMessages.UInt64Message codEstructuraPadre = 8;
@@ -669,13 +686,13 @@ message ListMayorReporteLuciusResponse {
 
 message ListPersonasMessage {
 	uint64 codPersona = 1;
-	protoMessages.StringMessage persona = 2;
-	protoMessages.StringMessage alias = 3;
-	protoMessages.UInt64Message codTipoPersonaAFIP = 4;
-	protoMessages.StringMessage tipoPersonaAFIP = 5;
-	protoMessages.UInt64Message codTipoDocumentoAFIP = 6;
-	protoMessages.StringMessage tipoDocumentoAFIP = 7;
-	protoMessages.StringMessage nroDocumento = 8;
+	string persona = 2;
+	string alias = 3;
+	uint64 codTipoPersonaAFIP = 4;
+	string tipoPersonaAFIP = 5;
+	uint64 codTipoDocumentoAFIP = 6;
+	string tipoDocumentoAFIP = 7;
+	string nroDocumento = 8;
 	protoMessages.UInt64Message codPaisAFIP = 9;
 	protoMessages.StringMessage paisAFIP = 10;
 	protoMessages.UInt64Message codProvinciaAFIP = 11;
@@ -725,16 +742,16 @@ message ListPersonasResponse {
 }
 
 message ListPlanDeCuentasCuentasMessage {
-	protoMessages.UInt64Message codPlan = 1;
-	protoMessages.UInt64Message codCuenta = 2;
-	protoMessages.UInt64Message codigoCuenta = 3;
-	protoMessages.StringMessage cuenta = 4;
-	protoMessages.StringMessage cuentaDesc = 5;
-	protoMessages.UInt64Message codTipoCuenta = 6;
+	uint64 codPlan = 1;
+	uint64 codCuenta = 2;
+	uint64 codigoCuenta = 3;
+	string cuenta = 4;
+	//protoMessages.StringMessage cuentaDesc = 5;
+	uint64 codTipoCuenta = 6;
 	protoMessages.StringMessage tipoCuenta = 7;
 	protoMessages.StringMessage moneda = 8;
 	protoMessages.UInt64Message codSumaria = 9;
-	protoMessages.BoolMessage habilitado = 10;
+	bool habilitado = 10;
 	//protoMessages.StringMessage notas = 11;
 }
 
@@ -751,13 +768,13 @@ message ListPlanDeCuentasCuentasResponse {
 }
 
 message ListPlanesDeCuentasMessage {
-	protoMessages.UInt64Message codigo = 1;
+	//uint64 codigo = 1;
 	uint64 codPlan = 2;
-	protoMessages.StringMessage plan = 3;
-	protoMessages.UInt64Message codTipoPlan = 8;
-	protoMessages.BoolMessage habilitado = 16;
-	//protoMessages.StringMessage notas = 17;
-	protoMessages.StringMessage tipoPlan = 4748;
+	string plan = 3;
+	uint64 codTipoPlan = 4;
+	//protoMessages.StringMessage tipoPlan = 5;
+	bool habilitado = 6;
+	//protoMessages.StringMessage notas = 7;
 }
 
 message ListPlanesDeCuentasResponse {
@@ -766,17 +783,17 @@ message ListPlanesDeCuentasResponse {
 }
 
 message ListPresupuestosLuciusMessage {
-	protoMessages.BoolMessage bloqueado = 5;
-	protoMessages.BoolMessage habilitado = 6;
+	uint64 codPresupuesto = 1;
+	string presupuesto = 2;
+	uint64 codEjercicio = 3;
+	//string ejercicio = 4;
+	bool bloqueado = 5;
+	bool habilitado = 6;
 	//protoMessages.StringMessage notas = 7;
 	//protoMessages.DateOnlyMessage fechaAlta = 8;
 	//protoMessages.DateOnlyMessage fechaModificacion = 9;
 	//protoMessages.UInt64Message codUsuarioAlta = 10;
 	//protoMessages.UInt64Message codUsuarioModificacion = 11;
-	uint64 codPresupuesto = 12;
-	protoMessages.StringMessage presupuesto = 13;
-	protoMessages.UInt64Message codEjercicio = 14;
-	protoMessages.StringMessage ejercicio = 15;
 }
 
 message ListPresupuestosLuciusRequest {
@@ -793,16 +810,10 @@ message ListPresupuestosLuciusResponse {
 }
 
 message ListReporteLuciusMessage {
-	protoMessages.UInt64Message codReporteLuciusGenerado = 1;
-	protoMessages.UInt64Message codCampoLucius = 6;
-	//protoMessages.DateOnlyMessage fechaAlta = 32;
-	//protoMessages.DateOnlyMessage fechaModificacion = 33;
-	//protoMessages.UInt64Message codUsuarioAlta = 34;
-	//protoMessages.UInt64Message codUsuarioModificacion = 35;
-	protoMessages.UInt64Message codLuciusReporteQuery = 37;
-	protoMessages.UInt64Message codReporteLucius = 38;
-	protoMessages.UInt64Message codEstructura = 40;
-	protoMessages.StringMessage estructuraReporte = 41;
+	uint64 codReporteLuciusGenerado = 1;
+	uint64 codReporteLucius = 38;
+	uint64 codEstructura = 40;
+	string estructuraReporte = 41;
 	protoMessages.UInt64Message codEstructuraPadre = 42;
 	protoMessages.UInt64Message nivelArbol = 43;
 	protoMessages.BoolMessage esGrupo = 44;
@@ -811,6 +822,19 @@ message ListReporteLuciusMessage {
 	protoMessages.DecimalMessage proyectadoActual = 48;
 	protoMessages.DecimalMessage proyectadoOrig = 49;
 	protoMessages.DecimalMessage proyectadoRatio = 50;
+	protoMessages.UInt64Message codRubroLucius = 75;
+	protoMessages.StringMessage RubroLucius = 76;
+	protoMessages.UInt64Message codActividadLucius = 77;
+	protoMessages.StringMessage ActividadLucius = 78;
+	protoMessages.UInt64Message codMacroLucius = 79;
+	protoMessages.StringMessage MacroLucius = 80;
+	protoMessages.UInt64Message codMicroLucius = 81;
+	protoMessages.StringMessage MicroLucius = 82;
+	protoMessages.UInt64Message codTipoLucius = 83;
+	protoMessages.StringMessage TipoLucius = 84;
+	protoMessages.UInt64Message codCampoLucius = 6;
+	protoMessages.StringMessage CampoLucius = 85;
+	protoMessages.UInt64Message codLuciusReporteQuery = 37;
 	protoMessages.DecimalMessage realizadoActual2 = 52;
 	protoMessages.DecimalMessage realizadoRatio2 = 53;
 	protoMessages.DecimalMessage proyectadoActual2 = 54;
@@ -831,17 +855,6 @@ message ListReporteLuciusMessage {
 	protoMessages.DecimalMessage proyectadoPorUnidActual = 72;
 	protoMessages.DecimalMessage proyectadoPorUnidOrig = 73;
 	protoMessages.DecimalMessage proyectadoPorUnidRatio = 74;
-	protoMessages.UInt64Message codRubroLucius = 75;
-	protoMessages.StringMessage RubroLucius = 76;
-	protoMessages.UInt64Message codActividadLucius = 77;
-	protoMessages.StringMessage ActividadLucius = 78;
-	protoMessages.UInt64Message codMacroLucius = 79;
-	protoMessages.StringMessage MacroLucius = 80;
-	protoMessages.UInt64Message codMicroLucius = 81;
-	protoMessages.StringMessage MicroLucius = 82;
-	protoMessages.UInt64Message codTipoLucius = 83;
-	protoMessages.StringMessage TipoLucius = 84;
-	protoMessages.StringMessage CampoLucius = 85;
 	protoMessages.UInt64Message orden = 87;
 	protoMessages.BoolMessage esTotal = 88;
 	protoMessages.DecimalMessage superficieRatio = 89;
@@ -866,6 +879,10 @@ message ListReporteLuciusMessage {
 	protoMessages.BoolMessage noTotalizar = 110;
 	protoMessages.BoolMessage esControl = 111;
 	protoMessages.BoolMessage errorControl = 112;
+	//protoMessages.DateOnlyMessage fechaAlta = 32;
+	//protoMessages.DateOnlyMessage fechaModificacion = 33;
+	//protoMessages.UInt64Message codUsuarioAlta = 34;
+	//protoMessages.UInt64Message codUsuarioModificacion = 35;
 }
 
 message ListReporteLuciusRequest {
@@ -882,10 +899,10 @@ message ListReporteLuciusResponse {
 
 message ListReportesLuciusMessage {
 	uint64 codReporteLucius = 1;
-	protoMessages.UInt64Message codTipoReporteLucius = 2;
-	//protoMessages.StringMessage tipoReporteLucius = 3;
-	protoMessages.StringMessage reporteLucius = 4;
-	protoMessages.BoolMessage habilitado = 5;
+	uint64 codTipoReporteLucius = 2;
+	//string tipoReporteLucius = 3;
+	string reporteLucius = 4;
+	bool habilitado = 5;
 	//protoMessages.StringMessage notas = 6;
 	//protoMessages.DateOnlyMessage fechaAlta = 7;
 	//protoMessages.DateOnlyMessage fechaModificacion = 8;
@@ -899,8 +916,8 @@ message ListReportesLuciusResponse {
 }
 
 message ListSuperficiesPresupuestoLuciusMessage {
-	protoMessages.UInt64Message codSuperficieLucius = 1;
-	protoMessages.UInt64Message codRubroLucius = 3;
+	uint64 codSuperficieLucius = 1;
+	uint64 codRubroLucius = 3;
 	protoMessages.StringMessage RubroLucius = 4;
 	protoMessages.UInt64Message codActividadLucius = 5;
 	protoMessages.StringMessage ActividadLucius = 6;
@@ -970,7 +987,7 @@ message ListUsuariosResponse {
 }
 
 message PrepareReporteLuciusMessage {
-	protoMessages.UInt64Message codReporteLuciusGenerado = 1;
+	uint64 codReporteLuciusGenerado = 1;
 }
 
 message PrepareReporteLuciusRequest {
