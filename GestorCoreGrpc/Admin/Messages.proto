@@ -1,4 +1,4 @@
-﻿	syntax = "proto3";
+﻿syntax = "proto3";
 
 import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
@@ -465,7 +465,6 @@ message DatabaseMessage {
 	DatabaseTypes databaseConfiguration = 14;
 	AccessTypes access = 15;
 	protoMessages.DateOnlyMessage accessDate = 16;
-	HomeMailTypes homeMail = 17;
 	DriveTypes drive = 18;
 	ModalityTypes modality = 19;
 	PaymentOptionTypes paymentOption = 20;
@@ -494,12 +493,6 @@ message DatabaseMessage {
 		AccessTypes_Pending = 0;
 		AccessTypes_Send = 1;
 		AccessTypes_Sent = 2;
-	}
-	
-	enum HomeMailTypes {
-		HomeMailTypes_Pending = 0;
-		HomeMailTypes_Send = 1;
-		HomeMailTypes_Sent = 2;
 	}
 	
 	enum DriveTypes {
