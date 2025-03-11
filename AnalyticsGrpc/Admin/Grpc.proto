@@ -66,6 +66,7 @@ service AnalyticsAdmin {
 
 	//Scraper
 	rpc TestScraperData (ScrapDataMessage) returns (ScrapingResponse);
+	rpc ScraperData (ScrapDataMessage) returns (ScrapingResponse);
 	rpc TestScraperSource (protoMessages.Int32Message) returns (ScrapingResponse);
 	rpc ScraperSource (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 	rpc SaveScraping (ScrapingMessage) returns (protoMessages.ResponseResult);
