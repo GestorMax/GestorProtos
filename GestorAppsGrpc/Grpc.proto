@@ -12,7 +12,7 @@ import "GestorAppsGrpc/Messages.proto";
 import "HereIsDataShared/Messages.proto";
 import "InvoiceReaderGrpc/Resource/Messages.proto";
 import "Intermediario.G4.Grpc/Shared/Messages.proto";
-
+import "Intermediario.G4.Grpc/Shared/Messages.g.proto";
 
 package gestorAppsGrpc;
 
@@ -113,4 +113,7 @@ service GestorApps {
 	rpc InvoiceUpload (invoiceReaderGrpcResource.InvoiceUploadRequest) returns (protoMessages.ResponseResult);
 	rpc DeleteInvoice (invoiceReaderGrpcResource.InvoiceDeleteRequest) returns (protoMessages.ResponseResult);
 	rpc ReadInvoice (invoiceReaderGrpcResource.InvoiceReadRequest) returns (invoiceReaderGrpcResource.InvoiceReadResponse);
+
+	//Lucius
+	rpc GetLuciusUltimoReportesGeneradoGet(gestor.g4.grpc.shared.GetLuciusUltimoReportesGeneradoGetRequest) returns (gestor.g4.grpc.shared.GetLuciusUltimoReportesGeneradoGetResponse);
 }
