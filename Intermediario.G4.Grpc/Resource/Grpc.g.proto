@@ -12,7 +12,7 @@ package intermediario.g4.grpc.resource;
 service IntermediarioG4Resource {
 	rpc ListDatabases(google.protobuf.Empty) returns (gestor.g4.grpc.shared.DatabaseMessageList);
 	rpc GetEmpresa(gestor.g4.grpc.shared.GetEmpresaRequest) returns (gestor.g4.grpc.shared.GetEmpresaResponse);
-	rpc GetLuciusUltimoReportesGeneradoGet(gestor.g4.grpc.shared.GetLuciusUltimoReportesGeneradoGetRequest) returns (gestor.g4.grpc.shared.GetLuciusUltimoReportesGeneradoGetResponse);
+	rpc GetLuciusUltimoReporteGenerado(gestor.g4.grpc.shared.GetLuciusUltimoReporteGeneradoRequest) returns (gestor.g4.grpc.shared.GetLuciusUltimoReporteGeneradoResponse);
 	rpc ListaDePreciosHereIsDataSerieSet(gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetRequest) returns (gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetResponse);
 	rpc ListaDePreciosPrecioUpdate(gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateRequest) returns (gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateResponse);
 	rpc ListComprobantes(gestor.g4.grpc.shared.ListComprobantesRequest) returns (stream gestor.g4.grpc.shared.ListComprobantesResponse);
@@ -35,11 +35,11 @@ service IntermediarioG4Resource {
 	rpc ListPlanDeCuentasCuentas(gestor.g4.grpc.shared.ListPlanDeCuentasCuentasRequest) returns (stream gestor.g4.grpc.shared.ListPlanDeCuentasCuentasResponse);
 	rpc ListPlanesDeCuentas(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListPlanesDeCuentasResponse);
 	rpc ListPresupuestosLucius(gestor.g4.grpc.shared.ListPresupuestosLuciusRequest) returns (stream gestor.g4.grpc.shared.ListPresupuestosLuciusResponse);
-	rpc ListReporteLucius(gestor.g4.grpc.shared.ListReporteLuciusRequest) returns (stream gestor.g4.grpc.shared.ListReporteLuciusResponse);
-	rpc ListReportesLucius(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListReportesLuciusResponse);
+	rpc ListReporteLuciusGenerado(gestor.g4.grpc.shared.ListReporteLuciusGeneradoRequest) returns (stream gestor.g4.grpc.shared.ListReporteLuciusGeneradoResponse);
+	rpc ListReportesLuciusDefinidos(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListReportesLuciusDefinidosResponse);
 	rpc ListSuperficiesPresupuestoLucius(gestor.g4.grpc.shared.ListSuperficiesPresupuestoLuciusRequest) returns (stream gestor.g4.grpc.shared.ListSuperficiesPresupuestoLuciusResponse);
 	rpc ListTiposReportesLucius(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListTiposReportesLuciusResponse);
 	rpc ListUsuarios(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListUsuariosResponse);
-	rpc PrepareReporteLucius(gestor.g4.grpc.shared.PrepareReporteLuciusRequest) returns (stream gestor.g4.grpc.shared.PrepareReporteLuciusResponse);
+	rpc PrepareReporteLucius(gestor.g4.grpc.shared.PrepareReporteLuciusRequest) returns (gestor.g4.grpc.shared.PrepareReporteLuciusResponse);
 
 }

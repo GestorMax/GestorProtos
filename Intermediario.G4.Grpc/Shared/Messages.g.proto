@@ -41,7 +41,7 @@ message GetEmpresaResponse {
 	GetEmpresaMessage message = 2;
 }
 
-message GetLuciusUltimoReportesGeneradoGetMessage {
+message GetLuciusUltimoReporteGeneradoMessage {
 	uint64 codReporteLuciusGenerado = 1;
 	uint64 codEjercicio = 2;
 	uint64 codPresupuestoOriginal = 3;
@@ -49,13 +49,13 @@ message GetLuciusUltimoReportesGeneradoGetMessage {
 	protoMessages.DateOnlyMessage fechaCortePresupuesto = 5;
 }
 
-message GetLuciusUltimoReportesGeneradoGetRequest {
+message GetLuciusUltimoReporteGeneradoRequest {
 	uint64 codEmpresa = 1;
 }
 
-message GetLuciusUltimoReportesGeneradoGetResponse {
+message GetLuciusUltimoReporteGeneradoResponse {
 	protoMessages.ResponseResult result = 1;
-	GetLuciusUltimoReportesGeneradoGetMessage message = 2;
+	GetLuciusUltimoReporteGeneradoMessage message = 2;
 }
 
 message ListaDePreciosHereIsDataSerieSetMessage {
@@ -809,7 +809,7 @@ message ListPresupuestosLuciusResponse {
 	ListPresupuestosLuciusMessage message = 2;
 }
 
-message ListReporteLuciusMessage {
+message ListReporteLuciusGeneradoMessage {
 	uint64 codReporteLuciusGenerado = 1;
 	uint64 codReporteLucius = 38;
 	uint64 codEstructura = 40;
@@ -885,19 +885,19 @@ message ListReporteLuciusMessage {
 	//protoMessages.UInt64Message codUsuarioModificacion = 35;
 }
 
-message ListReporteLuciusRequest {
+message ListReporteLuciusGeneradoRequest {
 	uint64 codReporteLuciusGenerado = 1;
 	protoMessages.UInt64Message codReporteLucius = 2;
 	protoMessages.UInt64Message codActividadLucius = 3;
 	protoMessages.UInt64Message codCampoLucius = 4;
 }
 
-message ListReporteLuciusResponse {
+message ListReporteLuciusGeneradoResponse {
 	protoMessages.ResponseResult result = 1;
-	ListReporteLuciusMessage message = 2;
+	ListReporteLuciusGeneradoMessage message = 2;
 }
 
-message ListReportesLuciusMessage {
+message ListReportesLuciusDefinidosMessage {
 	uint64 codReporteLucius = 1;
 	uint64 codTipoReporteLucius = 2;
 	//string tipoReporteLucius = 3;
@@ -910,9 +910,9 @@ message ListReportesLuciusMessage {
 	//protoMessages.UInt64Message codUsuarioModificacion = 10;
 }
 
-message ListReportesLuciusResponse {
+message ListReportesLuciusDefinidosResponse {
 	protoMessages.ResponseResult result = 1;
-	ListReportesLuciusMessage message = 2;
+	ListReportesLuciusDefinidosMessage message = 2;
 }
 
 message ListSuperficiesPresupuestoLuciusMessage {

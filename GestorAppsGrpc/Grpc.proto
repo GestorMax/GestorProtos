@@ -115,5 +115,5 @@ service GestorApps {
 	rpc ReadInvoice (invoiceReaderGrpcResource.InvoiceReadRequest) returns (invoiceReaderGrpcResource.InvoiceReadResponse);
 
 	//Lucius
-	rpc GetLuciusUltimoReportesGeneradoGet(gestor.g4.grpc.shared.GetLuciusUltimoReportesGeneradoGetRequest) returns (gestor.g4.grpc.shared.GetLuciusUltimoReportesGeneradoGetResponse);
+	rpc GetLuciusUltimoReporteGenerado(gestor.g4.grpc.shared.GetLuciusUltimoReporteGeneradoRequest) returns (gestor.g4.grpc.shared.GetLuciusUltimoReporteGeneradoResponse);
 }

@@ -13,7 +13,7 @@ message EndpointRequest {
 
 	oneof type {
 		gestor.g4.grpc.shared.GetEmpresaRequest GetEmpresa = 4;
-		gestor.g4.grpc.shared.GetLuciusUltimoReportesGeneradoGetRequest GetLuciusUltimoReportesGeneradoGet = 33;
+		gestor.g4.grpc.shared.GetLuciusUltimoReporteGeneradoRequest GetLuciusUltimoReporteGenerado = 33;
 		gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetRequest ListaDePreciosHereIsDataSerieSet = 28;
 		gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateRequest ListaDePreciosPrecioUpdate = 29;
 		gestor.g4.grpc.shared.ListComprobantesRequest ListComprobantes = 27;
@@ -36,8 +36,8 @@ message EndpointRequest {
 		gestor.g4.grpc.shared.ListPlanDeCuentasCuentasRequest ListPlanDeCuentasCuentas = 5;
 		bool ListPlanesDeCuentas = 18;
 		gestor.g4.grpc.shared.ListPresupuestosLuciusRequest ListPresupuestosLucius = 7;
-		gestor.g4.grpc.shared.ListReporteLuciusRequest ListReporteLucius = 16;
-		bool ListReportesLucius = 10;
+		gestor.g4.grpc.shared.ListReporteLuciusGeneradoRequest ListReporteLuciusGenerado = 16;
+		bool ListReportesLuciusDefinidos = 10;
 		gestor.g4.grpc.shared.ListSuperficiesPresupuestoLuciusRequest ListSuperficiesPresupuestoLucius = 9;
 		bool ListTiposReportesLucius = 32;
 		bool ListUsuarios = 3;
@@ -50,7 +50,7 @@ message EndpointResponse {
 
 	oneof type {
 		gestor.g4.grpc.shared.GetEmpresaResponse GetEmpresa = 4;
-		gestor.g4.grpc.shared.GetLuciusUltimoReportesGeneradoGetResponse GetLuciusUltimoReportesGeneradoGet = 33;
+		gestor.g4.grpc.shared.GetLuciusUltimoReporteGeneradoResponse GetLuciusUltimoReporteGenerado = 33;
 		gestor.g4.grpc.shared.ListaDePreciosHereIsDataSerieSetResponse ListaDePreciosHereIsDataSerieSet = 28;
 		gestor.g4.grpc.shared.ListaDePreciosPrecioUpdateResponse ListaDePreciosPrecioUpdate = 29;
 		gestor.g4.grpc.shared.ListComprobantesResponse ListComprobantes = 27;
@@ -73,8 +73,8 @@ message EndpointResponse {
 		gestor.g4.grpc.shared.ListPlanDeCuentasCuentasResponse ListPlanDeCuentasCuentas = 5;
 		gestor.g4.grpc.shared.ListPlanesDeCuentasResponse ListPlanesDeCuentas = 18;
 		gestor.g4.grpc.shared.ListPresupuestosLuciusResponse ListPresupuestosLucius = 7;
-		gestor.g4.grpc.shared.ListReporteLuciusResponse ListReporteLucius = 16;
-		gestor.g4.grpc.shared.ListReportesLuciusResponse ListReportesLucius = 10;
+		gestor.g4.grpc.shared.ListReporteLuciusGeneradoResponse ListReporteLuciusGenerado = 16;
+		gestor.g4.grpc.shared.ListReportesLuciusDefinidosResponse ListReportesLuciusDefinidos = 10;
 		gestor.g4.grpc.shared.ListSuperficiesPresupuestoLuciusResponse ListSuperficiesPresupuestoLucius = 9;
 		gestor.g4.grpc.shared.ListTiposReportesLuciusResponse ListTiposReportesLucius = 32;
 		gestor.g4.grpc.shared.ListUsuariosResponse ListUsuarios = 3;
