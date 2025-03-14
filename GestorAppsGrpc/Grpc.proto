@@ -119,4 +119,5 @@ service GestorApps {
 	rpc PrepareReporteLucius(gestor.g4.grpc.shared.PrepareReporteLuciusRequest) returns (gestor.g4.grpc.shared.PrepareReporteLuciusResponse);
 	rpc ListReportesLuciusDefinidos(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListReportesLuciusDefinidosResponse);
 	rpc ListReporteLuciusGenerado(gestor.g4.grpc.shared.ListReporteLuciusGeneradoRequest) returns (stream gestor.g4.grpc.shared.ListReporteLuciusGeneradoResponse);
+	rpc ListTiposReportesLucius(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListTiposReportesLuciusResponse);
 }
