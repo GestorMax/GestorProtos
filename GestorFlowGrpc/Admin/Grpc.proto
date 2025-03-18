@@ -1,6 +1,7 @@
 ﻿syntax = "proto3";
 
 import "google/protobuf/Empty.proto";
+import "ProtoMessages/Common.proto";
 import "GestorFlowGrpc/Admin/Messages.proto";
 
 package gestorFlowGrpcAdmin;
@@ -8,6 +9,18 @@ package gestorFlowGrpcAdmin;
 service GestorFlowAdmin {
 
 	//States
-	rpc ListProcessStates(google.protobuf.Empty) returns (ProcessStateList);
-	rpc ListProcessStateMaps(google.protobuf.Empty) returns (StateMapPointList);
+	rpc CreateOrUpdateProcessState(ProcessStateMessageList) returns (ProcessStateResponse);
+	rpc DeleteProcessState(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ListProcessStatesById(protoMessages.Int32Message) returns (ProcessStateMessageList);
+
+	rpc ListProcessTypes(google.protobuf.Empty) returns (ProcessTypeMessageList);
+	rpc GetProcessType(protoMessages.Int32Message) returns (ProcessTypeResponse);
+	rpc CreateProcessType(ProcessTypeMessage) returns (ProcessTypeResponse);
+	rpc UpdateProcessType(ProcessTypeMessage) returns (ProcessTypeResponse);
+	rpc DeleteProcessType(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	rpc DeleteProcessStateFLow(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc ListProcessStatesFlowsById(protoMessages.Int32Message) returns (ProcessStateFlowMessageList);
+
+	rpc SaveDiagramFLow(DiagramFlowMessage) returns (protoMessages.ResponseResult);
 }

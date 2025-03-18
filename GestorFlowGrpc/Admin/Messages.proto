@@ -5,38 +5,71 @@ import "ProtoMessages/Common.proto";
 package gestorFlowGrpcAdmin;
 
 
-
+message GestorFlowConfiguration {
+	string uri = 1;
+}
 //LISTS ---------------------------------------------------------------
-message ProcessStateList {
+message ProcessStateMessageList {
 	protoMessages.ResponseResult result = 1;
 	repeated ProcessStateMessage values = 2;
 }
 
-message StateMapPointList {
+message ProcessStateFlowMessageList {
 	protoMessages.ResponseResult result = 1;
-	repeated StateMapPointMessage values = 2;
+	repeated ProcessStateFlowMessage values = 2;
+}
+
+message ProcessTypeMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated ProcessTypeMessage values = 2;
+}
+
+message DiagramFlowMessage{
+	ProcessStateMessageList states = 1;
+	ProcessStateFlowMessageList flows = 2;
 }
 
 //MESSAGES ---------------------------------------------------------------
 message ProcessStateMessage {
 	int32 id = 1;
 	string name = 2;
+	double xPosition = 3;
+	double yPosition = 4;
+	int32 processTypeId = 5;
+	int32 stateType = 6;
 }
 
-message ProcessStateMapMessage {
+
+message ProcessStateFlowMessage {
+	int32 id = 1;
+	int32 stateFromId = 2;
+	int32 stateToId = 3;
+	int32 processTypeId = 4;
+	string from = 5;
+	string to = 6;	
+	int32 portFrom = 7;
+	int32 portTo = 8;
+}
+
+message ProcessTypeMessage{
 	int32 id = 1;
 	string name = 2;
-	StateMapPointList points = 3;
+	string description = 3;
 }
 
-message StateMapPointMessage {
-	int32 id = 1;
-	int32 ProcessStateMessageFrom = 2;
-	int32 ProcessStateMessageTo = 3;
-}
-
+//RESPONSE ---------------------------------------------------------------
 
 message ProcessStateResponse {
 	protoMessages.ResponseResult result = 1;
 	ProcessStateMessage message = 2;
+}
+
+message ProcessTypeResponse {
+	protoMessages.ResponseResult result = 1;
+	ProcessTypeMessage message = 2;
+}
+
+message ProcessStateFlowResponse {
+	protoMessages.ResponseResult result = 1;
+	ProcessStateFlowMessage message = 2;
 }
