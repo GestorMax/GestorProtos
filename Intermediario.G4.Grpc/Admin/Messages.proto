@@ -44,6 +44,7 @@ message ConnectInfoMessage {
 	string database = 6;
 	string databaseVersion = 7;
 	intermediario.grpc.common.SyncedDatabaseMessage completeInfoDatabase = 8;
+	string MD5 = 9;
 }
 
 message ConnectInfoMessageList {

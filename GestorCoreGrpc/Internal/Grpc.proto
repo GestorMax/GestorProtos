@@ -15,4 +15,8 @@ service GestorCoreInternal {
 	rpc CanEnableIntermediarioDatabase(protoMessages.Int32Message) returns (protoMessages.BoolMessage);
 	rpc GetVaultValue(VaultValueRequest) returns (VaultValueResponse);
 	rpc GetG4DatabaseId(G4DatabaseMigrationRequest) returns (G4DatabaseMigrationResponse);
+	rpc ListRdpUserContactsByVirtualServers (gestorCoreGrpcShared.VirtualServerContactIdsRequest) returns (gestorCoreGrpcShared.ContactIdsMessageList);
+	rpc ListCustomerContactsByRole (protoMessages.UInt32Message) returns (gestorCoreGrpcShared.ContactIdsMessageList);
+
+
 }

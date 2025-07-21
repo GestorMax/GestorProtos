@@ -54,7 +54,7 @@ service GestorCoreAdmin {
 
 	rpc RemovePackBundle (PackBundleMessage) returns (protoMessages.ResponseResult);
 
-	rpc ListCustomerContactsByRole (protoMessages.UInt32Message) returns (ContactIdsMessageList);
+	rpc ListCustomerContactsByRole (protoMessages.UInt32Message) returns (gestorCoreGrpcShared.ContactIdsMessageList);
 	
 	//Vaults
 	rpc GetVault(protoMessages.Int32Message) returns (VaultResponse);
@@ -69,6 +69,8 @@ service GestorCoreAdmin {
 	rpc GetDatabaseIdByCloudDatabase(protoMessages.Int32Message) returns (gestorCoreGrpcShared.DatabaseIdResponse);
 
 	rpc ListDatabases (google.protobuf.Empty) returns (DatabaseResultMessageList);
+	
+	rpc ListDatabasesForContact (ListDatabasesForContactRequestMessage) returns (DatabaseShortInfoResultMessageList);
 
 	rpc ListUnlinkedDatabases (google.protobuf.Empty) returns (UnlinkedDatabaseMessageList);
 
@@ -144,7 +146,9 @@ service GestorCoreAdmin {
 
 	rpc EditRdpUser(RdpUserMessage) returns (RdpUserResponse);
 
-	rpc ListRdpUserContactsByVirtualServers (VirtualServerContactIdsRequest) returns (ContactIdsMessageList);
+	rpc DeleteRdpUser(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	rpc ListRdpUserContactsByVirtualServers (gestorCoreGrpcShared.VirtualServerContactIdsRequest) returns (gestorCoreGrpcShared.ContactIdsMessageList);
 
 	//apikey
 	rpc GenerateApiKeyForDatabase (GenerateApiKeyRequest) returns (GenerateApiKeyResponse);

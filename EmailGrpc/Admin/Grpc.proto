@@ -35,5 +35,6 @@ service EmailAdmin {
 	//EmailLogs
 	rpc ListEmailLog(protoMessages.ListRequest) returns (EmailLogMessageList);
 	rpc DeleteEmailLog(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc GetBodyEmailLog(protoMessages.Int32Message) returns (protoMessages.StringMessage);
 
 }

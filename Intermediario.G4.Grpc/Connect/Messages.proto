@@ -28,7 +28,7 @@ message DataMessage {
 }
 
 message InstanceIdentityRequest {
-	string databaseId = 1;
+	string databaseGuid = 1;
 	string server = 2;
 	string instance = 3;
 	string databaseName = 4;
@@ -39,9 +39,16 @@ message InstanceIdentityRequest {
 message InstanceIdentityResponse {
 	protoMessages.ResponseResult result = 1;
 	string token = 2;
+	string refresh = 6;
 	bool isActive = 3;
 	bool outOfSync = 4;
 	bool IsOutdated = 5;
+}
+
+message RefreshAuthResponse {
+	protoMessages.ResponseResult result = 1;
+	string token = 2;
+	string refresh = 3;
 }
 
 message DBDumpRequest {

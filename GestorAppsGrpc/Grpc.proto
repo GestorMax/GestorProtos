@@ -12,6 +12,7 @@ import "GestorAppsGrpc/Messages.proto";
 import "HereIsDataShared/Messages.proto";
 import "InvoiceReaderGrpc/Resource/Messages.proto";
 import "Intermediario.G4.Grpc/Shared/Messages.proto";
+import "Intermediario.G4.Grpc/Shared/Messages.g.proto";
 
 
 package gestorAppsGrpc;
@@ -108,9 +109,15 @@ service GestorApps {
 	rpc DeleteProductExtended (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 	rpc GetCardAndGraphDashboard(google.protobuf.Empty) returns (financieroGrpcResource.CardAndGraphDashboardMessage);
 	rpc ListGrainAndFarmStocks(google.protobuf.Empty) returns (financieroGrpcResource.GrainAndFarmStockMessage);
+	
 	// Invoice Reader
 	rpc ListInvoices (google.protobuf.Empty) returns (invoiceReaderGrpcResource.InvoiceMessageList);
 	rpc InvoiceUpload (invoiceReaderGrpcResource.InvoiceUploadRequest) returns (protoMessages.ResponseResult);
 	rpc DeleteInvoice (invoiceReaderGrpcResource.InvoiceDeleteRequest) returns (protoMessages.ResponseResult);
 	rpc ReadInvoice (invoiceReaderGrpcResource.InvoiceReadRequest) returns (invoiceReaderGrpcResource.InvoiceReadResponse);
+	
+	//Lucius
+	rpc ListReportesLuciusDefinidos(google.protobuf.Empty) returns (stream gestor.g4.grpc.shared.ListReportesLuciusDefinidosResponse);
+	rpc ListReporteLuciusGenerado(gestor.g4.grpc.shared.ListReporteLuciusGeneradoRequest) returns (stream gestor.g4.grpc.shared.ListReporteLuciusGeneradoResponse);
+	rpc ListLuciusReportesGenerados(gestor.g4.grpc.shared.ListLuciusReportesGeneradosRequest) returns (stream gestor.g4.grpc.shared.ListLuciusReportesGeneradosResponse);
 }

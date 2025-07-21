@@ -4,7 +4,7 @@ import "google/protobuf/Empty.proto";
 import "ProtoMessages/Common.proto";
 import "GestorAlertGrpc/Admin/Messages.proto";
 
-package gestorAlertGrpc;
+package gestorAlertGrpcAdmin;
 
 service GestorAlertAdmin {
 		

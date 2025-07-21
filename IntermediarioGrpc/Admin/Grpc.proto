@@ -13,13 +13,14 @@ service IntermediarioAdmin {
 	rpc ListCompanies(protoMessages.Int32Message) returns (intermediario.grpc.common.CompanyMessageList);
 	rpc ListPersons(protoMessages.Int32Message) returns (intermediario.grpc.common.PersonMessageList);
 	rpc ListUsers(protoMessages.Int32Message) returns (intermediario.grpc.common.UserMessageList);
+	rpc FindUsers(protoMessages.StringMessage) returns (intermediario.grpc.common.PersonMatchMessageList);
 
 	//Gestor Connect
 	rpc SetActiveInstance(intermediario.grpc.common.ConnectIdentityMessage) returns (protoMessages.ResponseResult);
 	rpc UpdateConnect(intermediario.grpc.common.ConnectIdentityMessage) returns (google.protobuf.Empty); 
 	rpc CloseConnect(intermediario.grpc.common.ConnectIdentityMessage) returns (google.protobuf.Empty); 
 	rpc ListConnectInfos(ListConnectInfoRequest) returns (ConnectInfoMessageList);
-	rpc GetConnectStatus(protoMessages.Int32Message) returns (intermediario.grpc.common.ConnectStatusMessage);
+	rpc ListConnectLogs(intermediario.grpc.common.ConnectLogListRequest) returns (intermediario.grpc.common.ConnectLogMessageList);
 
 	// Reportes
 	rpc ListGestorUsersReport(google.protobuf.Empty) returns (ListGestorUsersReportResponse);

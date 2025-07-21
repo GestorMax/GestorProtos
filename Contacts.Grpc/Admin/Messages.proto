@@ -1,8 +1,15 @@
 syntax = "proto3";
 
+import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
 
 package contacts.Grpc.Admin;
+
+enum StatusMails {
+	STATUS_MAILS_NONE = 0;
+	STATUS_MAILS_SENT = 1;
+	STATUS_MAILS_ERROR = 2;
+}
 
 message ContactsConfiguration {
 	string uri = 1;
@@ -12,7 +19,7 @@ message ContactMessage {
 	int32 id = 1;	
 	string name = 2;
 	string email = 3;
-	string phoneNumber = 4;
+	protoMessages.StringMessage phoneNumber = 4;
 	repeated GroupMessage groups = 6;	
 }
 
@@ -33,9 +40,18 @@ message ContactRequest {
 	string searchText = 3;
 }
 
-message ContactListRequest{
+message ContactListRequest {
 	repeated int32 contactsListIds = 1;
 }
+
+message UnifiedContactListRequest {
+	repeated int32 contactIds = 1;
+	repeated int32 groupIds = 2;
+	repeated int32 virtualServerIds = 3;
+	repeated int32 contactIgnoredIds = 4;
+	uint32 roles = 5;
+}
+
 
 message GroupMessage {
 	int32 id = 1;	
@@ -105,11 +121,116 @@ message EmailTemplateRequest {
 	string searchText = 3;
 }
 
+message SendEmailScheduledMessage {
+	int32 id = 1;
+	int32 emailTemplateId = 2;
+	repeated int32 contactIds = 3;
+	repeated int32 groupIds = 4;
+	repeated int32 virtualServerIds = 5;
+	uint32 roles = 6;
+	string subject = 7;
+	protoMessages.StructMessage templateData = 8;
+	google.protobuf.Timestamp scheduledDate = 9;
+	int32 schedulerTaskId = 10;
+	repeated int32 contactIgnoredIds = 11;
+}
+
+message SendEmailScheduledRequest {
+	protoMessages.PageInfo pageInfo = 1;	
+	repeated protoMessages.SortValue sorting = 2;
+	string searchText = 3;
+	int32 emailTemplateId = 4;
+}
+
+message SendEmailScheduledResponse {
+	protoMessages.ResponseResult result = 1;
+	SendEmailScheduledMessage message = 2;
+}
+
+message SendEmailScheduledMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated SendEmailScheduledMessage values = 2;
+	protoMessages.PageInfo pageInfo = 3;
+}
+
 message SendEmailRequest {
 	int32 emailTemplateId = 1;
-	repeated int32 groupIds = 2;
-	repeated int32 virtualServerIds = 3;
-	uint32 roles = 4;
-	string subject = 5;
-	protoMessages.StructMessage templateData = 6;
+	repeated int32 contactIds = 2;
+	repeated int32 groupIds = 3;
+	repeated int32 virtualServerIds = 4;
+	uint32 roles = 5;
+	string subject = 6;
+	protoMessages.StructMessage templateData = 7;
+	google.protobuf.Timestamp scheduledDate = 8;
+	repeated int32 contactIgnoredIds = 9;
+
+}
+
+message SendEmailUpdateRequest {
+	int32 sendEmailScheduledId = 1;
+	int32 scheduledTaskId = 2;
+	SendEmailRequest sendEmail = 3;
+}
+
+message LogContactMailMessage {
+	int32 id = 1;
+	google.protobuf.Timestamp shippingDate = 2;	
+	repeated int32 groupIds = 3;
+	repeated int32 virtualServerIds = 4;
+	uint32 roles = 5;
+	protoMessages.StringMessage subject = 6;
+	int32 templateId = 7;
+	protoMessages.StructMessage templateData = 8;
+	repeated LogDetailContactMailMessage detailList = 9;
+	int32 countEmailsSent = 10;
+	int32 countEmailsErrors = 11;
+}
+
+message LogContactMailResponse {
+	protoMessages.ResponseResult result = 1;
+	LogContactMailMessage message = 2;
+}
+
+message LogContactMailMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated LogContactMailMessage values = 2;
+	protoMessages.PageInfo pageInfo = 3;
+}
+
+message LogContactMailRequest {
+	protoMessages.PageInfo pageInfo = 1;	
+	repeated protoMessages.SortValue sorting = 2;
+	string searchText = 3;
+	int32 emailTemplateId = 4;
+}
+
+message LogDetailContactMailMessage {
+	int32 id = 1;
+	int32 logContactMailId = 2;
+	int32 contactId = 3;
+	string email = 4;
+	StatusMails status = 5;
+	protoMessages.StringMessage errorDetail = 6;
+}
+
+message LogDetailContactMailResponse {
+	protoMessages.ResponseResult result = 1;
+	LogDetailContactMailMessage message = 2;
+}
+
+message LogDetailContactMailMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated LogDetailContactMailMessage values = 2;
+	protoMessages.PageInfo pageInfo = 3;
+}
+
+message LogDetailContactMailRequest {
+	protoMessages.PageInfo pageInfo = 1;	
+	repeated protoMessages.SortValue sorting = 2;
+	string searchText = 3;
+	int32 logContactMailId = 4;
+}
+
+message GroupContactListRequest{
+	
 }

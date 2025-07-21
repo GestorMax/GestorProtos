@@ -12,6 +12,9 @@ message SchedulerConfiguration {
 enum CallbackClientTypes{
 	CALLBACK_CLIENT_TYPES_ANALYTICS = 0;
 	CALLBACK_CLIENT_TYPES_GESTOR_ALERT = 1;
+	CALLBACK_CLIENT_TYPES_SCHEDULER = 2;
+	CALLBACK_CLIENT_TYPES_CONTACT = 3;
+
 }
 
 message ScheduledTaskResponse {
@@ -28,6 +31,7 @@ message ScheduledTaskMessage {
 	string data = 6;
 	google.protobuf.Timestamp lastDateRun = 7;
 	google.protobuf.Timestamp nextDateRun = 8;
+	bool runOnlyOnce = 9;
 }
 
 

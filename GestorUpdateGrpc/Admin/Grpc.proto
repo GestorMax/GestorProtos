@@ -14,7 +14,7 @@ service GestorUpdateAdmin {
 	rpc FileChangeDeleted (DeleteRequest) returns (protoMessages.ResponseResult);
 
 	//fileversions
-	rpc CheckUploadFileVersionName (UploadFileVersionRequest) returns (UploadFileVersionResponse);
+	rpc CheckUploadFileVersionName (UploadFileVersionRequest) returns (protoMessages.ResponseResult);
 	rpc UploadFileVersion (stream UploadFileVersionRequest) returns (UploadFileVersionResponse);
 	rpc DeleteFileVersion (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 	rpc ToggleFileVersionDisabled (protoMessages.Int32Message) returns (ToggleFileVersionDisabledResponse);

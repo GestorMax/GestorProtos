@@ -1,6 +1,5 @@
 ﻿syntax = "proto3";
 
-import "google/protobuf/Empty.proto";
 import "GestorCoreGrpc/Resource/Messages.proto";
 
 package gestorCoreGrpcResource;

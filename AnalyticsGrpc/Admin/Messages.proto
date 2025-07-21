@@ -87,6 +87,7 @@ message SourceMessage {
 	CultureLanguageMessage CultureLanguage = 23;
 	google.protobuf.Timestamp creationDate = 25;
 	repeated HeaderSourceMessage headers = 26;
+	google.protobuf.Timestamp ignoredToDate = 27;
 }
 
 message SourceResponse{
@@ -135,15 +136,18 @@ message ScrapDataMessage {
 	google.protobuf.Timestamp creationDate = 31;
 	bool hasNodeParent = 32;
 	AcquisitionMessage acquisitionParentJson = 33;
+	//google.protobuf.Timestamp ModifiedDate = 34;
+	google.protobuf.Timestamp ignoredToDate = 35;
+
 }
 
 message AcquisitionMessage {
 	oneof type {
-		HTMLAdquisitionMessage html = 1;
-		XLSAdquisitionMessage xls = 2;
-		XMLAdquisitionMessage xml = 3;
-		CSVAdquisitionMessage csv = 4;
-		JSONAdquisitionMessageNew json = 5;
+		HTMLAcquisitionMessage html = 1;
+		XLSAcquisitionMessage xls = 2;
+		XMLAcquisitionMessage xml = 3;
+		CSVAcquisitionMessage csv = 4;
+		JSONAcquisitionMessageNew json = 5;
 	}
 }
 
@@ -229,6 +233,7 @@ message MeasurementMessage {
 	protoMessages.Int32Message ErrorId = 10;
 	string UserIdConfirm = 11;
 	google.protobuf.Timestamp DateTimeConfirm = 12;
+	bool checked = 13;
 }
 
 message MeasurementMessageList {
@@ -247,17 +252,33 @@ message MeasurementRequest {
 	string searchText = 11;
 }
 
+message MeasurementFailsRequest {
+	int32 scrappingId = 1;
+	int32 dataId = 2;
+	google.protobuf.Timestamp dateFrom = 4;
+	google.protobuf.Timestamp dateTo = 5;
+	protoMessages.PageInfo pageInfo = 9;	
+	repeated protoMessages.SortValue sorting = 10;
+	string searchText = 11;
+	repeated int32 listError = 3;
+}
+
 message MeasurementResponse{
 	protoMessages.ResponseResult result = 1;
 	MeasurementMessage message = 2;
 }
 
+message MeasurementCheckRequest {
+	int32 measurementId = 1;
+	bool checked = 2;}
+
 message ScrapingMessage {
 	int32 id = 1;
 	int32 sourceId = 2;
-	google.protobuf.Timestamp dateTime = 3;	
+	google.protobuf.Timestamp dateTime = 3;
 	repeated MeasurementMessage measurements = 4;
 	protoMessages.StringMessage ErrorMsg = 5;
+	bool showInReport = 6;
 }
 
 message ScrapingMessageList {
@@ -279,22 +300,22 @@ message ScrapingRequest{
 	string searchText = 5;
 }
 
-message HTMLAdquisitionMessage {
+message HTMLAcquisitionMessage {
 	string node = 1;
 }
 
-message XLSAdquisitionMessage {
+message XLSAcquisitionMessage {
 	ScrapDataTypes type = 3; 
 	string sheetName = 1;
 	string formula = 2;
 }
 
-message XMLAdquisitionMessage {
+message XMLAcquisitionMessage {
 	string node = 2;
 	string value = 3;
 }
 
-message CSVAdquisitionMessage {
+message CSVAcquisitionMessage {
 	ScrapDataTypes type = 3;
 	int32 row = 1;
 	int32 column = 2;
@@ -302,7 +323,7 @@ message CSVAdquisitionMessage {
 	int32 returnColumn = 5;
 }
 
-message JSONAdquisitionMessageNew {
+message JSONAcquisitionMessageNew {
 	string node = 1;
 	string value = 2;
 	string nodeParamsFormat = 4;
@@ -313,7 +334,7 @@ message JSONAdquisitionMessageNew {
 	DateGeneratorMessage dateGenerator = 9;
 }
 
-message JSONAdquisitionMessage {
+message JSONAcquisitionMessage {
 	string node = 1;
 	string value = 2;
 	protoMessages.StringMessage params = 3;
@@ -360,6 +381,10 @@ message LabelRequest {
 	protoMessages.PageInfo pageInfo = 9;	
 	repeated protoMessages.SortValue sorting = 10;
 	string searchText = 11;
+}
+
+message LabelListRequest {
+	repeated int32 labelIds = 1;
 }
 
 message LabelTypeMessage {
@@ -582,3 +607,40 @@ message DateGeneratorMessage {
 	}	
 }
 
+
+message SourceScrapingFailMessage {
+	int32 sourceId = 1;
+	string name = 2;
+	repeated ScrapingMessage scrappings = 3; 
+}
+
+message SourceScrapingFailMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated SourceScrapingFailMessage values = 1;
+	protoMessages.PageInfo pageInfo = 3;
+}
+
+message SourceScrapingFailResponse{
+	protoMessages.ResponseResult result = 1;
+	SourceScrapingFailMessage message = 2;
+}
+
+message SourceScrapingFailRequest {		
+	protoMessages.PageInfo pageInfo = 1;	
+	repeated protoMessages.SortValue sorting = 2;
+	string searchText = 3;
+}
+
+message ScrapingFailRequest {
+	int32 sourceId = 1;
+}
+
+message ScrapingSourceIgnoredToDateRequest {
+	int32 sourceId = 1;
+	google.protobuf.Timestamp IgnoredToDate = 2;
+}
+
+message ScrapDataIgnoredToDateRequest {
+	int32 dataId = 1;
+	google.protobuf.Timestamp IgnoredToDate = 2;
+}

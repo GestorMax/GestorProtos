@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 import "ProtoMessages/Common.proto";
-import "SchedulerGrpc/Public/Messages.proto";
 import "SchedulerGrpc/Shared/Messages.proto";
 
 
@@ -13,7 +12,4 @@ service SchedulerPublic {
 	rpc CreateScheduledTask(schedulerGrpcShared.ScheduledTaskMessage) returns (schedulerGrpcShared.ScheduledTaskResponse);
 	rpc UpdateScheduledTask(schedulerGrpcShared.ScheduledTaskMessage) returns (schedulerGrpcShared.ScheduledTaskResponse);
 	rpc DeleteScheduledTask(protoMessages.Int32Message) returns (protoMessages.ResponseResult);
-
-	rpc ChangeActiveScheduledTask(ChangeActiveScheduledTaskRequest) returns (protoMessages.ResponseResult);
-
 }

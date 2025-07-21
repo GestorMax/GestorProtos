@@ -17,7 +17,8 @@ message FileVersionMessageList {
 
 message GetLatestFileVersionResponse {
 	protoMessages.ResponseResult result = 1;
-	string Version = 2;
+	string VersionName = 2;
+	int32 Version = 3;
 }
 
 message DeleteRequest {
@@ -60,6 +61,7 @@ message FileVersionMessage {
 	google.protobuf.Timestamp dateUploaded = 2;
 	int32 size = 3;
 	int32 version = 4;
+	string versionName = 11;
 	string fileName = 5;
 	bool isDeleted = 6;
 	int32 fileId = 7;

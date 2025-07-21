@@ -79,6 +79,7 @@ service AnalyticsAdmin {
 	rpc EditLabel (LabelMessage) returns (LabelResponse);
 	rpc RemoveLabel (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 	rpc InUseLabel (protoMessages.Int32Message) returns (protoMessages.BoolMessage);
+	rpc ListLabelsByIds (LabelListRequest) returns (LabelMessageList);
 
 	//LabelType
 	rpc ListLabelTypes (LabelTypeRequest) returns (LabelTypeMessageList);
@@ -104,4 +105,13 @@ service AnalyticsAdmin {
 
 	//Historic
 	rpc SaveHistoricalList(DataHistorialMessage) returns(protoMessages.ResponseResult);
+
+	//Report Scraping Fail
+	rpc ListSourceWithScrapingFails (SourceScrapingFailRequest) returns (SourceScrapingFailMessageList);
+	rpc ListMeasurementsFails (MeasurementFailsRequest) returns (MeasurementMessageList);
+	rpc ListScrapingFails (ScrapingRequest) returns (ScrapingMessageList);
+	rpc HideScrapingInReport (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc EditSourceIgnoredToDate (ScrapingSourceIgnoredToDateRequest) returns (protoMessages.ResponseResult);
+	rpc EditMeasurementChecked (MeasurementCheckRequest) returns (protoMessages.ResponseResult);
+	rpc EditScrapDataIgnoredToDate (ScrapDataIgnoredToDateRequest) returns (protoMessages.ResponseResult);
 }

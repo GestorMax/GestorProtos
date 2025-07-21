@@ -42,3 +42,12 @@ message DatabaseIdResponse {
 	protoMessages.ResponseResult result = 1;
 	int32 databaseId = 2;
 }
+
+message ContactIdsMessageList {
+	protoMessages.ResponseResult result = 1;
+	repeated int32 values = 2;
+}
+
+message VirtualServerContactIdsRequest {
+	repeated int32 virtualServerIds = 1;
+}

@@ -28,6 +28,7 @@ message CompanyMessage {
 }
 
 message CompanyMessageList {
+	protoMessages.ResponseResult result = 2;
 	repeated CompanyMessage values = 1;
 }
 
@@ -38,6 +39,7 @@ message PersonMessage {
 }
 
 message PersonMessageList {
+	protoMessages.ResponseResult result = 2;
 	repeated PersonMessage values = 1;
 }
 
@@ -52,6 +54,17 @@ message UserMessage {
 message UserMessageList {
 	protoMessages.ResponseResult result = 1;
 	repeated UserMessage values = 2;
+}
+
+message PersonMatchMessage {
+	string email = 1;
+	repeated string names = 2;
+	repeated int32 databases = 3;
+}
+
+message PersonMatchMessageList {
+	protoMessages.ResponseResult result = 2;
+	repeated PersonMatchMessage values = 1;
 }
 
 message OSVersionMessage {
@@ -72,11 +85,6 @@ message ConnectIdentityMessage {
 	string mD5 = 5;
 }
 
-enum ConnectLogSender {
-	CONNECT_LOG_SENDER_INTERMEDIARY = 0;
-	CONNECT_LOG_SENDER_CONNECT = 1;
-}
-
 enum ConnectLogType {
 	CONNECT_LOG_TYPE_INFO = 0;
 	CONNECT_LOG_TYPE_WARNING = 1;
@@ -87,18 +95,25 @@ message ConnectLogMessage {
 	int32 Id = 1;
 	google.protobuf.Timestamp LogDate = 2;
 	ConnectLogType LogType = 3;
-	ConnectLogSender Sender = 4;
 	string Text = 5;
 	string AdditionalInfo = 6;
 }
 
-message ConnectInstanceMessage {
-	bool connected = 1;
-	google.protobuf.Timestamp connectedSince = 2;
-	ConnectIdentityMessage connectIdentity = 3;
+message ConnectLogMessageList  {
+	protoMessages.ResponseResult result = 1;
+	protoMessages.PageInfo pageInfo = 2;
+	repeated ConnectLogMessage values = 3;
 }
 
-message ConnectStatusMessage {
-	repeated ConnectLogMessage logs = 1;
-	repeated ConnectInstanceMessage instances = 2;
+
+message ConnectLogListRequest {
+	int32 databaseId = 1;
+	repeated protoMessages.SortValue sorting = 2;
+	protoMessages.PageInfo pageInfo = 3;
+	string searchText = 4;
+}
+
+message ConnectLogResponse  {
+	protoMessages.ResponseResult result = 1;
+	ConnectLogMessage message = 2;
 }

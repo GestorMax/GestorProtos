@@ -12,6 +12,8 @@ service IntermediarioG4Connect {
 
 	rpc Identify(InstanceIdentityRequest) returns (InstanceIdentityResponse);
 
+	rpc RefreshIdenfity(protoMessages.StringMessage) returns (RefreshAuthResponse);
+
 	rpc DbDumpPermissionRequest(google.protobuf.Empty) returns (protoMessages.ResponseResult);
 	
 	rpc DBDump(stream DBDumpRequest) returns (protoMessages.ResponseResult);

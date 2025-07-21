@@ -31,6 +31,11 @@ message DatabaseResultMessageList {
 	protoMessages.ResponseResult result = 2;
 }
 
+message DatabaseShortInfoResultMessageList {
+	repeated DatabaseShortInfoResultMessage values = 1;
+	protoMessages.ResponseResult result = 2;
+}
+
 message DatabaseInstanceMessageList {
 	repeated DatabaseInstanceMessage values = 1;
 	protoMessages.ResponseResult result = 2;
@@ -136,6 +141,20 @@ message DatabaseResultMessage {
 	int32 activeInstancesLast45Days = 14;
 }
 
+message DatabaseShortInfoResultMessage {
+	int32 databaseId = 1;
+	string databaseName = 2;
+	string redactedId = 3;
+	string customerCompanyName = 4;
+	int32 customerId = 5;
+	repeated string companies = 6;
+}
+
+message ListDatabasesForContactRequestMessage {
+	int32 contactId = 1;
+	repeated int32 databases = 2;
+}
+
 message CreateCustomerResponse {
 	protoMessages.ResponseResult result = 1;
 	int32 customerId = 2;
@@ -173,9 +192,16 @@ message AllowedResponse {
 	bool isAllowed = 1;
 }
 
+enum ContactRoleTypes {
+	ContactRoleTypes_None = 0;
+	ContactRoleTypes_Company = 1;
+	ContactRoleTypes_Administrative = 2;
+	ContactRoleTypes_Other = 4;
+}
+
 message CustomerContactMessage {
 	int32 contactId = 1;
-	uint32 contactRole = 2;
+	ContactRoleTypes contactRole = 2;
 }
 
 message CustomerMessage {
@@ -471,6 +497,7 @@ message DatabaseMessage {
 	BonusCloudMonthTypes bonusCloudMonth = 21;
 	CloudPlanTypes cloudPlan = 22;
 	PlanTypes plan = 23;
+	repeated int32 contactsIds = 24;
 
 	enum PlanTypes {
 		PlanTypes_Pending = 0;
@@ -713,6 +740,7 @@ message ServerMessage {
 	protoMessages.StringMessage flatDisk = 13;
 	protoMessages.StringMessage externalDisk = 14;
 	protoMessages.StringMessage notes = 15;
+	int32 vmAmount = 16;
 }
 
 message ServerResponse {
@@ -743,7 +771,6 @@ message RdpUserMessage {
 	int32 cloudDatabaseId = 2;
 	string password = 3;	
 	string userId = 6;
-	int32 order = 7;
 	protoMessages.Int32Message linkedToId = 8;
 	RdpUserMessage linkedTo = 9;
 	repeated RdpUserMessage linkedFrom = 10;
@@ -789,11 +816,13 @@ message VirtualServerMessage {
 		Windows10 = 2;
 		Ubuntu2004 = 3;
 		Ubuntu1804 = 4;
+		WindowsServer2022 = 5;
 	}
 	Os os = 13;
 	enum SqlVersion {
 		SqlVersionSql2012 = 0;
 		SqlVersionSql2000 = 1;
+		MariaDB = 2;
 	}
 	SqlVersion sqlVersion = 14;
 	protoMessages.StringMessage notes = 15;
@@ -813,11 +842,3 @@ message VirtualServerDatabaseMessage {
 	GrossIncomeWithholdingTypes GrossIncomeWithholding = 5;
 }
 
-message ContactIdsMessageList {
-	protoMessages.ResponseResult result = 1;
-	repeated int32 values = 2;
-}
-
-message VirtualServerContactIdsRequest {
-	repeated int32 virtualServerIds = 1;
-}

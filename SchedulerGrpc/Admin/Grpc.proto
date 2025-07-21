@@ -10,12 +10,12 @@ package schedulerGrpcAdmin;
 
 service SchedulerAdmin {
 	rpc GetScheduledTask(protoMessages.Int32Message) returns (schedulerGrpcShared.ScheduledTaskResponse);
-	rpc ListScheduledTasks(google.protobuf.Empty) returns (ScheduledTaskMessageList);
+	rpc ScheduledTaskChangeActive(ScheduledTaskChangeActiveRequest) returns (protoMessages.ResponseResult);
 
 	rpc GetScheduledConfig(google.protobuf.Empty) returns (ScheduledTaskConfigResponse);
 	rpc SaveScheduledConfig(ScheduledTaskConfigRequest) returns (protoMessages.ResponseResult);
 
-	rpc ListScheduledTaskLog(ScheduledTaskLogRequest) returns (ScheduledTaskLogMessageList);
-	rpc ListScheduledTasksActives(ScheduledTaskRequest) returns (ScheduledTaskMessageList);
+	rpc ListScheduledTaskLogs(ScheduledTaskLogRequest) returns (ScheduledTaskLogMessageList);
+	rpc ListScheduledTasks(ScheduledTaskRequest) returns (ScheduledTaskMessageList);
 
 }

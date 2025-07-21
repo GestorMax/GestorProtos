@@ -3,7 +3,6 @@ import "google/protobuf/Timestamp.proto";
 import "IntermediarioCommon/Common.proto";
 import "ProtoMessages/Common.proto";
 
-
 package gestor.g4.grpc.shared;
 
 
@@ -35,4 +34,121 @@ message IntermediarioConnectStateChangedMessage {
 	int32 id = 1;
 	bool gestorConnectActive = 2;
 	bool intermediarioInitialized = 3;
+}
+
+message LuciusReportDetailsMessage {
+	uint64 codReporteLuciusGenerado = 1;
+	//uint64 codEmpresa = 2;
+	string descripcion = 3;
+	//uint64 codEjercicio = 4;
+	//string ejercicio = 5;
+	//uint64 codPresupuestoOriginal = 6;
+	//string presupuestoOriginal = 7;
+	uint64 codPresupuestoActualizado = 8;
+	//string presupuestoActualizado = 9;
+	bool publicadoWeb = 10;
+	protoMessages.DateOnlyMessage fechaCortePresupuesto = 11;
+	//protoMessages.DateOnlyMessage fechaHoraComienzo = 12;
+	//protoMessages.DateOnlyMessage fechaHoraFinalizacion = 13;
+	//protoMessages.StringMessage notas = 14;
+	//protoMessages.DateOnlyMessage fechaAlta = 15;
+	//protoMessages.DateOnlyMessage fechaModificacion = 16;
+	//protoMessages.UInt64Message codUsuarioAlta = 17;
+	//protoMessages.UInt64Message codUsuarioModificacion = 18;
+}
+
+
+message ListReporteLuciusGeneradoMessage {
+	LuciusReportNodeMessage root = 1;
+	repeated LuciusCamposByActividadMessage camposByActividad = 2;
+	map<uint64, string> actividades = 3;
+	map<uint64, string> campos = 4;
+	LuciusReportDetailsMessage reportDetails = 5;
+}
+
+message LuciusReportNodeMessage {
+	//LuciusReportLineMessage line = 1;
+	repeated LuciusReportNodeMessage children = 2;
+	
+	protoMessages.DecimalMessage realizadoActual = 10;
+	protoMessages.DecimalMessage realizadoOrig = 17;
+	protoMessages.DecimalMessage realizadoRatio = 11;
+
+	protoMessages.DecimalMessage proyectadoActual = 12;
+	protoMessages.DecimalMessage proyectadoOrig = 13;
+	protoMessages.DecimalMessage proyectadoRatio = 14;
+
+	protoMessages.DecimalMessage proyectadoPorSupActual = 18;
+	protoMessages.DecimalMessage proyectadoPorSupOrig = 19;
+	protoMessages.DecimalMessage proyectadoPorSupRatio = 20;
+
+	protoMessages.DecimalMessage realizadoActual2 = 21;
+	protoMessages.DecimalMessage realizadoRatio2 = 22;
+
+	protoMessages.DecimalMessage realizadoApertura = 23;
+	protoMessages.DecimalMessage variacionesOrigen = 24;
+	protoMessages.DecimalMessage variacionesAplicacion = 25;
+	protoMessages.DecimalMessage exposicionDevaluacion = 26;
+
+	protoMessages.DecimalMessage superficieActual = 27;
+	protoMessages.DecimalMessage superficieOrig = 28;
+	protoMessages.DecimalMessage superficieRatio = 29;
+
+	protoMessages.DecimalMessage cantidadActual = 62;
+	protoMessages.DecimalMessage cantidadOrig = 63;
+	protoMessages.DecimalMessage cantidadRatio = 64;
+
+	protoMessages.DecimalMessage proyectadoPorCantActual = 68;
+	protoMessages.DecimalMessage proyectadoPorCantOrig = 69;
+	protoMessages.DecimalMessage proyectadoPorCantRatio = 70;
+
+	protoMessages.StringMessage cuentaCentro = 15;
+	string cuenta = 16;
+
+	uint64 codActividadPerfilImputacion = 200;
+	uint64 codCuentaCentro = 201;
+}
+
+message LuciusCamposByActividadMessage {
+	uint64 codActividadPerfilImputacion= 1;
+	repeated uint64 codCuentaCentro = 2;
+}
+
+message LuciusReportLineMessage {
+	uint64 codReporteLuciusGenerado = 2;
+	uint64 codReporteLucius = 3;
+	uint64 codCuenta = 5;
+	string cuenta = 7;
+	protoMessages.UInt64Message codCuentaCentro = 8;
+	protoMessages.UInt64Message codigoCuentaCentro = 9;
+	protoMessages.StringMessage cuentaCentro = 10;
+	protoMessages.UInt64Message codSumaria = 11;
+	protoMessages.UInt64Message codActividadPerfilImputacion = 12;
+	protoMessages.StringMessage actividadPerfilImputacion = 13;
+	protoMessages.UInt64Message nivelArbol = 14;
+	protoMessages.Int32Message cantMovimientos = 15;
+	protoMessages.BoolMessage esSumaria = 16;
+	protoMessages.BoolMessage datosFisicos = 17;
+	protoMessages.DecimalMessage realizadoApertura = 18;
+	protoMessages.DecimalMessage variacionesOrigen = 19;
+	protoMessages.DecimalMessage variacionesAplicacion = 20;
+	protoMessages.DecimalMessage exposicionDevaluacion = 21;
+	protoMessages.DecimalMessage realizadoActual = 22;
+	protoMessages.DecimalMessage realizadoOrig = 23;
+	protoMessages.DecimalMessage realizadoRatio = 24;
+	protoMessages.DecimalMessage proyectadoActual = 25;
+	protoMessages.DecimalMessage proyectadoOrig = 26;
+	protoMessages.DecimalMessage proyectadoRatio = 27;
+	protoMessages.DecimalMessage superficieActual = 28;
+	protoMessages.DecimalMessage superficieOrig = 29;
+	protoMessages.DecimalMessage superficieRatio = 30;
+	protoMessages.DecimalMessage cantidadActual = 31;
+	protoMessages.DecimalMessage cantidadOrig = 32;
+	protoMessages.DecimalMessage cantidadRatio = 33;
+	protoMessages.DecimalMessage proyectadoPorSupActual = 34;
+	protoMessages.DecimalMessage proyectadoPorSupOrig = 35;
+	protoMessages.DecimalMessage proyectadoPorSupRatio = 36;
+	protoMessages.DecimalMessage proyectadoPorCantActual = 37;
+	protoMessages.DecimalMessage proyectadoPorCantOrig = 38;
+	protoMessages.DecimalMessage proyectadoPorCantRatio = 39;
 }

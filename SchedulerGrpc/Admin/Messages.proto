@@ -6,17 +6,13 @@ import "SchedulerGrpc/Shared/Messages.proto";
 
 package schedulerGrpcAdmin;
 
-message SchedulerConfiguration {
-	string uri = 1;
-}
-
-message ScheduledTaskConfigMessage{
+message ScheduledTaskConfigMessage {
 	int32 id = 1;
 	int32 retries = 2;
 	int32 waitTimeSeconds = 3;
 }
 
-message ScheduledTaskConfigResponse{
+message ScheduledTaskConfigResponse {
 	protoMessages.ResponseResult result = 1;
 	ScheduledTaskConfigMessage message = 2;
 }
@@ -56,6 +52,7 @@ message ScheduledTaskLogRequest{
 	repeated protoMessages.SortValue sorting = 2;
 	string searchText = 3;
 	bool onlyError = 4;
+	int32 scheduledId = 5;
 }
 
 message ScheduledTaskMessageList {
@@ -69,4 +66,9 @@ message ScheduledTaskRequest {
 	repeated protoMessages.SortValue sorting = 2;
 	string searchText = 3;
 	bool onlyActives = 4;
+}
+
+message ScheduledTaskChangeActiveRequest {
+	int32 id = 1;
+	bool active = 2;
 }

@@ -3,7 +3,7 @@
 import "google/protobuf/Timestamp.proto";
 import "ProtoMessages/Common.proto";
 
-package gestorAlertGrpc;
+package gestorAlertGrpcAdmin;
 
 enum MeansType {
 	MEANS_TYPE_EMAIL = 0;
@@ -46,6 +46,7 @@ message GestorAlertSetting {
 	int32 multiTemplateId = 2;
 	int32 senderId = 3;
 	int32 smtpServer = 4;
+	int32 historyMaxDays = 5;
 }
 
 message GestorAlertUserNotificationSetting {

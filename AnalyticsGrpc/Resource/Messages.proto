@@ -88,16 +88,14 @@ message LabelTypeMessageList {
 }
 
 message ValueRequest {
-	repeated int32 labelsIds = 1;
+	repeated int32 dataIds = 1;
 	protoMessages.DateOnlyMessage dateFrom = 2;
 	protoMessages.DateOnlyMessage dateTo = 3;
 }
 
 message ValueMessage {
 	int32 dataId = 1;
-	string dataName = 2;
-	repeated LabelWithTypeMessage labels = 3;
-	repeated DataMessage data = 4;
+	repeated MeasurementMessage measurements = 4;
 }
 
 message ValueMessageList { 
@@ -106,7 +104,7 @@ message ValueMessageList {
 
 }
 
-message DataMessage {
+message MeasurementMessage {
 	google.protobuf.Timestamp date = 1;
 	protoMessages.DoubleMessage value = 2;
 }
@@ -120,8 +118,6 @@ message LabelWithTypeMessage{
 
 message LastValueMessage {
 	int32 dataId = 1;
-	string dataName = 2;
-	repeated LabelWithTypeMessage labels = 3;
 	google.protobuf.Timestamp date = 4;
 	protoMessages.DoubleMessage value = 5;
 }
@@ -129,11 +125,10 @@ message LastValueMessage {
 message LastValueMessageList {
 	repeated LastValueMessage values = 1;
 	protoMessages.ResponseResult result = 2;
-
 }
 
 message LastValueRequest {
-	repeated int32 labelsIds = 1;
+	repeated int32 dataIds = 1;
 }
 
 message LastMultiMeasurementRequest {

@@ -20,6 +20,8 @@ service ContactsAdmin {
 	rpc CreateGroup (GroupMessage) returns (GroupResponse);
 	rpc EditGroup (GroupMessage) returns (GroupResponse);
 	rpc RemoveGroup (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+	rpc UnlinkContactGroup (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
 	
 	rpc ListEmailTemplates (EmailTemplateRequest) returns (EmailTemplateMessageList);
 	rpc GetEmailTemplate (protoMessages.Int32Message) returns (EmailTemplateResponse);
@@ -28,4 +30,19 @@ service ContactsAdmin {
 	rpc RemoveEmailTemplate (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
 	
 	rpc SendEmail(SendEmailRequest) returns (protoMessages.ResponseResult);
+	rpc EditSendEmailScheduled(SendEmailUpdateRequest) returns (protoMessages.ResponseResult);
+
+	rpc ListLogContactsMail (LogContactMailRequest) returns (LogContactMailMessageList);
+	rpc GetLogContactMail (protoMessages.Int32Message) returns (LogContactMailResponse);
+	rpc CreateLogContactMail (LogContactMailMessage) returns (LogContactMailResponse);	
+	rpc RemoveLogContactMail (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	rpc ListLogDetailContactsMail (LogDetailContactMailRequest) returns (LogDetailContactMailMessageList);
+	rpc GetLogDetailContactMail (protoMessages.Int32Message) returns (LogDetailContactMailResponse);
+
+	rpc ListSendEmailScheduled (SendEmailScheduledRequest) returns (SendEmailScheduledMessageList);
+	rpc RemoveSendEmailScheduled (protoMessages.Int32Message) returns (protoMessages.ResponseResult);
+
+	rpc ListContactUnify (UnifiedContactListRequest) returns (ContactMessageList);
+	rpc AddContactGroupList (ContactMessageList) returns (protoMessages.ResponseResult);
 }

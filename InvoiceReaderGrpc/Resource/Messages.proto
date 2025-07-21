@@ -10,51 +10,51 @@ message InvoiceReaderConfiguration {
 }
 
 message InvoiceInfoMessage {
-    int32 id = 1;
-    string fileName = 2;
-    bytes fileData = 3;
-    bytes imageData = 4;
-    string parsedJson = 5;
+	int32 id = 1;
+	string fileName = 2;
+	bytes fileData = 3;
+	bytes imageData = 4;
+	string parsedJson = 5;
 	int32 dataBaseId =6;
 	string UploadedBy = 7;
-    google.protobuf.Timestamp createdDate = 8;
-    bool deleted = 9;
-    google.protobuf.Timestamp modifiedDate = 10;
-    google.protobuf.Timestamp deletedDate = 11;
+	google.protobuf.Timestamp createdDate = 8;
+	bool deleted = 9;
+	google.protobuf.Timestamp modifiedDate = 10;
+	google.protobuf.Timestamp deletedDate = 11;
 	// Campos obtenidos del robot
 	string operation = 12;           // CompraVenta
-    string tipoFactura = 13;         // EJ: A COD 01
-    string numeroDocumentoFactura = 14; // EJ: 000001 000001762
-    google.protobuf.Timestamp fecha = 15;
-    string persona = 16;
-    string cuit = 17;
-    string moneda = 18;              // Dolares, pesos
-    string cotizacion = 19;          // Cotizacion del dolar en la factura
-    bool afip = 20;                  // Si es factura creada por el AFIP
-    
-    // Relationship with ConceptoMessage
-    repeated ConceptoMessage conceptos = 21;
+	string tipoFactura = 13;         // EJ: A COD 01
+	string numeroDocumentoFactura = 14; // EJ: 000001 000001762
+	google.protobuf.Timestamp fecha = 15;
+	string persona = 16;
+	string cuit = 17;
+	string moneda = 18;              // Dolares, pesos
+	string cotizacion = 19;          // Cotizacion del dolar en la factura
+	bool afip = 20;                  // Si es factura creada por el AFIP
+	
+	// Relationship with ConceptoMessage
+	repeated ConceptoMessage conceptos = 21;
 }
 
 message ConceptoMessage {
-    int32 id = 1;
-    int32 invoiceInfoId = 2;
-    string conceptoLeido = 3;
-    double cantidadLeida = 4;
-    double importeLeido = 5;
-    string ivaLeido = 6;
-    string conceptoSistema = 7;
-    string detalleConcepto = 8;
-    double cantidad = 9;
-    double importe = 10;
-    string iva = 11;
-    double subtotalConIva = 12;
-    bool haSidoSeparadoUnido = 13;
+	int32 id = 1;
+	int32 invoiceInfoId = 2;
+	string conceptoLeido = 3;
+	double cantidadLeida = 4;
+	double importeLeido = 5;
+	string ivaLeido = 6;
+	string conceptoSistema = 7;
+	string detalleConcepto = 8;
+	double cantidad = 9;
+	double importe = 10;
+	string iva = 11;
+	double subtotalConIva = 12;
+	bool haSidoSeparadoUnido = 13;
 
 	google.protobuf.Timestamp createdDate = 14;
-    bool deleted = 15;
-    google.protobuf.Timestamp modifiedDate = 16;
-    google.protobuf.Timestamp deletedDate = 17;
+	bool deleted = 15;
+	google.protobuf.Timestamp modifiedDate = 16;
+	google.protobuf.Timestamp deletedDate = 17;
 }
 
 message InvoiceMessageList {
