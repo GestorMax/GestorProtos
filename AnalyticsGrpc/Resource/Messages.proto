@@ -12,7 +12,8 @@ message ApiSourceMessageList {
 
 message ApiSourceMessage {
 	int32 id = 1;
-	protoMessages.StringMessage100 name = 2;	
+	protoMessages.StringMessage100 name = 2;
+	bool isFuture = 3;
 }
 
 message ApiMetricMessageList {
